@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+    <ribbon>
+        <tabs>
+            <tab id="RibTabBackup" label="BACKUP">
+                <group id="Backup" label="Backup">
+                    <button id="button1" imageMso="DatabaseCopyDatabaseFile" onAction="OpenBackupSettings" label="Settings" showImage="true" size="large" />
+                </group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>
