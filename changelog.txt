@@ -1,0 +1,3 @@
+Version 1.0
+- First release. Works with office 2013 32 and 64 Bit
+- Tested with Win8 Pro, Office 2013 64 Bit
