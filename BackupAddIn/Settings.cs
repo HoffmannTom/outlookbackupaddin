@@ -16,11 +16,17 @@ using System.Xml.Serialization;
 
 namespace BackupAddIn
 {
+    /// <summary>
+    /// Settings dialog for backup configuration
+    /// </summary>
     public partial class FBackupSettings : Form
     {
         private Microsoft.Office.Interop.Outlook.Stores stores;
         private const String CONFIG_FILE_NAME = "OutlookBackup.config";
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public FBackupSettings()
         {
             InitializeComponent();

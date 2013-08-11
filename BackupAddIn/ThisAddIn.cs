@@ -50,6 +50,9 @@ namespace BackupAddIn
         {
         }
 
+        /// <summary>
+        /// Extends ribbon bar of outlook
+        /// </summary>
         protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
         {
             return new Ribbon();

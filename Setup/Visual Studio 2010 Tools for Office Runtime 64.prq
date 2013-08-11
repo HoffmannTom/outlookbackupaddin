@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SetupPrereq>
+<conditions>
+    <condition Type="32" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSTO Runtime Setup\v4R" FileName="Version" ReturnValue="10.0.40303" Bits="2"></condition>
+</conditions>
+	<operatingsystemconditions>
+		<operatingsystemcondition MajorVersion="5" MinorVersion="2" PlatformId="2" CSDVersion="" Bits="4" ProductType="2|3"></operatingsystemcondition>
+		<operatingsystemcondition MajorVersion="5" MinorVersion="2" PlatformId="2" CSDVersion="" Bits="4" ProductType="1"></operatingsystemcondition>
+		<operatingsystemcondition MajorVersion="6" MinorVersion="0" PlatformId="2" CSDVersion="" Bits="4"></operatingsystemcondition>
+		<operatingsystemcondition MajorVersion="6" MinorVersion="1" PlatformId="2" CSDVersion="" Bits="4"></operatingsystemcondition>
+		<operatingsystemcondition MajorVersion="6" MinorVersion="2" PlatformId="2" CSDVersion="" Bits="4"></operatingsystemcondition>
+	</operatingsystemconditions>
+<files>
+    <file LocalFile="&lt;ISProductFolder&gt;\SetupPrerequisites\VSTOR\vstor_redist.exe" URL="http://download.microsoft.com/download/9/4/9/949B0B7C-6385-4664-8EA8-3F6038172322/vstor_redist.exe" CheckSum="b6639489e159b854b6dc43d5cb539043" FileSize="0,40023024"></file>
+</files>
+<execute file="vstor_redist.exe" returncodetoreboot="1641,3010" requiresmsiengine="1">
+</execute>
+<properties Id="{80A9E060-6B00-49AE-B60E-57005E83A25E}" Description="This prerequisite installs the most recent version of the Microsoft Visual Studio 2010 Tools for Office Runtime." >
+</properties>
+
+</SetupPrereq>

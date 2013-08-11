@@ -30,19 +30,26 @@ using Office = Microsoft.Office.Core;
 
 namespace BackupAddIn
 {
+    /// <summary>
+    /// Ribbon extension for backup configuration dialog
+    /// </summary>
     [ComVisible(true)]
     public class Ribbon : Office.IRibbonExtensibility
     {
         private Office.IRibbonUI ribbon;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Ribbon()
         {
         }
-
-
-
+        
         #region IRibbonExtensibility-Member
 
+        /// <summary>
+        /// Returns the xml for ribbon extension
+        /// </summary>
         public string GetCustomUI(string ribbonID)
         {
             return GetResourceText("BackupAddIn.Ribbon.xml");
@@ -53,11 +60,17 @@ namespace BackupAddIn
         #region Menübandrückrufe
         //Erstellen Sie hier Rückrufmethoden. Weitere Informationen zum Hinzufügen von Rückrufmethoden finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=271226".
 
+        /// <summary>
+        /// Extends ribbon of outlook for backup configuration
+        /// </summary>
         public void Ribbon_Load(Office.IRibbonUI ribbonUI)
         {
             this.ribbon = ribbonUI;
         }
 
+        /// <summary>
+        /// Open configuration dialog
+        /// </summary>
         public void OpenBackupSettings(Office.IRibbonControl control)
         {
             Application app = new Application();

@@ -17,16 +17,25 @@ using System.Xml.Serialization;
 
 namespace BackupExecutor
 {
+    /// <summary>
+    ///  Main window of the backup program
+    /// </summary>
     public partial class frmMain : Form
     {
         private const String CONFIG_FILE_NAME = "OutlookBackup.config";
         private const String OUTLOOK_PROC = "OUTLOOK";
 
+        /// <summary>
+        ///  Default constructor
+        /// </summary>
         public frmMain()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        ///  Load configuration and execute backup if necessary
+        /// </summary>
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
