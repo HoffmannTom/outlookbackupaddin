@@ -1878,9 +1878,9 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>backupaddin.dll.manifest</td><td>ISX_DEFAULTCOMPONENT</td><td>BACKUP~1.MAN|BackupAddIn.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x64\Release\BackupAddIn.dll.manifest</td><td>1</td><td/></row>
+		<row><td>backupaddin.dll.manifest</td><td>ISX_DEFAULTCOMPONENT</td><td>BACKUP~1.MAN|BackupAddIn.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\..\BackupAddIn\bin\x86\Release\BackupAddIn.dll.manifest</td><td>1</td><td/></row>
 		<row><td>backupaddin.primary_output</td><td>BackupAddIn.Primary_output</td><td>BackupAddIn.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;BackupAddIn&gt;|Built</td><td>3</td><td/></row>
-		<row><td>backupaddin.vsto</td><td>ISX_DEFAULTCOMPONENT</td><td>BACKUP~1.VST|BackupAddIn.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x64\Release\BackupAddIn.vsto</td><td>1</td><td/></row>
+		<row><td>backupaddin.vsto</td><td>ISX_DEFAULTCOMPONENT</td><td>BACKUP~1.VST|BackupAddIn.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\..\BackupAddIn\bin\x86\Release\BackupAddIn.vsto</td><td>1</td><td/></row>
 		<row><td>backupexecutor.primary_outpu</td><td>BackupExecutor.Primary_output</td><td>BackupExecutor.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;BackupExecutor&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
