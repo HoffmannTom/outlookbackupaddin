@@ -339,11 +339,15 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>BackupAddIn.Primary_output</td><td>{7A973DD2-C8AF-451E-942C-B4AECF0171E4}</td><td>INSTALLDIR</td><td>2</td><td/><td>backupaddin.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BackupAddIn.Primary_output</td><td>{796DC4F7-2D6C-47CF-8B91-F764833AB79E}</td><td>INSTALLDIR</td><td>2</td><td/><td>backupaddin.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BackupAddIn.dll</td><td>{6351E431-291B-4CC7-B7C0-DD2B918D016C}</td><td>_2</td><td>2</td><td/><td>backupaddin.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BackupAddIn.dll1</td><td>{BFAE5EF1-81DC-417F-9C62-B51D617A051A}</td><td>_4</td><td>2</td><td/><td>backupaddin.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>BackupExecutor.Primary_output</td><td>{56B7D955-7B1D-421D-BE55-5F76C51D2CBA}</td><td>INSTALLDIR</td><td>2</td><td/><td>backupexecutor.primary_outpu</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISO19770_LocalTag</td><td>{8CFB28A1-0CA8-4847-AC1C-CCEB62A19622}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISO19770_SystemTag</td><td>{1BA76D9A-A5BA-4482-8390-97F946A628AF}</td><td>CommonAppDataFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{277BB9B3-FD9A-491F-870B-3C98D78F3AFF}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{BE0150F5-148B-4C89-AA66-3DCE5A65B793}</td><td>_2</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{05C19A09-322D-44D7-97BD-0DCE6981168D}</td><td>_4</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -923,7 +927,7 @@
 		<row><td>DatabaseFolder</td><td>ChangeFolder</td><td>SpawnDialog</td><td>InstallChangeFolder</td><td>1</td><td>1</td></row>
 		<row><td>DatabaseFolder</td><td>ChangeFolder</td><td>[_BrowseProperty]</td><td>DATABASEDIR</td><td>1</td><td>2</td></row>
 		<row><td>DatabaseFolder</td><td>Next</td><td>NewDialog</td><td>SetupType</td><td>1</td><td>1</td></row>
-		<row><td>DestinationFolder</td><td>Back</td><td>NewDialog</td><td>CustomerInformation</td><td>1</td><td>0</td></row>
+		<row><td>DestinationFolder</td><td>Back</td><td>NewDialog</td><td>LicenseAgreement</td><td>NOT Installed</td><td>0</td></row>
 		<row><td>DestinationFolder</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>DestinationFolder</td><td>ChangeFolder</td><td>SpawnDialog</td><td>InstallChangeFolder</td><td>1</td><td>1</td></row>
 		<row><td>DestinationFolder</td><td>ChangeFolder</td><td>[_BrowseProperty]</td><td>INSTALLDIR</td><td>1</td><td>2</td></row>
@@ -944,7 +948,7 @@
 		<row><td>LicenseAgreement</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>ISPrintButton</td><td>DoAction</td><td>ISPrint</td><td>1</td><td>0</td></row>
-		<row><td>LicenseAgreement</td><td>Next</td><td>NewDialog</td><td>ReadyToInstall</td><td>AgreeToLicense = "Yes"</td><td>0</td></row>
+		<row><td>LicenseAgreement</td><td>Next</td><td>NewDialog</td><td>DestinationFolder</td><td>AgreeToLicense = "Yes"</td><td>0</td></row>
 		<row><td>MaintenanceType</td><td>Back</td><td>NewDialog</td><td>MaintenanceWelcome</td><td>1</td><td>0</td></row>
 		<row><td>MaintenanceType</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>MaintenanceType</td><td>Next</td><td>NewDialog</td><td>CustomSetup</td><td>_IsMaintenance = "Change"</td><td>12</td></row>
@@ -975,7 +979,7 @@
 		<row><td>ReadmeInformation</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>ReadmeInformation</td><td>Next</td><td>NewDialog</td><td>CustomerInformation</td><td>1</td><td>1</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>CustomSetup</td><td>Installed OR _IsSetupTypeMin = "Custom"</td><td>2</td></row>
-		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>LicenseAgreement</td><td>NOT Installed</td><td>1</td></row>
+		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>DestinationFolder</td><td>NOT Installed</td><td>1</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MaintenanceType</td><td>Installed AND _IsMaintenance = "Reinstall"</td><td>3</td></row>
 		<row><td>ReadyToInstall</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>ReadyToInstall</td><td>InstallNow</td><td>EndDialog</td><td>Return</td><td>OutOfNoRbDiskSpace &lt;&gt; 1</td><td>0</td></row>
@@ -1012,9 +1016,9 @@
 		<row><td>SetupCompleteError</td><td>Finish</td><td>DoAction</td><td>CleanUp</td><td>ISSCRIPTRUNNING="1"</td><td>1</td></row>
 		<row><td>SetupCompleteError</td><td>Finish</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1")</td><td>3</td></row>
 		<row><td>SetupCompleteError</td><td>Finish</td><td>EndDialog</td><td>Exit</td><td>1</td><td>2</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>CleanUp</td><td>ISSCRIPTRUNNING="1"</td><td>1</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1") And NOT ISENABLEDWUSFINISHDIALOG</td><td>6</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>EndDialog</td><td>Exit</td><td>1</td><td>2</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>CleanUp</td><td>ISSCRIPTRUNNING="1"</td><td>3</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1") And NOT ISENABLEDWUSFINISHDIALOG</td><td>8</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>EndDialog</td><td>Exit</td><td>1</td><td>4</td></row>
 		<row><td>SetupError</td><td>A</td><td>EndDialog</td><td>ErrorAbort</td><td>1</td><td>0</td></row>
 		<row><td>SetupError</td><td>C</td><td>EndDialog</td><td>ErrorCancel</td><td>1</td><td>0</td></row>
 		<row><td>SetupError</td><td>I</td><td>EndDialog</td><td>ErrorIgnore</td><td>1</td><td>0</td></row>
@@ -1054,6 +1058,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>CommonAppDataFolder</td><td>ISO19770_SystemTag</td></row>
 		<row><td>INSTALLDIR</td><td>ISO19770_LocalTag</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1070,6 +1075,7 @@
 		<row><td>ISSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFiles</td><td/><td/></row>
 		<row><td>ISSelfRegisterFinalize</td><td>1</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFinalize</td><td/><td/></row>
 		<row><td>ISUnSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISUnSelfRegisterFiles</td><td/><td/></row>
+		<row><td>RegisterPlugin</td><td>3090</td><td>backupexecutor.primary_outpu</td><td>/register</td><td/><td/></row>
 		<row><td>SetARPINSTALLLOCATION</td><td>51</td><td>ARPINSTALLLOCATION</td><td>[INSTALLDIR]</td><td/><td/></row>
 		<row><td>SetAllUsersProfileNT</td><td>51</td><td>ALLUSERSPROFILE</td><td>[%SystemRoot]\Profiles\All Users</td><td/><td/></row>
 		<row><td>ShowMsiLog</td><td>226</td><td>SystemFolder</td><td>[SystemFolder]notepad.exe "[MsiLogFileLocation]"</td><td/><td>Shows Property-driven MSI Log</td></row>
@@ -1170,6 +1176,8 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
+		<row><td>_2</td><td>INSTALLDIR</td><td>32</td><td/><td>0</td><td/></row>
+		<row><td>_4</td><td>INSTALLDIR</td><td>64</td><td/><td>0</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -1862,8 +1870,12 @@
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>BackupAddIn.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>BackupAddIn.dll</td></row>
+		<row><td>AlwaysInstall</td><td>BackupAddIn.dll1</td></row>
 		<row><td>AlwaysInstall</td><td>BackupExecutor.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 	</table>
 
 	<table name="File">
@@ -1878,9 +1890,13 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>backupaddin.dll.manifest</td><td>ISX_DEFAULTCOMPONENT</td><td>BACKUP~1.MAN|BackupAddIn.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\..\BackupAddIn\bin\x86\Release\BackupAddIn.dll.manifest</td><td>1</td><td/></row>
+		<row><td>backupaddin.dll</td><td>BackupAddIn.dll</td><td>BACKUP~1.DLL|BackupAddIn.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x86\Release\BackupAddIn.dll</td><td>1</td><td/></row>
+		<row><td>backupaddin.dll.manifest</td><td>ISX_DEFAULTCOMPONENT1</td><td>BACKUP~1.MAN|BackupAddIn.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x86\Release\BackupAddIn.dll.manifest</td><td>1</td><td/></row>
+		<row><td>backupaddin.dll.manifest1</td><td>ISX_DEFAULTCOMPONENT2</td><td>BACKUP~1.MAN|BackupAddIn.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x64\Release\BackupAddIn.dll.manifest</td><td>1</td><td/></row>
+		<row><td>backupaddin.dll1</td><td>BackupAddIn.dll1</td><td>BACKUP~1.DLL|BackupAddIn.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x64\Release\BackupAddIn.dll</td><td>1</td><td/></row>
 		<row><td>backupaddin.primary_output</td><td>BackupAddIn.Primary_output</td><td>BackupAddIn.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;BackupAddIn&gt;|Built</td><td>3</td><td/></row>
-		<row><td>backupaddin.vsto</td><td>ISX_DEFAULTCOMPONENT</td><td>BACKUP~1.VST|BackupAddIn.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\..\BackupAddIn\bin\x86\Release\BackupAddIn.vsto</td><td>1</td><td/></row>
+		<row><td>backupaddin.vsto</td><td>ISX_DEFAULTCOMPONENT1</td><td>BACKUP~1.VST|BackupAddIn.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x86\Release\BackupAddIn.vsto</td><td>1</td><td/></row>
+		<row><td>backupaddin.vsto1</td><td>ISX_DEFAULTCOMPONENT2</td><td>BACKUP~1.VST|BackupAddIn.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x64\Release\BackupAddIn.vsto</td><td>1</td><td/></row>
 		<row><td>backupexecutor.primary_outpu</td><td>BackupExecutor.Primary_output</td><td>BackupExecutor.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;BackupExecutor&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
@@ -2139,11 +2155,15 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>BackupAddIn.Primary_output</td><td/><td/><td>_9B1F3514_15F1_4F3D_9F1C_8BC2AFE96077_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BackupAddIn.Primary_output</td><td/><td/><td>_237243BF_B9FA_46E9_9EDD_10581ACBFA36_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BackupAddIn.dll</td><td/><td/><td>_61D7F91D_EC89_4B64_A5E7_58D4C35934C8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BackupAddIn.dll1</td><td/><td/><td>_463D3D08_1CBF_461D_877B_764632E290C0_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>BackupExecutor.Primary_output</td><td/><td/><td>_560D8AA9_DCD4_4327_BD8E_C1C9B6E28802_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISO19770_LocalTag</td><td/><td/><td>_FA59822E_E4C3_4BE8_BE25_A071271369C0_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISO19770_SystemTag</td><td/><td/><td>_C258EC78_F687_463F_AB33_441CA9085F03_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_903BA7E2_E69A_4DB8_BAF3_48391E192A07_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_E9899A42_2EAE_4076_9FE3_8259880CAA11_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_7BB9BFF4_166C_49C1_AFE3_A039F3D4673C_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2776,7 +2796,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1545675597</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1545667248</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
@@ -3876,10 +3896,10 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>-207542602</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.Codeplex.com</td><td>0</td><td/><td>1545675597</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.Codeplex.com</td><td>0</td><td/><td>1545667248</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>https://outlookbackupaddin.codeplex.com/workitem/list/basic</td><td>0</td><td/><td>-207517898</td></row>
-		<row><td>ID_STRING4</td><td>1033</td><td>http://www.Codeplex.comdocumentation</td><td>0</td><td/><td>1545675597</td></row>
-		<row><td>ID_STRING5</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1545675597</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>http://www.Codeplex.comdocumentation</td><td>0</td><td/><td>1545667248</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1545667248</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-207542602</td></row>
 	</table>
 
@@ -4059,6 +4079,7 @@
 		<row><td>RegisterExtensionInfo</td><td/><td>4700</td><td>RegisterExtensionInfo</td><td/></row>
 		<row><td>RegisterFonts</td><td/><td>5300</td><td>RegisterFonts</td><td/></row>
 		<row><td>RegisterMIMEInfo</td><td/><td>4900</td><td>RegisterMIMEInfo</td><td/></row>
+		<row><td>RegisterPlugin</td><td>Not Installed</td><td>6405</td><td/><td/></row>
 		<row><td>RegisterProduct</td><td/><td>6100</td><td>RegisterProduct</td><td/></row>
 		<row><td>RegisterProgIdInfo</td><td/><td>4800</td><td>RegisterProgIdInfo</td><td/></row>
 		<row><td>RegisterTypeLibraries</td><td/><td>5500</td><td>RegisterTypeLibraries</td><td/></row>
@@ -4121,7 +4142,7 @@ QwBEAF8AUgBPAE0AAQBFAHgAcAByAGUAcwBzAA==
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{CADC0109-ABF0-43DE-BB49-7FA2A0B8EF66}</td></row>
 		<row><td>ISUSSignature</td><td>{9E36052E-62D7-4F62-8259-854681610D9E}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewObjects,viewRelease,viewISToday,viewTextMessages,viewAppV,viewRealSetupDesign,viewSetupDesign,viewSetupTypes,viewUpgradePaths,viewUpdateService,viewFeatureFiles,viewDependencies,viewCE,viewUI,viewVRoots,viewInstallScriptStd,viewAppFiles,viewRegistry</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewObjects,viewRelease,viewISToday,viewTextMessages,viewAppV,viewRealSetupDesign,viewSetupDesign,viewSetupTypes,viewUpgradePaths,viewUpdateService,viewFeatureFiles,viewDependencies,viewCE,viewUI,viewVRoots,viewInstallScriptStd,viewAppFiles,viewRegistry,viewCustomActions,viewSystemSearch,viewSupportFiles</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4566,10 +4587,6 @@ QwBEAF8AUgBPAE0AAQBFAHgAcAByAGUAcwBzAA==
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>Registry1</td><td>-1</td><td>Software\Microsoft\Office\Outlook\Addins\Codeplex.BackupAddIn</td><td>Description</td><td>Outlook-Backup-Addin</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
-		<row><td>Registry2</td><td>-1</td><td>Software\Microsoft\Office\Outlook\Addins\Codeplex.BackupAddIn</td><td>FriendlyName</td><td>Outlook Backup Addin</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
-		<row><td>Registry3</td><td>-1</td><td>Software\Microsoft\Office\Outlook\Addins\Codeplex.BackupAddIn</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
-		<row><td>Registry4</td><td>-1</td><td>Software\Microsoft\Office\Outlook\Addins\Codeplex.BackupAddIn</td><td>Manifest</td><td>file:///[INSTALLDIR]BackupAddIn.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
 	</table>
 
 	<table name="RemoveFile">
