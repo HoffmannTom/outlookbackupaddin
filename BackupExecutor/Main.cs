@@ -1,4 +1,5 @@
-﻿using Speed4Trade;
+﻿using Microsoft.Win32;
+using Speed4Trade;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,6 +58,7 @@ namespace BackupExecutor
             if (iError == 0)
                 Application.Exit();
         }
+
 
         /// <summary>
         /// Evaluates the location of the config file
