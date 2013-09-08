@@ -1,3 +1,12 @@
+Version 1.1
+- Added an msi setup-project for Install Shield limited edition
+- BackupExecutor has now two optional parameters
+  /register will register the outlook plugin in the registry and copy the contents of \32 or \64 to the installation folder
+  /unregister will delete the registry key and disable the outlook plugin
+  The first parameter is used during installation to activate the plugin.
+  It will check the "bitness" of the installed outlook, check the OS and create the necessary registry settings for the plugin.
+  This is unfortunately not possible with Install Shield limited edition.
+
 Version 1.0
 - First release. Works with office 2013 32 and 64 Bit
 - Tested with Win8 Pro, Office 2013 64 Bit

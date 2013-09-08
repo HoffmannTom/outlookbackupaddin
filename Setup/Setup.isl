@@ -2796,7 +2796,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1545667248</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1151416115</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
@@ -3896,10 +3896,10 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>-207542602</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.Codeplex.com</td><td>0</td><td/><td>1545667248</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.Codeplex.com</td><td>0</td><td/><td>1151416115</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>https://outlookbackupaddin.codeplex.com/workitem/list/basic</td><td>0</td><td/><td>-207517898</td></row>
-		<row><td>ID_STRING4</td><td>1033</td><td>http://www.Codeplex.comdocumentation</td><td>0</td><td/><td>1545667248</td></row>
-		<row><td>ID_STRING5</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1545667248</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>http://www.Codeplex.comdocumentation</td><td>0</td><td/><td>1151416115</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1151416115</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-207542602</td></row>
 	</table>
 

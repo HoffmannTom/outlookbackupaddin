@@ -12,6 +12,16 @@ namespace BackupExecutor
 {
     static class Program
     {
+        
+        [DllImport("kernel32.dll")]
+        static extern bool AttachConsole(int dwProcessId);
+        private const int ATTACH_PARENT_PROCESS = -1;
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern int FreeConsole();
+
+        [DllImport("kernel32.dll")]
+        static extern bool GetBinaryType(string lpApplicationName, out uint lpBinaryType);
         static int SCS_64BIT_BINARY = 6;
 
         /// <summary>
@@ -34,10 +44,24 @@ namespace BackupExecutor
             {
                 unregisterPlugin();
             }
+            else showHelp(args);
         }
 
-        [DllImport("kernel32.dll")]
-        static extern bool GetBinaryType(string lpApplicationName, out uint lpBinaryType);
+        private static void showHelp(string[] args)
+        {
+            AttachConsole(ATTACH_PARENT_PROCESS);
+
+            Console.WriteLine("");
+            Console.WriteLine("Unknown option " + args[0]);
+            Console.WriteLine("The following parameters are available:");
+            Console.WriteLine("/register    will register the plugin and create the necessary registry settings");
+            Console.WriteLine("/unregister  will deactivate the plugin and delete the registry settings");
+            SendKeys.SendWait("{ENTER}");
+
+            FreeConsole();
+        }
+
+
 
         private static bool Is64BitOutlookFromRegisteredExe()
         {

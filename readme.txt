@@ -22,3 +22,19 @@ Usage instruction:
     of the file "backupexecutor.exe" (e.g. c:\Program Files\Codeplex\Outlook-Backup\backupexecutor.exe)
     Afterwards press "save" to save your settings.
 3) When you Exit Outlook the first time, the backup should start automatically
+
+
+Uninstall instructions:
+=======================
+You can manually uninstall the plugin. 
+
+Depending on the Office and Windows installation (32 or 64 Bit) you must delete a registry key
+which can be found in one of these subtrees:
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\Outlook\Addins\Codeplex.BackupAddIn
+HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Office\Outlook\Addins\Codeplex.BackupAddIn
+
+Delete the complete key named "Codeplex.BackupAddIn".
+
+Another possibility is to run "BackupExecutor.exe /unregister" from the command line within the installation folder.
+
+Afterwards you can also remove the installation folder.
