@@ -10,19 +10,26 @@ using System.Windows.Forms;
 
 namespace BackupExecutor
 {
-    static class Program
+    internal static class SafeNativeMethods
     {
-        
         [DllImport("kernel32.dll")]
-        static extern bool AttachConsole(int dwProcessId);
-        private const int ATTACH_PARENT_PROCESS = -1;
+        internal static extern bool AttachConsole(int dwProcessId);
+        internal static int ATTACH_PARENT_PROCESS = -1;
 
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern int FreeConsole();
 
-        [DllImport("kernel32.dll")]
-        static extern bool GetBinaryType(string lpApplicationName, out uint lpBinaryType);
-        static int SCS_64BIT_BINARY = 6;
+        [DllImport("kernel32.dll", CharSet = CharSet.Ansi, BestFitMapping=false, ThrowOnUnmappableChar=true)]
+        internal static extern bool GetBinaryType(
+            [MarshalAs(UnmanagedType.LPStr)] string lpApplicationName, 
+            out uint lpBinaryType);
+        internal static int SCS_64BIT_BINARY = 6;
+    }
+
+    static class Program
+    {
+        
+
 
         /// <summary>
         /// The main entry point for the application.
@@ -47,9 +54,12 @@ namespace BackupExecutor
             else showHelp(args);
         }
 
+        /// <summary>
+        ///  print valid parameters and help information to console
+        /// </summary>
         private static void showHelp(string[] args)
         {
-            AttachConsole(ATTACH_PARENT_PROCESS);
+            SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
 
             Console.WriteLine("");
             Console.WriteLine("Unknown option " + args[0]);
@@ -58,11 +68,13 @@ namespace BackupExecutor
             Console.WriteLine("/unregister  will deactivate the plugin and delete the registry settings");
             SendKeys.SendWait("{ENTER}");
 
-            FreeConsole();
+            SafeNativeMethods.FreeConsole();
         }
 
 
-
+        /// <summary>
+        ///  Check whether outlook-executable is 64 bit
+        /// </summary>
         private static bool Is64BitOutlookFromRegisteredExe()
         {
             String outlookPath;
@@ -81,8 +93,8 @@ namespace BackupExecutor
             {
                 try
                 {
-                  if (GetBinaryType(outlookPath, out binaryType))
-                     bRet = (binaryType == SCS_64BIT_BINARY);
+                    if (SafeNativeMethods.GetBinaryType(outlookPath, out binaryType))
+                        bRet = (binaryType == SafeNativeMethods.SCS_64BIT_BINARY);
                 }
                 catch (Exception)
                 {
@@ -121,13 +133,21 @@ namespace BackupExecutor
         }
          */
 
+        /// <summary>
+        ///  Create registry settings for outlook plugin and copy files to installation folder
+        ///  depending on bit-ness
+        /// </summary>
         private static bool registerPlugin()
         {
+            SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
             try
             {
-                RegistryKey tmpKey = getOutlookRootKey(); 
+                RegistryKey tmpKey = getOutlookRootKey();
 
+                Console.WriteLine("Creating subkey addins");
                 tmpKey = tmpKey.CreateSubKey("Addins");
+
+                Console.WriteLine("Creating subkey Codeplex.BackupAddIn");
                 tmpKey = tmpKey.CreateSubKey("Codeplex.BackupAddIn");
 
                 String sDir = AppDomain.CurrentDomain.BaseDirectory; //Directory.GetCurrentDirectory();
@@ -137,7 +157,7 @@ namespace BackupExecutor
                 tmpKey.SetValue("LoadBehavior", 3, RegistryValueKind.DWord);
 
                 if (Is64BitOutlookFromRegisteredExe())
-                     copySubfolder(sDir, "64");
+                    copySubfolder(sDir, "64");
                 else copySubfolder(sDir, "32");
             }
             catch (Exception e)
@@ -145,9 +165,17 @@ namespace BackupExecutor
                 MessageBox.Show("Error registering: " + e.Message);
                 return false;
             }
+            finally
+            {
+                SendKeys.SendWait("{ENTER}");
+                SafeNativeMethods.FreeConsole();
+            }
             return true;
         }
 
+        /// <summary>
+        ///  copy files from subfolder to main folder
+        /// </summary>
         private static void copySubfolder(string sBase, string sSub)
         {
             Directory.GetFiles(sBase + sSub).ToList().ForEach(
@@ -155,6 +183,9 @@ namespace BackupExecutor
                 );
         }
 
+        /// <summary>
+        ///  delete the registry settings and disables outlook plugin
+        /// </summary>
         private static bool unregisterPlugin()
         {
             try
@@ -173,19 +204,26 @@ namespace BackupExecutor
             return true;
         }
 
+
+        /// <summary>
+        ///  returnes the registry key for outlook depending on bit-ness
+        /// </summary>
         private static RegistryKey getOutlookRootKey()
         {
             RegistryKey tmpKey;
             if (Environment.Is64BitOperatingSystem == false || Is64BitOutlookFromRegisteredExe() == false)
             {
                 //Office32 on Win64 or Office32 on Win32
-                tmpKey = Registry.LocalMachine.OpenSubKey("SOFTWARE", false);
+                Console.WriteLine(@"Detected office 32 Bit");
+                tmpKey = Registry.LocalMachine;
             }
             else  //Office64 on Win64
             {
+                Console.WriteLine(@"Detected office 64 Bit");
                 tmpKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
             }
 
+            Console.WriteLine(@"Fetching Software\Microsoft\Office\Outlook...");
             return tmpKey.OpenSubKey(@"Software\Microsoft\Office\Outlook", true);
         }
     }
