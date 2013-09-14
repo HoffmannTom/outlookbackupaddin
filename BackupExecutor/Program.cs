@@ -19,10 +19,8 @@ namespace BackupExecutor
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern int FreeConsole();
 
-        [DllImport("kernel32.dll", CharSet = CharSet.Ansi, BestFitMapping=false, ThrowOnUnmappableChar=true)]
-        internal static extern bool GetBinaryType(
-            [MarshalAs(UnmanagedType.LPStr)] string lpApplicationName, 
-            out uint lpBinaryType);
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        internal static extern bool GetBinaryType(string lpApplicationName, out uint lpBinaryType);
         internal static int SCS_64BIT_BINARY = 6;
     }
 
