@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32;
-using Speed4Trade;
+using BackupAddInCommon;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

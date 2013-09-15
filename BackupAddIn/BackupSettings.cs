@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Speed4Trade
+namespace BackupAddInCommon
 {
     /// <summary>
     ///  Class holding the configuration options

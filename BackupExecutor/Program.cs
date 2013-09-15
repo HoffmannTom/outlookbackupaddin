@@ -142,7 +142,7 @@ namespace BackupExecutor
             {
                 RegistryKey tmpKey = getOutlookRootKey();
 
-                Console.WriteLine("Creating subkey addins");
+                Console.WriteLine("Creating subkey Addins");
                 tmpKey = tmpKey.CreateSubKey("Addins");
 
                 Console.WriteLine("Creating subkey Codeplex.BackupAddIn");

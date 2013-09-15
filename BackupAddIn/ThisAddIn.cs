@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using Office = Microsoft.Office.Core;
-using Speed4Trade;
+using BackupAddInCommon;
 using System.Diagnostics;
 using System.Reflection;
 using System.IO;

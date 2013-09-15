@@ -251,7 +251,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>1E1C9EE8EDE6D17966DB31EAA17733E755B91DE7</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>227561A3B1E1CAB32E90F442ED214E9ED6164758</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>

@@ -103,7 +103,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackupSettings.cs" />
+    <Compile Include="..\BackupAddIn\BackupSettings.cs">
+      <Link>BackupSettings.cs</Link>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

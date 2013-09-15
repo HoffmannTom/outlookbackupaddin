@@ -1,4 +1,4 @@
-﻿using Speed4Trade;
+﻿using BackupAddInCommon;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,12 +61,12 @@ namespace BackupAddIn
         {
             String sPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-            object[] attributes = Assembly.GetAssembly(typeof(FBackupSettings)).GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
+            object[] attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
 
             if (attributes.Length != 0)
                 sPath += Path.DirectorySeparatorChar + ((AssemblyCompanyAttribute)attributes[0]).Company;
 
-            attributes = Assembly.GetAssembly(typeof(FBackupSettings)).GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+            attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
             if (attributes.Length != 0)
                 sPath += Path.DirectorySeparatorChar + ((AssemblyProductAttribute)attributes[0]).Product;
 
@@ -107,31 +107,6 @@ namespace BackupAddIn
         /// </summary>
         private void applySettings()
         {
-                /*
-                System.Configuration.ExeConfigurationFileMap con = new System.Configuration.ExeConfigurationFileMap();
-                con.ExeConfigFilename = sFile;
-                con.RoamingUserConfigFilename = sFile;
-                con.LocalUserConfigFilename = sFile;
-
-                System.Configuration.Configuration config = ConfigurationManager.OpenMappedExeConfiguration(con, ConfigurationUserLevel.PerUserRoamingAndLocal);
-
-                BackupSettingsSection sec = (BackupSettingsSection)config.GetSection("BackupSettings");
-                if (sec != null)
-                {
-                    txtDestination.Text = sec.DestinationPath;
-
-                    numInterval.Value = sec.Interval;
-
-                    foreach (Item item in sec.Items)
-                    {
-                        foreach (ListViewItem lvItem in lvStores.Items)
-                            if (lvItem.Text.Equals(item.Value))
-                                lvItem.Checked = true;
-                    }
-
-                }
-                */
-
             BackupSettings config = loadSettings();
 
             if (config != null)
@@ -151,6 +126,19 @@ namespace BackupAddIn
                 }
 
             }
+            else
+            {
+                //Check dll folder whether exe file exists
+                String sFile = AppDomain.CurrentDomain.BaseDirectory;
+                sFile = Path.Combine(sFile, "BackupExecutor.exe");
+                if (File.Exists(sFile))
+                {
+                    txtBackupExe.Text = sFile;
+                }
+
+            }
+
+
         }
 
         /// <summary>
@@ -160,36 +148,6 @@ namespace BackupAddIn
         private bool saveSettings()
         {
            String sFile = getConfigFilePath();
-            /*
-           System.Configuration.ExeConfigurationFileMap con = new System.Configuration.ExeConfigurationFileMap();
-           con.ExeConfigFilename = sFile;
-           con.RoamingUserConfigFilename = sFile;
-           con.LocalUserConfigFilename = sFile;
-           System.Configuration.Configuration config = ConfigurationManager.OpenMappedExeConfiguration(con, ConfigurationUserLevel.PerUserRoamingAndLocal);
-
-           BackupSettingsSection sec = (BackupSettingsSection)config.GetSection("BackupSettings");
-           if (sec == null)
-           {
-               sec = new BackupSettingsSection();
-               sec.SectionInformation.AllowExeDefinition = ConfigurationAllowExeDefinition.MachineToLocalUser;
-
-               //sec.LockItem = false;
-               config.Sections.Add("BackupSettings", sec);
-           }
-
-           sec.DestinationPath = txtDestination.Text;
-
-           sec.Interval = (int)numInterval.Value;
-
-           sec.Items.Clear();
-           for (int i = 0; i < lvStores.Items.Count; i ++)
-           {
-               if (lvStores.Items[i].Checked)
-                   sec.Items.Add(new Item(lvStores.Items[i].Text));
-           }
-
-           config.Save();
-           */
 
             BackupSettings config = new BackupSettings();
             config.DestinationPath = txtDestination.Text;
@@ -258,6 +216,9 @@ namespace BackupAddIn
 
         private void btnBackupSelect_Click(object sender, EventArgs e)
         {
+            if (!String.IsNullOrEmpty(txtBackupExe.Text))
+                fileOpenDialog.InitialDirectory = Path.GetDirectoryName(txtBackupExe.Text);
+
             DialogResult res = fileOpenDialog.ShowDialog();
             if (res.Equals(DialogResult.OK))
                 txtBackupExe.Text = fileOpenDialog.FileName;
