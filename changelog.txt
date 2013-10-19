@@ -1,7 +1,8 @@
 Version 1.2
 - Fixed problem when showing many psd-files within configuration dialog
 - Backup program shows files, which are currently copied (refresh-issue in older version)
-- 
+- Added new console parameter /backupnow
+- Timestamp of last backup is only set when at least one file could be copied successfully 
 
 Version 1.1
 - Added an msi setup-project for Install Shield limited edition
