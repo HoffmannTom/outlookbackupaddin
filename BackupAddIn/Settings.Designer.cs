@@ -31,6 +31,7 @@
             this.btnSpeichern = new System.Windows.Forms.Button();
             this.btnAbbrechen = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnBackupSelect = new System.Windows.Forms.Button();
             this.txtBackupExe = new System.Windows.Forms.TextBox();
             this.lblBackup = new System.Windows.Forms.Label();
@@ -40,10 +41,9 @@
             this.txtDestination = new System.Windows.Forms.TextBox();
             this.lblDestination = new System.Windows.Forms.Label();
             this.lvStores = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.folderBrowserdlg = new System.Windows.Forms.FolderBrowserDialog();
             this.fileOpenDialog = new System.Windows.Forms.OpenFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInterval)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,16 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Outlook-Files";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(177, 170);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "days";
             // 
             // btnBackupSelect
             // 
@@ -192,22 +202,21 @@
             this.lvStores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvStores.AutoArrange = false;
             this.lvStores.CausesValidation = false;
             this.lvStores.CheckBoxes = true;
             this.lvStores.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
+            this.lvStores.FullRowSelect = true;
+            this.lvStores.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lvStores.LabelWrap = false;
             this.lvStores.Location = new System.Drawing.Point(14, 19);
             this.lvStores.Name = "lvStores";
+            this.lvStores.ShowGroups = false;
             this.lvStores.Size = new System.Drawing.Size(397, 142);
             this.lvStores.TabIndex = 0;
             this.lvStores.UseCompatibleStateImageBehavior = false;
-            this.lvStores.View = System.Windows.Forms.View.SmallIcon;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Datei";
-            this.columnHeader1.Width = 500;
+            this.lvStores.View = System.Windows.Forms.View.Details;
             // 
             // fileOpenDialog
             // 
@@ -216,15 +225,9 @@
             this.fileOpenDialog.Filter = "Executables|*.exe";
             this.fileOpenDialog.Title = "Select BackupExecutor.exe";
             // 
-            // label1
+            // columnHeader1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(177, 170);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "days";
+            this.columnHeader1.Width = 369;
             // 
             // FBackupSettings
             // 
@@ -257,7 +260,6 @@
         private System.Windows.Forms.Button btnAbbrechen;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListView lvStores;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button btnDirSelect;
         private System.Windows.Forms.TextBox txtDestination;
         private System.Windows.Forms.Label lblDestination;
@@ -269,5 +271,6 @@
         private System.Windows.Forms.Label lblBackup;
         private System.Windows.Forms.OpenFileDialog fileOpenDialog;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

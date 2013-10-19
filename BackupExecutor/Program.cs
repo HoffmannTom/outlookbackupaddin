@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using BackupAddInCommon;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,15 +27,15 @@ namespace BackupExecutor
 
     static class Program
     {
-        
-
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
+            int RetCode = 0;
+
             if (args.Length == 0)
             {
                 Application.EnableVisualStyles();
@@ -43,13 +44,33 @@ namespace BackupExecutor
             }
             else if (args[0] == "/register")
             {
-                registerPlugin();
+                RetCode = registerPlugin() ? 0 : 1;
             }
             else if (args[0] == "/unregister")
             {
-                unregisterPlugin();
+                RetCode = unregisterPlugin() ? 0 : 1;
+            }
+            else if (args[0] == "/backupnow")
+            {
+                SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
+
+                BackupSettings config = BackupTool.getSettings();
+                int iError = BackupTool.tryBackup(config, LogToConsole);
+
+                SafeNativeMethods.FreeConsole();
+                RetCode = iError;
             }
             else showHelp(args);
+
+            return RetCode;
+        }
+
+        /// <summary>
+        ///  print errors to console
+        /// </summary>
+        private static void LogToConsole(string s)
+        {
+            Console.WriteLine(s + Environment.NewLine);
         }
 
         /// <summary>
@@ -64,6 +85,7 @@ namespace BackupExecutor
             Console.WriteLine("The following parameters are available:");
             Console.WriteLine("/register    will register the plugin and create the necessary registry settings");
             Console.WriteLine("/unregister  will deactivate the plugin and delete the registry settings");
+            Console.WriteLine("/backupnow   starts the backup without taking the elapsed time since last backup into account");
             SendKeys.SendWait("{ENTER}");
 
             SafeNativeMethods.FreeConsole();
