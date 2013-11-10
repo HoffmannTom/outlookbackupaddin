@@ -47,7 +47,10 @@ namespace BackupAddIn
             //Add psd-files to list
             for (int i = 1; i <= stores.Count; i++)
             {
-                lvStores.Items.Add(stores[i].FilePath);
+                //Ignore http- and imap-stores
+                //if (stores[i].IsDataFileStore)
+                if (stores[i].FilePath != null)
+                    lvStores.Items.Add(stores[i].FilePath);
             }
             /*
             for (int i = 1; i <= 20; i++)
