@@ -134,6 +134,7 @@ namespace BackupAddIn
                             lvItem.Checked = true;
                 }
 
+                cbxBackupAll.Checked = config.BackupAll;
             }
             else
             {
@@ -156,18 +157,30 @@ namespace BackupAddIn
         /// <returns>true, if save action was successful</returns>
         private bool saveSettings()
         {
-           String sFile = getConfigFilePath();
-
             BackupSettings config = new BackupSettings();
             config.DestinationPath = txtDestination.Text;
             config.Interval = (int)numInterval.Value;
             config.BackupProgram = txtBackupExe.Text;
+            config.BackupAll = cbxBackupAll.Checked;
 
             for (int i = 0; i < lvStores.Items.Count; i++)
             {
                 if (lvStores.Items[i].Checked)
                     config.Items.Add(lvStores.Items[i].Text);
             }
+            saveSettingsToFile(config);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Saves the current settings to disk
+        /// </summary>
+        /// /// <param name="config">Configration to save</param>
+        /// <returns>true, if save action was successful</returns>
+        public static bool saveSettingsToFile(BackupSettings config)
+        {
+            String sFile = getConfigFilePath();
             try
             {
                 if (!Directory.Exists(Path.GetDirectoryName(sFile)))
@@ -184,8 +197,8 @@ namespace BackupAddIn
             {
                 MessageBox.Show("Error during saving settings to file " + sFile,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-
             return true;
         }
 
@@ -232,5 +245,27 @@ namespace BackupAddIn
             if (res.Equals(DialogResult.OK))
                 txtBackupExe.Text = fileOpenDialog.FileName;
         }
+
+        /// <summary>
+        /// Enables or disables the list of psd files
+        /// </summary>
+        private void SetBackupAll()
+        {
+            bool bBA = false;
+            if (cbxBackupAll.Checked)
+                bBA = true;
+
+            lvStores.Enabled = !bBA;
+
+            if (bBA)
+                foreach (ListViewItem lvItem in lvStores.Items)
+                    lvItem.Checked = bBA;
+        }
+
+        private void cbxBackupAll_CheckedChanged(object sender, EventArgs e)
+        {
+            SetBackupAll();
+        }
+
     }
 }

@@ -46,5 +46,10 @@ namespace BackupAddInCommon
         /// </summary>
         public StringCollection Items;
 
+
+        /// <summary>
+        ///  Flag whether to backup all psd-files
+        /// </summary>
+        public bool BackupAll { get; set; }
     }
 }

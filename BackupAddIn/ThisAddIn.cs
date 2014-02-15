@@ -34,6 +34,21 @@ namespace BackupAddIn
                 //and if not yet backuped or if backup too old, then run program
                 if (config.LastRun == null || config.LastRun.AddDays(config.Interval) <= DateTime.Now)
                 {
+                    if (config.BackupAll)
+                    {
+                        //If alles pdf-files should be saved, enumerate them and save to config-file
+                        Outlook.Application app = new Outlook.Application();
+                        Outlook.Stores st = app.GetNamespace("MAPI").Stores;
+                        config.Items.Clear();
+                        for (int i = 1; i <= st.Count; i++)
+                        {
+                            //Ignore http- and imap-stores
+                            if (st[i].FilePath != null)
+                                config.Items.Add(st[i].FilePath);
+                        }
+                        FBackupSettings.saveSettingsToFile(config);
+                    }
+
                     try
                     {
                         Process.Start(config.BackupProgram);

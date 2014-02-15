@@ -186,7 +186,7 @@ namespace BackupExecutor
         public static bool WaitForProcessEnd(string name, Logger log)
         {
             int i = 0;
-            while (i < 10 && IsProcessOpen(name))
+            while (i < 10 && IsProcessOpen(name, log))
             {
                 log("Waiting for " + name + "...");
                 Application.DoEvents();
@@ -194,15 +194,16 @@ namespace BackupExecutor
                 i++;
             }
 
-            return !IsProcessOpen(name);
+            return !IsProcessOpen(name, log);
         }
 
         /// <summary>
         /// Checks whether a certain process is running
         /// </summary>
         /// <param name="name">process name as seen witin the task  manager</param>
+        /// <param name="log">logging delegate to send error information</param>
         /// <returns>true, if process is still running</returns>
-        public static bool IsProcessOpen(string name)
+        public static bool IsProcessOpen(string name, Logger log)
         {
             foreach (Process clsProcess in Process.GetProcesses())
             {
@@ -211,6 +212,7 @@ namespace BackupExecutor
                     //txtLog.Text += clsProcess.ProcessName + Environment.NewLine;// MainModule.ModuleName ;
                     if (clsProcess.ProcessName.Equals(name, StringComparison.OrdinalIgnoreCase))
                     {
+                        log("Found outlook with PID " + clsProcess.Id);
                         return true;
                     }
                 }

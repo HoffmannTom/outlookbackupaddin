@@ -4,6 +4,9 @@ Version 1.2
 - Backup program shows files, which are currently copied (refresh-issue in older version)
 - Added new console parameter /backupnow
 - Timestamp of last backup is only set when at least one file could be copied successfully 
+- New option to backup all psd-files. 
+  Whenever a new psd-files is added in outlook, it will automatically be included to the backup
+- Migrated to Install-Shield Express 2013, as 2010 version was not working with the latest VS 2010 updates
 
 Version 1.1
 - Added an msi setup-project for Install Shield limited edition
