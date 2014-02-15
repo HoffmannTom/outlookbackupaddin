@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,6 +28,14 @@ namespace BackupExecutor
 
     static class Program
     {
+
+        public static bool IsElevated
+        {
+            get
+            {
+                return new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+            }
+        }
 
         /// <summary>
         /// The main entry point for the application.
@@ -182,7 +191,10 @@ namespace BackupExecutor
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error registering: " + e.Message);
+                String sMsg = "";
+                if (!IsElevated)
+                    sMsg = Environment.NewLine + "Please run as administrator!";
+                MessageBox.Show("Error registering: " + e.Message + sMsg);
                 return false;
             }
             finally
@@ -218,7 +230,11 @@ namespace BackupExecutor
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error:" + e.Message);
+                String sMsg = "";
+                if (!IsElevated)
+                    sMsg = Environment.NewLine + "Please run as administrator!";
+
+                MessageBox.Show("Error:" + e.Message + sMsg);
                 return false;
             }
             return true;
@@ -239,6 +255,7 @@ namespace BackupExecutor
             }
             else  //Office64 on Win64
             {
+                //Program is run in 32 Bit-mode on Win64 --> access Registry via Win32-Hive
                 Console.WriteLine(@"Detected office 64 Bit");
                 tmpKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
             }

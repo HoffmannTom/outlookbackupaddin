@@ -7,6 +7,7 @@ Version 1.2
 - New option to backup all psd-files. 
   Whenever a new psd-files is added in outlook, it will automatically be included to the backup
 - Migrated to Install-Shield Express 2013, as 2010 version was not working with the latest VS 2010 updates
+- Added hidden parameter <BackupExtension> in config-file to add custom extension
 
 Version 1.1
 - Added an msi setup-project for Install Shield limited edition

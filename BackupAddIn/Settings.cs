@@ -157,12 +157,14 @@ namespace BackupAddIn
         /// <returns>true, if save action was successful</returns>
         private bool saveSettings()
         {
-            BackupSettings config = new BackupSettings();
+            //preserve hidden flags
+            BackupSettings config = loadSettings();
             config.DestinationPath = txtDestination.Text;
             config.Interval = (int)numInterval.Value;
             config.BackupProgram = txtBackupExe.Text;
             config.BackupAll = cbxBackupAll.Checked;
-
+            
+            config.Items.Clear();
             for (int i = 0; i < lvStores.Items.Count; i++)
             {
                 if (lvStores.Items[i].Checked)
