@@ -159,6 +159,8 @@ namespace BackupAddIn
         {
             //preserve hidden flags
             BackupSettings config = loadSettings();
+            if (config == null)
+                config = new BackupSettings();
             config.DestinationPath = txtDestination.Text;
             config.Interval = (int)numInterval.Value;
             config.BackupProgram = txtBackupExe.Text;
@@ -170,9 +172,7 @@ namespace BackupAddIn
                 if (lvStores.Items[i].Checked)
                     config.Items.Add(lvStores.Items[i].Text);
             }
-            saveSettingsToFile(config);
-
-            return true;
+            return saveSettingsToFile(config);
         }
 
         /// <summary>
