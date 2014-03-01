@@ -82,6 +82,8 @@ namespace BackupExecutor
         {
             int iError = 0;
 
+            log("Starting backup...please wait...");
+
             if (config.Items.Count > 0)
             {
                 if (WaitForProcessEnd(OUTLOOK_PROC, log))

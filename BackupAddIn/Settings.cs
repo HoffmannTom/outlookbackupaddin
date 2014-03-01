@@ -101,7 +101,7 @@ namespace BackupAddIn
                         config = (BackupSettings)bin.Deserialize(stream);
                     }
                 }
-                catch (IOException)
+                catch (Exception)
                 {
                     MessageBox.Show("Error during reading settings from file " + sFile,
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -135,6 +135,9 @@ namespace BackupAddIn
                 }
 
                 cbxBackupAll.Checked = config.BackupAll;
+
+                if (config.LastRun > DateTime.MinValue)
+                    txtLastBackup.Text = config.LastRun.ToString("dd.MM.yyyy HH:mm:ss");
             }
             else
             {
@@ -165,6 +168,8 @@ namespace BackupAddIn
             config.Interval = (int)numInterval.Value;
             config.BackupProgram = txtBackupExe.Text;
             config.BackupAll = cbxBackupAll.Checked;
+            if (String.IsNullOrEmpty(txtLastBackup.Text))
+                config.LastRun = DateTime.MinValue;
             
             config.Items.Clear();
             for (int i = 0; i < lvStores.Items.Count; i++)
@@ -195,7 +200,7 @@ namespace BackupAddIn
                     bin.Serialize(stream, config);
                 }
             }
-            catch (IOException)
+            catch (Exception)
             {
                 MessageBox.Show("Error during saving settings to file " + sFile,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -267,6 +272,11 @@ namespace BackupAddIn
         private void cbxBackupAll_CheckedChanged(object sender, EventArgs e)
         {
             SetBackupAll();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtLastBackup.Text = "";
         }
 
     }

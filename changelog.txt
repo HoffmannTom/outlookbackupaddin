@@ -1,3 +1,7 @@
+Version 1.3
+- Added button in config-window to reset the last backup-time (this will trigger the backup after closing outlook)
+
+
 Version 1.2
 - Fixed problem when showing many psd-files within configuration dialog
 - Skip http and imap accounts as they are not locally stored
