@@ -1,5 +1,7 @@
 Version 1.3
 - Added button in config-window to reset the last backup-time (this will trigger the backup after closing outlook)
+- Minimum interal set to 0 (backup at each closing of outlook)
+- Catch exception when data store entry is corrupt
 
 
 Version 1.2

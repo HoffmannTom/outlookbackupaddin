@@ -32,35 +32,6 @@ namespace BackupAddIn
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Populate form and display saved settings (if available)
-        /// </summary>
-        /// <param name="e">OnLoad-Event-Args</param>
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            //cleanup
-            txtDestination.Text = "";
-            lvStores.Items.Clear();
-
-            //Add psd-files to list
-            for (int i = 1; i <= stores.Count; i++)
-            {
-                //Ignore http- and imap-stores
-                //if (stores[i].IsDataFileStore)
-                if (stores[i].FilePath != null)
-                    lvStores.Items.Add(stores[i].FilePath);
-            }
-            /*
-            for (int i = 1; i <= 20; i++)
-                lvStores.Items.Add("test test test test test testes testes testest " + i);
-            */
-
-            lvStores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-
-            applySettings();
-        } 
 
         /// <summary>
         /// Determine config-file location
@@ -170,7 +141,7 @@ namespace BackupAddIn
             config.BackupAll = cbxBackupAll.Checked;
             if (String.IsNullOrEmpty(txtLastBackup.Text))
                 config.LastRun = DateTime.MinValue;
-            
+
             config.Items.Clear();
             for (int i = 0; i < lvStores.Items.Count; i++)
             {
@@ -279,5 +250,46 @@ namespace BackupAddIn
             txtLastBackup.Text = "";
         }
 
+
+        /// <summary>
+        /// Populate form and display saved settings (if available)
+        /// </summary>
+        /// <param name="sender">not used</param>
+        /// <param name="e">OnLoad-Event-Args</param>
+        private void FBackupSettings_Load(object sender, EventArgs e)
+        {
+            //cleanup
+            txtDestination.Text = "";
+            lvStores.Items.Clear();
+
+            //Add psd-files to list
+            for (int i = 1; i <= stores.Count; i++)
+            {
+                try
+                {
+                    //MessageBox.Show("store " + i + ":" + stores[i].FilePath + Environment.NewLine
+                    //    + stores[i].DisplayName);
+                    //Ignore http- and imap-stores
+                    //if (stores[i].IsDataFileStore)
+                    if (stores[i].FilePath != null)
+                        lvStores.Items.Add(stores[i].FilePath);
+
+                }
+                catch (Exception ex)
+                {
+                    //FilePath might be corrupt, check accounts -> files
+                    MessageBox.Show("Error when iterating stores(" + i + "): " + ex.Message);
+                }
+            }
+            /*
+            for (int i = 1; i <= 20; i++)
+                lvStores.Items.Add("test test test test test testes testes testest " + i);
+            */
+
+            lvStores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            applySettings();
+
+        }
     }
 }

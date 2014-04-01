@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows.Forms;
 using Office = Microsoft.Office.Core;
 
 // TODO: Führen Sie diese Schritte aus, um das Element auf dem Menüband (XML) zu aktivieren:
@@ -73,9 +74,9 @@ namespace BackupAddIn
         /// </summary>
         public void OpenBackupSettings(Office.IRibbonControl control)
         {
-            Application app = new Application();
+            Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
             NameSpace outlookNs = app.GetNamespace("MAPI");
-            
+
             FBackupSettings frm = new FBackupSettings();
             frm.setStores(outlookNs.Stores);
             frm.ShowDialog();

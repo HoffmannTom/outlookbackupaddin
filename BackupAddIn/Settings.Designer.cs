@@ -204,11 +204,6 @@
             0,
             0,
             0});
-            this.numInterval.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numInterval.Name = "numInterval";
             this.numInterval.Size = new System.Drawing.Size(50, 20);
             this.numInterval.TabIndex = 2;
@@ -309,6 +304,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Backup Settings";
+            this.Load += new System.EventHandler(this.FBackupSettings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInterval)).EndInit();
