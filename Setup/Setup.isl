@@ -2640,8 +2640,8 @@
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
 		<row><td>_0D4909E3_5DC8_4154_A5B4_6DD5F6333C35_</td><td>Microsoft .NET Framework 4.5 Full.prq</td><td/><td/><td/></row>
-		<row><td>_789DB96F_0C89_467D_9F1F_C860AF6F8B8C_</td><td>Visual Studio 2010 Tools for Office Runtime 64.prq</td><td/><td/><td/></row>
-		<row><td>_F04DC830_E47A_45FE_B722_E81974BB33B6_</td><td>Visual Studio 2010 Tools for Office Runtime 32.prq</td><td/><td/><td/></row>
+		<row><td>_64BDF4AD_ECBF_46F1_8F83_BBBD6B2998BA_</td><td>Visual Studio 2010 Tools for Office Runtime 32.prq</td><td/><td>2</td><td/></row>
+		<row><td>_C1F2F10F_FE75_4809_A242_0F51444FE459_</td><td>Visual Studio 2010 Tools for Office Runtime 64.prq</td><td/><td>2</td><td/></row>
 	</table>
 
 	<table name="ISSetupType">
