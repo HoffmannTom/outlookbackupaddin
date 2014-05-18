@@ -118,7 +118,7 @@ namespace BackupExecutor
                 {
                     log("copy " + item + " to " + config.DestinationPath);
                     WaitForFile(item, log);
-                    File.Copy(item, sPath + Path.GetFileName(item) + config.BackupExtension, true);
+                    File.Copy(item, sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix, true);
                     iSuccess++;
                 }
                 catch (Exception e)

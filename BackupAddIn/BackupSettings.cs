@@ -48,13 +48,18 @@ namespace BackupAddInCommon
         public StringCollection Items;
 
         /// <summary>
+        ///  Prefix for filename of backup
+        /// </summary>
+        public string BackupPrefix  { get; set; }
+
+        /// <summary>
+        ///  Suffix for filename of backup
+        /// </summary>
+        public string BackupSuffix  { get; set; }
+
+        /// <summary>
         ///  Flag whether to backup all psd-files
         /// </summary>
         public bool BackupAll { get; set; }
-
-        /// <summary>
-        ///  Optional File-Extension
-        /// </summary>
-        public String BackupExtension { get; set; }
     }
 }

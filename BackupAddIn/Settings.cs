@@ -91,12 +91,11 @@ namespace BackupAddIn
 
             if (config != null)
             {
-
                 txtDestination.Text = config.DestinationPath;
-
                 txtBackupExe.Text = config.BackupProgram;
-
                 numInterval.Value = config.Interval;
+                txtPrefix.Text = config.BackupPrefix;
+                txtSuffix.Text = config.BackupSuffix;
 
                 foreach (String item in config.Items)
                 {
@@ -136,9 +135,11 @@ namespace BackupAddIn
             if (config == null)
                 config = new BackupSettings();
             config.DestinationPath = txtDestination.Text;
-            config.Interval = (int)numInterval.Value;
-            config.BackupProgram = txtBackupExe.Text;
-            config.BackupAll = cbxBackupAll.Checked;
+            config.Interval        = (int)numInterval.Value;
+            config.BackupProgram   = txtBackupExe.Text;
+            config.BackupPrefix    = txtPrefix.Text;
+            config.BackupSuffix    = txtSuffix.Text;
+            config.BackupAll       = cbxBackupAll.Checked;
             if (String.IsNullOrEmpty(txtLastBackup.Text))
                 config.LastRun = DateTime.MinValue;
 

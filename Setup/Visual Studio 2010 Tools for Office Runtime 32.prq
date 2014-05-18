@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SetupPrereq>
 <conditions>
-    <condition Type="32" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" FileName="Version" ReturnValue="10.0.40303" Bits="2"></condition>
+    <condition Type="32" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" FileName="Version" ReturnValue="10.0.50325" Bits="2"></condition>
 </conditions>
 	<operatingsystemconditions>
 		<operatingsystemcondition MajorVersion="5" MinorVersion="2" PlatformId="2" CSDVersion="" Bits="1" ProductType="2|3"></operatingsystemcondition>
@@ -12,7 +12,7 @@
 	</operatingsystemconditions>
 
 <files>
-    <file LocalFile="&lt;ISProductFolder&gt;\SetupPrerequisites\VSTOR\vstor_redist.exe" URL="http://download.microsoft.com/download/9/4/9/949B0B7C-6385-4664-8EA8-3F6038172322/vstor_redist.exe" CheckSum="b6639489e159b854b6dc43d5cb539043" FileSize="0,40023024"></file>
+    <file LocalFile="&lt;ISProductFolder&gt;\SetupPrerequisites\VSTOR\vstor_redist.exe" URL="http://download.microsoft.com/download/2/E/9/2E9D2603-6D1F-4B12-BD37-DB1410B23597/vstor_redist.exe" CheckSum="a14efaba0d232dee6253028c073b4340" FileSize="0,40123576"></file>
 </files>
 <execute file="vstor_redist.exe" returncodetoreboot="1641,3010" requiresmsiengine="1">
 </execute>
