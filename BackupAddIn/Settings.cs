@@ -271,17 +271,18 @@ namespace BackupAddIn
             {
                 try
                 {
-                    //MessageBox.Show("store " + i + ":" + stores[i].FilePath + Environment.NewLine
-                    //    + stores[i].DisplayName);
                     //Ignore http- and imap-stores
-                    //if (stores[i].IsDataFileStore)
-                    //stores[i].GetType() == 3 / OLExchangeStoreType.olNoExchange --> OST-File
+
                     if (stores[i].FilePath != null)
                         lvStores.Items.Add(stores[i].FilePath);
                     else if (stores[i].ExchangeStoreType == OlExchangeStoreType.olNotExchange)
                     {
+                        //Ugly solution...not supported
+                        /*
                         String sPath = ParsePathFromStoreID(stores[i]);
-                        lvStores.Items.Add(sPath);
+                        if (!String.IsNullOrEmpty(sPath))
+                            lvStores.Items.Add(sPath);
+                        */
                     }
 
                 }
@@ -302,6 +303,10 @@ namespace BackupAddIn
 
         }
 
+        /// <summary>
+        /// Tries to extract the filepath from a store-id
+        /// </summary>
+        /// <param name="store">outlook file store</param>
         private string ParsePathFromStoreID(Store store)
         {
             //hidden mapi properties
@@ -314,10 +319,16 @@ namespace BackupAddIn
 
             //decode PR_STORE_ENTRYID
             int SkipBytes = 58;
+            int TerminatingBytes = 2;
             byte[] b = store.PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x0FFB0102");
-            //Last Bytes are for null terminating
-            byte[] b2 = new ArraySegment<byte>(b, SkipBytes, b.Length - SkipBytes - 2).ToArray<byte>();
-            string s = System.Text.UnicodeEncoding.Unicode.GetString(b2);
+
+            string s = "";
+            if (b.Length > SkipBytes + TerminatingBytes)
+            {
+                //Last Bytes are for null terminating
+                byte[] b2 = new ArraySegment<byte>(b, SkipBytes, b.Length - SkipBytes - TerminatingBytes).ToArray<byte>();
+                s = System.Text.UnicodeEncoding.Unicode.GetString(b2);
+            }
 
             return s;
         }
