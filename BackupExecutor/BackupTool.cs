@@ -87,12 +87,47 @@ namespace BackupExecutor
             if (config.Items.Count > 0)
             {
                 if (WaitForProcessEnd(OUTLOOK_PROC, log))
+                {
                     iError += doBackup(config, log);
+                    if (!String.IsNullOrEmpty(config.PostBackupCmd))
+                        iError += RunPostCmd(config.PostBackupCmd, log);
+                }
                 else
                 {
                     iError++;
                     log("Error waiting for " + OUTLOOK_PROC);
                 }
+            }
+
+            return iError;
+        }
+
+        /// <summary>
+        /// Runs a program and waits for finish (after backup)
+        /// </summary>
+        /// <param name="cmd">Command to execute</param>
+        /// <param name="log">logging delegate to send error information</param>
+        /// <returns>number of occured errors</returns>
+        private static int RunPostCmd(string cmd, Logger log)
+        {
+            log("Starting post-backup cmd: " + cmd);
+
+            int iError = 0;
+            Process p = new Process();
+            p.StartInfo.WorkingDirectory = "";
+            p.StartInfo.FileName = cmd;
+            p.StartInfo.Arguments = "";
+
+            try
+            {
+                p.Start();
+                p.WaitForExit();
+                return p.ExitCode;
+            }
+            catch (Exception e)
+            {
+                iError++;
+                log("Error executing " + cmd + ": " + e.Message);
             }
 
             return iError;

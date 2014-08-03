@@ -75,10 +75,12 @@ namespace BackupAddIn
         public void OpenBackupSettings(Office.IRibbonControl control)
         {
             Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-            NameSpace outlookNs = app.GetNamespace("MAPI");
+            //NameSpace outlookNs = app.GetNamespace("MAPI");
 
             FBackupSettings frm = new FBackupSettings();
-            frm.setStores(outlookNs.Stores);
+            //frm.setStores(outlookNs.Stores);
+
+            frm.setStores(app.Session.Stores);
             frm.ShowDialog();
         }
 

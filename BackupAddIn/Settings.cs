@@ -1,4 +1,5 @@
 ﻿using BackupAddInCommon;
+using Microsoft.Office.Interop.Outlook;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,7 +73,7 @@ namespace BackupAddIn
                         config = (BackupSettings)bin.Deserialize(stream);
                     }
                 }
-                catch (Exception)
+                catch (System.Exception)
                 {
                     MessageBox.Show("Error during reading settings from file " + sFile,
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,6 +97,7 @@ namespace BackupAddIn
                 numInterval.Value = config.Interval;
                 txtPrefix.Text = config.BackupPrefix;
                 txtSuffix.Text = config.BackupSuffix;
+                txtPostBackupCmd.Text = config.PostBackupCmd;
 
                 foreach (String item in config.Items)
                 {
@@ -139,6 +141,7 @@ namespace BackupAddIn
             config.BackupProgram   = txtBackupExe.Text;
             config.BackupPrefix    = txtPrefix.Text;
             config.BackupSuffix    = txtSuffix.Text;
+            config.PostBackupCmd   = txtPostBackupCmd.Text;
             config.BackupAll       = cbxBackupAll.Checked;
             if (String.IsNullOrEmpty(txtLastBackup.Text))
                 config.LastRun = DateTime.MinValue;
@@ -172,7 +175,7 @@ namespace BackupAddIn
                     bin.Serialize(stream, config);
                 }
             }
-            catch (Exception)
+            catch (System.Exception)
             {
                 MessageBox.Show("Error during saving settings to file " + sFile,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -263,7 +266,7 @@ namespace BackupAddIn
             txtDestination.Text = "";
             lvStores.Items.Clear();
 
-            //Add psd-files to list
+            //Add pst-files to list
             for (int i = 1; i <= stores.Count; i++)
             {
                 try
@@ -272,11 +275,17 @@ namespace BackupAddIn
                     //    + stores[i].DisplayName);
                     //Ignore http- and imap-stores
                     //if (stores[i].IsDataFileStore)
+                    //stores[i].GetType() == 3 / OLExchangeStoreType.olNoExchange --> OST-File
                     if (stores[i].FilePath != null)
                         lvStores.Items.Add(stores[i].FilePath);
+                    else if (stores[i].ExchangeStoreType == OlExchangeStoreType.olNotExchange)
+                    {
+                        String sPath = ParsePathFromStoreID(stores[i]);
+                        lvStores.Items.Add(sPath);
+                    }
 
                 }
-                catch (Exception ex)
+                catch (System.Exception ex)
                 {
                     //FilePath might be corrupt, check accounts -> files
                     MessageBox.Show("Error when iterating stores(" + i + "): " + ex.Message);
@@ -292,5 +301,27 @@ namespace BackupAddIn
             applySettings();
 
         }
+
+        private string ParsePathFromStoreID(Store store)
+        {
+            //hidden mapi properties
+            //http://www.slipstick.com/developer/read-mapi-properties-exposed-outlooks-object-model/
+            //http://stackoverflow.com/questions/24552747/outlook-profile-pst-and-ost-file-location-using-mapi-in-delphi
+            //MSDN: http://msdn.microsoft.com/en-us/library/gg158290(v=winembedded.70).aspx
+            //http://msdn.microsoft.com/en-us/library/ee203516%28v=exchg.80%29.aspx
+            //VBA-Decode: http://www.pcreview.co.uk/forums/get-pst-file-path-string-t2965078.html
+            //http://msdn.microsoft.com/en-us/library/office/cc765630(v=office.15).aspx
+
+            //decode PR_STORE_ENTRYID
+            int SkipBytes = 58;
+            byte[] b = store.PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x0FFB0102");
+            //Last Bytes are for null terminating
+            byte[] b2 = new ArraySegment<byte>(b, SkipBytes, b.Length - SkipBytes - 2).ToArray<byte>();
+            string s = System.Text.UnicodeEncoding.Unicode.GetString(b2);
+
+            return s;
+        }
+
+
     }
 }

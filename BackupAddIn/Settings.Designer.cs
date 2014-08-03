@@ -31,6 +31,10 @@
             this.btnSpeichern = new System.Windows.Forms.Button();
             this.btnAbbrechen = new System.Windows.Forms.Button();
             this.gbSettings = new System.Windows.Forms.GroupBox();
+            this.txtSuffix = new System.Windows.Forms.TextBox();
+            this.lblSuffix = new System.Windows.Forms.Label();
+            this.txtPrefix = new System.Windows.Forms.TextBox();
+            this.lblBPrefix = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.txtLastBackup = new System.Windows.Forms.TextBox();
             this.lblLastBackup = new System.Windows.Forms.Label();
@@ -49,10 +53,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.folderBrowserdlg = new System.Windows.Forms.FolderBrowserDialog();
             this.fileOpenDialog = new System.Windows.Forms.OpenFileDialog();
-            this.txtPrefix = new System.Windows.Forms.TextBox();
-            this.lblBPrefix = new System.Windows.Forms.Label();
-            this.lblSuffix = new System.Windows.Forms.Label();
-            this.txtSuffix = new System.Windows.Forms.TextBox();
+            this.txtPostBackupCmd = new System.Windows.Forms.TextBox();
+            this.lblPostBackupCmd = new System.Windows.Forms.Label();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInterval)).BeginInit();
             this.SuspendLayout();
@@ -60,10 +62,10 @@
             // btnSpeichern
             // 
             this.btnSpeichern.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSpeichern.Location = new System.Drawing.Point(385, 351);
+            this.btnSpeichern.Location = new System.Drawing.Point(385, 394);
             this.btnSpeichern.Name = "btnSpeichern";
             this.btnSpeichern.Size = new System.Drawing.Size(75, 23);
-            this.btnSpeichern.TabIndex = 12;
+            this.btnSpeichern.TabIndex = 13;
             this.btnSpeichern.Text = "&Save";
             this.btnSpeichern.UseVisualStyleBackColor = true;
             this.btnSpeichern.Click += new System.EventHandler(this.btnSpeichern_click);
@@ -72,10 +74,10 @@
             // 
             this.btnAbbrechen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAbbrechen.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAbbrechen.Location = new System.Drawing.Point(304, 351);
+            this.btnAbbrechen.Location = new System.Drawing.Point(304, 394);
             this.btnAbbrechen.Name = "btnAbbrechen";
             this.btnAbbrechen.Size = new System.Drawing.Size(75, 23);
-            this.btnAbbrechen.TabIndex = 11;
+            this.btnAbbrechen.TabIndex = 12;
             this.btnAbbrechen.Text = "&Cancel";
             this.btnAbbrechen.UseVisualStyleBackColor = true;
             this.btnAbbrechen.Click += new System.EventHandler(this.btnAbbrechen_click);
@@ -85,6 +87,8 @@
             this.gbSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbSettings.Controls.Add(this.txtPostBackupCmd);
+            this.gbSettings.Controls.Add(this.lblPostBackupCmd);
             this.gbSettings.Controls.Add(this.txtSuffix);
             this.gbSettings.Controls.Add(this.lblSuffix);
             this.gbSettings.Controls.Add(this.txtPrefix);
@@ -106,15 +110,51 @@
             this.gbSettings.Controls.Add(this.lvStores);
             this.gbSettings.Location = new System.Drawing.Point(12, 10);
             this.gbSettings.Name = "gbSettings";
-            this.gbSettings.Size = new System.Drawing.Size(448, 335);
+            this.gbSettings.Size = new System.Drawing.Size(448, 378);
             this.gbSettings.TabIndex = 2;
             this.gbSettings.TabStop = false;
             this.gbSettings.Text = "Outlook-Files";
             // 
+            // txtSuffix
+            // 
+            this.txtSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSuffix.Location = new System.Drawing.Point(308, 322);
+            this.txtSuffix.Name = "txtSuffix";
+            this.txtSuffix.Size = new System.Drawing.Size(101, 20);
+            this.txtSuffix.TabIndex = 10;
+            // 
+            // lblSuffix
+            // 
+            this.lblSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSuffix.AutoSize = true;
+            this.lblSuffix.Location = new System.Drawing.Point(266, 325);
+            this.lblSuffix.Name = "lblSuffix";
+            this.lblSuffix.Size = new System.Drawing.Size(36, 13);
+            this.lblSuffix.TabIndex = 13;
+            this.lblSuffix.Text = "Suffix:";
+            // 
+            // txtPrefix
+            // 
+            this.txtPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtPrefix.Location = new System.Drawing.Point(131, 322);
+            this.txtPrefix.Name = "txtPrefix";
+            this.txtPrefix.Size = new System.Drawing.Size(101, 20);
+            this.txtPrefix.TabIndex = 9;
+            // 
+            // lblBPrefix
+            // 
+            this.lblBPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBPrefix.AutoSize = true;
+            this.lblBPrefix.Location = new System.Drawing.Point(11, 326);
+            this.lblBPrefix.Name = "lblBPrefix";
+            this.lblBPrefix.Size = new System.Drawing.Size(76, 13);
+            this.lblBPrefix.TabIndex = 11;
+            this.lblBPrefix.Text = "Backup Prefix:";
+            // 
             // btnReset
             // 
             this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReset.Location = new System.Drawing.Point(269, 229);
+            this.btnReset.Location = new System.Drawing.Point(269, 246);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(53, 20);
             this.btnReset.TabIndex = 4;
@@ -127,7 +167,7 @@
             this.txtLastBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLastBackup.Enabled = false;
-            this.txtLastBackup.Location = new System.Drawing.Point(131, 229);
+            this.txtLastBackup.Location = new System.Drawing.Point(131, 246);
             this.txtLastBackup.Name = "txtLastBackup";
             this.txtLastBackup.Size = new System.Drawing.Size(132, 20);
             this.txtLastBackup.TabIndex = 3;
@@ -136,7 +176,7 @@
             // 
             this.lblLastBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLastBackup.AutoSize = true;
-            this.lblLastBackup.Location = new System.Drawing.Point(11, 233);
+            this.lblLastBackup.Location = new System.Drawing.Point(11, 250);
             this.lblLastBackup.Name = "lblLastBackup";
             this.lblLastBackup.Size = new System.Drawing.Size(70, 13);
             this.lblLastBackup.TabIndex = 10;
@@ -146,7 +186,7 @@
             // 
             this.lblBackupAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblBackupAll.AutoSize = true;
-            this.lblBackupAll.Location = new System.Drawing.Point(11, 183);
+            this.lblBackupAll.Location = new System.Drawing.Point(11, 200);
             this.lblBackupAll.Name = "lblBackupAll";
             this.lblBackupAll.Size = new System.Drawing.Size(104, 13);
             this.lblBackupAll.TabIndex = 9;
@@ -157,7 +197,7 @@
             this.cbxBackupAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbxBackupAll.AutoSize = true;
             this.cbxBackupAll.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbxBackupAll.Location = new System.Drawing.Point(131, 182);
+            this.cbxBackupAll.Location = new System.Drawing.Point(131, 199);
             this.cbxBackupAll.Name = "cbxBackupAll";
             this.cbxBackupAll.Size = new System.Drawing.Size(15, 14);
             this.cbxBackupAll.TabIndex = 1;
@@ -168,7 +208,7 @@
             // 
             this.lblDays.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDays.AutoSize = true;
-            this.lblDays.Location = new System.Drawing.Point(187, 208);
+            this.lblDays.Location = new System.Drawing.Point(187, 225);
             this.lblDays.Name = "lblDays";
             this.lblDays.Size = new System.Drawing.Size(29, 13);
             this.lblDays.TabIndex = 7;
@@ -177,7 +217,7 @@
             // btnBackupSelect
             // 
             this.btnBackupSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBackupSelect.Location = new System.Drawing.Point(415, 278);
+            this.btnBackupSelect.Location = new System.Drawing.Point(415, 295);
             this.btnBackupSelect.Name = "btnBackupSelect";
             this.btnBackupSelect.Size = new System.Drawing.Size(24, 23);
             this.btnBackupSelect.TabIndex = 8;
@@ -189,7 +229,7 @@
             // 
             this.txtBackupExe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBackupExe.Location = new System.Drawing.Point(131, 279);
+            this.txtBackupExe.Location = new System.Drawing.Point(131, 296);
             this.txtBackupExe.Name = "txtBackupExe";
             this.txtBackupExe.Size = new System.Drawing.Size(278, 20);
             this.txtBackupExe.TabIndex = 7;
@@ -198,7 +238,7 @@
             // 
             this.lblBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblBackup.AutoSize = true;
-            this.lblBackup.Location = new System.Drawing.Point(11, 283);
+            this.lblBackup.Location = new System.Drawing.Point(11, 300);
             this.lblBackup.Name = "lblBackup";
             this.lblBackup.Size = new System.Drawing.Size(109, 13);
             this.lblBackup.TabIndex = 6;
@@ -207,7 +247,7 @@
             // numInterval
             // 
             this.numInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numInterval.Location = new System.Drawing.Point(131, 204);
+            this.numInterval.Location = new System.Drawing.Point(131, 221);
             this.numInterval.Maximum = new decimal(new int[] {
             31,
             0,
@@ -226,7 +266,7 @@
             // 
             this.lblInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblInterval.AutoSize = true;
-            this.lblInterval.Location = new System.Drawing.Point(11, 208);
+            this.lblInterval.Location = new System.Drawing.Point(11, 225);
             this.lblInterval.Name = "lblInterval";
             this.lblInterval.Size = new System.Drawing.Size(45, 13);
             this.lblInterval.TabIndex = 4;
@@ -235,7 +275,7 @@
             // btnDirSelect
             // 
             this.btnDirSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDirSelect.Location = new System.Drawing.Point(415, 253);
+            this.btnDirSelect.Location = new System.Drawing.Point(415, 270);
             this.btnDirSelect.Name = "btnDirSelect";
             this.btnDirSelect.Size = new System.Drawing.Size(24, 23);
             this.btnDirSelect.TabIndex = 6;
@@ -247,7 +287,7 @@
             // 
             this.txtDestination.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDestination.Location = new System.Drawing.Point(131, 254);
+            this.txtDestination.Location = new System.Drawing.Point(131, 271);
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.Size = new System.Drawing.Size(278, 20);
             this.txtDestination.TabIndex = 5;
@@ -256,7 +296,7 @@
             // 
             this.lblDestination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDestination.AutoSize = true;
-            this.lblDestination.Location = new System.Drawing.Point(11, 258);
+            this.lblDestination.Location = new System.Drawing.Point(11, 275);
             this.lblDestination.Name = "lblDestination";
             this.lblDestination.Size = new System.Drawing.Size(63, 13);
             this.lblDestination.TabIndex = 1;
@@ -276,10 +316,10 @@
             this.lvStores.FullRowSelect = true;
             this.lvStores.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lvStores.LabelWrap = false;
-            this.lvStores.Location = new System.Drawing.Point(14, 19);
+            this.lvStores.Location = new System.Drawing.Point(14, 14);
             this.lvStores.Name = "lvStores";
             this.lvStores.ShowGroups = false;
-            this.lvStores.Size = new System.Drawing.Size(419, 151);
+            this.lvStores.Size = new System.Drawing.Size(419, 172);
             this.lvStores.TabIndex = 0;
             this.lvStores.UseCompatibleStateImageBehavior = false;
             this.lvStores.View = System.Windows.Forms.View.Details;
@@ -295,41 +335,23 @@
             this.fileOpenDialog.Filter = "Executables|*.exe";
             this.fileOpenDialog.Title = "Select BackupExecutor.exe";
             // 
-            // txtPrefix
+            // txtPostBackupCmd
             // 
-            this.txtPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtPrefix.Location = new System.Drawing.Point(131, 305);
-            this.txtPrefix.Name = "txtPrefix";
-            this.txtPrefix.Size = new System.Drawing.Size(101, 20);
-            this.txtPrefix.TabIndex = 9;
+            this.txtPostBackupCmd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtPostBackupCmd.Location = new System.Drawing.Point(131, 349);
+            this.txtPostBackupCmd.Name = "txtPostBackupCmd";
+            this.txtPostBackupCmd.Size = new System.Drawing.Size(278, 20);
+            this.txtPostBackupCmd.TabIndex = 11;
             // 
-            // lblBPrefix
+            // lblPostBackupCmd
             // 
-            this.lblBPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblBPrefix.AutoSize = true;
-            this.lblBPrefix.Location = new System.Drawing.Point(11, 309);
-            this.lblBPrefix.Name = "lblBPrefix";
-            this.lblBPrefix.Size = new System.Drawing.Size(76, 13);
-            this.lblBPrefix.TabIndex = 11;
-            this.lblBPrefix.Text = "Backup Prefix:";
-            // 
-            // lblSuffix
-            // 
-            this.lblSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSuffix.AutoSize = true;
-            this.lblSuffix.Location = new System.Drawing.Point(266, 308);
-            this.lblSuffix.Name = "lblSuffix";
-            this.lblSuffix.Size = new System.Drawing.Size(36, 13);
-            this.lblSuffix.TabIndex = 13;
-            this.lblSuffix.Text = "Suffix:";
-            // 
-            // txtSuffix
-            // 
-            this.txtSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSuffix.Location = new System.Drawing.Point(308, 305);
-            this.txtSuffix.Name = "txtSuffix";
-            this.txtSuffix.Size = new System.Drawing.Size(101, 20);
-            this.txtSuffix.TabIndex = 10;
+            this.lblPostBackupCmd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPostBackupCmd.AutoSize = true;
+            this.lblPostBackupCmd.Location = new System.Drawing.Point(11, 353);
+            this.lblPostBackupCmd.Name = "lblPostBackupCmd";
+            this.lblPostBackupCmd.Size = new System.Drawing.Size(95, 13);
+            this.lblPostBackupCmd.TabIndex = 15;
+            this.lblPostBackupCmd.Text = "Post-Backup Cmd:";
             // 
             // FBackupSettings
             // 
@@ -337,7 +359,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnAbbrechen;
-            this.ClientSize = new System.Drawing.Size(472, 385);
+            this.ClientSize = new System.Drawing.Size(472, 428);
             this.ControlBox = false;
             this.Controls.Add(this.gbSettings);
             this.Controls.Add(this.btnAbbrechen);
@@ -384,5 +406,7 @@
         private System.Windows.Forms.Label lblSuffix;
         private System.Windows.Forms.TextBox txtPrefix;
         private System.Windows.Forms.Label lblBPrefix;
+        private System.Windows.Forms.TextBox txtPostBackupCmd;
+        private System.Windows.Forms.Label lblPostBackupCmd;
     }
 }

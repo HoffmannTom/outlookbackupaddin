@@ -109,11 +109,22 @@ namespace BackupExecutor
             String outlookPath;
             uint binaryType;
 
-            bool bRet = false; // Default value - assume 32-bit unless proven otherwise.
+            bool bRet = false; 
+            // Default value - assume 32-bit unless proven otherwise.
             // RegQueryStringValue second param is '' to get the (default) value for the key
             // with no sub-key name, as described at
             // http://stackoverflow.com/questions/913938/
-            outlookPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\OUTLOOK.EXE", "", null);
+
+            //better: http://support.microsoft.com/kb/240794
+            String clsid = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\Software\Classes\Outlook.Application\CLSID", "", null);
+
+            if (clsid == null)
+                throw new Exception("CLSID of outlook.application not found in registry!");
+
+            //outlookPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\OUTLOOK.EXE", "", null);
+            //--> Sometimes the app path is only stored on wow6432node 
+
+            outlookPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\Software\Classes\CLSID\" + clsid + @"\LocalServer32", "", null);
 
             if (outlookPath == null)
                 throw new Exception("No installed outlook found!");
@@ -125,8 +136,9 @@ namespace BackupExecutor
                     if (SafeNativeMethods.GetBinaryType(outlookPath, out binaryType))
                         bRet = (binaryType == SafeNativeMethods.SCS_64BIT_BINARY);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    //MessageBox.Show(e.Message);
                   // Ignore - better just to assume it's 32-bit than to let the installation
                   // fail.  This could fail because the GetBinaryType function is not
                   // available.  I understand it's only available in Windows 2000

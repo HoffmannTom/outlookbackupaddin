@@ -61,5 +61,10 @@ namespace BackupAddInCommon
         ///  Flag whether to backup all psd-files
         /// </summary>
         public bool BackupAll { get; set; }
+
+        /// <summary>
+        ///  Command to run after backup finished
+        /// </summary>
+        public string PostBackupCmd { get; set; }
     }
 }
