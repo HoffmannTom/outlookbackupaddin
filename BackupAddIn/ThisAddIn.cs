@@ -37,16 +37,13 @@ namespace BackupAddIn
                     if (config.BackupAll)
                     {
                         //If alles pdf-files should be saved, enumerate them and save to config-file
-                        Outlook.Application app = new Outlook.Application();
-                        Outlook.Stores st = app.GetNamespace("MAPI").Stores;
+                        //Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
                         config.Items.Clear();
-                        for (int i = 1; i <= st.Count; i++)
-                        {
-                            //Ignore http- and imap-stores
-                            if (st[i].FilePath != null)
-                                config.Items.Add(st[i].FilePath);
-                        }
-                        FBackupSettings.saveSettingsToFile(config);
+
+                        var list = BackupUtils.GetStoreLocations(config, Application.Session.Stores);
+                        config.Items.AddRange(list.ToArray());
+
+                        BackupUtils.saveSettingsToFile(config);
                     }
 
                     try
@@ -70,7 +67,7 @@ namespace BackupAddIn
         /// </summary>
         protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
         {
-            return new Ribbon();
+            return new Ribbon(this);
         }
 
         #region Von VSTO generierter Code
@@ -83,6 +80,11 @@ namespace BackupAddIn
         {
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
+        }
+
+        public Outlook.Application getApplication()
+        {
+            return Application;
         }
         
         #endregion

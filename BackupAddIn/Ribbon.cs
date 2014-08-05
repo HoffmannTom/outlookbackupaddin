@@ -38,12 +38,15 @@ namespace BackupAddIn
     public class Ribbon : Office.IRibbonExtensibility
     {
         private Office.IRibbonUI ribbon;
+        //private Microsoft.Office.Interop.Outlook.Application app;
+        ThisAddIn addin;
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        public Ribbon()
+        public Ribbon(ThisAddIn a)
         {
+            addin = a;
         }
         
         #region IRibbonExtensibility-Member
@@ -74,13 +77,13 @@ namespace BackupAddIn
         /// </summary>
         public void OpenBackupSettings(Office.IRibbonControl control)
         {
-            Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+            //Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
             //NameSpace outlookNs = app.GetNamespace("MAPI");
 
             FBackupSettings frm = new FBackupSettings();
             //frm.setStores(outlookNs.Stores);
 
-            frm.setStores(app.Session.Stores);
+            frm.setStores(addin.getApplication().Session.Stores);
             frm.ShowDialog();
         }
 

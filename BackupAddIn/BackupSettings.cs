@@ -66,5 +66,10 @@ namespace BackupAddInCommon
         ///  Command to run after backup finished
         /// </summary>
         public string PostBackupCmd { get; set; }
+
+        /// <summary>
+        ///  Try to decode path to OST-files
+        /// </summary>
+        public bool ShowOSTFiles { get; set; }
     }
 }
