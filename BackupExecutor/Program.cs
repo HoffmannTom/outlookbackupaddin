@@ -54,7 +54,11 @@ namespace BackupExecutor
             }
             else if (args[0] == "/register")
             {
-                RetCode = registerPlugin() ? 0 : 1;
+                RetCode = registerPlugin(true) ? 0 : 1;
+            }
+            else if (args[0] == "/registersetup")
+            {
+                RetCode = registerPlugin(false) ? 0 : 1;
             }
             else if (args[0] == "/unregister")
             {
@@ -157,6 +161,14 @@ namespace BackupExecutor
                 //--> Sometimes the app path is only stored on wow6432node 
 
                 sPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\Software\Classes\CLSID\" + clsid + @"\LocalServer32", "", null);
+                if (String.IsNullOrEmpty(sPath) && Environment.Is64BitOperatingSystem)
+                {
+                    //if it is Office64 on Win64, try 64-Bit Key (current programm running with 32-Bit):
+                    RegistryKey  tmpKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
+                    tmpKey = tmpKey.OpenSubKey(@"Software\Classes\CLSID\" + clsid + @"\LocalServer32");
+                    if (tmpKey != null)
+                        sPath = (string)tmpKey.GetValue("");
+                }
             }
 
             if (String.IsNullOrEmpty(sPath))
@@ -205,7 +217,7 @@ namespace BackupExecutor
         ///  Create registry settings for outlook plugin and copy files to installation folder
         ///  depending on bit-ness
         /// </summary>
-        private static bool registerPlugin()
+        private static bool registerPlugin(bool sendRet)
         {
             SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
             try
@@ -238,7 +250,10 @@ namespace BackupExecutor
             }
             finally
             {
-                SendKeys.SendWait("{ENTER}");
+                //within DOS mode it needs a return to get back the prompt
+                //when sent in setup-mode, install shield interrupts installation
+                if (sendRet)
+                    SendKeys.SendWait("{ENTER}");
                 SafeNativeMethods.FreeConsole();
             }
             return true;

@@ -1075,7 +1075,7 @@
 		<row><td>ISSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFiles</td><td/><td/></row>
 		<row><td>ISSelfRegisterFinalize</td><td>1</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFinalize</td><td/><td/></row>
 		<row><td>ISUnSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISUnSelfRegisterFiles</td><td/><td/></row>
-		<row><td>RegisterPlugin</td><td>3090</td><td>backupexecutor.primary_outpu</td><td>/register</td><td/><td/></row>
+		<row><td>RegisterPlugin</td><td>3154</td><td>backupexecutor.primary_outpu</td><td>/registersetup</td><td/><td/></row>
 		<row><td>SetARPINSTALLLOCATION</td><td>51</td><td>ARPINSTALLLOCATION</td><td>[INSTALLDIR]</td><td/><td/></row>
 		<row><td>SetAllUsersProfileNT</td><td>51</td><td>ALLUSERSPROFILE</td><td>[%SystemRoot]\Profiles\All Users</td><td/><td/></row>
 		<row><td>ShowMsiLog</td><td>226</td><td>SystemFolder</td><td>[SystemFolder]notepad.exe "[MsiLogFileLocation]"</td><td/><td>Shows Property-driven MSI Log</td></row>
@@ -2675,7 +2675,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1151416115</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>-2078126880</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
@@ -3776,10 +3776,10 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-207542602</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>-207542602</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.Codeplex.com</td><td>0</td><td/><td>1151416115</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.Codeplex.com</td><td>0</td><td/><td>-2078126880</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>https://outlookbackupaddin.codeplex.com/workitem/list/basic</td><td>0</td><td/><td>-207517898</td></row>
-		<row><td>ID_STRING4</td><td>1033</td><td>http://www.Codeplex.comdocumentation</td><td>0</td><td/><td>1151416115</td></row>
-		<row><td>ID_STRING5</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>1151416115</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>http://www.Codeplex.com/documentation</td><td>0</td><td/><td>-2078125279</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Codeplex</td><td>0</td><td/><td>-2078126880</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-207542602</td></row>
 	</table>
 
@@ -4022,7 +4022,7 @@ QwBEAF8AUgBPAE0AAQBFAHgAcAByAGUAcwBzAA==
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{CADC0109-ABF0-43DE-BB49-7FA2A0B8EF66}</td></row>
 		<row><td>ISUSSignature</td><td>{9E36052E-62D7-4F62-8259-854681610D9E}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewObjects,viewRelease,viewISToday,viewTextMessages,viewAppV,viewRealSetupDesign,viewSetupDesign,viewSetupTypes,viewUpgradePaths,viewUpdateService,viewFeatureFiles,viewDependencies,viewCE,viewUI,viewVRoots,viewInstallScriptStd,viewAppFiles,viewRegistry,viewCustomActions,viewSystemSearch,viewSupportFiles,viewSQLServer</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewObjects,viewRelease,viewISToday,viewTextMessages,viewAppV,viewRealSetupDesign,viewSetupDesign,viewSetupTypes,viewUpgradePaths,viewUpdateService,viewFeatureFiles,viewDependencies,viewCE,viewUI,viewVRoots,viewInstallScriptStd,viewAppFiles,viewRegistry,viewCustomActions,viewSystemSearch,viewSupportFiles,viewSQLServer,viewShortcuts</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
