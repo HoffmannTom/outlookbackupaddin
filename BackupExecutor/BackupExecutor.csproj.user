@@ -18,7 +18,6 @@
     </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <StartArguments>
-    </StartArguments>
+    <StartArguments>/register</StartArguments>
   </PropertyGroup>
 </Project>

@@ -28,6 +28,7 @@ namespace BackupExecutor
 
     static class Program
     {
+        static String outlookPath;
 
         public static bool IsElevated
         {
@@ -106,28 +107,14 @@ namespace BackupExecutor
         /// </summary>
         private static bool Is64BitOutlookFromRegisteredExe()
         {
-            String outlookPath;
             uint binaryType;
+            bool bRet = false;
 
-            bool bRet = false; 
-            // Default value - assume 32-bit unless proven otherwise.
-            // RegQueryStringValue second param is '' to get the (default) value for the key
-            // with no sub-key name, as described at
-            // http://stackoverflow.com/questions/913938/
+            if (String.IsNullOrEmpty(outlookPath))
+                outlookPath = getOutlookPath();
 
-            //better: http://support.microsoft.com/kb/240794
-            String clsid = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\Software\Classes\Outlook.Application\CLSID", "", null);
-
-            if (clsid == null)
-                throw new Exception("CLSID of outlook.application not found in registry!");
-
-            //outlookPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\OUTLOOK.EXE", "", null);
-            //--> Sometimes the app path is only stored on wow6432node 
-
-            outlookPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\Software\Classes\CLSID\" + clsid + @"\LocalServer32", "", null);
-
-            if (outlookPath == null)
-                throw new Exception("No installed outlook found!");
+            if (String.IsNullOrEmpty(outlookPath))
+                throw new Exception("Outlook not found!");
 
             if (Environment.Is64BitOperatingSystem)
             {
@@ -147,6 +134,46 @@ namespace BackupExecutor
             }
 
             return bRet;
+        }
+
+        /// <summary>
+        ///  Try to evaluate the outlook path. If it fails, choose manually
+        /// </summary>
+        private static string getOutlookPath()
+        {
+            String sPath = "";
+
+            // Default value - assume 32-bit unless proven otherwise.
+            // RegQueryStringValue second param is '' to get the (default) value for the key
+            // with no sub-key name, as described at
+            // http://stackoverflow.com/questions/913938/
+
+            //better: http://support.microsoft.com/kb/240794
+            String clsid = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\Software\Classes\Outlook.Application\CLSID", "", null);
+
+            if (clsid != null)
+            {
+                //outlookPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\OUTLOOK.EXE", "", null);
+                //--> Sometimes the app path is only stored on wow6432node 
+
+                sPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\Software\Classes\CLSID\" + clsid + @"\LocalServer32", "", null);
+            }
+
+            if (String.IsNullOrEmpty(sPath))
+            {
+                OpenFileDialog odlg = new OpenFileDialog();
+                odlg.DefaultExt = ".exe";
+                odlg.CheckFileExists = true;
+                odlg.Filter = "Outlook.exe|outlook.exe";
+                odlg.Title = "Please select outlook.exe from the installation folder";
+                if (odlg.ShowDialog() == DialogResult.OK)
+                {
+                    sPath = odlg.FileName;
+                }
+            }
+
+            //                throw new Exception("CLSID of outlook.application not found in registry!");
+            return sPath;
         }
 
         /* //depends on office version!
@@ -198,7 +225,7 @@ namespace BackupExecutor
                 tmpKey.SetValue("LoadBehavior", 3, RegistryValueKind.DWord);
 
                 if (Is64BitOutlookFromRegisteredExe())
-                    copySubfolder(sDir, "64");
+                     copySubfolder(sDir, "64");
                 else copySubfolder(sDir, "32");
             }
             catch (Exception e)

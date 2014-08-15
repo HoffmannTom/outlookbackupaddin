@@ -291,7 +291,13 @@ namespace BackupExecutor
             finally
             {
                 if (stream != null)
+                {
                     stream.Close();
+                    //get sure to close all handles (also own one)
+                    stream.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                }
             }
 
             //file is not locked
