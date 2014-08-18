@@ -10,6 +10,7 @@ Version 1.3
 - Added manual selection of outlook.exe if it fails via registry
   (default search path is HKLM\Software\Classes\Outlook.Application\CLSID and
    HKLM\Software\Classes\CLSID\<clsid>\LocalServer32)
+- Added check whether source-file and destination is the same (file will be skipped during backup)
 
 
 Version 1.2

@@ -147,14 +147,24 @@ namespace BackupExecutor
             if (!sPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
                 sPath += Path.DirectorySeparatorChar;
 
+            String sDst;
             foreach (String item in config.Items)
             {
                 try
                 {
                     log("copy " + item + " to " + config.DestinationPath);
                     WaitForFile(item, log);
-                    File.Copy(item, sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix, true);
-                    iSuccess++;
+                    sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix;
+                    if (item.Equals(sDst))
+                    {
+                        log("Can't copy file on it's own, skipping: " + item);
+                        iError++;
+                    }
+                    else
+                    {
+                        File.Copy(item, sDst, true);
+                        iSuccess++;
+                    }
                 }
                 catch (Exception e)
                 {
