@@ -190,6 +190,16 @@
   <ItemGroup>
     <Compile Include="BackupSettings.cs" />
     <Compile Include="BackupUtils.cs" />
+    <Compile Include="lang\langres.de.Designer.cs">
+      <DependentUpon>langres.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="lang\langres.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>langres.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +209,17 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="lang\langres.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>langres.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lang\langres.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>langres.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.de.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>

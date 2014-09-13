@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -40,12 +41,14 @@ namespace BackupAddIn
         private Office.IRibbonUI ribbon;
         //private Microsoft.Office.Interop.Outlook.Application app;
         ThisAddIn addin;
+        ResourceManager rm;
 
         /// <summary>
         /// Default constructor
         /// </summary>
         public Ribbon(ThisAddIn a)
         {
+            rm = new ResourceManager("BackupAddIn.lang.langres", typeof(Ribbon).Assembly);
             addin = a;
         }
         
@@ -88,6 +91,24 @@ namespace BackupAddIn
         }
 
         #endregion
+
+        public string GetLabel(Office.IRibbonControl Control)
+        {
+            string result = null;
+            switch (Control.Id)
+            {
+                case "btnBackupSettings":
+                    result = rm.GetString("RibbonSettings");
+                    break;
+                case "ribTabBackup":
+                    result = rm.GetString("RibbonTabBackup");
+                    break;
+                case "ribBtnBackup":
+                    result = rm.GetString("RibbonButtonBackup");
+                    break;
+            }
+            return result;
+        }
 
         #region Hilfsprogramme
 
