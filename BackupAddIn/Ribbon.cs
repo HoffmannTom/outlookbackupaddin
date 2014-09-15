@@ -92,6 +92,9 @@ namespace BackupAddIn
 
         #endregion
 
+        /// <summary>
+        /// Fetches the labels for the ribbon bar
+        /// </summary>
         public string GetLabel(Office.IRibbonControl Control)
         {
             string result = null;

@@ -302,7 +302,7 @@ namespace BackupExecutor
             {
                 if (stream != null)
                 {
-                    stream.Close();
+                    //stream.Close();
                     //get sure to close all handles (also own one)
                     stream.Dispose();
                     stream = null;

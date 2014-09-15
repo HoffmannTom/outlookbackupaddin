@@ -237,8 +237,8 @@ namespace BackupExecutor
                 tmpKey.SetValue("LoadBehavior", 3, RegistryValueKind.DWord);
 
                 if (Is64BitOutlookFromRegisteredExe())
-                     copySubfolder(sDir, "64");
-                else copySubfolder(sDir, "32");
+                     DirectoryCopy(Path.Combine(sDir, "64"), sDir, true);
+                else DirectoryCopy(Path.Combine(sDir, "32"), sDir, true);
             }
             catch (Exception e)
             {
@@ -262,11 +262,55 @@ namespace BackupExecutor
         /// <summary>
         ///  copy files from subfolder to main folder
         /// </summary>
-        private static void copySubfolder(string sBase, string sSub)
+        private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
         {
+            /*
             Directory.GetFiles(sBase + sSub).ToList().ForEach(
                 f => File.Copy(f, sBase + Path.GetFileName(f), true)
                 );
+             */
+            // Get the subdirectories for the specified directory.
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            if (!dir.Exists)
+            {
+                throw new DirectoryNotFoundException(
+                    "Source directory does not exist or could not be found: "
+                    + sourceDirName);
+            }
+
+            // If the destination directory doesn't exist, create it.
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            // Get the files in the directory and copy them to the new location.
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string temppath = Path.Combine(destDirName, file.Name);
+                try
+                {
+                    file.CopyTo(temppath, true);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error copying (" + e.Message + "): " + file.Name + " to " + temppath);
+                }
+            }
+
+            // If copying subdirectories, copy them and their contents to new location.
+            if (copySubDirs)
+            {
+                foreach (DirectoryInfo subdir in dirs)
+                {
+                    string temppath = Path.Combine(destDirName, subdir.Name);
+                    DirectoryCopy(subdir.FullName, temppath, copySubDirs);
+                }
+            }
+
         }
 
         /// <summary>

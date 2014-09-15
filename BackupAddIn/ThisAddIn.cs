@@ -87,6 +87,9 @@ namespace BackupAddIn
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
 
+        /// <summary>
+        /// returns the instance of the outlook application.
+        /// </summary>
         public Outlook.Application getApplication()
         {
             return Application;
