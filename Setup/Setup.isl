@@ -344,6 +344,10 @@
 		<row><td>BackupAddIn.dll1</td><td>{BFAE5EF1-81DC-417F-9C62-B51D617A051A}</td><td>_4</td><td>2</td><td/><td>backupaddin.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>BackupAddIn.resources.dll</td><td>{4EE9A803-B36E-4E08-B7B6-5C3925871BF9}</td><td>DE</td><td>2</td><td/><td>backupaddin.resources.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>BackupAddIn.resources.dll1</td><td>{E1C87068-3193-433E-8A04-7C1A859FD967}</td><td>DE1</td><td>2</td><td/><td>backupaddin.resources.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BackupAddIn.resources.dll2</td><td>{23DAFB07-648E-46A4-B24D-D9DB29336690}</td><td>ES</td><td>2</td><td/><td>backupaddin.resources.dll2</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BackupAddIn.resources.dll3</td><td>{D9B5DEBF-FF38-4CD0-9AD4-5D0D02A263A6}</td><td>ES1</td><td>2</td><td/><td>backupaddin.resources.dll3</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BackupAddIn.resources.dll4</td><td>{2C06DA22-F2DD-40D2-AE84-CFC5DD7C2070}</td><td>FR</td><td>2</td><td/><td>backupaddin.resources.dll4</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BackupAddIn.resources.dll5</td><td>{14B71DE5-8C51-4E78-803F-42A364D5A071}</td><td>FR1</td><td>2</td><td/><td>backupaddin.resources.dll5</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>BackupExecutor.Primary_output</td><td>{56B7D955-7B1D-421D-BE55-5F76C51D2CBA}</td><td>INSTALLDIR</td><td>2</td><td/><td>backupexecutor.primary_outpu</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISO19770_LocalTag</td><td>{8CFB28A1-0CA8-4847-AC1C-CCEB62A19622}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISO19770_SystemTag</td><td>{1BA76D9A-A5BA-4482-8390-97F946A628AF}</td><td>CommonAppDataFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -352,6 +356,10 @@
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{05C19A09-322D-44D7-97BD-0DCE6981168D}</td><td>_4</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{0749148B-7F53-47BD-82B2-266A8373BCD8}</td><td>DE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{CE07CFCD-7525-45B5-9613-A66A1193605C}</td><td>DE1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{34A023AD-5370-4D80-A1EB-A1AB1068DC05}</td><td>ES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{10B8F5C7-35EE-4BAC-B3CA-34E58DB22F32}</td><td>ES1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT7</td><td>{F6B038FD-0CC3-4BC5-9252-317FB03315A3}</td><td>FR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT8</td><td>{CCB06D6A-2199-42FF-A955-E76A71289CCB}</td><td>FR1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1063,6 +1071,10 @@
 		<row><td>CommonAppDataFolder</td><td>ISO19770_SystemTag</td></row>
 		<row><td>DE</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>DE1</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>ES</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>ES1</td><td>ISX_DEFAULTCOMPONENT6</td></row>
+		<row><td>FR</td><td>ISX_DEFAULTCOMPONENT7</td></row>
+		<row><td>FR1</td><td>ISX_DEFAULTCOMPONENT8</td></row>
 		<row><td>INSTALLDIR</td><td>ISO19770_LocalTag</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 	</table>
@@ -1155,6 +1167,10 @@
 		<row><td>DE</td><td>_4</td><td>de</td><td/><td>0</td><td/></row>
 		<row><td>DE1</td><td>_2</td><td>de</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
+		<row><td>ES</td><td>_4</td><td>es</td><td/><td>0</td><td/></row>
+		<row><td>ES1</td><td>_2</td><td>es</td><td/><td>0</td><td/></row>
+		<row><td>FR</td><td>_4</td><td>fr</td><td/><td>0</td><td/></row>
+		<row><td>FR1</td><td>_2</td><td>fr</td><td/><td>0</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
@@ -1885,12 +1901,20 @@
 		<row><td>AlwaysInstall</td><td>BackupAddIn.dll1</td></row>
 		<row><td>AlwaysInstall</td><td>BackupAddIn.resources.dll</td></row>
 		<row><td>AlwaysInstall</td><td>BackupAddIn.resources.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>BackupAddIn.resources.dll2</td></row>
+		<row><td>AlwaysInstall</td><td>BackupAddIn.resources.dll3</td></row>
+		<row><td>AlwaysInstall</td><td>BackupAddIn.resources.dll4</td></row>
+		<row><td>AlwaysInstall</td><td>BackupAddIn.resources.dll5</td></row>
 		<row><td>AlwaysInstall</td><td>BackupExecutor.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT6</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT7</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT8</td></row>
 	</table>
 
 	<table name="File">
@@ -1912,6 +1936,10 @@
 		<row><td>backupaddin.primary_output</td><td>BackupAddIn.Primary_output</td><td>BackupAddIn.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;BackupAddIn&gt;|Built</td><td>3</td><td/></row>
 		<row><td>backupaddin.resources.dll</td><td>BackupAddIn.resources.dll</td><td>BACKUP~1.DLL|BackupAddIn.resources.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\obj\x64\Release\de\BackupAddIn.resources.dll</td><td>1</td><td/></row>
 		<row><td>backupaddin.resources.dll1</td><td>BackupAddIn.resources.dll1</td><td>BACKUP~1.DLL|BackupAddIn.resources.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\obj\x86\Release\de\BackupAddIn.resources.dll</td><td>1</td><td/></row>
+		<row><td>backupaddin.resources.dll2</td><td>BackupAddIn.resources.dll2</td><td>BACKUP~1.DLL|BackupAddIn.resources.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x64\Release\es\BackupAddIn.resources.dll</td><td>1</td><td/></row>
+		<row><td>backupaddin.resources.dll3</td><td>BackupAddIn.resources.dll3</td><td>BACKUP~1.DLL|BackupAddIn.resources.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x86\Release\es\BackupAddIn.resources.dll</td><td>1</td><td/></row>
+		<row><td>backupaddin.resources.dll4</td><td>BackupAddIn.resources.dll4</td><td>BACKUP~1.DLL|BackupAddIn.resources.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x64\Release\fr\BackupAddIn.resources.dll</td><td>1</td><td/></row>
+		<row><td>backupaddin.resources.dll5</td><td>BackupAddIn.resources.dll5</td><td>BACKUP~1.DLL|BackupAddIn.resources.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x86\Release\fr\BackupAddIn.resources.dll</td><td>1</td><td/></row>
 		<row><td>backupaddin.vsto</td><td>ISX_DEFAULTCOMPONENT1</td><td>BACKUP~1.VST|BackupAddIn.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x86\Release\BackupAddIn.vsto</td><td>1</td><td/></row>
 		<row><td>backupaddin.vsto1</td><td>ISX_DEFAULTCOMPONENT2</td><td>BACKUP~1.VST|BackupAddIn.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\bin\x64\Release\BackupAddIn.vsto</td><td>1</td><td/></row>
 		<row><td>backupexecutor.primary_outpu</td><td>BackupExecutor.Primary_output</td><td>BackupExecutor.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;BackupExecutor&gt;|Built</td><td>3</td><td/></row>
@@ -2064,6 +2092,10 @@
 		<row><td>BackupAddIn.dll1</td><td/><td/><td>_463D3D08_1CBF_461D_877B_764632E290C0_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>BackupAddIn.resources.dll</td><td/><td/><td>_AE89094B_5D89_43D3_9F7D_617A920AEF01_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>BackupAddIn.resources.dll1</td><td/><td/><td>_C1B4C45C_C776_4577_AED6_6F03540935A6_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BackupAddIn.resources.dll2</td><td/><td/><td>_948E3489_6F98_4B2B_9A6B_69ECCF46564D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BackupAddIn.resources.dll3</td><td/><td/><td>_6B9783C1_4256_48C1_9E30_F0495CD4578D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BackupAddIn.resources.dll4</td><td/><td/><td>_965EE658_B7BE_4F35_AE12_E6B8560B612A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BackupAddIn.resources.dll5</td><td/><td/><td>_CCC7F0A3_0141_4AE5_A71E_2E1D86C4F504_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>BackupExecutor.Primary_output</td><td/><td/><td>_560D8AA9_DCD4_4327_BD8E_C1C9B6E28802_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISO19770_LocalTag</td><td/><td/><td>_FA59822E_E4C3_4BE8_BE25_A071271369C0_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISO19770_SystemTag</td><td/><td/><td>_C258EC78_F687_463F_AB33_441CA9085F03_FILTER</td><td/><td/><td/><td/></row>
@@ -2072,6 +2104,10 @@
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_7BB9BFF4_166C_49C1_AFE3_A039F3D4673C_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_A79641C5_50C2_4C49_AB5F_508669B506FC_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_B92B22FE_15AC_4F2A_8BE9_9ABB30E172AE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_B12A5A7C_8E0B_4E22_9302_ACE53B65E79C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_B8EE2789_ADDF_4F0B_8ABF_6129C5B15F9E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT7</td><td/><td/><td>_FC4AB119_644C_418E_9F0A_6A3630839251_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT8</td><td/><td/><td>_90AA7A0C_8176_4196_A5D6_6BA7232F8DE5_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">

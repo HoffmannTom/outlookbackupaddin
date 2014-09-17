@@ -190,6 +190,16 @@
   <ItemGroup>
     <Compile Include="BackupSettings.cs" />
     <Compile Include="BackupUtils.cs" />
+    <Compile Include="lang\langres.fr.Designer.cs">
+      <DependentUpon>langres.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="lang\langres.es.Designer.cs">
+      <DependentUpon>langres.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="lang\langres.de.Designer.cs">
       <DependentUpon>langres.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -209,6 +219,14 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="lang\langres.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>langres.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lang\langres.es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>langres.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="lang\langres.de.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>langres.de.Designer.cs</LastGenOutput>
@@ -218,6 +236,12 @@
       <LastGenOutput>langres.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.de.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.es.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.fr.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">

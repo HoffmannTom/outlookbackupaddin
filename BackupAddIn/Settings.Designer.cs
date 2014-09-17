@@ -32,11 +32,11 @@
             this.btnSpeichern = new System.Windows.Forms.Button();
             this.btnAbbrechen = new System.Windows.Forms.Button();
             this.gbSettings = new System.Windows.Forms.GroupBox();
+            this.cbxBackupAll = new System.Windows.Forms.CheckBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.txtLastBackup = new System.Windows.Forms.TextBox();
             this.lblLastBackup = new System.Windows.Forms.Label();
             this.lblBackupAll = new System.Windows.Forms.Label();
-            this.cbxBackupAll = new System.Windows.Forms.CheckBox();
             this.lblDays = new System.Windows.Forms.Label();
             this.btnBackupSelect = new System.Windows.Forms.Button();
             this.txtBackupExe = new System.Windows.Forms.TextBox();
@@ -80,11 +80,11 @@
             // gbSettings
             // 
             resources.ApplyResources(this.gbSettings, "gbSettings");
+            this.gbSettings.Controls.Add(this.cbxBackupAll);
             this.gbSettings.Controls.Add(this.btnReset);
             this.gbSettings.Controls.Add(this.txtLastBackup);
             this.gbSettings.Controls.Add(this.lblLastBackup);
             this.gbSettings.Controls.Add(this.lblBackupAll);
-            this.gbSettings.Controls.Add(this.cbxBackupAll);
             this.gbSettings.Controls.Add(this.lblDays);
             this.gbSettings.Controls.Add(this.btnBackupSelect);
             this.gbSettings.Controls.Add(this.txtBackupExe);
@@ -97,6 +97,13 @@
             this.gbSettings.Controls.Add(this.lvStores);
             this.gbSettings.Name = "gbSettings";
             this.gbSettings.TabStop = false;
+            // 
+            // cbxBackupAll
+            // 
+            resources.ApplyResources(this.cbxBackupAll, "cbxBackupAll");
+            this.cbxBackupAll.Name = "cbxBackupAll";
+            this.cbxBackupAll.UseVisualStyleBackColor = true;
+            this.cbxBackupAll.CheckedChanged += new System.EventHandler(this.cbxBackupAll_CheckedChanged);
             // 
             // btnReset
             // 
@@ -119,13 +126,6 @@
             // 
             resources.ApplyResources(this.lblBackupAll, "lblBackupAll");
             this.lblBackupAll.Name = "lblBackupAll";
-            // 
-            // cbxBackupAll
-            // 
-            resources.ApplyResources(this.cbxBackupAll, "cbxBackupAll");
-            this.cbxBackupAll.Name = "cbxBackupAll";
-            this.cbxBackupAll.UseVisualStyleBackColor = true;
-            this.cbxBackupAll.CheckedChanged += new System.EventHandler(this.cbxBackupAll_CheckedChanged);
             // 
             // lblDays
             // 
@@ -204,6 +204,10 @@
             // columnHeader1
             // 
             resources.ApplyResources(this.columnHeader1, "columnHeader1");
+            // 
+            // folderBrowserdlg
+            // 
+            resources.ApplyResources(this.folderBrowserdlg, "folderBrowserdlg");
             // 
             // fileOpenDialog
             // 
