@@ -48,6 +48,11 @@ namespace BackupAddInCommon
         public StringCollection Items;
 
         /// <summary>
+        ///  Wait time when file is locked
+        /// </summary>
+        public int WaitTimeFileLock = 500;
+
+        /// <summary>
         ///  Prefix for filename of backup
         /// </summary>
         public string BackupPrefix  { get; set; }

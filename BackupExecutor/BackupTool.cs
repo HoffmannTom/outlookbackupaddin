@@ -153,7 +153,7 @@ namespace BackupExecutor
                 try
                 {
                     log("copy " + item + " to " + config.DestinationPath);
-                    WaitForFile(item, log);
+                    WaitForFile(item, log, config.WaitTimeFileLock);
                     sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix;
                     if (item.Equals(sDst))
                     {
@@ -188,13 +188,13 @@ namespace BackupExecutor
         /// <param name="item">filename including path</param>
         /// <param name="log">logging delegate to send error information</param>
         /// <returns></returns>
-        private static bool WaitForFile(string item, Logger log)
+        private static bool WaitForFile(string item, Logger log, int waittime = 500)
         {
             int i = 0;
             FileInfo fi = new FileInfo(item);
             while (IsFileLocked(fi, log) && i < 10)
             {
-                Thread.Sleep(500);
+                Thread.Sleep(waittime);
                 i++;
             }
 
