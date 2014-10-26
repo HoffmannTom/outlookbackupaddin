@@ -127,7 +127,7 @@ namespace BackupExecutor
                     if (SafeNativeMethods.GetBinaryType(outlookPath, out binaryType))
                         bRet = (binaryType == SafeNativeMethods.SCS_64BIT_BINARY);
                 }
-                catch (Exception e)
+                catch (Exception /*e*/)
                 {
                     //MessageBox.Show(e.Message);
                   // Ignore - better just to assume it's 32-bit than to let the installation

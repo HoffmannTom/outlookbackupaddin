@@ -1,7 +1,7 @@
 Version 1.4
 - Added support for multilanguage GUI
 - Separated mandatory and optional settings
-
+- Added parameter for lock wait time "WaitTimeFileLock" (manual editing of the config file needed)
 
 Version 1.3
 - Added button in config-window to reset the last backup-time (this will trigger the backup after closing outlook)

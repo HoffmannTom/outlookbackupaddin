@@ -187,6 +187,7 @@ namespace BackupExecutor
         /// </summary>
         /// <param name="item">filename including path</param>
         /// <param name="log">logging delegate to send error information</param>
+        /// <param name="waittime">wait time if file is locked</param>
         /// <returns></returns>
         private static bool WaitForFile(string item, Logger log, int waittime = 500)
         {
