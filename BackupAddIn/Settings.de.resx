@@ -140,7 +140,7 @@
     <value>121, 13</value>
   </data>
   <data name="lblBackupAll.Text" xml:space="preserve">
-    <value>Alle psd-Dateien sichen:</value>
+    <value>Alle pst-Dateien sichen:</value>
   </data>
   <data name="cbxBackupAll.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 189</value>

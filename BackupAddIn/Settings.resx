@@ -256,7 +256,7 @@
     <value>4</value>
   </data>
   <data name="lblBackupAll.Text" xml:space="preserve">
-    <value>Backup all psd-Files:</value>
+    <value>Backup all pst-Files:</value>
   </data>
   <data name="lblBackup.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
