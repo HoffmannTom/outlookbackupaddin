@@ -1,3 +1,7 @@
+Version 1.5
+- corrected typo (pst-files)
+- Changed some labels on the settings window
+
 Version 1.4
 - Added support for multilanguage GUI
 - Separated mandatory and optional settings
