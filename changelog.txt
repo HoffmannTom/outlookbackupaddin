@@ -1,9 +1,7 @@
-Version 1.5
+Version 1.4
 - corrected typo (pst-files)
 - Changed some labels on the settings window
 - Backup is now executed async from the main thread. Thus window will be responsive during work.
-
-Version 1.4
 - Added support for multilanguage GUI
 - Separated mandatory and optional settings
 - Added parameter for lock wait time "WaitTimeFileLock" (manual editing of the config file needed)
