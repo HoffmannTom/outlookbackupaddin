@@ -2,6 +2,8 @@
 using BackupAddInCommon;
 using System;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Threading;
 
 
 namespace BackupExecutor
@@ -11,18 +13,24 @@ namespace BackupExecutor
     /// </summary>
     public partial class frmMain : Form
     {
+        private SynchronizationContext m_SynchronizationContext;
         /// <summary>
         ///  Default constructor
         /// </summary>
         public frmMain()
         {
             InitializeComponent();
+            m_SynchronizationContext = SynchronizationContext.Current;
         }
 
         private void LogToScreen(String s)
         {
-            txtLog.Text += s + Environment.NewLine;
-            txtLog.Refresh();
+            m_SynchronizationContext.Post((@object) =>
+            {
+                String s2 = (String)@object;
+                txtLog.Text += s2 + Environment.NewLine;
+                txtLog.Refresh();
+            }, s);
         }
 
         /// <summary>
@@ -34,20 +42,29 @@ namespace BackupExecutor
 
             this.Show();
 
-            int iError = 0;
-            BackupSettings config = BackupTool.getSettings();
+            startAsyncWork();
+        }
 
-            if (config != null && config.LastRun == null)
+        private async void startAsyncWork()
+        {
+            Console.WriteLine("DoWork Starting");
+            await Task.Run(() =>
             {
-                iError = BackupTool.tryBackup(config, LogToScreen);
-            }
-            else if (config != null && config.LastRun.AddDays(config.Interval) <= DateTime.Now)
-            {
-                iError = BackupTool.tryBackup(config, LogToScreen);
-            }
+                int iError = 0;
+                BackupSettings config = BackupTool.getSettings();
 
-            if (iError == 0)
-                Application.Exit();
+                if (config != null && config.LastRun == null)
+                {
+                    iError = BackupTool.tryBackup(config, LogToScreen);
+                }
+                else if (config != null && config.LastRun.AddDays(config.Interval) <= DateTime.Now)
+                {
+                    iError = BackupTool.tryBackup(config, LogToScreen);
+                }
+
+                if (iError == 0)
+                    Application.Exit();
+            });
         }
 
     }
