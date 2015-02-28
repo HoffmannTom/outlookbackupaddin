@@ -20,6 +20,7 @@ namespace BackupAddInCommon
         public BackupSettings()
         {
             Items = new StringCollection();
+            IgnoreEncryption = false;
         }
 
         /// <summary>
@@ -76,5 +77,10 @@ namespace BackupAddInCommon
         ///  Try to decode path to OST-files
         /// </summary>
         public bool ShowOSTFiles { get; set; }
+
+        /// <summary>
+        ///  Flag whether encrypted files might get decrypted
+        /// </summary>
+        public bool IgnoreEncryption { get; set; }
     }
 }

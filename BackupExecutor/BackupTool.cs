@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace BackupExecutor
     /// </summary>
     public class BackupTool
     {
+
+
         /// <summary>
         /// Log-delegate for sending error information
         /// </summary>
@@ -162,7 +165,23 @@ namespace BackupExecutor
                     }
                     else
                     {
-                        File.Copy(item, sDst, true);
+                        //bool isEnc = ((File.GetAttributes(item) & FileAttributes.Encrypted) == FileAttributes.Encrypted);
+                        if (config.IgnoreEncryption)
+                        {
+                            //ggf besser: https://www.sepago.com/blog/2010/08/04/pains-with-efs-and-network-destinations
+                            int pbCancel = 0;
+                            SafeNativeMethods.CopyFileEx(item, sDst, null, IntPtr.Zero, ref pbCancel, SafeNativeMethods.CopyFileFlags.COPY_FILE_ALLOW_DECRYPTED_DESTINATION);
+                            //https://msdn.microsoft.com/en-us/library/windows/desktop/aa363852%28v=vs.85%29.aspx
+                            //File.Copy(item, item + "_decrypted");
+                            //File.Decrypt(item + "_decrypted");
+                            //if (File.Exists(sDst))
+                            //    File.Delete(sDst);
+                            //File.Move(item + "_decrypted", sDst);
+                        }
+                        else
+                        {
+                            File.Copy(item, sDst, true);
+                        }
                         iSuccess++;
                     }
                 }

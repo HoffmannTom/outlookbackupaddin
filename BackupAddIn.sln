@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupAddIn", "BackupAddIn\BackupAddIn.csproj", "{9033A486-9945-42F8-9F46-6BD58B241C63}"
 EndProject
@@ -51,8 +51,8 @@ Global
 		{9033A486-9945-42F8-9F46-6BD58B241C63}.DVD-5|x86.Build.0 = Debug|x86
 		{9033A486-9945-42F8-9F46-6BD58B241C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9033A486-9945-42F8-9F46-6BD58B241C63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9033A486-9945-42F8-9F46-6BD58B241C63}.Release|x64.ActiveCfg = Release|x86
-		{9033A486-9945-42F8-9F46-6BD58B241C63}.Release|x64.Build.0 = Release|x86
+		{9033A486-9945-42F8-9F46-6BD58B241C63}.Release|x64.ActiveCfg = Release|x64
+		{9033A486-9945-42F8-9F46-6BD58B241C63}.Release|x64.Build.0 = Release|x64
 		{9033A486-9945-42F8-9F46-6BD58B241C63}.Release|x86.ActiveCfg = Release|x86
 		{9033A486-9945-42F8-9F46-6BD58B241C63}.Release|x86.Build.0 = Release|x86
 		{9033A486-9945-42F8-9F46-6BD58B241C63}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
