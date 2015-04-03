@@ -19,7 +19,8 @@ namespace BackupExecutor
     /// </summary>
     public class BackupTool
     {
-
+        private static System.Windows.Forms.ProgressBar pbCopyProgress;
+        private static System.Windows.Forms.Label lblFilename;
 
         /// <summary>
         /// Log-delegate for sending error information
@@ -28,6 +29,22 @@ namespace BackupExecutor
 
         private const String CONFIG_FILE_NAME = "OutlookBackup.config";
         private const String OUTLOOK_PROC = "OUTLOOK";
+
+        /// <summary>
+        /// Set a label to report currently copied file
+        /// </summary>
+        public static void setFileLabel(System.Windows.Forms.Label lbl)
+        {
+            lblFilename = lbl;
+        }
+
+        /// <summary>
+        /// Set a progress bar to report copy progress
+        /// </summary>
+        public static void setProgressBar(System.Windows.Forms.ProgressBar pb)
+        {
+            pbCopyProgress = pb;
+        }
 
         /// <summary>
         /// Evaluates the location of the config file
@@ -151,11 +168,15 @@ namespace BackupExecutor
                 sPath += Path.DirectorySeparatorChar;
 
             String sDst;
+            int iCounter = 0;
             foreach (String item in config.Items)
             {
+                iCounter++;
                 try
                 {
                     log("copy " + item + " to " + config.DestinationPath);
+                    if (lblFilename != null)
+                        lblFilename.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
                     WaitForFile(item, log, config.WaitTimeFileLock);
                     sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix;
                     if (item.Equals(sDst))
@@ -170,7 +191,8 @@ namespace BackupExecutor
                         {
                             //ggf besser: https://www.sepago.com/blog/2010/08/04/pains-with-efs-and-network-destinations
                             int pbCancel = 0;
-                            SafeNativeMethods.CopyFileEx(item, sDst, null, IntPtr.Zero, ref pbCancel, SafeNativeMethods.CopyFileFlags.COPY_FILE_ALLOW_DECRYPTED_DESTINATION);
+                            SafeNativeMethods.CopyProgressRoutine cb = new SafeNativeMethods.CopyProgressRoutine(callback);
+                            SafeNativeMethods.CopyFileEx(item, sDst, cb, IntPtr.Zero, ref pbCancel, SafeNativeMethods.CopyFileFlags.COPY_FILE_ALLOW_DECRYPTED_DESTINATION);
                             //https://msdn.microsoft.com/en-us/library/windows/desktop/aa363852%28v=vs.85%29.aspx
                             //File.Copy(item, item + "_decrypted");
                             //File.Decrypt(item + "_decrypted");
@@ -199,6 +221,19 @@ namespace BackupExecutor
             }
 
             return iError;
+        }
+
+        private static SafeNativeMethods.CopyProgressResult callback(long TotalFileSize,
+            long TotalBytesTransferred,  long StreamSize,
+            long StreamBytesTransferred, uint dwStreamNumber,
+            SafeNativeMethods.CopyProgressCallbackReason dwCallbackReason,
+            IntPtr hSourceFile, IntPtr hDestinationFile, IntPtr lpData)
+        {
+            int i = (int)(TotalBytesTransferred * 100 / StreamSize);
+            if (pbCopyProgress != null)
+                pbCopyProgress.Invoke(new Action(() => pbCopyProgress.Value = i));
+
+            return SafeNativeMethods.CopyProgressResult.PROGRESS_CONTINUE;
         }
 
         /// <summary>

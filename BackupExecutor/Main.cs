@@ -53,6 +53,9 @@ namespace BackupExecutor
                 int iError = 0;
                 BackupSettings config = BackupTool.getSettings();
 
+                BackupTool.setFileLabel(this.lblFilename);
+                BackupTool.setProgressBar(this.pbCopyProgress);
+
                 if (config != null && config.LastRun == null)
                 {
                     iError = BackupTool.tryBackup(config, LogToScreen);
@@ -66,6 +69,7 @@ namespace BackupExecutor
                     Application.Exit();
             });
         }
+
 
     }
 }
