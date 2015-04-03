@@ -1,5 +1,6 @@
 Version 1.5
 - Added hidden feature to ignore encryption during copying to targets which doesnt support encryption (<IgnoreEncryption>)
+- Added progress bar for file copy
 
 Version 1.4
 - corrected typo (pst-files)
