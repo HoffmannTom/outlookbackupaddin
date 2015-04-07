@@ -55,19 +55,44 @@ namespace BackupExecutor
 
                 BackupTool.setFileLabel(this.lblFilename);
                 BackupTool.setProgressBar(this.pbCopyProgress);
+                BackupTool.setTotalProgressBar(this.pbTotalProgress);
 
                 if (config != null && config.LastRun == null)
                 {
+                    startCountdown(config, LogToScreen);
                     iError = BackupTool.tryBackup(config, LogToScreen);
                 }
                 else if (config != null && config.LastRun.AddDays(config.Interval) <= DateTime.Now)
                 {
+                    startCountdown(config, LogToScreen);
                     iError = BackupTool.tryBackup(config, LogToScreen);
                 }
 
                 if (iError == 0)
                     Application.Exit();
             });
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                e.Cancel = !BackupTool.CanExit;
+        }
+
+        private void startCountdown(BackupSettings config, BackupTool.Logger LogToScreen)
+        {
+            BackupTool.CanExit = true;
+            for (int i = config.CountdownSeconds; i > 0; i--)
+            {
+                if (i > 1)
+                     LogToScreen("Starting backup in " + i + " seconds");
+                else LogToScreen("Starting backup in " + i + " second");
+
+                Thread.Sleep(1000);
+            }
+
+            //no manual exit possible any more
+            BackupTool.CanExit = false;
         }
 
 

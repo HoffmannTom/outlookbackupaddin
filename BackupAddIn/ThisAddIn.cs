@@ -31,35 +31,43 @@ namespace BackupAddIn
         /// </summary>
         void ThisAddIn_Quit()
         {
-            BackupSettings config = FBackupSettings.loadSettings();  
+            try
+            { 
+                BackupSettings config = FBackupSettings.loadSettings();  
             
-            //if configuration was done and backup program was configured
-            if (config != null && !String.IsNullOrEmpty(config.BackupProgram))
-            {
-                //and if not yet backuped or if backup too old, then run program
-                if (config.LastRun == null || config.LastRun.AddDays(config.Interval) <= DateTime.Now)
+                //if configuration was done and backup program was configured
+                if (config != null && !String.IsNullOrEmpty(config.BackupProgram))
                 {
-                    if (config.BackupAll)
+                    //and if not yet backuped or if backup too old, then run program
+                    if (config.LastRun == null || config.LastRun.AddDays(config.Interval) <= DateTime.Now)
                     {
-                        //If alles pdf-files should be saved, enumerate them and save to config-file
-                        //Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-                        config.Items.Clear();
+                        if (config.BackupAll)
+                        {
+                            //If alles pdf-files should be saved, enumerate them and save to config-file
+                            //Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                            config.Items.Clear();
 
-                        var list = BackupUtils.GetStoreLocations(config, Application.Session.Stores);
-                        config.Items.AddRange(list.ToArray());
+                            var list = BackupUtils.GetStoreLocations(config, Application.Session.Stores);
+                            config.Items.AddRange(list.ToArray());
 
-                        BackupUtils.saveSettingsToFile(config);
-                    }
+                            BackupUtils.saveSettingsToFile(config);
+                        }
 
-                    try
-                    {
-                        Process.Start(config.BackupProgram);
+                        try
+                        {
+                            Process.Start(config.BackupProgram);
+                        }
+                        catch (Exception e)
+                        {
+                            System.Windows.Forms.MessageBox.Show(config.BackupProgram + " not found! " + e.Message);
+                        }
                     }
-                    catch (Exception e)
-                    {
-                        System.Windows.Forms.MessageBox.Show(config.BackupProgram + " not found! " + e.Message);
-                    }
-                }
+                }//config loaded
+
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
             }
         }
 

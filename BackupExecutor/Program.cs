@@ -28,7 +28,7 @@ namespace BackupExecutor
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool CopyFileEx(string lpExistingFileName, string lpNewFileName,
-           CopyProgressRoutine lpProgressRoutine, IntPtr lpData, ref Int32 pbCancel,
+           CopyProgressRoutine lpProgressRoutine, IntPtr lpData, ref bool pbCancel,
            CopyFileFlags dwCopyFlags);
 
         public delegate CopyProgressResult CopyProgressRoutine(
@@ -229,30 +229,6 @@ namespace BackupExecutor
             return sPath;
         }
 
-        /* //depends on office version!
-        private static bool isOffice64()
-        {
-            try
-            {
-                RegistryKey tmpKey = Registry.LocalMachine.OpenSubKey("SOFTWARE", false);
-                tmpKey = tmpKey.OpenSubKey("Microsoft");
-                tmpKey = tmpKey.OpenSubKey("Office");
-                if (tmpKey.OpenSubKey("15.0") != null)
-                    tmpKey = tmpKey.OpenSubKey("15.0");
-                else if (tmpKey.OpenSubKey("14.0") != null)
-                    tmpKey = tmpKey.OpenSubKey("14.0");
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error when checking office version:" + e.Message);
-                return false;
-            }
-
-            return false;
-
-        }
-         */
 
         /// <summary>
         ///  Create registry settings for outlook plugin and copy files to installation folder
@@ -277,9 +253,9 @@ namespace BackupExecutor
                 tmpKey.SetValue("Manifest", System.IO.Path.Combine(sDir, "BackupAddIn.vsto") + "|vstolocal", RegistryValueKind.String);
                 tmpKey.SetValue("LoadBehavior", 3, RegistryValueKind.DWord);
 
-                if (Is64BitOutlookFromRegisteredExe())
-                     DirectoryCopy(Path.Combine(sDir, "64"), sDir, true);
-                else DirectoryCopy(Path.Combine(sDir, "32"), sDir, true);
+                //if (Is64BitOutlookFromRegisteredExe())
+                //     DirectoryCopy(Path.Combine(sDir, "64"), sDir, true);
+                //else DirectoryCopy(Path.Combine(sDir, "32"), sDir, true);
             }
             catch (Exception e)
             {
@@ -303,13 +279,9 @@ namespace BackupExecutor
         /// <summary>
         ///  copy files from subfolder to main folder
         /// </summary>
+        /*
         private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
         {
-            /*
-            Directory.GetFiles(sBase + sSub).ToList().ForEach(
-                f => File.Copy(f, sBase + Path.GetFileName(f), true)
-                );
-             */
             // Get the subdirectories for the specified directory.
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
             DirectoryInfo[] dirs = dir.GetDirectories();
@@ -353,7 +325,7 @@ namespace BackupExecutor
             }
 
         }
-
+        */
         /// <summary>
         ///  delete the registry settings and disables outlook plugin
         /// </summary>

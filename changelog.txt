@@ -1,6 +1,8 @@
 Version 1.5
 - Added hidden feature to ignore encryption during copying to targets which doesnt support encryption (<IgnoreEncryption>)
-- Added progress bar for file copy
+- Added progress bar for file copy and total progress bar
+- Added parameter for number of seconds for countdown to cancel backup
+- Changed compilation and setup to "any-cpu"
 
 Version 1.4
 - corrected typo (pst-files)

@@ -21,6 +21,7 @@ namespace BackupAddInCommon
         {
             Items = new StringCollection();
             IgnoreEncryption = false;
+            CountdownSeconds = 0;
         }
 
         /// <summary>
@@ -82,5 +83,27 @@ namespace BackupAddInCommon
         ///  Flag whether encrypted files might get decrypted
         /// </summary>
         public bool IgnoreEncryption { get; set; }
+
+        /// <summary>
+        ///  Counter to give user opportunity to close window before backup starts
+        /// </summary>
+        private int countdownSeconds;
+
+        /// <summary>
+        ///  Counter to give user opportunity to close window before backup starts
+        /// </summary>
+        public int CountdownSeconds
+        {  
+            get
+            {
+                return countdownSeconds;
+            } 
+            set
+            {
+                if (value >= 0 && value <= 100)
+                     countdownSeconds = value;
+                else countdownSeconds = 0;
+            } 
+        }
     }
 }
