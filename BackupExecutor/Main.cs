@@ -45,10 +45,11 @@ namespace BackupExecutor
             startAsyncWork();
         }
 
-        private async void startAsyncWork()
+        private /*async*/ void startAsyncWork()
         {
             Console.WriteLine("DoWork Starting");
-            await Task.Run(() =>
+            //await Task.Run(() =>
+            Task t = Task.Factory.StartNew(() =>
             {
                 int iError = 0;
                 BackupSettings config = BackupTool.getSettings();
