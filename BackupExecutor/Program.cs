@@ -276,9 +276,9 @@ namespace BackupExecutor
             return true;
         }
 
-        /// <summary>
-        ///  copy files from subfolder to main folder
-        /// </summary>
+        // <summary>
+        //  copy files from subfolder to main folder
+        // </summary>
         /*
         private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
         {

@@ -1,11 +1,8 @@
 
 Installation requirements:
 ==========================
- - .Net Framework 4.5
- - Visual Studio 2010 Tools for Office Runtime
-   see:
-   http://go.microsoft.com/fwlink/?LinkId=140384
- - Installed Microsoft Outlook 2013
+ - .Net Framework 4.0
+ - Installed Microsoft Outlook 2013 or 2010
 
 
 Installation instructions:

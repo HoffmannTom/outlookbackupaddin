@@ -32,6 +32,7 @@
             this.pbCopyProgress = new System.Windows.Forms.ProgressBar();
             this.lblFilename = new System.Windows.Forms.Label();
             this.pbTotalProgress = new System.Windows.Forms.ProgressBar();
+            this.lblMegaBytesPerSecond = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtLog
@@ -42,7 +43,7 @@
             this.txtLog.Location = new System.Drawing.Point(12, 12);
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
-            this.txtLog.Size = new System.Drawing.Size(420, 184);
+            this.txtLog.Size = new System.Drawing.Size(420, 196);
             this.txtLog.TabIndex = 0;
             this.txtLog.Text = "";
             // 
@@ -50,7 +51,7 @@
             // 
             this.pbCopyProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbCopyProgress.Location = new System.Drawing.Point(12, 224);
+            this.pbCopyProgress.Location = new System.Drawing.Point(12, 234);
             this.pbCopyProgress.Name = "pbCopyProgress";
             this.pbCopyProgress.Size = new System.Drawing.Size(420, 23);
             this.pbCopyProgress.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             this.lblFilename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFilename.AutoSize = true;
-            this.lblFilename.Location = new System.Drawing.Point(12, 208);
+            this.lblFilename.Location = new System.Drawing.Point(12, 218);
             this.lblFilename.Name = "lblFilename";
             this.lblFilename.Size = new System.Drawing.Size(0, 13);
             this.lblFilename.TabIndex = 2;
@@ -68,16 +69,27 @@
             // 
             this.pbTotalProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbTotalProgress.Location = new System.Drawing.Point(12, 253);
+            this.pbTotalProgress.Location = new System.Drawing.Point(12, 263);
             this.pbTotalProgress.Name = "pbTotalProgress";
             this.pbTotalProgress.Size = new System.Drawing.Size(420, 23);
             this.pbTotalProgress.TabIndex = 3;
+            // 
+            // lblMegaBytesPerSecond
+            // 
+            this.lblMegaBytesPerSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblMegaBytesPerSecond.AutoSize = true;
+            this.lblMegaBytesPerSecond.Location = new System.Drawing.Point(12, 294);
+            this.lblMegaBytesPerSecond.Name = "lblMegaBytesPerSecond";
+            this.lblMegaBytesPerSecond.Size = new System.Drawing.Size(0, 13);
+            this.lblMegaBytesPerSecond.TabIndex = 4;
+            this.lblMegaBytesPerSecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 288);
+            this.ClientSize = new System.Drawing.Size(444, 316);
+            this.Controls.Add(this.lblMegaBytesPerSecond);
             this.Controls.Add(this.pbTotalProgress);
             this.Controls.Add(this.lblFilename);
             this.Controls.Add(this.pbCopyProgress);
@@ -99,6 +111,7 @@
         private System.Windows.Forms.ProgressBar pbCopyProgress;
         private System.Windows.Forms.Label lblFilename;
         private System.Windows.Forms.ProgressBar pbTotalProgress;
+        private System.Windows.Forms.Label lblMegaBytesPerSecond;
     }
 }
 

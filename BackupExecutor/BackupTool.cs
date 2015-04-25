@@ -22,6 +22,7 @@ namespace BackupExecutor
         private static System.Windows.Forms.ProgressBar pbCopyProgress;
         private static System.Windows.Forms.ProgressBar pbTotalCopyProgress;
         private static System.Windows.Forms.Label lblFilename;
+        private static System.Windows.Forms.Label lblMegaBytesPerSecond;
 
         /// <summary>
         /// Flag, whether user can close main window
@@ -38,6 +39,7 @@ namespace BackupExecutor
 
         private static long TotalBytesToCopy; 
         private static long TotalBytesCopied;
+        private static long StartTimeCopy;
 
         /// <summary>
         /// Set a label to report currently copied file
@@ -45,6 +47,14 @@ namespace BackupExecutor
         public static void setFileLabel(System.Windows.Forms.Label lbl)
         {
             lblFilename = lbl;
+        }
+
+        /// <summary>
+        /// Set a label to report transfer speed
+        /// </summary>
+        public static void setMegaByesPerSecondLabel(System.Windows.Forms.Label lbl)
+        {
+            lblMegaBytesPerSecond = lbl;
         }
 
         /// <summary>
@@ -99,7 +109,7 @@ namespace BackupExecutor
                         config = (BackupSettings)bin.Deserialize(stream);
                     }
                 }
-                catch (IOException)
+                catch (Exception)
                 {
                     MessageBox.Show("Error during reading settings from file " + sFile,
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -205,11 +215,9 @@ namespace BackupExecutor
                 iCounter++;
                 try
                 {
-                    log("copy " + item + " to " + config.DestinationPath);
                     if (lblFilename != null)
                         lblFilename.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
 
-                    WaitForFile(item, log, config.WaitTimeFileLock);
                     sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix;
                     if (item.Equals(sDst))
                     {
@@ -218,6 +226,9 @@ namespace BackupExecutor
                     }
                     else
                     {
+                        log("copy " + item + " to " + config.DestinationPath);
+                        WaitForFile(item, log, config.WaitTimeFileLock);
+
                         SafeNativeMethods.CopyFileFlags dwCopyFlags = 0;
                         if (config.IgnoreEncryption)
                         {
@@ -226,6 +237,8 @@ namespace BackupExecutor
 
                         bool pbCancel = false;
                         SafeNativeMethods.CopyProgressRoutine cb = new SafeNativeMethods.CopyProgressRoutine(callback);
+
+                        StartTimeCopy = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 
                         //CopyFileEx
                         //https://msdn.microsoft.com/en-us/library/windows/desktop/aa363852%28v=vs.85%29.aspx
@@ -265,6 +278,13 @@ namespace BackupExecutor
             int iTotal = (int)((TotalBytesCopied + TotalFileBytesTransferred) * 100 / TotalBytesToCopy);
             if (pbTotalCopyProgress != null)
                 pbTotalCopyProgress.Invoke(new Action(() => pbTotalCopyProgress.Value = iTotal));
+
+            double TimeElapsedSec = (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond - StartTimeCopy) / 1000.0;
+            if (TimeElapsedSec > 0.1 && lblMegaBytesPerSecond != null && TotalFileBytesTransferred > 0)
+            {
+                int iMbPerSec = (int)(TotalFileBytesTransferred / 1024 / 1024 / TimeElapsedSec);
+                lblMegaBytesPerSecond.Invoke(new Action(() => lblMegaBytesPerSecond.Text = iMbPerSec + " MiB/s"));
+            }
 
             return SafeNativeMethods.CopyProgressResult.PROGRESS_CONTINUE;
         }

@@ -57,6 +57,7 @@ namespace BackupExecutor
                 BackupTool.setFileLabel(this.lblFilename);
                 BackupTool.setProgressBar(this.pbCopyProgress);
                 BackupTool.setTotalProgressBar(this.pbTotalProgress);
+                BackupTool.setMegaByesPerSecondLabel(this.lblMegaBytesPerSecond);
 
                 if (config != null && config.LastRun == null)
                 {

@@ -1,0 +1,7 @@
+LIBRARY "CustomAction"
+
+EXPORTS
+
+CheckOfficeBits
+RegisterPlugin
+UnregisterPlugin
