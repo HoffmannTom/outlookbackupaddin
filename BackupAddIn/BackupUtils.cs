@@ -122,7 +122,9 @@ namespace BackupAddIn
             if (b.Length > SkipBytes + TerminatingBytes)
             {
                 //Last Bytes are for null terminating
-                byte[] b2 = new ArraySegment<byte>(b, SkipBytes, b.Length - SkipBytes - TerminatingBytes).ToArray<byte>();
+                //byte[] b2 = new ArraySegment<byte>(b, SkipBytes, b.Length - SkipBytes - TerminatingBytes).ToArray<byte>();
+                byte[] b2 = new byte[b.Length - SkipBytes - TerminatingBytes];
+                Array.Copy(b, SkipBytes, b2, 0, b2.Length);
                 s = System.Text.UnicodeEncoding.Unicode.GetString(b2);
             }
 
