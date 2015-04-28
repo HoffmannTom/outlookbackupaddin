@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -175,7 +176,11 @@ namespace BackupExecutor
                     if (lblFilename != null)
                         lblFilename.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
 
-                    sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix;
+                    if (config.UseCompression)
+                        sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + ".gz" + config.BackupSuffix;
+                    else
+                        sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix;
+
                     if (item.Equals(sDst))
                     {
                         log("Can't copy file on it's own, skipping: " + item);
@@ -183,23 +188,14 @@ namespace BackupExecutor
                     }
                     else
                     {
+                        //src and dest are different, lets backp
                         log("copy " + item + " to " + config.DestinationPath);
                         WaitForFile(item, log, config.WaitTimeFileLock);
 
-                        SafeNativeMethods.CopyFileFlags dwCopyFlags = 0;
-                        if (config.IgnoreEncryption)
-                        {
-                            dwCopyFlags = SafeNativeMethods.CopyFileFlags.COPY_FILE_ALLOW_DECRYPTED_DESTINATION;
-                        }
-
-                        bool pbCancel = false;
-                        SafeNativeMethods.CopyProgressRoutine cb = new SafeNativeMethods.CopyProgressRoutine(callback);
-
-                        StartTimeCopy = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-
-                        //CopyFileEx
-                        //https://msdn.microsoft.com/en-us/library/windows/desktop/aa363852%28v=vs.85%29.aspx
-                        SafeNativeMethods.CopyFileEx(item, sDst, cb, IntPtr.Zero, ref pbCancel, dwCopyFlags);
+                        if (config.UseCompression)
+                            CopyAndCompressFileForBackup(sDst, item);
+                        else
+                            CopyFileForBackup(config, sDst, item);
 
                         iSuccess++;
                     }
@@ -220,6 +216,45 @@ namespace BackupExecutor
             }
 
             return iError;
+        }
+
+        private static void CopyAndCompressFileForBackup(String sDst, String item)
+        {
+            FileInfo fi = new FileInfo(item);
+
+            // Get the stream of the source file.
+            using (FileStream inFile = fi.OpenRead())
+            {
+                // Create the compressed file.
+                using (FileStream outFile = File.Create(sDst))
+                {
+                    GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
+                    byte[] buffer = new byte[16 * 1024];
+                    int read;
+                    while ((read = inFile.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        Compress.Write(buffer, 0, read);
+                    };
+
+                    Compress.Close();
+                }
+            }
+        }
+
+        private static void CopyFileForBackup(BackupSettings config, String sDst, String item)
+        {
+            SafeNativeMethods.CopyFileFlags dwCopyFlags = 0;
+            if (config.IgnoreEncryption)
+                dwCopyFlags = SafeNativeMethods.CopyFileFlags.COPY_FILE_ALLOW_DECRYPTED_DESTINATION;
+
+            bool pbCancel = false;
+            SafeNativeMethods.CopyProgressRoutine cb = new SafeNativeMethods.CopyProgressRoutine(callback);
+
+            StartTimeCopy = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+
+            //CopyFileEx
+            //https://msdn.microsoft.com/en-us/library/windows/desktop/aa363852%28v=vs.85%29.aspx
+            SafeNativeMethods.CopyFileEx(item, sDst, cb, IntPtr.Zero, ref pbCancel, dwCopyFlags);
         }
 
         private static SafeNativeMethods.CopyProgressResult callback(long TotalFileSize,

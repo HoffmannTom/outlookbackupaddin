@@ -23,6 +23,7 @@ namespace BackupAddInCommon
             IgnoreEncryption = false;
             CountdownSeconds = 0;
             WaitTimeFileLock = 500;
+            UseCompression = false;
         }
 
         /// <summary>
@@ -84,6 +85,11 @@ namespace BackupAddInCommon
         ///  Flag whether encrypted files might get decrypted
         /// </summary>
         public bool IgnoreEncryption { get; set; }
+
+        /// <summary>
+        ///  Flag whether files should be compressed
+        /// </summary>
+        public bool UseCompression { get; set; }
 
         /// <summary>
         ///  Counter to give user opportunity to close window before backup starts
