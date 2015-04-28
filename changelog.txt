@@ -1,9 +1,12 @@
 Version 1.5
-- Added hidden feature to ignore encryption during copying to targets which doesnt support encryption (<IgnoreEncryption>)
+- ignore encryption during copying to targets which doesn't support encryption (unsupported and hidden feature "IgnoreEncryption")
 - Added progress bar for file copy and total progress bar
-- Added parameter for number of seconds for countdown to cancel backup
-- Changed compilation and setup to "any-cpu"
-- Migrated to .Net Framework 4.0 to skip VSTO installation
+- Added parameter for number of seconds for countdown to cancel backup (unsupported and hidden feature "CountdownSeconds")
+- Changed compilation and setup to "any-cpu" for easier installation
+- Migrated to .Net Framework 4.0 to skip VSTO installation for office 2010 SP 1 and office 2013
+- Environment variables can be used for path, prefix, suffix
+- Settings are now stored in registry
+- gzip-compression (unsupported and hidden feature "UseCompression")
 
 Version 1.4
 - corrected typo (pst-files)
@@ -11,7 +14,7 @@ Version 1.4
 - Backup is now executed async from the main thread. Thus window will be responsive during work.
 - Added support for multilanguage GUI
 - Separated mandatory and optional settings
-- Added parameter for lock wait time "WaitTimeFileLock" (manual editing of the config file needed)
+- Added parameter for lock wait time (unsupported and hidden feature "WaitTimeFileLock")
 
 Version 1.3
 - Added button in config-window to reset the last backup-time (this will trigger the backup after closing outlook)
@@ -26,7 +29,7 @@ Version 1.3
   (default search path is HKLM\Software\Classes\Outlook.Application\CLSID and
    HKLM\Software\Classes\CLSID\<clsid>\LocalServer32)
 - Added check whether source-file and destination is the same (file will be skipped during backup)
-
+- ost-support (unsupported and hidden feature "ShowOSTFiles")
 
 Version 1.2
 - Fixed problem when showing many psd-files within configuration dialog
@@ -37,7 +40,7 @@ Version 1.2
 - New option to backup all psd-files. 
   Whenever a new psd-files is added in outlook, it will automatically be included to the backup
 - Migrated to Install-Shield Express 2013, as 2010 version was not working with the latest VS 2010 updates
-- Added hidden parameter <BackupExtension> in config-file to add custom extension
+- Added parameter <BackupExtension> in config to add custom extension
 - Fixed bug when saving the settings the first time
 
 Version 1.1

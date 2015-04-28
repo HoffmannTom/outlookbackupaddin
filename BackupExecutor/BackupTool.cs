@@ -149,6 +149,9 @@ namespace BackupExecutor
             int iError = 0, iSuccess = 0;
             String sPath = config.DestinationPath;
 
+            //Expand environment variables
+            sPath = Environment.ExpandEnvironmentVariables(sPath);
+
             if (!sPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
                 sPath += Path.DirectorySeparatorChar;
 
@@ -176,10 +179,10 @@ namespace BackupExecutor
                     if (lblFilename != null)
                         lblFilename.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
 
+                    sDst = sPath + Environment.ExpandEnvironmentVariables(config.BackupPrefix) + Path.GetFileName(item);
                     if (config.UseCompression)
-                        sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + ".gz" + config.BackupSuffix;
-                    else
-                        sDst = sPath + config.BackupPrefix + Path.GetFileName(item) + config.BackupSuffix;
+                        sDst += ".gz";
+                    sDst += Environment.ExpandEnvironmentVariables(config.BackupSuffix);
 
                     if (item.Equals(sDst))
                     {
@@ -229,7 +232,7 @@ namespace BackupExecutor
                 using (FileStream outFile = File.Create(sDst))
                 {
                     GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
-                    byte[] buffer = new byte[16 * 1024];
+                    byte[] buffer = new byte[32 * 1024];
                     int read;
                     int readTotal = 0;
                     while ((read = inFile.Read(buffer, 0, buffer.Length)) > 0)
