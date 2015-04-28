@@ -109,7 +109,7 @@ namespace BackupExecutor
             {
                 SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
 
-                BackupSettings config = BackupTool.getSettings();
+                BackupSettings config = BackupTool.loadSettings();
                 int iError = BackupTool.tryBackup(config, LogToConsole);
 
                 SafeNativeMethods.FreeConsole();

@@ -33,41 +33,13 @@ namespace BackupAddIn
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Returns the saved settings or null if not present
-        /// </summary>
-        /// <returns>Returns the saved settings from disk</returns>
-        public static BackupSettings loadSettings()
-        {
-            String sFile = BackupUtils.getConfigFilePath();
-            BackupSettings config = null;
-
-            if (File.Exists(sFile))
-            {
-                try
-                {
-                    using (Stream stream = File.Open(sFile, FileMode.Open))
-                    {
-                        XmlSerializer bin = new XmlSerializer(typeof(BackupSettings));
-                        config = (BackupSettings)bin.Deserialize(stream);
-                    }
-                }
-                catch (System.Exception)
-                {
-                    MessageBox.Show("Error during reading settings from file " + sFile,
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            return config;
-        }
 
         /// <summary>
         /// Gets the configuration from disk and populates the form accordingly
         /// </summary>
         private void applySettings()
         {
-            BackupSettings config = loadSettings();
+            BackupSettings config = BackupSettingsDao.loadSettings();
 
             if (config != null)
             {
@@ -112,7 +84,7 @@ namespace BackupAddIn
         private bool saveSettings()
         {
             //preserve hidden flags
-            BackupSettings config = loadSettings();
+            BackupSettings config = BackupSettingsDao.loadSettings();
             if (config == null)
                 config = new BackupSettings();
             config.DestinationPath = txtDestination.Text;
@@ -131,7 +103,7 @@ namespace BackupAddIn
                 if (lvStores.Items[i].Checked)
                     config.Items.Add(lvStores.Items[i].Text);
             }
-            return BackupUtils.saveSettingsToFile(config);
+            return BackupSettingsDao.saveSettings(config);
         }
 
  
@@ -216,7 +188,7 @@ namespace BackupAddIn
             //cleanup
             txtDestination.Text = "";
             lvStores.Items.Clear();
-            BackupSettings config = loadSettings();
+            BackupSettings config = BackupSettingsDao.loadSettings();
 
             //Add pst-files to list
             var list =  BackupUtils.GetStoreLocations(config, stores);

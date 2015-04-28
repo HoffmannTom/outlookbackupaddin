@@ -52,7 +52,7 @@ namespace BackupExecutor
             Task t = Task.Factory.StartNew(() =>
             {
                 int iError = 0;
-                BackupSettings config = BackupTool.getSettings();
+                BackupSettings config = BackupTool.loadSettings();
 
                 BackupTool.setFileLabel(this.lblFilename);
                 BackupTool.setProgressBar(this.pbCopyProgress);

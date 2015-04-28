@@ -1,6 +1,8 @@
 ﻿using BackupAddInCommon;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -35,6 +37,7 @@ namespace BackupExecutor
         public delegate void Logger(string message);
 
         private const String CONFIG_FILE_NAME = "OutlookBackup.config";
+        private const String REG_PATH_SETTINGS = @"Software\CodePlex\BackupAddIn\Settings";
         private const String OUTLOOK_PROC = "OUTLOOK";
 
         private static long TotalBytesToCopy; 
@@ -95,7 +98,72 @@ namespace BackupExecutor
         /// Read and deserialize config from file
         /// </summary>
         /// <returns>saved settings from outlook plugin</returns>
-        public static BackupSettings getSettings()
+        public static BackupSettings loadSettings()
+        {
+            return loadSettingsFromRegistry();
+            //return loadSettingsFromFile();
+        }
+
+        /// <summary>
+        /// Returns the saved settings from registry or null if not present
+        /// </summary>
+        /// <returns>Returns the saved settings from disk</returns>
+        private static BackupSettings loadSettingsFromRegistry()
+        {
+            BackupSettings config = null;
+            RegistryKey appKey = Registry.CurrentUser.OpenSubKey(REG_PATH_SETTINGS, false);
+            if (appKey != null)
+            {
+                config = new BackupSettings();
+                String[] names = appKey.GetValueNames();
+
+                //iterate registry entries
+                foreach (String name in names)
+                {
+                    TransferRegistryEntryToConfig(config, appKey, name);
+                }
+                appKey.Close();
+            }
+            return config;
+        }
+
+        private static void TransferRegistryEntryToConfig(BackupSettings config, RegistryKey appKey, String name)
+        {
+            RegistryValueKind typ;
+            PropertyInfo pi;
+
+            try
+            {
+                //checked whether property exists
+                pi = config.GetType().GetProperty(name);
+                if (pi != null)
+                {
+                    typ = appKey.GetValueKind(name);
+                    if (typeof(String).IsAssignableFrom(pi.PropertyType))
+                        pi.SetValue(config, appKey.GetValue(name) as String, null);
+                    else if (typeof(int).IsAssignableFrom(pi.PropertyType))
+                        pi.SetValue(config, appKey.GetValue(name) as int?, null);
+                    else if (typeof(bool).IsAssignableFrom(pi.PropertyType))
+                        pi.SetValue(config, (appKey.GetValue(name) as String).Equals(bool.TrueString), null);
+                    else if (typeof(DateTime).IsAssignableFrom(pi.PropertyType))
+                        pi.SetValue(config, DateTime.Parse(appKey.GetValue(name) as String), null);
+                    else if (typeof(StringCollection).IsAssignableFrom(pi.PropertyType))
+                    {
+                        String[] sArr = appKey.GetValue(name) as String[];
+                        StringCollection sc = new StringCollection();
+                        sc.AddRange(sArr);
+                        pi.SetValue(config, sc, null);
+                    }
+                }
+            }
+            catch (System.Exception e)
+            {
+                MessageBox.Show("Error during fetching settings " + name + ": " + e.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static BackupSettings loadSettingsFromFile()
         {
             BackupSettings config = null;
             String sFile = getConfigFilePath();
@@ -315,6 +383,7 @@ namespace BackupExecutor
         /// <param name="config">config which should be saved</param>
         private static void saveConfig(BackupSettings config)
         {
+
             String sFile = getConfigFilePath();
             try
             {

@@ -33,7 +33,7 @@ namespace BackupAddIn
         {
             try
             { 
-                BackupSettings config = FBackupSettings.loadSettings();  
+                BackupSettings config = BackupSettingsDao.loadSettings();  
             
                 //if configuration was done and backup program was configured
                 if (config != null && !String.IsNullOrEmpty(config.BackupProgram))
@@ -50,7 +50,7 @@ namespace BackupAddIn
                             var list = BackupUtils.GetStoreLocations(config, Application.Session.Stores);
                             config.Items.AddRange(list.ToArray());
 
-                            BackupUtils.saveSettingsToFile(config);
+                            BackupSettingsDao.saveSettings(config);
                         }
 
                         try

@@ -22,6 +22,7 @@ namespace BackupAddInCommon
             Items = new StringCollection();
             IgnoreEncryption = false;
             CountdownSeconds = 0;
+            WaitTimeFileLock = 500;
         }
 
         /// <summary>
@@ -47,12 +48,12 @@ namespace BackupAddInCommon
         /// <summary>
         ///  List of files to backup
         /// </summary>
-        public StringCollection Items;
+        public StringCollection Items { get; set; }
 
         /// <summary>
         ///  Wait time when file is locked
         /// </summary>
-        public int WaitTimeFileLock = 500;
+        public int WaitTimeFileLock { get; set; }
 
         /// <summary>
         ///  Prefix for filename of backup

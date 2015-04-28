@@ -1,7 +1,9 @@
 ﻿using BackupAddInCommon;
 using Microsoft.Office.Interop.Outlook;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -14,57 +16,7 @@ namespace BackupAddIn
 {
     class BackupUtils
     {
-        private const String CONFIG_FILE_NAME = "OutlookBackup.config";
-
-        /// <summary>
-        /// Determine config-file location
-        /// </summary>
-        /// <returns>Location of the config file</returns>
-        public static String getConfigFilePath()
-        {
-            String sPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
-            object[] attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-
-            if (attributes.Length != 0)
-                sPath += Path.DirectorySeparatorChar + ((AssemblyCompanyAttribute)attributes[0]).Company;
-
-            attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
-            if (attributes.Length != 0)
-                sPath += Path.DirectorySeparatorChar + ((AssemblyProductAttribute)attributes[0]).Product;
-
-            return sPath + Path.DirectorySeparatorChar + CONFIG_FILE_NAME;
-        }
-
-        /// <summary>
-        /// Saves the current settings to disk
-        /// </summary>
-        /// /// <param name="config">Configration to save</param>
-        /// <returns>true, if save action was successful</returns>
-        public static bool saveSettingsToFile(BackupSettings config)
-        {
-            String sFile = getConfigFilePath();
-            try
-            {
-                if (!Directory.Exists(Path.GetDirectoryName(sFile)))
-                    Directory.CreateDirectory(Path.GetDirectoryName(sFile));
-
-                using (Stream stream = File.Open(sFile, FileMode.Create))
-                {
-                    //BinaryFormatter bin = new BinaryFormatter();
-                    XmlSerializer bin = new XmlSerializer(typeof(BackupSettings));
-                    bin.Serialize(stream, config);
-                }
-            }
-            catch (System.Exception)
-            {
-                MessageBox.Show("Error during saving settings to file " + sFile,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        }
-
+ 
 
         public static List<String> GetStoreLocations(BackupSettings config, Stores st)
         {
