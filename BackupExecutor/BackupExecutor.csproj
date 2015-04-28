@@ -108,6 +108,9 @@
     <Compile Include="..\BackupAddIn\BackupSettings.cs">
       <Link>BackupSettings.cs</Link>
     </Compile>
+    <Compile Include="..\BackupAddIn\BackupSettingsDao.cs">
+      <Link>BackupSettingsDao.cs</Link>
+    </Compile>
     <Compile Include="BackupTool.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

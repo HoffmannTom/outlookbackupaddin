@@ -10,7 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-namespace BackupAddIn
+namespace BackupAddInCommon
 {
     class BackupSettingsDao
     {

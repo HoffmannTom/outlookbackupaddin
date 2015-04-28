@@ -36,8 +36,6 @@ namespace BackupExecutor
         /// </summary>
         public delegate void Logger(string message);
 
-        private const String CONFIG_FILE_NAME = "OutlookBackup.config";
-        private const String REG_PATH_SETTINGS = @"Software\CodePlex\BackupAddIn\Settings";
         private const String OUTLOOK_PROC = "OUTLOOK";
 
         private static long TotalBytesToCopy; 
@@ -76,116 +74,7 @@ namespace BackupExecutor
             pbTotalCopyProgress = pb;
         }
         
-        /// <summary>
-        /// Evaluates the location of the config file
-        /// </summary>
-        /// <returns>filname including path to the config file</returns>
-        public static String getConfigFilePath()
-        {
-            String sPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
-            object[] attributes = Assembly.GetAssembly(typeof(frmMain)).GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-
-            if (attributes.Length != 0)
-                sPath += Path.DirectorySeparatorChar + ((AssemblyCompanyAttribute)attributes[0]).Company;
-
-            sPath += Path.DirectorySeparatorChar + "BackupAddIn";
-
-            return sPath + Path.DirectorySeparatorChar + CONFIG_FILE_NAME;
-        }
-
-        /// <summary>
-        /// Read and deserialize config from file
-        /// </summary>
-        /// <returns>saved settings from outlook plugin</returns>
-        public static BackupSettings loadSettings()
-        {
-            return loadSettingsFromRegistry();
-            //return loadSettingsFromFile();
-        }
-
-        /// <summary>
-        /// Returns the saved settings from registry or null if not present
-        /// </summary>
-        /// <returns>Returns the saved settings from disk</returns>
-        private static BackupSettings loadSettingsFromRegistry()
-        {
-            BackupSettings config = null;
-            RegistryKey appKey = Registry.CurrentUser.OpenSubKey(REG_PATH_SETTINGS, false);
-            if (appKey != null)
-            {
-                config = new BackupSettings();
-                String[] names = appKey.GetValueNames();
-
-                //iterate registry entries
-                foreach (String name in names)
-                {
-                    TransferRegistryEntryToConfig(config, appKey, name);
-                }
-                appKey.Close();
-            }
-            return config;
-        }
-
-        private static void TransferRegistryEntryToConfig(BackupSettings config, RegistryKey appKey, String name)
-        {
-            RegistryValueKind typ;
-            PropertyInfo pi;
-
-            try
-            {
-                //checked whether property exists
-                pi = config.GetType().GetProperty(name);
-                if (pi != null)
-                {
-                    typ = appKey.GetValueKind(name);
-                    if (typeof(String).IsAssignableFrom(pi.PropertyType))
-                        pi.SetValue(config, appKey.GetValue(name) as String, null);
-                    else if (typeof(int).IsAssignableFrom(pi.PropertyType))
-                        pi.SetValue(config, appKey.GetValue(name) as int?, null);
-                    else if (typeof(bool).IsAssignableFrom(pi.PropertyType))
-                        pi.SetValue(config, (appKey.GetValue(name) as String).Equals(bool.TrueString), null);
-                    else if (typeof(DateTime).IsAssignableFrom(pi.PropertyType))
-                        pi.SetValue(config, DateTime.Parse(appKey.GetValue(name) as String), null);
-                    else if (typeof(StringCollection).IsAssignableFrom(pi.PropertyType))
-                    {
-                        String[] sArr = appKey.GetValue(name) as String[];
-                        StringCollection sc = new StringCollection();
-                        sc.AddRange(sArr);
-                        pi.SetValue(config, sc, null);
-                    }
-                }
-            }
-            catch (System.Exception e)
-            {
-                MessageBox.Show("Error during fetching settings " + name + ": " + e.Message,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private static BackupSettings loadSettingsFromFile()
-        {
-            BackupSettings config = null;
-            String sFile = getConfigFilePath();
-            if (File.Exists(sFile))
-            {
-                try
-                {
-                    using (Stream stream = File.Open(sFile, FileMode.Open))
-                    {
-                        XmlSerializer bin = new XmlSerializer(typeof(BackupSettings));
-                        config = (BackupSettings)bin.Deserialize(stream);
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Error during reading settings from file " + sFile,
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            return config;
-        }
+  
 
         /// <summary>
         /// Waits, till outlook ends and then starts the backup process
@@ -327,7 +216,7 @@ namespace BackupExecutor
             if (iSuccess > 0)
             {
                 config.LastRun = DateTime.Now;
-                saveConfig(config);
+                BackupSettingsDao.saveSettings(config);
             }
 
             return iError;
@@ -377,30 +266,7 @@ namespace BackupExecutor
             return (i < 10);
         }
 
-        /// <summary>
-        /// Saves the configuration to disk / updates last-run
-        /// </summary>
-        /// <param name="config">config which should be saved</param>
-        private static void saveConfig(BackupSettings config)
-        {
-
-            String sFile = getConfigFilePath();
-            try
-            {
-                using (Stream stream = File.Open(sFile, FileMode.Create))
-                {
-                    //BinaryFormatter bin = new BinaryFormatter();
-                    XmlSerializer bin = new XmlSerializer(typeof(BackupSettings));
-                    bin.Serialize(stream, config);
-                }
-            }
-            catch (IOException)
-            {
-                MessageBox.Show("Error during saving settings to file " + sFile,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+ 
         /// <summary>
         /// Waits, till the process is not running any more
         /// </summary>
