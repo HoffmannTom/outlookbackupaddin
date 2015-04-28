@@ -231,9 +231,12 @@ namespace BackupExecutor
                     GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
                     byte[] buffer = new byte[16 * 1024];
                     int read;
+                    int readTotal = 0;
                     while ((read = inFile.Read(buffer, 0, buffer.Length)) > 0)
                     {
                         Compress.Write(buffer, 0, read);
+                        readTotal += read;
+                        UpdateProgressIndicators(readTotal, fi.Length);
                     };
 
                     Compress.Close();
@@ -263,6 +266,13 @@ namespace BackupExecutor
             SafeNativeMethods.CopyProgressCallbackReason dwCallbackReason,
             IntPtr hSourceFile, IntPtr hDestinationFile, IntPtr lpData)
         {
+            UpdateProgressIndicators(TotalFileBytesTransferred, StreamSize);
+
+            return SafeNativeMethods.CopyProgressResult.PROGRESS_CONTINUE;
+        }
+
+        private static void UpdateProgressIndicators(long TotalFileBytesTransferred, long StreamSize)
+        {
             int i = (int)(TotalFileBytesTransferred * 100 / StreamSize);
             if (pbCopyProgress != null)
                 pbCopyProgress.Invoke(new Action(() => pbCopyProgress.Value = i));
@@ -277,8 +287,6 @@ namespace BackupExecutor
                 int iMbPerSec = (int)(TotalFileBytesTransferred / 1024 / 1024 / TimeElapsedSec);
                 lblMegaBytesPerSecond.Invoke(new Action(() => lblMegaBytesPerSecond.Text = iMbPerSec + " MiB/s"));
             }
-
-            return SafeNativeMethods.CopyProgressResult.PROGRESS_CONTINUE;
         }
 
         /// <summary>
