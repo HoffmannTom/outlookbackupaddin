@@ -7,7 +7,7 @@
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes"/>
 
-    <Property Id="PLUGIN_NAME" Value="Outlook-Backup" />
+    <Property Id="PLUGIN_NAME" Value="Codeplex.BackupAddIn" />
 
     <Icon Id="app.ico" SourceFile="backup.ico"/>
     <Property Id="ARPPRODUCTICON" Value="app.ico" />

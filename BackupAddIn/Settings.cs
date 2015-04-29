@@ -23,7 +23,7 @@ namespace BackupAddIn
     public partial class FBackupSettings : Form
     {
         private Microsoft.Office.Interop.Outlook.Stores stores;
-
+        private BackupSettings config;
 
         /// <summary>
         /// Default constructor
@@ -37,9 +37,9 @@ namespace BackupAddIn
         /// <summary>
         /// Gets the configuration from disk and populates the form accordingly
         /// </summary>
-        private void applySettings()
+        private void applySettings(BackupSettings config)
         {
-            BackupSettings config = BackupSettingsDao.loadSettings();
+            //BackupSettings config = BackupSettingsDao.loadSettings();
 
             if (config != null)
             {
@@ -84,7 +84,7 @@ namespace BackupAddIn
         private bool saveSettings()
         {
             //preserve hidden flags
-            BackupSettings config = BackupSettingsDao.loadSettings();
+            //BackupSettings config = BackupSettingsDao.loadSettings();
             if (config == null)
                 config = new BackupSettings();
             config.DestinationPath = txtDestination.Text;
@@ -188,7 +188,7 @@ namespace BackupAddIn
             //cleanup
             txtDestination.Text = "";
             lvStores.Items.Clear();
-            BackupSettings config = BackupSettingsDao.loadSettings();
+            config = BackupSettingsDao.loadSettings();
 
             //Add pst-files to list
             var list =  BackupUtils.GetStoreLocations(config, stores);
@@ -202,8 +202,7 @@ namespace BackupAddIn
 
             lvStores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
-            applySettings();
-
+            applySettings(config);
         }
     }
 }
