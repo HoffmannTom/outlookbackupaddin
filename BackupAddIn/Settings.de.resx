@@ -124,6 +124,9 @@
     <value>&amp;Abbrechen</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cbxBackupAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 189</value>
+  </data>
   <data name="txtLastBackup.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 236</value>
   </data>
@@ -137,13 +140,10 @@
     <value>Letztes Backup:</value>
   </data>
   <data name="lblBackupAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 13</value>
+    <value>118, 13</value>
   </data>
   <data name="lblBackupAll.Text" xml:space="preserve">
     <value>Alle pst-Dateien sichen:</value>
-  </data>
-  <data name="cbxBackupAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 189</value>
   </data>
   <data name="txtBackupExe.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 286</value>
@@ -195,6 +195,9 @@
   </data>
   <data name="lblBPrefix.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 24</value>
+  </data>
+  <data name="lblBPrefix.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
   </data>
   <data name="lblBPrefix.Text" xml:space="preserve">
     <value>Backup Präfix:</value>

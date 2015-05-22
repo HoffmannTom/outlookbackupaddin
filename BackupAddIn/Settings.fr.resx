@@ -123,9 +123,6 @@
   <data name="btnAbbrechen.Text" xml:space="preserve">
     <value>&amp;Effacer</value>
   </data>
-  <data name="gbSettings.Text" xml:space="preserve">
-    <value>Fichiers Outlook</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnReset.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>
@@ -151,8 +148,8 @@
   <data name="lblInterval.Text" xml:space="preserve">
     <value>Intervalle:</value>
   </data>
-  <data name="gbOptionalSettings.Text" xml:space="preserve">
-    <value>Réglages des options</value>
+  <data name="gbSettings.Text" xml:space="preserve">
+    <value>Fichiers Outlook</value>
   </data>
   <data name="lblPostBackupCmd.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 13</value>
@@ -180,6 +177,9 @@
   </data>
   <data name="lblBPrefix.Text" xml:space="preserve">
     <value>Préfixe de sauvegarde:</value>
+  </data>
+  <data name="gbOptionalSettings.Text" xml:space="preserve">
+    <value>Réglages des options</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Paramètres de sauvegarde </value>
