@@ -118,18 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnSpeichern.Text" xml:space="preserve">
-    <value>&amp;Effacer</value>
+    <value>&amp;Sauvegarder</value>
   </data>
   <data name="btnAbbrechen.Text" xml:space="preserve">
-    <value>&amp;Sauvegarder</value>
+    <value>&amp;Effacer</value>
   </data>
   <data name="gbSettings.Text" xml:space="preserve">
     <value>Fichiers Outlook</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 20</value>
+  </data>
   <data name="btnReset.Text" xml:space="preserve">
     <value>Réinitialiser</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblLastBackup.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 13</value>
   </data>

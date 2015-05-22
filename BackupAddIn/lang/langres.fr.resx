@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RibbonButtonBackup" xml:space="preserve">
-    <value>Backup</value>
+    <value>de sauvegarde</value>
     <comment>de sauvegarde</comment>
   </data>
   <data name="RibbonSettings" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>Paramètres</value>
     <comment>Paramètres</comment>
   </data>
   <data name="RibbonTabBackup" xml:space="preserve">
-    <value>BACKUP</value>
+    <value>de sauvegarde</value>
     <comment>de sauvegarde</comment>
   </data>
 </root>

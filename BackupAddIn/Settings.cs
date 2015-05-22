@@ -37,7 +37,7 @@ namespace BackupAddIn
         /// <summary>
         /// Gets the configuration from disk and populates the form accordingly
         /// </summary>
-        private void applySettings(BackupSettings config)
+        private void applySettings()
         {
             //BackupSettings config = BackupSettingsDao.loadSettings();
 
@@ -202,7 +202,7 @@ namespace BackupAddIn
 
             lvStores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
-            applySettings(config);
+            applySettings();
         }
     }
 }

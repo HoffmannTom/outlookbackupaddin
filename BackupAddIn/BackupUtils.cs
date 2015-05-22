@@ -17,7 +17,6 @@ namespace BackupAddIn
     class BackupUtils
     {
  
-
         public static List<String> GetStoreLocations(BackupSettings config, Stores st)
         {
             var list = new List<string>();

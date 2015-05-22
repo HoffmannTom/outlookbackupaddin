@@ -205,6 +205,10 @@
             // 
             resources.ApplyResources(this.columnHeader1, "columnHeader1");
             // 
+            // folderBrowserdlg
+            // 
+            resources.ApplyResources(this.folderBrowserdlg, "folderBrowserdlg");
+            // 
             // fileOpenDialog
             // 
             this.fileOpenDialog.DefaultExt = "*.exe";
