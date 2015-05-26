@@ -215,9 +215,10 @@ UINT __stdcall RegisterPlugin(MSIHANDLE hInstall)
 		res = RegSetValueEx(hk, L"LoadBehavior", NULL, REG_DWORD, (LPBYTE)&val3, sizeof(REG_DWORD));
 		ExitOnWin32Error(res, hr, "Error creating LoadBehavior:" + res);
 
-		DWORD val4 = 1;
-		res = RegSetValueEx(hk, L"Warmup", NULL, REG_DWORD, (LPBYTE)&val4, sizeof(REG_DWORD));
-		ExitOnWin32Error(res, hr, "Error creating Warmup:" + res);
+		//can cause: Exception: Exception reading manifest from .../VSTA/Pipeline.v10.0/PipelineSegments.store: the manifest may not be valid or the file could not be opened.
+		//DWORD val4 = 1;
+		//res = RegSetValueEx(hk, L"Warmup", NULL, REG_DWORD, (LPBYTE)&val4, sizeof(REG_DWORD));
+		//ExitOnWin32Error(res, hr, "Error creating Warmup:" + res);
 
 		WcaLog(LOGMSG_STANDARD, "Manifest-Entry: %ls", pszSourcePath);
 		res = RegSetValueEx(hk, L"Manifest", NULL, REG_SZ, (LPBYTE)pszSourcePath, wcslen(pszSourcePath) * sizeof(TCHAR) + 1);
