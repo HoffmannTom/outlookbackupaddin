@@ -140,10 +140,16 @@
     <value>Letztes Backup:</value>
   </data>
   <data name="lblBackupAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 13</value>
+    <value>104, 13</value>
   </data>
   <data name="lblBackupAll.Text" xml:space="preserve">
     <value>Alle Dateien sichern:</value>
+  </data>
+  <data name="lblDays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 13</value>
+  </data>
+  <data name="lblDays.Text" xml:space="preserve">
+    <value>Tage</value>
   </data>
   <data name="txtBackupExe.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 286</value>
