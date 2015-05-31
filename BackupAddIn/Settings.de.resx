@@ -143,7 +143,7 @@
     <value>118, 13</value>
   </data>
   <data name="lblBackupAll.Text" xml:space="preserve">
-    <value>Alle pst-Dateien sichen:</value>
+    <value>Alle Dateien sichern:</value>
   </data>
   <data name="txtBackupExe.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 286</value>

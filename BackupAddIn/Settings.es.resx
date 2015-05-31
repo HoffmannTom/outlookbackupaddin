@@ -149,7 +149,7 @@
     <value>123, 13</value>
   </data>
   <data name="lblBackupAll.Text" xml:space="preserve">
-    <value>Copiar los archivos PST:</value>
+    <value>Copiar los archivos:</value>
   </data>
   <data name="lblDays.Location" type="System.Drawing.Point, System.Drawing">
     <value>200, 214</value>

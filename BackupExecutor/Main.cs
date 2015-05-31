@@ -28,8 +28,10 @@ namespace BackupExecutor
             m_SynchronizationContext.Post((@object) =>
             {
                 String s2 = (String)@object;
-                txtLog.Text += s2 + Environment.NewLine;
+                txtLog.AppendText(s2 + Environment.NewLine);
                 txtLog.Refresh();
+                //txtLog.SelectionStart = txtLog.Text.Length;
+                txtLog.ScrollToCaret();
             }, s);
         }
 
@@ -81,14 +83,14 @@ namespace BackupExecutor
                 e.Cancel = !BackupTool.CanExit;
         }
 
-        private void startCountdown(BackupSettings config, BackupTool.Logger LogToScreen)
+        private void startCountdown(BackupSettings config, BackupTool.Logger Log)
         {
             BackupTool.CanExit = true;
             for (int i = config.CountdownSeconds; i > 0; i--)
             {
                 if (i > 1)
-                     LogToScreen("Starting backup in " + i + " seconds");
-                else LogToScreen("Starting backup in " + i + " second");
+                     Log("Starting backup in " + i + " seconds");
+                else Log("Starting backup in " + i + " second");
 
                 Thread.Sleep(1000);
             }
