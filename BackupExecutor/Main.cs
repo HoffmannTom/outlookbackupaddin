@@ -13,6 +13,7 @@ namespace BackupExecutor
     /// </summary>
     public partial class frmMain : Form
     {
+        private static String REG_PATH_EXECUTOR_SETTINGS = @"Software\CodePlex\BackupAddIn\ExecutorSettings";
         private SynchronizationContext m_SynchronizationContext;
         /// <summary>
         ///  Default constructor
@@ -44,7 +45,63 @@ namespace BackupExecutor
 
             this.Show();
 
+            applySettingsFromRegistry();
+
             startAsyncWork();
+        }
+
+        private bool applySettingsFromRegistry()
+        {
+            try
+            {
+                RegistryKey appKey = Registry.CurrentUser.OpenSubKey(REG_PATH_EXECUTOR_SETTINGS, false);
+                if (appKey != null)
+                {
+                    int iHeight = (int)appKey.GetValue("WindowHeight", 0);
+                    int iWidth = (int)appKey.GetValue("WindowWidth", 0);
+
+                    //do some plausbility checks before applying
+                    if (iHeight < this.MinimumSize.Height)
+                        iHeight = this.MinimumSize.Height;
+                    if (iHeight > SystemInformation.VirtualScreen.Height)
+                        iHeight = SystemInformation.VirtualScreen.Height;
+
+                    if (iWidth < this.MinimumSize.Width)
+                        iWidth = this.MinimumSize.Width;
+                    if (iWidth > SystemInformation.VirtualScreen.Width)
+                        iWidth = SystemInformation.VirtualScreen.Width;
+
+                    this.Height = iHeight;
+                    this.Width = iWidth;
+
+                    appKey.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
+
+        private bool saveSettingsToRegistry()
+        {
+            try
+            {
+                RegistryKey appKey = Registry.CurrentUser.CreateSubKey(REG_PATH_EXECUTOR_SETTINGS);
+
+                appKey.SetValue("WindowHeight", this.Height);
+                appKey.SetValue("WindowWidth", this.Width);
+
+                appKey.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
         }
 
         private /*async*/ void startAsyncWork()
@@ -81,6 +138,10 @@ namespace BackupExecutor
         {
             if (e.CloseReason == CloseReason.UserClosing)
                 e.Cancel = !BackupTool.CanExit;
+
+            //if closing allowed, safe settings
+            if (!e.Cancel)
+                saveSettingsToRegistry();
         }
 
         private void startCountdown(BackupSettings config, BackupTool.Logger Log)

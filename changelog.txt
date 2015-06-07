@@ -8,6 +8,7 @@ Version 1.5
 - Settings are now stored in registry
 - gzip-compression (unsupported and hidden feature "UseCompression")
 - Fixed French translation (typos)
+- Save size of backup program window and restore size at next startup
 
 Version 1.4
 - corrected typo (pst-files)
