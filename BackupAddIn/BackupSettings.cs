@@ -112,5 +112,10 @@ namespace BackupAddInCommon
                 else countdownSeconds = 0;
             } 
         }
+
+        /// <summary>
+        ///  List of store types to hide
+        /// </summary>
+        public List<int> StoreTypeBlacklist { get; set; }
     }
 }

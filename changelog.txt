@@ -9,6 +9,7 @@ Version 1.5
 - gzip-compression (unsupported and hidden feature "UseCompression")
 - Fixed French translation (typos)
 - Save size of backup program window and restore size at next startup
+- Added parameter to hide certain store types (StoreTypeBlacklist)
 
 Version 1.4
 - corrected typo (pst-files)

@@ -112,6 +112,14 @@ namespace BackupAddInCommon
                     StringCollection col = property.GetValue(config, null) as StringCollection;
                     val = col.Cast<String>().ToArray<String>();
                 }
+                else if (typeof(List<int>).IsAssignableFrom(property.PropertyType))
+                {
+                    t = RegistryValueKind.String;
+                    List<int> l = (property.GetValue(config, null) as List<int>);
+                    if (l != null)
+                         val = String.Join(",", l.Select(p => p.ToString()).ToArray());
+                    else val = "";
+                }
 
                 if (t != RegistryValueKind.Unknown)
                     appKey.SetValue(property.Name, val, t);
@@ -213,6 +221,14 @@ namespace BackupAddInCommon
                         StringCollection sc = new StringCollection();
                         sc.AddRange(sArr);
                         pi.SetValue(config, sc, null);
+                    }
+                    else if (typeof(List<int>).IsAssignableFrom(pi.PropertyType))
+                    {
+                        String s = appKey.GetValue(name) as String;
+                        List<int> l = new List<int>();
+                        char[] sep = new char[] { ',' };
+                        s.Split(sep, StringSplitOptions.RemoveEmptyEntries).ToList().ForEach(x => l.Add(Convert.ToInt32(x)));
+                        pi.SetValue(config, l, null);
                     }
                 }
             }

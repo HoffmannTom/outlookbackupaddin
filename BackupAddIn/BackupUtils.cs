@@ -25,6 +25,16 @@ namespace BackupAddIn
             {
                 try
                 {
+                    /*MessageBox.Show("DisplayName: "+ st[i].DisplayName
+                                  + "\r\nFilePath: " + st[i].FilePath
+                                  + "\r\nStoreType: " + st[i].ExchangeStoreType
+                                  + "\r\nIsDataFileStore: " + st[i].IsDataFileStore
+                                  + "\r\nIsCachedExchange: " + st[i].IsCachedExchange);
+                     * */
+                    if (config.StoreTypeBlacklist != null &&
+                        config.StoreTypeBlacklist.Contains((int)st[i].ExchangeStoreType))
+                        continue;
+
                     //Ignore http- and imap-stores
                     if (st[i].FilePath != null)
                         list.Add(st[i].FilePath);
