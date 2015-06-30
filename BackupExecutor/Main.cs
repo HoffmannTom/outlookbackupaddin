@@ -130,7 +130,8 @@ namespace BackupExecutor
                 }
 
                 if (iError == 0)
-                    Application.Exit();
+                     Application.Exit();
+                else BackupTool.CanExit = true; //allow manual closing
             });
         }
 
