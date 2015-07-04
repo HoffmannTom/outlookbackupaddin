@@ -28,7 +28,7 @@
       <string id="POL_BBBCC395_8A32_4B6A_914D_AD30DF9A0DB3_Help">Set this value to the number of days after which a new backup should be started</string>
       <string id="POL_B988DC87_AA3E_4195_B52E_4873658C7115">Files to backup</string>
       <string id="POL_B988DC87_AA3E_4195_B52E_4873658C7115_Help">Configure the files which should be backed up</string>
-      <string id="POL_1EB1A792_C72C_422B_8F39_21391B002E0B">Post backup-command</string>
+      <string id="POL_1EB1A792_C72C_422B_8F39_21391B002E0B">Post backup command</string>
       <string id="POL_1EB1A792_C72C_422B_8F39_21391B002E0B_Help">Execute (optionally) the given script</string>
       <string id="POL_274EBBB2_3469_40F4_95EF_07C28897C63B">Show ost-files</string>
       <string id="POL_274EBBB2_3469_40F4_95EF_07C28897C63B_Help">Set this option to true to also display ost-files. Usually the location is not public but can be extracted from the store-id (in some cases)</string>
@@ -45,7 +45,7 @@ olAdditionalExchangeMailbox = 4
 
 Valid value is e.g. 1,2</string>
       <string id="POL_10A02353_C014_40E6_ABA6_31E39A4898E7">Use compression</string>
-      <string id="POL_10A02353_C014_40E6_ABA6_31E39A4898E7_Help">Compression can be optinally be activated (gzip compression).
+      <string id="POL_10A02353_C014_40E6_ABA6_31E39A4898E7_Help">Compression can be optionally be activated (gzip compression).
 Depending on the emails it can be more or less effective.</string>
       <string id="POL_2B9DBA16_C004_4B33_80CF_A57FB4306508">Wait time for file-lock</string>
     </stringTable>
@@ -124,7 +124,7 @@ Depending on the emails it can be more or less effective.</string>
         <checkBox refId="CHK_177A120F_1853_422B_85F1_66A9DF1AFDC2">Use compression</checkBox>
       </presentation>
       <presentation id="POL_2B9DBA16_C004_4B33_80CF_A57FB4306508">
-        <decimalTextBox refId="DXT_4736FFAE_5D6C_4A0E_A1AA_B8AACBF0EC2F" defaultValue="500">Max. time to wait for file lock</decimalTextBox>
+        <decimalTextBox refId="DXT_4736FFAE_5D6C_4A0E_A1AA_B8AACBF0EC2F" defaultValue="500">Max. time to wait for file lock (in millisec.)</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>
