@@ -1,0 +1,175 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="fullarmor" namespace="FullArmor.Policies.306C4740_D25C_438A_AD0B_8B7D541500FE" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="CAT_796973AB_6967_411E_854F_E38330F0DC20" displayName="$(string.CAT_796973AB_6967_411E_854F_E38330F0DC20)" />
+  </categories>
+  <policies>
+  
+    <policy name="POL_4A04F786_9D98_40FC_9990_289DDEBE5F6C" class="User" displayName="$(string.POL_4A04F786_9D98_40FC_9990_289DDEBE5F6C)" explainText="$(string.POL_4A04F786_9D98_40FC_9990_289DDEBE5F6C_Help)" presentation="$(presentation.POL_4A04F786_9D98_40FC_9990_289DDEBE5F6C)" key="Software\Policies\Microsoft\Windows\WinRM\Service" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <text id="TXT_5D5E28CD_F804_4EEF_ADCC_740CA8B51DFF" valueName="BackupPrefix" required="true" maxLength="50" />
+      </elements>
+    </policy>
+	
+    <policy name="POL_BF45BD88_3634_4F80_8B88_76BDD098DB0F" class="User" displayName="$(string.POL_BF45BD88_3634_4F80_8B88_76BDD098DB0F)" explainText="$(string.POL_BF45BD88_3634_4F80_8B88_76BDD098DB0F_Help)" presentation="$(presentation.POL_BF45BD88_3634_4F80_8B88_76BDD098DB0F)" key="Software\CodePlex\BackupAddIn\Settings">
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <text id="TXT_43F91329_184F_4328_BF46_C9F819499CC6" valueName="BackupSuffix" required="true" maxLength="50" />
+      </elements>
+    </policy>
+
+    <policy name="POL_A8CDC133_2FEF_4B20_8EAA_C3276A5C5C31" class="User" displayName="$(string.POL_A8CDC133_2FEF_4B20_8EAA_C3276A5C5C31)" explainText="$(string.POL_A8CDC133_2FEF_4B20_8EAA_C3276A5C5C31_Help)" presentation="$(presentation.POL_A8CDC133_2FEF_4B20_8EAA_C3276A5C5C31)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <boolean id="CHK_3D3041A9_2E41_403C_A29A_91D5530EFC6C" valueName="BackupAll" >
+		  <trueValue>
+            <string value="TRUE" />
+          </trueValue>
+          <falseValue>
+            <string value="FALSE" />
+          </falseValue>
+		</boolean>
+      </elements>
+    </policy>
+	
+    <policy name="POL_43AE0FD1_A2F8_4D71_B678_0ACD0C22BCF9" class="User" displayName="$(string.POL_43AE0FD1_A2F8_4D71_B678_0ACD0C22BCF9)" explainText="$(string.POL_43AE0FD1_A2F8_4D71_B678_0ACD0C22BCF9_Help)" presentation="$(presentation.POL_43AE0FD1_A2F8_4D71_B678_0ACD0C22BCF9)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <text id="TXT_F7698B59_5DC7_4854_B944_32E5DDF5431C" valueName="BackupProgram" required="true" />
+      </elements>
+    </policy>
+	
+    <policy name="POL_61C37EB0_ADD2_42DF_9613_79749B129EA2" class="User" displayName="$(string.POL_61C37EB0_ADD2_42DF_9613_79749B129EA2)" explainText="$(string.POL_61C37EB0_ADD2_42DF_9613_79749B129EA2_Help)" presentation="$(presentation.POL_61C37EB0_ADD2_42DF_9613_79749B129EA2)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <decimal id="DXT_A5C57465_A666_47D1_BFA3_724766B3BE1A" valueName="CountdownSeconds" maxValue="100" />
+      </elements>
+    </policy>
+	
+    <policy name="POL_9A89057E_763A_476D_B589_B81ED168A96E" class="User" displayName="$(string.POL_9A89057E_763A_476D_B589_B81ED168A96E)" explainText="$(string.POL_9A89057E_763A_476D_B589_B81ED168A96E_Help)" presentation="$(presentation.POL_9A89057E_763A_476D_B589_B81ED168A96E)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <text id="TXT_D7680AF8_4B1A_40E3_A26D_FEED5C21A64E" valueName="DestinationPath" required="true" />
+      </elements>
+    </policy>
+	
+    <policy name="POL_BF3F7655_074E_4301_88B7_AEDEA451A2DD" class="User" displayName="$(string.POL_BF3F7655_074E_4301_88B7_AEDEA451A2DD)" explainText="$(string.POL_BF3F7655_074E_4301_88B7_AEDEA451A2DD_Help)" presentation="$(presentation.POL_BF3F7655_074E_4301_88B7_AEDEA451A2DD)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <boolean id="CHK_DC2D95DC_2ED0_48B0_A6D0_41CDD49531BB" valueName="IgnoreEncryption" >
+		  <trueValue>
+            <string value="TRUE" />
+          </trueValue>
+          <falseValue>
+            <string value="FALSE" />
+          </falseValue>
+		</boolean>		
+      </elements>
+    </policy>
+	
+    <policy name="POL_BBBCC395_8A32_4B6A_914D_AD30DF9A0DB3" class="User" displayName="$(string.POL_BBBCC395_8A32_4B6A_914D_AD30DF9A0DB3)" explainText="$(string.POL_BBBCC395_8A32_4B6A_914D_AD30DF9A0DB3_Help)" presentation="$(presentation.POL_BBBCC395_8A32_4B6A_914D_AD30DF9A0DB3)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <decimal id="DXT_CBD6BD17_7C68_41ED_9E06_A28DEA60B2F3" valueName="Interval" maxValue="190" />
+      </elements>
+    </policy>
+	
+    <policy name="POL_B988DC87_AA3E_4195_B52E_4873658C7115" class="User" displayName="$(string.POL_B988DC87_AA3E_4195_B52E_4873658C7115)" explainText="$(string.POL_B988DC87_AA3E_4195_B52E_4873658C7115_Help)" presentation="$(presentation.POL_B988DC87_AA3E_4195_B52E_4873658C7115)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <text id="TXT_3D4BDCEC_5F97_498B_80A1_6EB4C82A38FB" valueName="Items" expandable="true" />
+      </elements>
+    </policy>
+	
+    <policy name="POL_1EB1A792_C72C_422B_8F39_21391B002E0B" class="User" displayName="$(string.POL_1EB1A792_C72C_422B_8F39_21391B002E0B)" explainText="$(string.POL_1EB1A792_C72C_422B_8F39_21391B002E0B_Help)" presentation="$(presentation.POL_1EB1A792_C72C_422B_8F39_21391B002E0B)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <text id="TXT_9F673EA2_0C8C_42C7_8CB9_E516052FD038" valueName="PostBackupCmd" />
+      </elements>
+    </policy>
+	
+    <policy name="POL_274EBBB2_3469_40F4_95EF_07C28897C63B" class="User" displayName="$(string.POL_274EBBB2_3469_40F4_95EF_07C28897C63B)" explainText="$(string.POL_274EBBB2_3469_40F4_95EF_07C28897C63B_Help)" presentation="$(presentation.POL_274EBBB2_3469_40F4_95EF_07C28897C63B)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <boolean id="CHK_5674386D_E521_4D8F_BB52_0A291FF49856" valueName="ShowOSTFiles" >
+		  <trueValue>
+            <string value="TRUE" />
+          </trueValue>
+          <falseValue>
+            <string value="FALSE" />
+          </falseValue>
+		</boolean>		
+      </elements>
+    </policy>
+	
+    <policy name="POL_F6EE8B14_5EC5_4A1B_8DA7_79B6F5CDC52F" class="User" displayName="$(string.POL_F6EE8B14_5EC5_4A1B_8DA7_79B6F5CDC52F)" explainText="$(string.POL_F6EE8B14_5EC5_4A1B_8DA7_79B6F5CDC52F_Help)" presentation="$(presentation.POL_F6EE8B14_5EC5_4A1B_8DA7_79B6F5CDC52F)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <text id="TXT_BD921970_49F7_457E_AEBA_88256BFB0EB5" valueName="StoreTypeBlacklist" />
+      </elements>
+    </policy>
+	
+    <policy name="POL_10A02353_C014_40E6_ABA6_31E39A4898E7" class="User" displayName="$(string.POL_10A02353_C014_40E6_ABA6_31E39A4898E7)" explainText="$(string.POL_10A02353_C014_40E6_ABA6_31E39A4898E7_Help)" presentation="$(presentation.POL_10A02353_C014_40E6_ABA6_31E39A4898E7)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <boolean id="CHK_177A120F_1853_422B_85F1_66A9DF1AFDC2" valueName="UseCompression" >
+		  <trueValue>
+            <string value="TRUE" />
+          </trueValue>
+          <falseValue>
+            <string value="FALSE" />
+          </falseValue>
+		</boolean>		
+      </elements>
+    </policy>
+	
+    <policy name="POL_2B9DBA16_C004_4B33_80CF_A57FB4306508" class="User" displayName="$(string.POL_2B9DBA16_C004_4B33_80CF_A57FB4306508)" presentation="$(presentation.POL_2B9DBA16_C004_4B33_80CF_A57FB4306508)" key="Software\CodePlex\BackupAddIn\Settings" >
+      <parentCategory ref="CAT_796973AB_6967_411E_854F_E38330F0DC20" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue />
+      <disabledValue />
+      <elements>
+        <decimal id="DXT_4736FFAE_5D6C_4A0E_A1AA_B8AACBF0EC2F" valueName="WaitTimeFileLock" maxValue="1000" />
+      </elements>
+    </policy>
+	
+  </policies>
+</policyDefinitions>
