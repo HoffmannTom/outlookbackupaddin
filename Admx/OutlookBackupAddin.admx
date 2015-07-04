@@ -31,10 +31,10 @@
       <elements>
         <boolean id="CHK_3D3041A9_2E41_403C_A29A_91D5530EFC6C" valueName="BackupAll" >
 		  <trueValue>
-            <string value="TRUE" />
+            <string>True</string>
           </trueValue>
           <falseValue>
-            <string value="FALSE" />
+            <string>False</string>
           </falseValue>
 		</boolean>
       </elements>
@@ -70,10 +70,10 @@
       <elements>
         <boolean id="CHK_DC2D95DC_2ED0_48B0_A6D0_41CDD49531BB" valueName="IgnoreEncryption" >
 		  <trueValue>
-            <string value="TRUE" />
+            <string>True</string>
           </trueValue>
           <falseValue>
-            <string value="FALSE" />
+            <string>False</string>
           </falseValue>
 		</boolean>		
       </elements>
@@ -109,10 +109,10 @@
       <elements>
         <boolean id="CHK_5674386D_E521_4D8F_BB52_0A291FF49856" valueName="ShowOSTFiles" >
 		  <trueValue>
-            <string value="TRUE" />
+            <string>True</string>
           </trueValue>
           <falseValue>
-            <string value="FALSE" />
+            <string>False</string>
           </falseValue>
 		</boolean>		
       </elements>
@@ -132,10 +132,10 @@
       <elements>
         <boolean id="CHK_177A120F_1853_422B_85F1_66A9DF1AFDC2" valueName="UseCompression" >
 		  <trueValue>
-            <string value="TRUE" />
+            <string>True</string>
           </trueValue>
           <falseValue>
-            <string value="FALSE" />
+            <string>False</string>
           </falseValue>
 		</boolean>		
       </elements>

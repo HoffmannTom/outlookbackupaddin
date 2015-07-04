@@ -5,7 +5,7 @@
   </description>
   <resources>
     <stringTable>
-      <string id="CAT_796973AB_6967_411E_854F_E38330F0DC20">OutlookBackupAddinSettings</string>
+      <string id="CAT_796973AB_6967_411E_854F_E38330F0DC20">Outlook backup addin settings</string>
       <string id="POL_4A04F786_9D98_40FC_9990_289DDEBE5F6C">Backup prefix</string>
       <string id="POL_29E5E1AD_74D7_4C07_9CCE_C300B5F37EBB">Backup program</string>
       <string id="POL_BF45BD88_3634_4F80_8B88_76BDD098DB0F">Backup suffix</string>
@@ -96,7 +96,7 @@ Depending on the emails it can be more or less effective.</string>
         </textBox>
       </presentation>
       <presentation id="POL_BF3F7655_074E_4301_88B7_AEDEA451A2DD">
-        <checkBox refId="CHK_DC2D95DC_2ED0_48B0_A6D0_41CDD49531BB">Ignore encryption</checkBox>
+        <checkBox refId="CHK_DC2D95DC_2ED0_48B0_A6D0_41CDD49531BB">Ignore encryption at target folder</checkBox>
       </presentation>
       <presentation id="POL_BBBCC395_8A32_4B6A_914D_AD30DF9A0DB3">
         <decimalTextBox refId="DXT_CBD6BD17_7C68_41ED_9E06_A28DEA60B2F3">Interval (in days)</decimalTextBox>
@@ -124,8 +124,7 @@ Depending on the emails it can be more or less effective.</string>
         <checkBox refId="CHK_177A120F_1853_422B_85F1_66A9DF1AFDC2">Use compression</checkBox>
       </presentation>
       <presentation id="POL_2B9DBA16_C004_4B33_80CF_A57FB4306508">
-        <decimalTextBox refId="DXT_4736FFAE_5D6C_4A0E_A1AA_B8AACBF0EC2F" defaultValue="500">
-        </decimalTextBox>
+        <decimalTextBox refId="DXT_4736FFAE_5D6C_4A0E_A1AA_B8AACBF0EC2F" defaultValue="500">Max. time to wait for file lock</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>
