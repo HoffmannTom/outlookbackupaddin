@@ -31,7 +31,8 @@ namespace BackupAddIn
                                   + "\r\nIsDataFileStore: " + st[i].IsDataFileStore
                                   + "\r\nIsCachedExchange: " + st[i].IsCachedExchange);
                      * */
-                    if (config.StoreTypeBlacklist != null &&
+                    if (config != null && 
+                        config.StoreTypeBlacklist != null &&
                         config.StoreTypeBlacklist.Contains((int)st[i].ExchangeStoreType))
                         continue;
 

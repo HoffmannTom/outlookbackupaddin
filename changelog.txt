@@ -11,6 +11,7 @@ Version 1.5
 - Save size of backup program window and restore size at next startup
 - Added parameter to hide certain store types (StoreTypeBlacklist)
 - Configurable via group policy
+- Bugfix when opening settings window the first time
 
 Version 1.4
 - corrected typo (pst-files)

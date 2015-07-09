@@ -23,6 +23,7 @@ namespace BackupAddInCommon
             IgnoreEncryption = false;
             CountdownSeconds = 0;
             WaitTimeFileLock = 500;
+            ShowOSTFiles = false;
             UseCompression = false;
         }
 
