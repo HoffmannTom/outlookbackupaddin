@@ -126,7 +126,7 @@
     <comment>Paramètres</comment>
   </data>
   <data name="RibbonTabBackup" xml:space="preserve">
-    <value>de sauvegarde</value>
-    <comment>de sauvegarde</comment>
+    <value>Sauvegarde</value>
+    <comment>Sauvegarde</comment>
   </data>
 </root>
