@@ -144,7 +144,7 @@ namespace BackupExecutor
                         log("Script output: " + sOut);
                     if (!String.IsNullOrEmpty(sErr))
                         log("Script error: " + sOut);
-                    log("Process exited with code " + iRes);
+                    log("Process exited with code " + iExit);
                 }
                 return iExit;
             }
