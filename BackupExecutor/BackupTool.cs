@@ -37,9 +37,11 @@ namespace BackupExecutor
         /// </summary>
         public delegate void Logger(string message);
 
+        //private static Logger logger;
+
         private const String OUTLOOK_PROC = "OUTLOOK";
 
-        private static long TotalBytesToCopy; 
+        private static long TotalBytesToCopy;
         private static long TotalBytesCopied;
         private static long StartTimeCopy;
 
@@ -146,6 +148,7 @@ namespace BackupExecutor
         /// <returns>number of occured errors</returns>
         private static int doBackup(BackupSettings config, Logger log)
         {
+            //logger = log;
             int iError = 0, iSuccess = 0;
             String sPath = config.DestinationPath;
 
@@ -269,20 +272,42 @@ namespace BackupExecutor
             SafeNativeMethods.CopyProgressCallbackReason dwCallbackReason,
             IntPtr hSourceFile, IntPtr hDestinationFile, IntPtr lpData)
         {
-            UpdateProgressIndicators(TotalFileBytesTransferred, StreamSize);
+            if (dwCallbackReason == SafeNativeMethods.CopyProgressCallbackReason.CALLBACK_CHUNK_FINISHED)
+                UpdateProgressIndicators(TotalFileBytesTransferred, TotalFileSize);
 
             return SafeNativeMethods.CopyProgressResult.PROGRESS_CONTINUE;
         }
 
-        private static void UpdateProgressIndicators(long TotalFileBytesTransferred, long StreamSize)
+        private static void UpdateProgressIndicators(long TotalFileBytesTransferred, long FileSize)
         {
-            int i = (int)(TotalFileBytesTransferred * 100 / StreamSize);
+            int i = (int)(TotalFileBytesTransferred * 100 / FileSize);
             if (pbCopyProgress != null)
-                pbCopyProgress.Invoke(new Action(() => pbCopyProgress.Value = i));
+            {
+                if (pbCopyProgress.Minimum <= i && i <= pbCopyProgress.Maximum)
+                    pbCopyProgress.Invoke(new Action(() => pbCopyProgress.Value = i));
+                else
+                {
+                    String s = "Error in reporting progress" + System.Environment.NewLine;
+                    s += "TotalFileBytesTransferred:" + TotalFileBytesTransferred + System.Environment.NewLine;
+                    s += "FileSize:" + FileSize;
+                    throw new System.Exception(s);
+                }
+            }
 
             int iTotal = (int)((TotalBytesCopied + TotalFileBytesTransferred) * 100 / TotalBytesToCopy);
             if (pbTotalCopyProgress != null)
-                pbTotalCopyProgress.Invoke(new Action(() => pbTotalCopyProgress.Value = iTotal));
+            {
+                if (pbTotalCopyProgress.Minimum <= iTotal && iTotal <= pbTotalCopyProgress.Maximum)
+                    pbTotalCopyProgress.Invoke(new Action(() => pbTotalCopyProgress.Value = iTotal));
+                else 
+                {
+                    String s = "Error in reporting total progress" + System.Environment.NewLine;
+                    s += "TotalBytesCopied:" + TotalBytesCopied + System.Environment.NewLine;
+                    s += "TotalFileBytesTransferred:" + TotalFileBytesTransferred + System.Environment.NewLine;
+                    s += "TotalBytesToCopy:" + TotalBytesToCopy;
+                    throw new System.Exception(s);
+                }
+            }
 
             double TimeElapsedSec = (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond - StartTimeCopy) / 1000.0;
             if (TimeElapsedSec > 0.1 && lblMegaBytesPerSecond != null && TotalFileBytesTransferred > 0)
