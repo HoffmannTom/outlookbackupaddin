@@ -2,7 +2,7 @@ Version 1.5.1
 - Bugfix: Progress bar reported error, when file had alternative streams
 - Bugfix: Opening settings window for the first time produced an error ("Object reference not set to an instance of an object")
   After saving the settings, the error disappeared.
-- Show exit code for post-backup-command for easier problem analysis
+- Show exit code and output for post-backup-command for easier problem analysis
 
 Version 1.5
 - ignore encryption during copying to targets which doesn't support encryption (unsupported and hidden feature "IgnoreEncryption")

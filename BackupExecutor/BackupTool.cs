@@ -99,7 +99,6 @@ namespace BackupExecutor
                     if (!String.IsNullOrEmpty(config.PostBackupCmd))
                     {
                         int iRes = RunPostCmd(config.PostBackupCmd, log);
-                        log("Process exited with code " + iRes);
                         iError += iRes;
                     }
                 }
@@ -128,12 +127,26 @@ namespace BackupExecutor
             p.StartInfo.WorkingDirectory = "";
             p.StartInfo.FileName = cmd;
             p.StartInfo.Arguments = "";
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
 
             try
             {
                 p.Start();
                 p.WaitForExit();
-                return p.ExitCode;
+                int iExit = p.ExitCode;
+                if (iExit > 0)
+                {
+                    String sOut = p.StandardOutput.ReadToEnd();
+                    String sErr = p.StandardError.ReadToEnd();
+                    if (!String.IsNullOrEmpty(sOut))
+                        log("Script output: " + sOut);
+                    if (!String.IsNullOrEmpty(sErr))
+                        log("Script error: " + sOut);
+                    log("Process exited with code " + iRes);
+                }
+                return iExit;
             }
             catch (Exception e)
             {
