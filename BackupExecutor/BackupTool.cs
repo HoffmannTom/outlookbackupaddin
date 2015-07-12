@@ -97,7 +97,11 @@ namespace BackupExecutor
                 {
                     iError += doBackup(config, log);
                     if (!String.IsNullOrEmpty(config.PostBackupCmd))
-                        iError += RunPostCmd(config.PostBackupCmd, log);
+                    {
+                        int iRes = RunPostCmd(config.PostBackupCmd, log);
+                        log("Process exited with code " + iRes);
+                        iError += iRes;
+                    }
                 }
                 else
                 {
