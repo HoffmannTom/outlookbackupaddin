@@ -1,3 +1,6 @@
+Version 1.6
+- Improved error handling. When copy fails (e.g. target path not accessible), a message is shown and window stays open
+
 Version 1.5.1
 - Bugfix: Progress bar reported error, when file had alternative streams
 - Bugfix: Opening settings window for the first time produced an error ("Object reference not set to an instance of an object")

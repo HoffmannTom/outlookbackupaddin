@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -214,13 +215,15 @@ namespace BackupExecutor
                         //src and dest are different, lets backp
                         log("copy " + item + " to " + config.DestinationPath);
                         WaitForFile(item, log, config.WaitTimeFileLock);
-
+                        bool bOK = true;
                         if (config.UseCompression)
-                            CopyAndCompressFileForBackup(sDst, item);
+                            bOK = CopyAndCompressFileForBackup(sDst, item, log);
                         else
-                            CopyFileForBackup(config, sDst, item);
+                            bOK = CopyFileForBackup(config, sDst, item, log);
 
-                        iSuccess++;
+                        if (bOK)
+                            iSuccess++;
+                        else iError++;
                     }
 
                     TotalBytesCopied += FileSizes[iCounter - 1];
@@ -241,33 +244,42 @@ namespace BackupExecutor
             return iError;
         }
 
-        private static void CopyAndCompressFileForBackup(String sDst, String item)
+        private static bool CopyAndCompressFileForBackup(String sDst, String item, Logger log)
         {
-            FileInfo fi = new FileInfo(item);
-
-            // Get the stream of the source file.
-            using (FileStream inFile = fi.OpenRead())
+            try
             {
-                // Create the compressed file.
-                using (FileStream outFile = File.Create(sDst))
-                {
-                    GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
-                    byte[] buffer = new byte[32 * 1024];
-                    int read;
-                    int readTotal = 0;
-                    while ((read = inFile.Read(buffer, 0, buffer.Length)) > 0)
-                    {
-                        Compress.Write(buffer, 0, read);
-                        readTotal += read;
-                        UpdateProgressIndicators(readTotal, fi.Length);
-                    };
+                FileInfo fi = new FileInfo(item);
 
-                    Compress.Close();
+                // Get the stream of the source file.
+                using (FileStream inFile = fi.OpenRead())
+                {
+                    // Create the compressed file.
+                    using (FileStream outFile = File.Create(sDst))
+                    {
+                        GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
+                        byte[] buffer = new byte[32 * 1024];
+                        int read;
+                        int readTotal = 0;
+                        while ((read = inFile.Read(buffer, 0, buffer.Length)) > 0)
+                        {
+                            Compress.Write(buffer, 0, read);
+                            readTotal += read;
+                            UpdateProgressIndicators(readTotal, fi.Length);
+                        };
+
+                        Compress.Close();
+                    }
                 }
             }
+            catch (System.Exception e)
+            {
+                log("Failed to copy file: " + e.Message);
+                return false;
+            }
+            return true;
         }
 
-        private static void CopyFileForBackup(BackupSettings config, String sDst, String item)
+        private static bool CopyFileForBackup(BackupSettings config, String sDst, String item, Logger log)
         {
             SafeNativeMethods.CopyFileFlags dwCopyFlags = 0;
             if (config.IgnoreEncryption)
@@ -280,7 +292,10 @@ namespace BackupExecutor
 
             //CopyFileEx
             //https://msdn.microsoft.com/en-us/library/windows/desktop/aa363852%28v=vs.85%29.aspx
-            SafeNativeMethods.CopyFileEx(item, sDst, cb, IntPtr.Zero, ref pbCancel, dwCopyFlags);
+            bool bOK = SafeNativeMethods.CopyFileEx(item, sDst, cb, IntPtr.Zero, ref pbCancel, dwCopyFlags);
+            if (!bOK)
+                log("Filed to copy file: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
+            return bOK;
         }
 
         private static SafeNativeMethods.CopyProgressResult callback(long TotalFileSize,
