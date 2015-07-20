@@ -22,6 +22,7 @@ namespace BackupAddInCommon
             Items = new StringCollection();
             IgnoreEncryption = false;
             CountdownSeconds = 0;
+            Interval = 1;
             WaitTimeFileLock = 500;
             ShowOSTFiles = false;
             UseCompression = false;

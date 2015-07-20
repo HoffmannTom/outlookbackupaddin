@@ -62,7 +62,8 @@ namespace BackupAddIn
                 if (config.LastRun > DateTime.MinValue)
                     txtLastBackup.Text = config.LastRun.ToString("dd.MM.yyyy HH:mm:ss");
             }
-            else
+            
+            if (String.IsNullOrEmpty(txtBackupExe.Text))
             {
                 //Check dll folder whether exe file exists
                 String sFile = AppDomain.CurrentDomain.BaseDirectory;
