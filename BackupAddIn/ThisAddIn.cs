@@ -41,6 +41,7 @@ namespace BackupAddIn
                     //and if not yet backuped or if backup too old, then run program
                     if (config.LastRun == null || config.LastRun.AddDays(config.Interval) <= DateTime.Now)
                     {
+                        bool configChanged = false;
                         if (config.BackupAll)
                         {
                             //If alles pdf-files should be saved, enumerate them and save to config-file
@@ -50,8 +51,18 @@ namespace BackupAddIn
                             var list = BackupUtils.GetStoreLocations(config, Application.Session.Stores);
                             config.Items.AddRange(list.ToArray());
 
-                            BackupSettingsDao.saveSettings(config);
+                            configChanged = true;
                         }
+
+
+                        if (config.ProfileName != Application.Session.CurrentProfileName)
+                        {
+                            config.ProfileName = Application.Session.CurrentProfileName;
+                            configChanged = true;
+                        }
+
+                        if (configChanged)
+                            BackupSettingsDao.saveSettings(config);
 
                         try
                         {

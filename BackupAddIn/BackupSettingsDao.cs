@@ -122,7 +122,9 @@ namespace BackupAddInCommon
                 }
 
                 if (t != RegistryValueKind.Unknown)
-                    appKey.SetValue(property.Name, val, t);
+                    if (val != null)
+                         appKey.SetValue(property.Name, val, t);
+                    else appKey.DeleteValue(property.Name, false);
             }
             catch (System.Exception e)
             {

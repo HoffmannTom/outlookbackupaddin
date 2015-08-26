@@ -119,5 +119,7 @@ namespace BackupAddInCommon
         ///  List of store types to hide
         /// </summary>
         public List<int> StoreTypeBlacklist { get; set; }
+
+        public string ProfileName { get; set; }
     }
 }

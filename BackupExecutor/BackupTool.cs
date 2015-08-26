@@ -99,7 +99,7 @@ namespace BackupExecutor
                     iError += doBackup(config, log);
                     if (!String.IsNullOrEmpty(config.PostBackupCmd))
                     {
-                        int iRes = RunPostCmd(config.PostBackupCmd, log);
+                        int iRes = RunPostCmd(config.PostBackupCmd, config.ProfileName, log);
                         iError += iRes;
                     }
                 }
@@ -119,7 +119,7 @@ namespace BackupExecutor
         /// <param name="cmd">Command to execute</param>
         /// <param name="log">logging delegate to send error information</param>
         /// <returns>number of occured errors</returns>
-        private static int RunPostCmd(string cmd, Logger log)
+        private static int RunPostCmd(string cmd, String param, Logger log)
         {
             log("Starting post-backup cmd: " + cmd);
 
@@ -127,7 +127,7 @@ namespace BackupExecutor
             Process p = new Process();
             p.StartInfo.WorkingDirectory = "";
             p.StartInfo.FileName = cmd;
-            p.StartInfo.Arguments = "";
+            p.StartInfo.Arguments = param;
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.RedirectStandardError = true;

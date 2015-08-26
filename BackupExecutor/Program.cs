@@ -86,26 +86,26 @@ namespace BackupExecutor
         static int Main(string[] args)
         {
             int RetCode = 0;
-
-            if (args.Length == 0)
+            Dictionary<String, String> argsDict = new Dictionary<String, String>();
+            if (!parseArgs(args, argsDict))
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmMain());
+                showHelp(args);
+                return 0;
             }
-            else if (args[0] == "/register")
+
+            if (argsDict.ContainsKey("/register"))
             {
                 RetCode = registerPlugin(true) ? 0 : 1;
             }
-            else if (args[0] == "/registersetup")
+            else if (argsDict.ContainsKey("/registersetup"))
             {
                 RetCode = registerPlugin(false) ? 0 : 1;
             }
-            else if (args[0] == "/unregister")
+            else if (argsDict.ContainsKey("/unregister"))
             {
                 RetCode = unregisterPlugin() ? 0 : 1;
             }
-            else if (args[0] == "/backupnow")
+            else if (argsDict.ContainsKey("/backupnow"))
             {
                 SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
 
@@ -115,9 +115,38 @@ namespace BackupExecutor
                 SafeNativeMethods.FreeConsole();
                 RetCode = iError;
             }
-            else showHelp(args);
+            else
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new frmMain());
+            }
 
             return RetCode;
+        }
+
+        private static bool parseArgs(string[] args, Dictionary<string, string> argsDict)
+        {
+            bool bOK = true;
+            int iMainArgs = 0;
+
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i] == "/register" || args[i] == "/registersetup" ||
+                    args[i] == "/unregister" || args[i] == "/backupnow")
+                {
+                    argsDict.Add(args[i], "");
+                    iMainArgs++;
+                }
+                /*else if (args[i].StartsWith("/profile="))
+                {
+                    String val = args[i].Substring(9);
+                    argsDict.Add("/profile", val);
+                }*/
+                else bOK = false;
+            }
+
+            return bOK && (iMainArgs <= 1);
         }
 
         /// <summary>
