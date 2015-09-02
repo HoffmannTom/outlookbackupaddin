@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Product Id="{3F40346F-14E7-4F11-836D-9643FDDA0B86}" Name="Outlook-Backup-Plugin" Language="1033" Version="1.0.0.0" Manufacturer="CodePlex" UpgradeCode="9AB4E469-DE8B-4A02-BC02-225D9E698739">
+	<Product Id="{3F40346F-14E7-4F11-836D-9643FDDA0B86}" Name="Outlook-Backup-Plugin" Language="1033" Version="1.5.1.0" Manufacturer="CodePlex" UpgradeCode="9AB4E469-DE8B-4A02-BC02-225D9E698739">
 		<Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes"/>
+
+    <!-- Issues reported when user has few privileges and path is validated -->
+    <!-- "Installation Directory must be on a local hard drive" -->
+    <Property Id="WIXUI_DONTVALIDATEPATH" Value="1"/>
 
     <Property Id="PLUGIN_NAME" Value="Codeplex.BackupAddIn" />
 
