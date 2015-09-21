@@ -3,6 +3,9 @@ Version 1.6
 - Set default interval to 1 and search for backupexecutor.exe if parameters are not configured
 - disabled path check for installer ("destination folder must be on a local hard drive")
 - Updates version no within wix-setup
+- Added GUI option to set backup countdown
+- print live output of post-backup-skript
+- Mark backup successful only if all operations were successful
 
 Version 1.5.1
 - Bugfix: Progress bar reported error, when file had alternative streams

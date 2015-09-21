@@ -9,6 +9,8 @@ using BackupAddInCommon;
 using System.Diagnostics;
 using System.Reflection;
 using System.IO;
+using System.Threading;
+using System.Globalization;
 
 namespace BackupAddIn
 {
@@ -22,8 +24,8 @@ namespace BackupAddIn
 
             //set language to office language
             //http://blog.sebastianbrand.com/2010/03/vsto-using-net-multi-language-support.html
-            //Thread.CurrentThread.CurrentUICulture = 
-            //CultureInfo.GetCultureInfo(this.Application.LanguageSettings.get_LanguageID(Microsoft.Office.Core.MsoAppLanguageID.msoLanguageIDUI));
+            Thread.CurrentThread.CurrentUICulture = 
+            CultureInfo.GetCultureInfo(this.Application.LanguageSettings.get_LanguageID(Microsoft.Office.Core.MsoAppLanguageID.msoLanguageIDUI));
         }
 
         /// <summary>

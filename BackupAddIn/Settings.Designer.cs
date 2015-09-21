@@ -51,6 +51,9 @@
             this.folderBrowserdlg = new System.Windows.Forms.FolderBrowserDialog();
             this.fileOpenDialog = new System.Windows.Forms.OpenFileDialog();
             this.gbOptionalSettings = new System.Windows.Forms.GroupBox();
+            this.lblSeconds = new System.Windows.Forms.Label();
+            this.numCountdown = new System.Windows.Forms.NumericUpDown();
+            this.lblCountdown = new System.Windows.Forms.Label();
             this.txtPostBackupCmd = new System.Windows.Forms.TextBox();
             this.lblPostBackupCmd = new System.Windows.Forms.Label();
             this.txtSuffix = new System.Windows.Forms.TextBox();
@@ -60,6 +63,7 @@
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInterval)).BeginInit();
             this.gbOptionalSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCountdown)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSpeichern
@@ -218,6 +222,9 @@
             // gbOptionalSettings
             // 
             resources.ApplyResources(this.gbOptionalSettings, "gbOptionalSettings");
+            this.gbOptionalSettings.Controls.Add(this.lblSeconds);
+            this.gbOptionalSettings.Controls.Add(this.numCountdown);
+            this.gbOptionalSettings.Controls.Add(this.lblCountdown);
             this.gbOptionalSettings.Controls.Add(this.txtPostBackupCmd);
             this.gbOptionalSettings.Controls.Add(this.lblPostBackupCmd);
             this.gbOptionalSettings.Controls.Add(this.txtSuffix);
@@ -226,6 +233,26 @@
             this.gbOptionalSettings.Controls.Add(this.lblBPrefix);
             this.gbOptionalSettings.Name = "gbOptionalSettings";
             this.gbOptionalSettings.TabStop = false;
+            // 
+            // lblSeconds
+            // 
+            resources.ApplyResources(this.lblSeconds, "lblSeconds");
+            this.lblSeconds.Name = "lblSeconds";
+            // 
+            // numCountdown
+            // 
+            resources.ApplyResources(this.numCountdown, "numCountdown");
+            this.numCountdown.Maximum = new decimal(new int[] {
+            600,
+            0,
+            0,
+            0});
+            this.numCountdown.Name = "numCountdown";
+            // 
+            // lblCountdown
+            // 
+            resources.ApplyResources(this.lblCountdown, "lblCountdown");
+            this.lblCountdown.Name = "lblCountdown";
             // 
             // txtPostBackupCmd
             // 
@@ -278,6 +305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numInterval)).EndInit();
             this.gbOptionalSettings.ResumeLayout(false);
             this.gbOptionalSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCountdown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -312,5 +340,8 @@
         private System.Windows.Forms.Label lblSuffix;
         private System.Windows.Forms.TextBox txtPrefix;
         private System.Windows.Forms.Label lblBPrefix;
+        private System.Windows.Forms.Label lblSeconds;
+        private System.Windows.Forms.NumericUpDown numCountdown;
+        private System.Windows.Forms.Label lblCountdown;
     }
 }

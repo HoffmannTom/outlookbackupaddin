@@ -110,6 +110,13 @@ namespace BackupExecutor
                 }
             }
 
+            //if no errors occured, save current timestamp
+            if (iError == 0)
+            {
+                config.LastRun = DateTime.Now;
+                BackupSettingsDao.saveSettings(config);
+            }
+
             return iError;
         }
 
@@ -125,6 +132,8 @@ namespace BackupExecutor
 
             int iError = 0;
             Process p = new Process();
+            p.StartInfo.StandardOutputEncoding = Encoding.UTF8; //Encoding.GetEncoding(437)
+            p.StartInfo.StandardErrorEncoding = Encoding.UTF8;
             p.StartInfo.WorkingDirectory = "";
             p.StartInfo.FileName = cmd;
             p.StartInfo.Arguments = param;
@@ -132,19 +141,36 @@ namespace BackupExecutor
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.RedirectStandardError = true;
 
+            p.OutputDataReceived += new DataReceivedEventHandler( (s, e) =>
+                {
+                    log(e.Data);
+                }
+            );
+
+            p.ErrorDataReceived += new DataReceivedEventHandler((s, e) =>
+            {
+                log(e.Data);
+            }
+            );
+
             try
             {
                 p.Start();
+                p.BeginOutputReadLine();
+                p.BeginErrorReadLine();
+
                 p.WaitForExit();
                 int iExit = p.ExitCode;
                 if (iExit > 0)
                 {
+                    /*
                     String sOut = p.StandardOutput.ReadToEnd();
                     String sErr = p.StandardError.ReadToEnd();
                     if (!String.IsNullOrEmpty(sOut))
                         log("Script output: " + sOut);
                     if (!String.IsNullOrEmpty(sErr))
                         log("Script error: " + sOut);
+                    */
                     log("Process exited with code " + iExit);
                 }
                 return iExit;
@@ -167,7 +193,7 @@ namespace BackupExecutor
         private static int doBackup(BackupSettings config, Logger log)
         {
             //logger = log;
-            int iError = 0, iSuccess = 0;
+            int iError = 0;
             String sPath = config.DestinationPath;
 
             //Expand environment variables
@@ -221,9 +247,8 @@ namespace BackupExecutor
                         else
                             bOK = CopyFileForBackup(config, sDst, item, log);
 
-                        if (bOK)
-                            iSuccess++;
-                        else iError++;
+                        if (!bOK)
+                           iError++;
                     }
 
                     TotalBytesCopied += FileSizes[iCounter - 1];
@@ -233,12 +258,6 @@ namespace BackupExecutor
                     iError++;
                     log(e.Message);
                 }
-            }
-
-            if (iSuccess > 0)
-            {
-                config.LastRun = DateTime.Now;
-                BackupSettingsDao.saveSettings(config);
             }
 
             return iError;

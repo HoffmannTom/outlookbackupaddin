@@ -123,13 +123,13 @@
   <data name="btnAbbrechen.Text" xml:space="preserve">
     <value>&amp;Effacer</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
+  <data name="gbSettings.Text" xml:space="preserve">
+    <value>Fichiers Outlook</value>
   </data>
   <data name="btnReset.Text" xml:space="preserve">
     <value>Réinitialiser</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblLastBackup.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 13</value>
   </data>
@@ -148,8 +148,8 @@
   <data name="lblInterval.Text" xml:space="preserve">
     <value>Intervalle:</value>
   </data>
-  <data name="gbSettings.Text" xml:space="preserve">
-    <value>Fichiers Outlook</value>
+  <data name="gbOptionalSettings.Text" xml:space="preserve">
+    <value>Réglages des options</value>
   </data>
   <data name="lblPostBackupCmd.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 13</value>
@@ -158,7 +158,7 @@
     <value>Post-Sauvegarde:</value>
   </data>
   <data name="txtSuffix.Location" type="System.Drawing.Point, System.Drawing">
-    <value>319, 21</value>
+    <value>319, 16</value>
   </data>
   <data name="txtSuffix.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 20</value>
@@ -177,9 +177,6 @@
   </data>
   <data name="lblBPrefix.Text" xml:space="preserve">
     <value>Préfixe de sauvegarde:</value>
-  </data>
-  <data name="gbOptionalSettings.Text" xml:space="preserve">
-    <value>Réglages des options</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Paramètres de sauvegarde </value>

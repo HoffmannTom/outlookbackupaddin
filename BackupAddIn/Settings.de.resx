@@ -123,12 +123,15 @@
   <data name="btnAbbrechen.Text" xml:space="preserve">
     <value>&amp;Abbrechen</value>
   </data>
+  <data name="gbSettings.Text" xml:space="preserve">
+    <value>Outlook-Dateien</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cbxBackupAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 189</value>
+    <value>138, 201</value>
   </data>
   <data name="txtLastBackup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 236</value>
+    <value>138, 249</value>
   </data>
   <data name="txtLastBackup.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 20</value>
@@ -145,6 +148,9 @@
   <data name="lblBackupAll.Text" xml:space="preserve">
     <value>Alle Dateien sichern:</value>
   </data>
+  <data name="lblDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>187, 227</value>
+  </data>
   <data name="lblDays.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 13</value>
   </data>
@@ -152,13 +158,13 @@
     <value>Tage</value>
   </data>
   <data name="txtBackupExe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 286</value>
+    <value>138, 299</value>
   </data>
   <data name="txtBackupExe.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 20</value>
   </data>
   <data name="numInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 211</value>
+    <value>138, 224</value>
   </data>
   <data name="numInterval.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 20</value>
@@ -170,7 +176,7 @@
     <value>Intervall:</value>
   </data>
   <data name="txtDestination.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 261</value>
+    <value>138, 274</value>
   </data>
   <data name="txtDestination.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 20</value>
@@ -181,8 +187,29 @@
   <data name="lblDestination.Text" xml:space="preserve">
     <value>Zielverzeichnis:</value>
   </data>
-  <data name="gbSettings.Text" xml:space="preserve">
-    <value>Outlook-Dateien</value>
+  <data name="gbOptionalSettings.Text" xml:space="preserve">
+    <value>Optionale Einstellungen</value>
+  </data>
+  <data name="lblSeconds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 70</value>
+  </data>
+  <data name="lblSeconds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="lblSeconds.Text" xml:space="preserve">
+    <value>Sekunden</value>
+  </data>
+  <data name="numCountdown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 68</value>
+  </data>
+  <data name="lblCountdown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 70</value>
+  </data>
+  <data name="lblCountdown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 13</value>
+  </data>
+  <data name="lblCountdown.Text" xml:space="preserve">
+    <value>Backup Countdown:</value>
   </data>
   <data name="txtPostBackupCmd.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 45</value>
@@ -192,6 +219,12 @@
   </data>
   <data name="lblPostBackupCmd.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 48</value>
+  </data>
+  <data name="txtSuffix.Location" type="System.Drawing.Point, System.Drawing">
+    <value>308, 21</value>
+  </data>
+  <data name="lblSuffix.Location" type="System.Drawing.Point, System.Drawing">
+    <value>266, 24</value>
   </data>
   <data name="txtPrefix.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 21</value>
@@ -207,9 +240,6 @@
   </data>
   <data name="lblBPrefix.Text" xml:space="preserve">
     <value>Backup Präfix:</value>
-  </data>
-  <data name="gbOptionalSettings.Text" xml:space="preserve">
-    <value>Optionale Einstellungen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Backup Einstellungen</value>

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;numCountdown.Parent" xml:space="preserve">
+    <value>gbOptionalSettings</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblBackup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -141,8 +144,11 @@
   <data name="lblDestination.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;gbOptionalSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblInterval.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
   </data>
   <data name="txtLastBackup.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 20</value>
@@ -153,17 +159,23 @@
   <data name="cbxBackupAll.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="lblSeconds.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="txtLastBackup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
   <data name="&gt;&gt;lblBPrefix.Parent" xml:space="preserve">
     <value>gbOptionalSettings</value>
   </data>
   <data name="cbxBackupAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 189</value>
+    <value>131, 201</value>
   </data>
   <data name="&gt;&gt;lblBackup.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblLastBackup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 240</value>
+    <value>11, 252</value>
   </data>
   <data name="&gt;&gt;btnDirSelect.Parent" xml:space="preserve">
     <value>gbSettings</value>
@@ -178,22 +190,16 @@
     <value>69, 13</value>
   </data>
   <data name="lblSuffix.Location" type="System.Drawing.Point, System.Drawing">
-    <value>266, 24</value>
+    <value>266, 19</value>
   </data>
   <data name="&gt;&gt;lvStores.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtBackupExe.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblInterval.Parent" xml:space="preserve">
-    <value>gbSettings</value>
   </data>
   <data name="&gt;&gt;lblBackupAll.Name" xml:space="preserve">
     <value>lblBackupAll</value>
   </data>
   <data name="&gt;&gt;lblPostBackupCmd.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="btnDirSelect.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -204,11 +210,8 @@
   <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
     <value>columnHeader1</value>
   </data>
-  <data name="btnReset.Text" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="lvStores.LabelWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="fileOpenDialog.Filter" xml:space="preserve">
+    <value>Executables|*.exe</value>
   </data>
   <data name="&gt;&gt;txtLastBackup.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -219,17 +222,23 @@
   <data name="txtSuffix.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 20</value>
   </data>
-  <data name="lblInterval.Text" xml:space="preserve">
-    <value>Interval:</value>
+  <data name="lblCountdown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;txtSuffix.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="lvStores.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 19</value>
   </data>
   <data name="btnDirSelect.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="lblCountdown.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;txtDestination.Name" xml:space="preserve">
+    <value>txtDestination</value>
   </data>
   <data name="lblBPrefix.Text" xml:space="preserve">
     <value>Backup prefix:</value>
@@ -243,11 +252,8 @@
   <data name="&gt;&gt;lvStores.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="btnBackupSelect.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="&gt;&gt;lblLastBackup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="numCountdown.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="lblDays.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 13</value>
@@ -261,11 +267,11 @@
   <data name="&gt;&gt;txtLastBackup.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lvStores.Parent" xml:space="preserve">
-    <value>gbSettings</value>
+  <data name="lblSuffix.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 13</value>
   </data>
-  <data name="&gt;&gt;gbSettings.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblSeconds.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;cbxBackupAll.Name" xml:space="preserve">
     <value>cbxBackupAll</value>
@@ -283,7 +289,7 @@
     <value>folderBrowserdlg</value>
   </data>
   <data name="lblInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 215</value>
+    <value>11, 227</value>
   </data>
   <data name="lblSuffix.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -300,8 +306,8 @@
   <data name="gbOptionalSettings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;lblPostBackupCmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lvStores.Parent" xml:space="preserve">
+    <value>gbSettings</value>
   </data>
   <data name="&gt;&gt;btnBackupSelect.Name" xml:space="preserve">
     <value>btnBackupSelect</value>
@@ -312,44 +318,47 @@
   <data name="&gt;&gt;btnReset.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="txtPostBackupCmd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
   <data name="&gt;&gt;btnBackupSelect.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnAbbrechen.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="lblBPrefix.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="lblBPrefix.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;lblBPrefix.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="gbOptionalSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 332</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;btnDirSelect.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblDestination.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="&gt;&gt;lblPostBackupCmd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblLastBackup.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lblSeconds.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSettings.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;txtPostBackupCmd.Name" xml:space="preserve">
     <value>txtPostBackupCmd</value>
   </data>
-  <data name="txtPostBackupCmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 20</value>
+  <data name="lblSeconds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
   </data>
   <data name="&gt;&gt;lblBackupAll.Parent" xml:space="preserve">
     <value>gbSettings</value>
   </data>
   <data name="txtSuffix.Location" type="System.Drawing.Point, System.Drawing">
-    <value>308, 21</value>
+    <value>308, 16</value>
   </data>
-  <data name="&gt;&gt;txtPrefix.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="btnAbbrechen.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;gbSettings.Name" xml:space="preserve">
     <value>gbSettings</value>
@@ -357,20 +366,20 @@
   <data name="&gt;&gt;txtBackupExe.Parent" xml:space="preserve">
     <value>gbSettings</value>
   </data>
-  <data name="cbxBackupAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="txtPrefix.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
   <data name="lblDestination.Text" xml:space="preserve">
     <value>Destination:</value>
   </data>
-  <data name="&gt;&gt;gbSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtBackupExe.Name" xml:space="preserve">
+    <value>txtBackupExe</value>
   </data>
   <data name="numInterval.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="numInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 211</value>
+    <value>131, 223</value>
   </data>
   <data name="&gt;&gt;txtDestination.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -387,17 +396,23 @@
   <data name="&gt;&gt;txtBackupExe.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;lblCountdown.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnDirSelect.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
   <data name="&gt;&gt;lblDestination.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtSuffix.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="txtPrefix.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 21</value>
+  <data name="numCountdown.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
   <data name="lblBackup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 290</value>
+    <value>11, 302</value>
   </data>
   <data name="&gt;&gt;lblBPrefix.Name" xml:space="preserve">
     <value>lblBPrefix</value>
@@ -411,14 +426,14 @@
   <data name="&gt;&gt;btnBackupSelect.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;txtLastBackup.Parent" xml:space="preserve">
-    <value>gbSettings</value>
-  </data>
-  <data name="&gt;&gt;txtPostBackupCmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblCountdown.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
   </data>
   <data name="lblDays.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnSpeichern.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;btnReset.Name" xml:space="preserve">
     <value>btnReset</value>
@@ -426,17 +441,26 @@
   <data name="btnSpeichern.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="&gt;&gt;btnSpeichern.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lblSeconds.Parent" xml:space="preserve">
+    <value>gbOptionalSettings</value>
   </data>
-  <data name="&gt;&gt;txtBackupExe.Name" xml:space="preserve">
-    <value>txtBackupExe</value>
+  <data name="&gt;&gt;txtPrefix.Parent" xml:space="preserve">
+    <value>gbOptionalSettings</value>
   </data>
-  <data name="lblInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
+  <data name="&gt;&gt;cbxBackupAll.Parent" xml:space="preserve">
+    <value>gbSettings</value>
   </data>
   <data name="txtBackupExe.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>472, 479</value>
+  </data>
+  <data name="lblPostBackupCmd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;numCountdown.Name" xml:space="preserve">
+    <value>numCountdown</value>
   </data>
   <data name="lblPostBackupCmd.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 13</value>
@@ -450,26 +474,29 @@
   <data name="&gt;&gt;btnAbbrechen.Name" xml:space="preserve">
     <value>btnAbbrechen</value>
   </data>
-  <data name="txtBackupExe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 20</value>
+  <data name="lblInterval.Text" xml:space="preserve">
+    <value>Interval:</value>
+  </data>
+  <data name="lblDestination.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
+  </data>
+  <data name="lblSeconds.Text" xml:space="preserve">
+    <value>seconds</value>
   </data>
   <data name="&gt;&gt;txtSuffix.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtDestination.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="txtLastBackup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 236</value>
+  <data name="btnAbbrechen.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
   </data>
   <data name="txtDestination.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
-  <data name="txtBackupExe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 286</value>
+  <data name="&gt;&gt;lblCountdown.Name" xml:space="preserve">
+    <value>lblCountdown</value>
   </data>
   <data name="txtDestination.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 261</value>
+    <value>131, 273</value>
   </data>
   <data name="lvStores.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -477,8 +504,8 @@
   <data name="&gt;&gt;folderBrowserdlg.Type" xml:space="preserve">
     <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtLastBackup.Name" xml:space="preserve">
-    <value>txtLastBackup</value>
+  <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="gbSettings.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -486,14 +513,11 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
-  <data name="lblDays.Location" type="System.Drawing.Point, System.Drawing">
-    <value>187, 215</value>
-  </data>
   <data name="lblBackup.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 13</value>
   </data>
-  <data name="&gt;&gt;txtDestination.Name" xml:space="preserve">
-    <value>txtDestination</value>
+  <data name="gbOptionalSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 344</value>
   </data>
   <data name="gbSettings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -501,20 +525,23 @@
   <data name="lblPostBackupCmd.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
+  <data name="&gt;&gt;lblInterval.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="lblSuffix.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="&gt;&gt;txtDestination.Parent" xml:space="preserve">
-    <value>gbSettings</value>
+  <data name="&gt;&gt;gbSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblBackupAll.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnDirSelect.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="btnSpeichern.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="lblPostBackupCmd.Text" xml:space="preserve">
-    <value>Post-Backup cmd:</value>
+  <data name="btnDirSelect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>415, 272</value>
   </data>
   <data name="&gt;&gt;lblBackupAll.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -531,35 +558,53 @@
   <data name="btnAbbrechen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="numCountdown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 64</value>
+  </data>
+  <data name="lblSeconds.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;gbSettings.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;txtPrefix.Name" xml:space="preserve">
     <value>txtPrefix</value>
+  </data>
+  <data name="&gt;&gt;lblLastBackup.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;txtSuffix.Parent" xml:space="preserve">
     <value>gbOptionalSettings</value>
   </data>
-  <data name="lblBackup.Text" xml:space="preserve">
-    <value>BackupExecutor.exe:</value>
+  <data name="&gt;&gt;lblSeconds.Name" xml:space="preserve">
+    <value>lblSeconds</value>
   </data>
   <data name="btnSpeichern.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="&gt;&gt;cbxBackupAll.Parent" xml:space="preserve">
-    <value>gbSettings</value>
+  <data name="btnAbbrechen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>304, 444</value>
   </data>
   <data name="btnReset.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="lblPostBackupCmd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;lblLastBackup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSpeichern.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;txtPostBackupCmd.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="gbOptionalSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>447, 72</value>
+    <value>447, 94</value>
   </data>
   <data name="&gt;&gt;btnReset.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblDestination.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="lblLastBackup.Text" xml:space="preserve">
     <value>Last backup:</value>
@@ -576,8 +621,8 @@
   <data name="&gt;&gt;btnSpeichern.Name" xml:space="preserve">
     <value>btnSpeichern</value>
   </data>
-  <data name="lblSuffix.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;txtPrefix.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtSuffix.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -585,32 +630,35 @@
   <data name="lblLastBackup.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="btnBackupSelect.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="lblSeconds.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
-  <data name="lblBackupAll.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="txtPrefix.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 16</value>
   </data>
   <data name="fileOpenDialog.Title" xml:space="preserve">
     <value>Select BackupExecutor.exe</value>
   </data>
+  <data name="&gt;&gt;lblDestination.Parent" xml:space="preserve">
+    <value>gbSettings</value>
+  </data>
   <data name="&gt;&gt;lblLastBackup.Parent" xml:space="preserve">
     <value>gbSettings</value>
   </data>
-  <data name="&gt;&gt;txtPrefix.Parent" xml:space="preserve">
-    <value>gbOptionalSettings</value>
+  <data name="lblBackupAll.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="txtPrefix.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="lblDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>187, 225</value>
   </data>
   <data name="lblBPrefix.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 25</value>
+    <value>11, 19</value>
   </data>
   <data name="gbSettings.Text" xml:space="preserve">
     <value>Outlook-Files</value>
   </data>
-  <data name="btnDirSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 260</value>
+  <data name="&gt;&gt;txtBackupExe.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;lblBackup.Parent" xml:space="preserve">
     <value>gbSettings</value>
@@ -621,14 +669,20 @@
   <data name="&gt;&gt;lblBPrefix.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="txtPrefix.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="&gt;&gt;fileOpenDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnSpeichern.Location" type="System.Drawing.Point, System.Drawing">
-    <value>385, 413</value>
+  <data name="lblSeconds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>187, 66</value>
   </data>
   <data name="&gt;&gt;lblDays.Name" xml:space="preserve">
     <value>lblDays</value>
+  </data>
+  <data name="&gt;&gt;txtLastBackup.Name" xml:space="preserve">
+    <value>txtLastBackup</value>
   </data>
   <data name="lblPostBackupCmd.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -639,23 +693,23 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FBackupSettings</value>
   </data>
-  <data name="cbxBackupAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+  <data name="numCountdown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
   </data>
-  <data name="&gt;&gt;btnAbbrechen.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="lblCountdown.Text" xml:space="preserve">
+    <value>Backup countdown:</value>
   </data>
   <data name="&gt;&gt;cbxBackupAll.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btnSpeichern.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="cbxBackupAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
   </data>
-  <data name="lblDestination.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lvStores.Alignment" type="System.Windows.Forms.ListViewAlignment, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="lblDestination.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 265</value>
+    <value>11, 277</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -663,14 +717,14 @@
   <data name="&gt;&gt;btnAbbrechen.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnSpeichern.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="cbxBackupAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;lblInterval.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="lblBackup.Text" xml:space="preserve">
+    <value>BackupExecutor.exe:</value>
   </data>
   <data name="txtPostBackupCmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 45</value>
+    <value>131, 40</value>
   </data>
   <data name="lblDays.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -678,11 +732,11 @@
   <data name="gbOptionalSettings.Text" xml:space="preserve">
     <value>Optional settings</value>
   </data>
-  <data name="txtLastBackup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="lblCountdown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 13</value>
   </data>
   <data name="gbSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>448, 316</value>
+    <value>448, 328</value>
   </data>
   <data name="&gt;&gt;gbOptionalSettings.Parent" xml:space="preserve">
     <value>$this</value>
@@ -700,13 +754,13 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lvStores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 164</value>
+    <value>419, 176</value>
   </data>
   <data name="btnDirSelect.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="btnAbbrechen.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
+  <data name="&gt;&gt;btnAbbrechen.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="txtPrefix.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 20</value>
@@ -714,47 +768,56 @@
   <data name="lblDays.Text" xml:space="preserve">
     <value>days</value>
   </data>
-  <data name="btnAbbrechen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="txtDestination.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;lblDestination.Parent" xml:space="preserve">
-    <value>gbSettings</value>
+  <data name="&gt;&gt;btnSpeichern.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtPrefix.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="lblDestination.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
+  <data name="lblBackupAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;lblPostBackupCmd.Name" xml:space="preserve">
-    <value>lblPostBackupCmd</value>
+  <data name="lblCountdown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 66</value>
+  </data>
+  <data name="btnBackupSelect.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="lblPostBackupCmd.Text" xml:space="preserve">
+    <value>Post-Backup cmd:</value>
   </data>
   <data name="&gt;&gt;numInterval.Parent" xml:space="preserve">
     <value>gbSettings</value>
   </data>
+  <data name="&gt;&gt;lblCountdown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;lblSuffix.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lblCountdown.Parent" xml:space="preserve">
+    <value>gbOptionalSettings</value>
+  </data>
+  <data name="txtLastBackup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 248</value>
   </data>
   <data name="btnDirSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
   </data>
-  <data name="&gt;&gt;gbSettings.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lvStores.Alignment" type="System.Windows.Forms.ListViewAlignment, System.Windows.Forms">
-    <value>Left</value>
-  </data>
   <data name="&gt;&gt;txtPostBackupCmd.Parent" xml:space="preserve">
     <value>gbOptionalSettings</value>
   </data>
-  <data name="btnBackupSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 285</value>
+  <data name="&gt;&gt;txtLastBackup.Parent" xml:space="preserve">
+    <value>gbSettings</value>
   </data>
   <data name="&gt;&gt;btnBackupSelect.Parent" xml:space="preserve">
     <value>gbSettings</value>
-  </data>
-  <data name="fileOpenDialog.Filter" xml:space="preserve">
-    <value>Executables|*.exe</value>
   </data>
   <data name="&gt;&gt;lblDestination.Name" xml:space="preserve">
     <value>lblDestination</value>
@@ -762,20 +825,26 @@
   <data name="&gt;&gt;lblSuffix.Parent" xml:space="preserve">
     <value>gbOptionalSettings</value>
   </data>
+  <data name="&gt;&gt;numCountdown.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;lblInterval.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblSuffix.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
+  <data name="lvStores.LabelWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>472, 447</value>
+  <data name="txtPostBackupCmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 20</value>
   </data>
   <data name="&gt;&gt;lblSuffix.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnSpeichern.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblCountdown.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnBackupSelect.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="cbxBackupAll.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -783,17 +852,26 @@
   <data name="btnBackupSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
   </data>
+  <data name="txtBackupExe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 298</value>
+  </data>
   <data name="lblBPrefix.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 13</value>
   </data>
   <data name="txtLastBackup.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="&gt;&gt;lblPostBackupCmd.Name" xml:space="preserve">
+    <value>lblPostBackupCmd</value>
+  </data>
+  <data name="&gt;&gt;txtDestination.Parent" xml:space="preserve">
+    <value>gbSettings</value>
+  </data>
   <data name="lblBackupAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 13</value>
   </data>
-  <data name="txtPrefix.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;numCountdown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblDays.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -801,11 +879,11 @@
   <data name="lvStores.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnAbbrechen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>304, 413</value>
+  <data name="btnAbbrechen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="btnReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>269, 236</value>
+    <value>269, 248</value>
   </data>
   <data name="txtPostBackupCmd.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -819,14 +897,8 @@
   <data name="gbOptionalSettings.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;txtPrefix.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblBPrefix.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="lblBackupAll.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="btnReset.Text" xml:space="preserve">
+    <value>Reset</value>
   </data>
   <data name="lblBPrefix.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -834,26 +906,44 @@
   <data name="numInterval.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
+  <data name="lblDestination.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="lblInterval.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="lblBackupAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="btnBackupSelect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>415, 297</value>
+  </data>
+  <data name="&gt;&gt;lblInterval.Parent" xml:space="preserve">
+    <value>gbSettings</value>
+  </data>
+  <data name="lblPostBackupCmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 43</value>
   </data>
   <data name="lblBackupAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 190</value>
+    <value>11, 202</value>
+  </data>
+  <data name="&gt;&gt;lblSeconds.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblSuffix.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="columnHeader1.Width" type="System.Int32, mscorlib">
     <value>369</value>
   </data>
-  <data name="&gt;&gt;gbOptionalSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblBackupAll.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="txtPostBackupCmd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="txtBackupExe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 20</value>
   </data>
-  <data name="lblPostBackupCmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 52</value>
+  <data name="btnSpeichern.Location" type="System.Drawing.Point, System.Drawing">
+    <value>385, 444</value>
+  </data>
+  <data name="&gt;&gt;txtPostBackupCmd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>488, 350</value>

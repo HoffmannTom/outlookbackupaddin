@@ -123,18 +123,15 @@
   <data name="btnAbbrechen.Text" xml:space="preserve">
     <value>&amp;Cancelar</value>
   </data>
-  <data name="gbSettings.Text" xml:space="preserve">
-    <value>Archivos de Outlook </value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cbxBackupAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 189</value>
+    <value>144, 202</value>
   </data>
   <data name="btnReset.Text" xml:space="preserve">
     <value>Reiniciar</value>
   </data>
   <data name="txtLastBackup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 236</value>
+    <value>144, 249</value>
   </data>
   <data name="txtLastBackup.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 20</value>
@@ -146,13 +143,13 @@
     <value>Última copia de Seguridad:</value>
   </data>
   <data name="lblBackupAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 13</value>
+    <value>99, 13</value>
   </data>
   <data name="lblBackupAll.Text" xml:space="preserve">
     <value>Copiar los archivos:</value>
   </data>
   <data name="lblDays.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 214</value>
+    <value>200, 227</value>
   </data>
   <data name="lblDays.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 13</value>
@@ -161,16 +158,13 @@
     <value>días</value>
   </data>
   <data name="txtBackupExe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 286</value>
+    <value>144, 299</value>
   </data>
   <data name="txtBackupExe.Size" type="System.Drawing.Size, System.Drawing">
     <value>265, 20</value>
   </data>
-  <data name="lblBackup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 289</value>
-  </data>
   <data name="numInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 210</value>
+    <value>144, 223</value>
   </data>
   <data name="lblInterval.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 13</value>
@@ -179,7 +173,7 @@
     <value>Intervalo:</value>
   </data>
   <data name="txtDestination.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 261</value>
+    <value>144, 274</value>
   </data>
   <data name="txtDestination.Size" type="System.Drawing.Size, System.Drawing">
     <value>265, 20</value>
@@ -190,8 +184,23 @@
   <data name="lblDestination.Text" xml:space="preserve">
     <value>Directorio:</value>
   </data>
-  <data name="gbOptionalSettings.Text" xml:space="preserve">
-    <value>Ajustes Opcionales</value>
+  <data name="gbSettings.Text" xml:space="preserve">
+    <value>Archivos de Outlook </value>
+  </data>
+  <data name="lblSeconds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 70</value>
+  </data>
+  <data name="lblSeconds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 13</value>
+  </data>
+  <data name="lblSeconds.Text" xml:space="preserve">
+    <value>segundos</value>
+  </data>
+  <data name="numCountdown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 68</value>
+  </data>
+  <data name="lblCountdown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 70</value>
   </data>
   <data name="txtPostBackupCmd.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 45</value>
@@ -237,6 +246,9 @@
   </data>
   <data name="lblBPrefix.Text" xml:space="preserve">
     <value>Prefijo de Backup:</value>
+  </data>
+  <data name="gbOptionalSettings.Text" xml:space="preserve">
+    <value>Ajustes Opcionales</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Opciones de Backup</value>

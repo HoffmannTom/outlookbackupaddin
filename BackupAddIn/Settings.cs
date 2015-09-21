@@ -49,6 +49,7 @@ namespace BackupAddIn
                 txtPrefix.Text = config.BackupPrefix;
                 txtSuffix.Text = config.BackupSuffix;
                 txtPostBackupCmd.Text = config.PostBackupCmd;
+                numCountdown.Value    = config.CountdownSeconds;
 
                 foreach (String item in config.Items)
                 {
@@ -95,6 +96,7 @@ namespace BackupAddIn
             config.BackupSuffix    = txtSuffix.Text;
             config.PostBackupCmd   = txtPostBackupCmd.Text;
             config.BackupAll       = cbxBackupAll.Checked;
+            config.CountdownSeconds = (int)numCountdown.Value;
             if (String.IsNullOrEmpty(txtLastBackup.Text))
                 config.LastRun = DateTime.MinValue;
 
@@ -205,5 +207,7 @@ namespace BackupAddIn
 
             applySettings();
         }
+
+
     }
 }
