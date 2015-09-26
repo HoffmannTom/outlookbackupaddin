@@ -6,6 +6,7 @@ Version 1.6
 - Added GUI option to set backup countdown
 - print live output of post-backup-skript
 - Mark backup successful only if all operations were successful
+- Moved to Visual Studio 2015
 
 Version 1.5.1
 - Bugfix: Progress bar reported error, when file had alternative streams

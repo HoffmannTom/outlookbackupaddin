@@ -120,6 +120,9 @@ namespace BackupAddInCommon
         /// </summary>
         public List<int> StoreTypeBlacklist { get; set; }
 
+        /// <summary>
+        ///  used profile name
+        /// </summary>
         public string ProfileName { get; set; }
     }
 }

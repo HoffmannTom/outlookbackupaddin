@@ -2,7 +2,7 @@
 Installation requirements:
 ==========================
  - .Net Framework 4.0
- - Installed Microsoft Outlook 2013 or 2010
+ - Installed Microsoft Outlook 2016, 2013 or 2010
 
 
 Installation instructions:

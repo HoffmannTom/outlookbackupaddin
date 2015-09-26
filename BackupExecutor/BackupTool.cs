@@ -124,6 +124,7 @@ namespace BackupExecutor
         /// Runs a program and waits for finish (after backup)
         /// </summary>
         /// <param name="cmd">Command to execute</param>
+        /// <param name="param">command line parameters</param>
         /// <param name="log">logging delegate to send error information</param>
         /// <returns>number of occured errors</returns>
         private static int RunPostCmd(string cmd, String param, Logger log)
