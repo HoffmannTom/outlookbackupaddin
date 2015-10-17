@@ -92,11 +92,11 @@ namespace BackupExecutor
 
             log("Starting backup...please wait...");
 
-            if (config.Items.Count > 0)
+            try
             {
-                if (WaitForProcessEnd(OUTLOOK_PROC, log))
+                if (config.Items.Count > 0)
                 {
-                    try
+                    if (WaitForProcessEnd(OUTLOOK_PROC, log))
                     {
                         iError += doBackup(config, log);
                         if (!String.IsNullOrEmpty(config.PostBackupCmd))
@@ -105,23 +105,25 @@ namespace BackupExecutor
                             iError += iRes;
                         }
                     }
-                    catch (InstanceAlreadyRunningException)
-                    {
-                        log("Backup already running...");
-                    }
+
                 }
                 else
                 {
                     iError++;
                     log("Error waiting for " + OUTLOOK_PROC);
                 }
-            }
 
-            //if no errors occured, save current timestamp
-            if (iError == 0)
+                //if no errors occured, save current timestamp
+                if (iError == 0)
+                {
+                    config.LastRun = DateTime.Now;
+                    BackupSettingsDao.saveSettings(config);
+                }
+            }
+            catch (InstanceAlreadyRunningException)
             {
-                config.LastRun = DateTime.Now;
-                BackupSettingsDao.saveSettings(config);
+                log("Backup already running...");
+                iError++;
             }
 
             return iError;
