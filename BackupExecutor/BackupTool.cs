@@ -96,11 +96,18 @@ namespace BackupExecutor
             {
                 if (WaitForProcessEnd(OUTLOOK_PROC, log))
                 {
-                    iError += doBackup(config, log);
-                    if (!String.IsNullOrEmpty(config.PostBackupCmd))
+                    try
                     {
-                        int iRes = RunPostCmd(config.PostBackupCmd, config.ProfileName, log);
-                        iError += iRes;
+                        iError += doBackup(config, log);
+                        if (!String.IsNullOrEmpty(config.PostBackupCmd))
+                        {
+                            int iRes = RunPostCmd(config.PostBackupCmd, config.ProfileName, log);
+                            iError += iRes;
+                        }
+                    }
+                    catch (InstanceAlreadyRunningException)
+                    {
+                        log("Backup already running...");
                     }
                 }
                 else
@@ -193,73 +200,77 @@ namespace BackupExecutor
         /// <returns>number of occured errors</returns>
         private static int doBackup(BackupSettings config, Logger log)
         {
-            //logger = log;
             int iError = 0;
-            String sPath = config.DestinationPath;
 
-            //Expand environment variables
-            sPath = Environment.ExpandEnvironmentVariables(sPath);
-
-            if (!sPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
-                sPath += Path.DirectorySeparatorChar;
-
-            String sDst;
-            int iCounter = 0;
-
-            //Gather all file sizes
-            TotalBytesToCopy = 0;
-            long[] FileSizes = new long[config.Items.Count];
-            foreach (String item in config.Items)
+            using (new SingleInstance(500))
             {
-                FileSizes[iCounter] = (new System.IO.FileInfo(item)).Length;
-                TotalBytesToCopy += FileSizes[iCounter];
-                iCounter++;
-            }
+                //logger = log;
+                String sPath = config.DestinationPath;
 
-            //Copy files
-            TotalBytesCopied = 0;
-            iCounter = 0;
-            foreach (String item in config.Items)
-            {
-                iCounter++;
-                try
+                //Expand environment variables
+                sPath = Environment.ExpandEnvironmentVariables(sPath);
+
+                if (!sPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
+                    sPath += Path.DirectorySeparatorChar;
+
+                String sDst;
+                int iCounter = 0;
+
+                //Gather all file sizes
+                TotalBytesToCopy = 0;
+                long[] FileSizes = new long[config.Items.Count];
+                foreach (String item in config.Items)
                 {
-                    if (lblFilename != null)
-                        lblFilename.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
+                    FileSizes[iCounter] = (new System.IO.FileInfo(item)).Length;
+                    TotalBytesToCopy += FileSizes[iCounter];
+                    iCounter++;
+                }
 
-                    sDst = sPath + Environment.ExpandEnvironmentVariables(config.BackupPrefix) + Path.GetFileName(item);
-                    if (config.UseCompression)
-                        sDst += ".gz";
-                    sDst += Environment.ExpandEnvironmentVariables(config.BackupSuffix);
+                //Copy files
+                TotalBytesCopied = 0;
+                iCounter = 0;
+                foreach (String item in config.Items)
+                {
+                    iCounter++;
+                    try
+                    {
+                        if (lblFilename != null)
+                            lblFilename.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
 
-                    if (item.Equals(sDst))
-                    {
-                        log("Can't copy file on it's own, skipping: " + item);
-                        iError++;
-                    }
-                    else
-                    {
-                        //src and dest are different, lets backp
-                        log("copy " + item + " to " + config.DestinationPath);
-                        WaitForFile(item, log, config.WaitTimeFileLock);
-                        bool bOK = true;
+                        sDst = sPath + Environment.ExpandEnvironmentVariables(config.BackupPrefix) + Path.GetFileName(item);
                         if (config.UseCompression)
-                            bOK = CopyAndCompressFileForBackup(sDst, item, log);
+                            sDst += ".gz";
+                        sDst += Environment.ExpandEnvironmentVariables(config.BackupSuffix);
+
+                        if (item.Equals(sDst))
+                        {
+                            log("Can't copy file on it's own, skipping: " + item);
+                            iError++;
+                        }
                         else
-                            bOK = CopyFileForBackup(config, sDst, item, log);
+                        {
+                            //src and dest are different, lets backp
+                            log("copy " + item + " to " + config.DestinationPath);
+                            WaitForFile(item, log, config.WaitTimeFileLock);
+                            bool bOK = true;
+                            if (config.UseCompression)
+                                bOK = CopyAndCompressFileForBackup(sDst, item, log);
+                            else
+                                bOK = CopyFileForBackup(config, sDst, item, log);
 
-                        if (!bOK)
-                           iError++;
+                            if (!bOK)
+                                iError++;
+                        }
+
+                        TotalBytesCopied += FileSizes[iCounter - 1];
                     }
-
-                    TotalBytesCopied += FileSizes[iCounter - 1];
-                }
-                catch (Exception e)
-                {
-                    iError++;
-                    log(e.Message);
-                }
-            }
+                    catch (Exception e)
+                    {
+                        iError++;
+                        log(e.Message);
+                    }
+                } //for each
+            } //using
 
             return iError;
         }

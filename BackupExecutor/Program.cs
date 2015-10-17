@@ -86,6 +86,7 @@ namespace BackupExecutor
         static int Main(string[] args)
         {
             int RetCode = 0;
+
             Dictionary<String, String> argsDict = new Dictionary<String, String>();
             if (!parseArgs(args, argsDict))
             {
@@ -112,6 +113,7 @@ namespace BackupExecutor
                 BackupSettings config = BackupSettingsDao.loadSettings();
                 int iError = BackupTool.tryBackup(config, LogToConsole);
 
+                SendKeys.SendWait("{ENTER}");
                 SafeNativeMethods.FreeConsole();
                 RetCode = iError;
             }

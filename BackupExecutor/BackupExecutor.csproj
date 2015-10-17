@@ -112,6 +112,7 @@
       <Link>BackupSettingsDao.cs</Link>
     </Compile>
     <Compile Include="BackupTool.cs" />
+    <Compile Include="InstanceAlreadyRunningException.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +121,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleInstance.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
