@@ -8,6 +8,7 @@ Version 1.6
 - Mark backup successful only if all operations were successful
 - Moved to Visual Studio 2015
 - Added check to run only one instance of the backup
+- Environment variables can now be used within destination folder in backup settings
 
 Version 1.5.1
 - Bugfix: Progress bar reported error, when file had alternative streams

@@ -117,7 +117,8 @@ namespace BackupAddIn
 
         private void btnSpeichern_click(object sender, EventArgs e)
         {
-            if (!Directory.Exists(txtDestination.Text))
+            String sDest = Environment.ExpandEnvironmentVariables(txtDestination.Text);
+            if (!Directory.Exists(sDest))
             {
                 System.Windows.Forms.MessageBox.Show("Destination-folder doesn't exists!");
             }
