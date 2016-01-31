@@ -5,7 +5,10 @@ cd /D d:\outlookbackup
 setlocal EnableDelayedExpansion
 set dt=%DATE:~6,4%%DATE:~3,2%%DATE:~0,2%
 
-FOR /F "delims=" %%I IN ('DIR *.pst /B') DO (
+rem iterate over all files and rename them
+FOR /F "delims=" %%I IN ('DIR *.pst *.ost /B') DO (
 set x=%%I
 ren "!x!" "!x:~0,-4!_%dt%.bak"
 ) 
+
+endlocal
