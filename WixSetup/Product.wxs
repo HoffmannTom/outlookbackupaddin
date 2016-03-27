@@ -179,4 +179,4 @@
 
   </Fragment>
 </Wix>
-<!-- msiexec /i  "D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\WixSetup\bin\Debug\WixSetup.msi"  /l*v MyLogFile.txt -->
+<!-- msiexec /i  "D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\WixSetup\bin\Debug\OutlookBackupAddIn.msi"  /l*v MyLogFile.txt -->
