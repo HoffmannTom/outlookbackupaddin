@@ -69,7 +69,7 @@ namespace BackupAddInCommon
         public string BackupSuffix  { get; set; }
 
         /// <summary>
-        ///  Flag whether to backup all psd-files
+        ///  Flag whether to backup all pst-files
         /// </summary>
         public bool BackupAll { get; set; }
 

@@ -17,7 +17,7 @@ Installation instructions:
 Usage instruction:
 ==================
 1) Open Outlook and choose "Backup" on the ribbon bar
-2) Open the settings window and select the psd-files, the time interval (in days), target Folder and Location 
+2) Open the settings window and select the pst-files, the time interval (in days), target Folder and Location 
     of the file "backupexecutor.exe" (e.g. c:\Program Files\Codeplex\Outlook-Backup\backupexecutor.exe)
     Afterwards press "save" to save your settings.
 3) When you Exit Outlook the first time, the backup should start automatically

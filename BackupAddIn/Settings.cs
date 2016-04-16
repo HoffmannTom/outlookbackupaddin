@@ -156,7 +156,7 @@ namespace BackupAddIn
         }
 
         /// <summary>
-        /// Enables or disables the list of psd files
+        /// Enables or disables the list of pst files
         /// </summary>
         private void SetBackupAll()
         {
