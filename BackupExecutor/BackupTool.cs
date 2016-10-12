@@ -77,8 +77,8 @@ namespace BackupExecutor
         {
             pbTotalCopyProgress = pb;
         }
-        
-  
+
+
 
         /// <summary>
         /// Waits, till outlook ends and then starts the backup process
@@ -89,6 +89,11 @@ namespace BackupExecutor
         public static int tryBackup(BackupSettings config, Logger log)
         {
             int iError = 0;
+            if (config == null)
+            {
+                log("backup not configured");
+                return 0;
+            }
 
             log("Starting backup...please wait...");
 
@@ -214,6 +219,20 @@ namespace BackupExecutor
 
                 if (!sPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
                     sPath += Path.DirectorySeparatorChar;
+
+                //Create target directory if not exists
+                if (!Directory.Exists(sPath))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(sPath);
+                    }
+                    catch (Exception e)
+                    {
+                        log("Can't create directory " + sPath + ": " + e.Message);
+                        return 1;
+                    }
+                }
 
                 String sDst;
                 int iCounter = 0;

@@ -1,3 +1,7 @@
+Version 1.7
+- Create target directory if it doesn't exist
+
+
 Version 1.6
 - Improved error handling. When copy fails (e.g. target path not accessible), a message is shown and window stays open
 - Set default interval to 1 and search for backupexecutor.exe if parameters are not configured
