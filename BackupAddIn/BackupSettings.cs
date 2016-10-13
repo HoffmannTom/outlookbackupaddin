@@ -26,6 +26,9 @@ namespace BackupAddInCommon
             WaitTimeFileLock = 500;
             ShowOSTFiles = false;
             UseCompression = false;
+            BackupPrefix = "";
+            BackupSuffix = "";
+            PostBackupCmd = "";
         }
 
         /// <summary>
