@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -93,8 +94,13 @@ namespace BackupAddInCommon
                 }
                 else if (typeof(DateTime).IsAssignableFrom(property.PropertyType))
                 {
+                    //office culture may not be system culture
+                    var ci = CultureInfo.CurrentCulture;
                     t = RegistryValueKind.String;
-                    val = (property.GetValue(config, null) as DateTime?).ToString();
+                    DateTime? dt = property.GetValue(config, null) as DateTime?;
+                    if (dt.HasValue)
+                        val = dt.Value.ToString(ci);
+                    else val = null;
                 }
                 else if (typeof(int).IsAssignableFrom(property.PropertyType))
                 {
@@ -117,7 +123,7 @@ namespace BackupAddInCommon
                     t = RegistryValueKind.String;
                     List<int> l = (property.GetValue(config, null) as List<int>);
                     if (l != null)
-                         val = String.Join(",", l.Select(p => p.ToString()).ToArray());
+                        val = String.Join(",", l.Select(p => p.ToString()).ToArray());
                     else val = "";
                 }
 
@@ -216,7 +222,11 @@ namespace BackupAddInCommon
                     else if (typeof(bool).IsAssignableFrom(pi.PropertyType))
                         pi.SetValue(config, (appKey.GetValue(name) as String).Equals(bool.TrueString), null);
                     else if (typeof(DateTime).IsAssignableFrom(pi.PropertyType))
-                        pi.SetValue(config, DateTime.Parse(appKey.GetValue(name) as String), null);
+                    {
+                        //office culture may not be system culture
+                        var ci = CultureInfo.CurrentCulture;
+                        pi.SetValue(config, DateTime.Parse(appKey.GetValue(name) as String, ci), null);
+                    }
                     else if (typeof(StringCollection).IsAssignableFrom(pi.PropertyType))
                     {
                         String[] sArr = appKey.GetValue(name) as String[];

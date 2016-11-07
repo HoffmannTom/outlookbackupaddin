@@ -1,5 +1,7 @@
 Version 1.7
 - Create target directory if it doesn't exist
+- Fix NPE when using GPO and Backup-Prefix or -Suffix were null
+- Fixed problem when locale of outlook is different from the locale of windows (date-format issue)
 
 
 Version 1.6
