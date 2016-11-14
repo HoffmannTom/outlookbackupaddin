@@ -95,7 +95,7 @@ namespace BackupAddInCommon
                 else if (typeof(DateTime).IsAssignableFrom(property.PropertyType))
                 {
                     //office culture may not be system culture
-                    var ci = CultureInfo.CurrentCulture;
+                    var ci = CultureInfo.InstalledUICulture;
                     t = RegistryValueKind.String;
                     DateTime? dt = property.GetValue(config, null) as DateTime?;
                     if (dt.HasValue)
@@ -224,7 +224,7 @@ namespace BackupAddInCommon
                     else if (typeof(DateTime).IsAssignableFrom(pi.PropertyType))
                     {
                         //office culture may not be system culture
-                        var ci = CultureInfo.CurrentCulture;
+                        var ci = CultureInfo.InstalledUICulture;
                         pi.SetValue(config, DateTime.Parse(appKey.GetValue(name) as String, ci), null);
                     }
                     else if (typeof(StringCollection).IsAssignableFrom(pi.PropertyType))
