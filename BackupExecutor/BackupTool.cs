@@ -110,12 +110,17 @@ namespace BackupExecutor
                             iError += iRes;
                         }
                     }
+                    else
+                    {
+                        iError++;
+                        log("Error waiting for " + OUTLOOK_PROC);
+                    }
 
                 }
                 else
                 {
                     iError++;
-                    log("Error waiting for " + OUTLOOK_PROC);
+                    log("Error: no files for backup selected");
                 }
 
                 //if no errors occured, save current timestamp
