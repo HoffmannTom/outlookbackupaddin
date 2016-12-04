@@ -57,8 +57,8 @@ static WCHAR* getOutlookPath()
 	WCHAR* clsidp = getRegistryEntry(L"Software\\Classes\\Outlook.Application\\CLSID", 0);
 
 	//sometimes common registry key is not available. Thus searching for version dependent entries ...
-	int i = 10;
-	while (clsidp == NULL && i < 20)
+	int i = 15; //Office 2013
+	while (clsidp == NULL && i <= 17)
 	{
         std::wstring key = L"Software\\Classes\\Outlook.Application." + std::to_wstring(i) + L"\\CLSID";
 		WcaLog(LOGMSG_STANDARD, "Trying to read ", key);
