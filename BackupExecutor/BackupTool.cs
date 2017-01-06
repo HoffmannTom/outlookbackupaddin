@@ -101,8 +101,10 @@ namespace BackupExecutor
             {
                 if (config.Items.Count > 0)
                 {
+                    log("Check whether outlooks is still running ...");
                     if (WaitForProcessEnd(OUTLOOK_PROC, log))
                     {
+                        log("No outlook process found");
                         iError += doBackup(config, log);
                         if (!String.IsNullOrEmpty(config.PostBackupCmd))
                         {
@@ -214,6 +216,7 @@ namespace BackupExecutor
         {
             int iError = 0;
 
+            log("Ensure only one instance running ...");
             using (new SingleInstance(500))
             {
                 //logger = log;
@@ -226,6 +229,7 @@ namespace BackupExecutor
                     sPath += Path.DirectorySeparatorChar;
 
                 //Create target directory if not exists
+                log("Check whether target directory exists...");
                 if (!Directory.Exists(sPath))
                 {
                     try
@@ -243,6 +247,7 @@ namespace BackupExecutor
                 int iCounter = 0;
 
                 //Gather all file sizes
+                log("Summing up file sizes ...");
                 TotalBytesToCopy = 0;
                 long[] FileSizes = new long[config.Items.Count];
                 foreach (String item in config.Items)
@@ -251,6 +256,7 @@ namespace BackupExecutor
                     TotalBytesToCopy += FileSizes[iCounter];
                     iCounter++;
                 }
+                log("Total bytes calculated...");
 
                 //Copy files
                 TotalBytesCopied = 0;
@@ -263,6 +269,7 @@ namespace BackupExecutor
                         if (lblFilename != null)
                             lblFilename.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
 
+                        log("Evaluate destination path...");
                         sDst = sPath + Environment.ExpandEnvironmentVariables(config.BackupPrefix) + Path.GetFileName(item);
                         if (config.UseCompression)
                             sDst += ".gz";
@@ -277,6 +284,7 @@ namespace BackupExecutor
                         {
                             //src and dest are different, lets backp
                             log("copy " + item + " to " + config.DestinationPath);
+                            log("Getting file lock...");
                             WaitForFile(item, log, config.WaitTimeFileLock);
                             bool bOK = true;
                             if (config.UseCompression)
@@ -349,9 +357,10 @@ namespace BackupExecutor
 
             //CopyFileEx
             //https://msdn.microsoft.com/en-us/library/windows/desktop/aa363852%28v=vs.85%29.aspx
+            log("Starting copying...");
             bool bOK = SafeNativeMethods.CopyFileEx(item, sDst, cb, IntPtr.Zero, ref pbCancel, dwCopyFlags);
             if (!bOK)
-                log("Filed to copy file: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
+                log("Failed to copy file: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
             return bOK;
         }
 
