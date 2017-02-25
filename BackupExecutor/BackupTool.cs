@@ -283,7 +283,7 @@ namespace BackupExecutor
                         else
                         {
                             //src and dest are different, lets backp
-                            log("copy " + item + " to " + config.DestinationPath);
+                            log("copy " + item + " to " + sDst);
                             log("Getting file lock...");
                             WaitForFile(item, log, config.WaitTimeFileLock);
                             bool bOK = true;
