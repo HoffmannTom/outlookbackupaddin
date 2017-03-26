@@ -1,20 +1,14 @@
 ﻿using BackupAddInCommon;
-using Microsoft.Win32;
+using Microsoft.Win32.SafeHandles;
 using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace BackupExecutor
 {
@@ -45,6 +39,7 @@ namespace BackupExecutor
         private static long TotalBytesToCopy;
         private static long TotalBytesCopied;
         private static long StartTimeCopy;
+        private static readonly string LONG_PATH_INDICATOR = "\\\\?\\";
 
         /// <summary>
         /// Set a label to report currently copied file
@@ -252,7 +247,8 @@ namespace BackupExecutor
                 long[] FileSizes = new long[config.Items.Count];
                 foreach (String item in config.Items)
                 {
-                    FileSizes[iCounter] = (new System.IO.FileInfo(item)).Length;
+                    //FileSizes[iCounter] = (new System.IO.FileInfo(item)).Length;
+                    FileSizes[iCounter] = GetFileLength(item);
                     TotalBytesToCopy += FileSizes[iCounter];
                     iCounter++;
                 }
@@ -275,7 +271,7 @@ namespace BackupExecutor
                             sDst += ".gz";
                         sDst += Environment.ExpandEnvironmentVariables(config.BackupSuffix);
 
-                        if (item.Equals(sDst))
+                        if (item.Equals(sDst) || item.Equals(LONG_PATH_INDICATOR + sDst))
                         {
                             log("Can't copy file on it's own, skipping: " + item);
                             iError++;
@@ -425,8 +421,7 @@ namespace BackupExecutor
         private static bool WaitForFile(string item, Logger log, int waittime = 500)
         {
             int i = 0;
-            FileInfo fi = new FileInfo(item);
-            while (IsFileLocked(fi, log) && i < 10)
+            while (IsFileLocked(item, log) && i < 10)
             {
                 Thread.Sleep(waittime);
                 i++;
@@ -489,16 +484,25 @@ namespace BackupExecutor
         /// <param name="file">file to be checked</param>
         /// <param name="log">logging delegate to send error information</param>
         /// <returns></returns>
-        protected static bool IsFileLocked(FileInfo file, Logger log)
+        protected static bool IsFileLocked(String file, Logger log)
         {
-            if (!file.Exists)
+            if (!FileExists(file))
                 return false;
 
-            FileStream stream = null;
+            SafeFileHandle fileHandle = null;
 
             try
             {
-                stream = file.Open(FileMode.Open, FileAccess.ReadWrite, FileShare.None);
+                fileHandle = SafeNativeMethods.CreateFile(file,
+                                        SafeNativeMethods.EFileAccess.GenericAll, 
+                                        SafeNativeMethods.EFileShare.None, IntPtr.Zero,
+                                        SafeNativeMethods.ECreationDisposition.OpenExisting, 0, IntPtr.Zero);
+
+                int lastWin32Error = Marshal.GetLastWin32Error();
+                if (fileHandle.IsInvalid)
+                {
+                    throw new IOException(lastWin32Error.ToString());
+                }
             }
             catch (IOException)
             {
@@ -512,12 +516,11 @@ namespace BackupExecutor
             }
             finally
             {
-                if (stream != null)
+                if (fileHandle != null)
                 {
-                    //stream.Close();
                     //get sure to close all handles (also own one)
-                    stream.Dispose();
-                    stream = null;
+                    if (!fileHandle.IsInvalid)
+                        fileHandle.Close();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
                 }
@@ -527,5 +530,28 @@ namespace BackupExecutor
             return false;
         }
 
+        public static long GetFileLength(string path)
+        {
+            SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
+            if (!SafeNativeMethods.GetFileAttributesEx(path,
+                    SafeNativeMethods.GET_FILEEX_INFO_LEVELS.GetFileExInfoStandard, out fileData))
+            {
+                throw new Win32Exception();
+            }
+            return (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
+        }
+
+        public static bool FileExists(string file)
+        {
+            FileAttributes fa = SafeNativeMethods.GetFileAttributes(file);
+            if (fa > 0)
+            {
+                return !(fa.HasFlag(FileAttributes.Directory));
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

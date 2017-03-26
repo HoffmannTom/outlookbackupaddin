@@ -3,6 +3,7 @@ Version 1.7
 - Fix NPE when using GPO and Backup-Prefix or -Suffix were null
 - Fixed problem when locale of outlook is different from the locale of windows (date-format issue)
 - Improved searching for outlook path (iterate registry for version dependend keys)
+- Support for long path names (prefix \\?\)
 
 Version 1.6
 - Improved error handling. When copy fails (e.g. target path not accessible), a message is shown and window stays open

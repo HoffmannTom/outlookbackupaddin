@@ -200,6 +200,10 @@ namespace BackupAddInCommon
                 }
                 appKey.Close();
             }
+
+            //for (int i = 0; i < config.Items.Count; i++)
+            //   config.Items[i] = Path.(config.Items[i]);
+
             return config;
         }
 
