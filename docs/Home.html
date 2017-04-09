@@ -1,0 +1,39 @@
+<div class="wikidoc">
+<p><strong>Project Description</strong><br>
+<br>
+Since Office 2010 the tool &quot;Outlook Add-in: Personal Folders Backup&quot; doesn't seem to be updated any more.</p>
+<p>Thus I wrote a similar tool for backing up the pst-files. This plugins provides a configuration window within Outlook and calls a backup program (when closing Outlook)&nbsp;when the configured time interval has expired.</p>
+<p>It works with Microsoft Outlook 2016 / 2013 / 2010 and let's you choose which pst files you want to backup. A configuration window is added to outlook to set the backup interval and destination directory. When outlook is closed, the program checks the last
+ backup date and triggers the copy process if necessary.</p>
+<p>The plugin is freeware under the Apache license 2.0. You can use it for private and commercial purposes for free. If you have any suggestions for improvements, you can use the discussion page. The source can be downloaded and modified if you comply with
+ the license.</p>
+<p>The new installer automatically detects 32 or 64 Bit Office installations and activates the plugin accordingly.</p>
+<p>&nbsp;</p>
+<p>2017-03-24</p>
+<p>Version 1.7 is released. It is now compatible with last update of MS Office 2016 (<span><span lang="EN" style="font-family:'Arial',sans-serif; color:#222222">16.7870.2024</span></span>). Some people reported issues for certain versions as outlook is sometimes
+ handling the paths to the pst files with &quot;long path syntax&quot;. Some edge cases are also taken into account. Checkout the enclosed changelog for further information.</p>
+<p>&nbsp;</p>
+<p>2016-01-31</p>
+<p>Version 1.6 is out. Countdown till backup starts can now be configured via setting window. Some additional minor improvements were made to cover some edge cases which can be checked at the download site.</p>
+<p>&nbsp;</p>
+<p>2015-07-05</p>
+<p>Version 1.5 is out. Configuration is now stored in registry, progress bar was added, easier setup, environment variables can be used and many other smaller features. Checkout the changelog for details.</p>
+<p>&nbsp;</p>
+<p>2015-07-03</p>
+<p>Policy template is now finished for easy configuration via AD. Plugin can now be deployed as well as configured via AD.</p>
+<p>&nbsp;</p>
+<p>2015-05-24</p>
+<p>Beta version 1.5 is out. It includes progress bar, easier setup and features for deploying and configuring the plugin in enterprise environments. Please report any issues.</p>
+<p>&nbsp;</p>
+<p>2015-01-17</p>
+<p>First of all I want to thank you for helpful feedback and supporting me to improve this tool.</p>
+<p>I want to give a rough plan for the oncoming releases and current work:</p>
+<ol>
+<li>The installer is not very nice and I want to switch to msi setup. I am making some tests with WIX and keep you informed. During this work I also want to slimline the setup package.
+</li><li>For enterprise use, the configuration should be moved to registry thus supporting configuration via group policy.
+</li><li>With 1) and 2) the tool will be suitable to being deployed and configured via GPO
+</li></ol>
+<p>Helpful comments and feedback is welcome.</p>
+<p>2015-04-26</p>
+<p>The oncoming version 1.5 was backported for .Net Framework 4 and it works without VSTO installation. Thus the installation process is easier and takes less time...stay tuned...</p>
+</div><div class="ClearBoth"></div>

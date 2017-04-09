@@ -1,0 +1,32 @@
+<div class="wikidoc">
+<h1>Aim</h1>
+<p>Before starting a backup you have to configure which files should be included in the backup. Sometimes I get the question &quot;Why are my outlook files not shown / visible?&quot; and this page should clarify this question and show some background information.</p>
+<h1>PST and OST Files</h1>
+<p>Outlook can store its data in PST and OST files. There are some differences and limitations:</p>
+<ul>
+<li>OST files are used for caching emails. All emails are synced with the email server.
+</li><li>OST are created when using IMAP or Exchange-protocol </li><li>PST files are created when configuring a POP3 access to your mailbox </li><li>Both formats can store emails, calendars and contacts </li><li>OST files can only be opened at the origin computer with the same email account and the same user profile
+</li></ul>
+<p>The last property disqualifies OST files for using for backup. Nobody wants a backup which can't be used at a different computer or at a different environment. There are some (commercial) tools available to gain access to OST file contents but it requires
+ work and money which should actually be avoided by using a good backup strategy.</p>
+<p>If you are not sure which files you are using, check</p>
+<p>File --&gt; Info --&gt; Account settings --&gt;in the new popup window check Tab &quot;Data-files&quot;
+<br>
+The column &quot;location&quot; shows which files and formats are currently used.</p>
+<h1>Store calendar and contacts in PST-File</h1>
+<p>Since outlook 2013, local calendar and contact information might be stored together with your emails within your default OST-file. This happens for example when you merely configure one IMAP account. This raises the problem that also local calendar and contacts
+ are stored within this default file.</p>
+<p>If you want to backup calendar and contacs it is best to separate these data from your emails. Create a new PST file and move all the local data to this new PST file. Thus you can easily backup the PST file and losing the OST file is not an issue any more.</p>
+<p>More information can be found at:</p>
+<p><a href="http://www.msoutlook.info/question/754" target="_blank">http://www.msoutlook.info/question/754</a></p>
+<p><a href="http://www.mailhilfe.de/beitrag-so-vermeiden-sie-den-verlust-ihrer-kontakte-und-kalendereintrge-durch-die-benut-3926-html" target="_blank">http://www.mailhilfe.de/beitrag-so-vermeiden-sie-den-verlust-ihrer-kontakte-und-kalendereintrge-durch-die-benut-3926-html</a>&nbsp;(german)</p>
+<h1>Backup OST files</h1>
+<p>If the above mentioned facts couldn't convince you and you still insist on backing up your OST files, you can activate this feature within registry:<br>
+HKEY_CURRENT_USER\SOFTWARE\CodePlex\BackupAddIn\Settings<br>
+Set value of key: &quot;ShowOSTFiles&quot; to &quot;True&quot;</p>
+<p>This change can also be made via command prompt:</p>
+<p>reg Add HKCU\SOFTWARE\CodePlex\BackupAddIn\Settings /v ShowOSTFiles /f /t REG_SZ /d True</p>
+<h1>Exchange</h1>
+<p>If you are using Exchange on-premise, you can export your emails via PowerShell to a PST-File (New-MailboxExportRequest).</p>
+<p>This shouldn't replace a fully fledged exchange database backup but can be used to easily store emails in a transportable file format.</p>
+</div><div class="ClearBoth"></div>
