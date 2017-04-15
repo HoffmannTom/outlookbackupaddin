@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Product Id="{3F40346F-14E7-4F11-836D-9643FDDA0B86}" Name="Outlook-Backup-Plugin" Language="1033" Version="1.7.0.0" Manufacturer="CodePlex" UpgradeCode="9AB4E469-DE8B-4A02-BC02-225D9E698739">
+	<Product Id="{0F56EAC4-11FE-4037-9574-C0745A08949C}" Name="Outlook-Backup-Plugin" Language="1033" 
+           Version="1.7.0.0" Manufacturer="CodePlex" UpgradeCode="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">
 		<Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <!--		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." /> -->
+    <Upgrade Id="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">  
+      <UpgradeVersion
+        Minimum="1.0.0.0" Maximum="99.0.0.0"
+        Property="PREVIOUSVERSIONSINSTALLED"
+        IncludeMinimum="yes" IncludeMaximum="no" />
+    </Upgrade> 
 		<MediaTemplate EmbedCab="yes"/>
 
     <!-- Issues reported when user has few privileges and path is validated -->
@@ -60,6 +67,7 @@
     -->
     
     <InstallExecuteSequence>
+      <RemoveExistingProducts Before="InstallInitialize" />
       <Custom Action="CACheckOffice"                  Before="CostFinalize" >(Not Installed) OR REINSTALL</Custom>
       <Custom Action="SetPropertyForRegisterPlugin"   Before="CARegisterPlugin">((Not Installed) OR REINSTALL) AND (OFFICE_BITS = 32 OR OFFICE_BITS = 64)</Custom>
       <Custom Action="CARegisterPlugin"               Before="InstallFinalize" >(Not Installed) OR REINSTALL</Custom>

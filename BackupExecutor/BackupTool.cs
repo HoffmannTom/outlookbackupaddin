@@ -530,6 +530,11 @@ namespace BackupExecutor
             return false;
         }
 
+        /// <summary>
+        /// Get lenght of file in bytes
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static long GetFileLength(string path)
         {
             SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
@@ -541,6 +546,11 @@ namespace BackupExecutor
             return (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
         }
 
+        /// <summary>
+        /// Check whether file exists
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         public static bool FileExists(string file)
         {
             FileAttributes fa = SafeNativeMethods.GetFileAttributes(file);

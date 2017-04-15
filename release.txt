@@ -1,0 +1,8 @@
+- Update version in BackupAddin (project properties)
+- Update version in BackupExecutor (project properties)
+- Create new GUID for Product@Id in WIX installer
+- Adjust Product@Version in WIX installer
+- Commit changes
+- Merge develop branch in master
+- Tag master with vx.y
+- Upload as new release
