@@ -130,8 +130,12 @@ namespace BackupExecutor
                 }
 
                 if (iError == 0)
-                     Application.Exit();
-                else BackupTool.CanExit = true; //allow manual closing
+                    Application.Exit();
+                else
+                {
+                    BackupTool.CanExit = true; //allow manual closing
+                    LogToScreen("One or more errors occured. Please check the messages above and close this window manually.");
+                }
             });
         }
 
