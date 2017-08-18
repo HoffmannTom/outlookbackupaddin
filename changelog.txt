@@ -1,5 +1,8 @@
 Version 1.8
 - Support upgrade installation
+- Optimized for high resolution monitor settings
+- added hint to close window manually if errors occured
+- Fixed bug: skip file when file is locked and already waited 10 times
 
 Version 1.7
 - Create target directory if it doesn't exist

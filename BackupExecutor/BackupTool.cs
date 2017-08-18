@@ -281,15 +281,22 @@ namespace BackupExecutor
                             //src and dest are different, lets backp
                             log("copy " + item + " to " + sDst);
                             log("Getting file lock...");
-                            WaitForFile(item, log, config.WaitTimeFileLock);
-                            bool bOK = true;
-                            if (config.UseCompression)
-                                bOK = CopyAndCompressFileForBackup(sDst, item, log);
-                            else
-                                bOK = CopyFileForBackup(config, sDst, item, log);
+                            if (WaitForFile(item, log, config.WaitTimeFileLock))
+                            {
+                                bool bOK = true;
+                                if (config.UseCompression)
+                                    bOK = CopyAndCompressFileForBackup(sDst, item, log);
+                                else
+                                    bOK = CopyFileForBackup(config, sDst, item, log);
 
-                            if (!bOK)
+                                if (!bOK)
+                                    iError++;
+                            }
+                            else
+                            {
+                                log("Skipping file " + item + " because it is locked");
                                 iError++;
+                            }
                         }
 
                         TotalBytesCopied += FileSizes[iCounter - 1];
@@ -421,7 +428,7 @@ namespace BackupExecutor
         private static bool WaitForFile(string item, Logger log, int waittime = 500)
         {
             int i = 0;
-            while (IsFileLocked(item, log) && i < 10)
+            while (i < 10 && IsFileLocked(item, log))
             {
                 Thread.Sleep(waittime);
                 i++;
