@@ -134,7 +134,7 @@ namespace BackupExecutor
                 else
                 {
                     BackupTool.CanExit = true; //allow manual closing
-                    LogToScreen("One or more errors occured. Please check the messages above and close this window manually.");
+                    LogToScreen("One or more errors occurred. Please check the messages above and close this window manually.");
                 }
             });
         }

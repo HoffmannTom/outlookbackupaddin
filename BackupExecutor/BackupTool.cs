@@ -80,7 +80,7 @@ namespace BackupExecutor
         /// </summary>
         /// <param name="config">Stored configuration from outlook plugin</param>
         /// <param name="log">logging delegate to send error information</param>
-        /// <returns>number of occured errors</returns>
+        /// <returns>number of occurred errors</returns>
         public static int tryBackup(BackupSettings config, Logger log)
         {
             int iError = 0;
@@ -120,7 +120,7 @@ namespace BackupExecutor
                     log("Error: no files for backup selected");
                 }
 
-                //if no errors occured, save current timestamp
+                //if no errors occurred, save current timestamp
                 if (iError == 0)
                 {
                     config.LastRun = DateTime.Now;
@@ -142,7 +142,7 @@ namespace BackupExecutor
         /// <param name="cmd">Command to execute</param>
         /// <param name="param">command line parameters</param>
         /// <param name="log">logging delegate to send error information</param>
-        /// <returns>number of occured errors</returns>
+        /// <returns>number of occurred errors</returns>
         private static int RunPostCmd(string cmd, String param, Logger log)
         {
             log("Starting post-backup cmd: " + cmd);
@@ -206,7 +206,7 @@ namespace BackupExecutor
         /// </summary>
         /// <param name="config">Stored configuration from outlook plugin</param>
         /// <param name="log">logging delegate to send error information</param>
-        /// <returns>number of occured errors</returns>
+        /// <returns>number of occurred errors</returns>
         private static int doBackup(BackupSettings config, Logger log)
         {
             int iError = 0;
@@ -511,14 +511,21 @@ namespace BackupExecutor
                     throw new IOException(lastWin32Error.ToString());
                 }
             }
-            catch (IOException)
+            catch (IOException e)
             {
 
                 //the file is unavailable because it is:
                 //still being written to
                 //or being processed by another thread
                 //or does not exist 
-                log("File is locked: " + file);
+                log("File is locked: " + file + " Err-No: " + e.Message);
+
+                int errCode = 0;
+                if (Int32.TryParse(e.Message, out errCode))
+                {
+                    string errorMessage = new Win32Exception(errCode).Message;
+                    log(errorMessage);
+                }
                 return true;
             }
             finally
