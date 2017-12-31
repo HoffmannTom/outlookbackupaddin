@@ -29,6 +29,7 @@ namespace BackupExecutor
             m_SynchronizationContext.Post((@object) =>
             {
                 String s2 = (String)@object;
+                s2 = DateTime.Now.TimeOfDay.ToString("hh\\:mm\\:ss") + " " + s2;
                 txtLog.AppendText(s2 + Environment.NewLine);
                 txtLog.Refresh();
                 //txtLog.SelectionStart = txtLog.Text.Length;

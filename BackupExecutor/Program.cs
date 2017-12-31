@@ -97,6 +97,7 @@ namespace BackupExecutor
         /// </summary>
         private static void LogToConsole(string s)
         {
+            s = DateTime.Now.TimeOfDay.ToString("hh\\:mm\\:ss") + " " + s;
             Console.WriteLine(s + Environment.NewLine);
         }
 

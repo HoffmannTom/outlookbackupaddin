@@ -283,6 +283,7 @@ namespace BackupExecutor
                             log("Getting file lock...");
                             if (WaitForFile(item, log, config.WaitTimeFileLock))
                             {
+                                //log("file lock was successful");
                                 bool bOK = true;
                                 if (config.UseCompression)
                                     bOK = CopyAndCompressFileForBackup(sDst, item, log);
@@ -430,6 +431,7 @@ namespace BackupExecutor
             int i = 0;
             while (i < 10 && IsFileLocked(item, log))
             {
+                //log("waiting before starting new try");
                 Thread.Sleep(waittime);
                 i++;
             }
@@ -500,14 +502,16 @@ namespace BackupExecutor
 
             try
             {
+                //log("Trying to acquire file lock via CreateFile API");
                 fileHandle = SafeNativeMethods.CreateFile(file,
-                                        SafeNativeMethods.EFileAccess.GenericAll, 
+                                        SafeNativeMethods.EFileAccess.GenericRead, //GenericAll, 
                                         SafeNativeMethods.EFileShare.None, IntPtr.Zero,
                                         SafeNativeMethods.ECreationDisposition.OpenExisting, 0, IntPtr.Zero);
-
+                //log("Finished trying to acquire file lock via CreateFile API");
                 int lastWin32Error = Marshal.GetLastWin32Error();
                 if (fileHandle.IsInvalid)
                 {
+                    //log("Acquire file lock via CreateFile API failed");
                     throw new IOException(lastWin32Error.ToString());
                 }
             }
@@ -532,11 +536,14 @@ namespace BackupExecutor
             {
                 if (fileHandle != null)
                 {
+                    //log("Closing file handle");
                     //get sure to close all handles (also own one)
                     if (!fileHandle.IsInvalid)
                         fileHandle.Close();
+                    //log("Running GC");
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
+                    //log("Finished GC");
                 }
             }
 
