@@ -48,6 +48,7 @@ Valid value is e.g. 1,2</string>
       <string id="POL_10A02353_C014_40E6_ABA6_31E39A4898E7_Help">Compression can be optionally be activated (gzip compression).
 Depending on the emails it can be more or less effective.</string>
       <string id="POL_2B9DBA16_C004_4B33_80CF_A57FB4306508">Wait time for file-lock</string>
+      <string id="POL_8ECB4371_4C91_46A5_B266_BF121C827FAD">Allow user to access settings dialog</string>
     </stringTable>
     <presentationTable>
       <presentation id="POL_4A04F786_9D98_40FC_9990_289DDEBE5F6C">
@@ -55,7 +56,8 @@ Depending on the emails it can be more or less effective.</string>
         </text>
         <textBox refId="TXT_5D5E28CD_F804_4EEF_ADCC_740CA8B51DFF">
           <label>Prefix</label>
-          <defaultValue></defaultValue>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_29E5E1AD_74D7_4C07_9CCE_C300B5F37EBB">
@@ -65,13 +67,15 @@ Depending on the emails it can be more or less effective.</string>
         </text>
         <textBox refId="TXT_C26E19D6_83DF_434A_A62C_C16994B1D237">
           <label>Location of BackupExecutor.exe</label>
-          <defaultValue></defaultValue>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_BF45BD88_3634_4F80_8B88_76BDD098DB0F">
         <textBox refId="TXT_43F91329_184F_4328_BF46_C9F819499CC6">
           <label>Suffix</label>
-          <defaultValue></defaultValue>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_EFD7F38A_3BB8_4DD3_98F7_3B08728EF721">
@@ -83,7 +87,8 @@ Depending on the emails it can be more or less effective.</string>
       <presentation id="POL_43AE0FD1_A2F8_4D71_B678_0ACD0C22BCF9">
         <textBox refId="TXT_F7698B59_5DC7_4854_B944_32E5DDF5431C">
           <label>Path to BackupExecutor.exe</label>
-          <defaultValue></defaultValue>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_61C37EB0_ADD2_42DF_9613_79749B129EA2">
@@ -92,7 +97,8 @@ Depending on the emails it can be more or less effective.</string>
       <presentation id="POL_9A89057E_763A_476D_B589_B81ED168A96E">
         <textBox refId="TXT_D7680AF8_4B1A_40E3_A26D_FEED5C21A64E">
           <label>Destination path</label>
-          <defaultValue></defaultValue>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_BF3F7655_074E_4301_88B7_AEDEA451A2DD">
@@ -102,13 +108,14 @@ Depending on the emails it can be more or less effective.</string>
         <decimalTextBox refId="DXT_CBD6BD17_7C68_41ED_9E06_A28DEA60B2F3">Interval (in days)</decimalTextBox>
       </presentation>
       <presentation id="POL_B988DC87_AA3E_4195_B52E_4873658C7115">
-	  	<text>Files to backup</text>
+        <text>Files to backup</text>
         <multiTextBox refId="TXT_3D4BDCEC_5F97_498B_80A1_6EB4C82A38FB" />
       </presentation>
       <presentation id="POL_1EB1A792_C72C_422B_8F39_21391B002E0B">
         <textBox refId="TXT_9F673EA2_0C8C_42C7_8CB9_E516052FD038">
           <label>Command to execute after backup</label>
-          <defaultValue></defaultValue>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_274EBBB2_3469_40F4_95EF_07C28897C63B">
@@ -117,7 +124,8 @@ Depending on the emails it can be more or less effective.</string>
       <presentation id="POL_F6EE8B14_5EC5_4A1B_8DA7_79B6F5CDC52F">
         <textBox refId="TXT_BD921970_49F7_457E_AEBA_88256BFB0EB5">
           <label>Comma separated list of store types to hide</label>
-          <defaultValue></defaultValue>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_10A02353_C014_40E6_ABA6_31E39A4898E7">
@@ -125,6 +133,9 @@ Depending on the emails it can be more or less effective.</string>
       </presentation>
       <presentation id="POL_2B9DBA16_C004_4B33_80CF_A57FB4306508">
         <decimalTextBox refId="DXT_4736FFAE_5D6C_4A0E_A1AA_B8AACBF0EC2F" defaultValue="500">Max. time to wait for file lock (in millisec.)</decimalTextBox>
+      </presentation>
+      <presentation id="POL_8ECB4371_4C91_46A5_B266_BF121C827FAD">
+        <checkBox refId="CHK_392C180A_116E_4438_860B_8B16458BF13A">Allow user to access settings dialog</checkBox>
       </presentation>
     </presentationTable>
   </resources>
