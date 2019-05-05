@@ -39,6 +39,8 @@ namespace BackupAddIn
     public class Ribbon : Office.IRibbonExtensibility
     {
         private Office.IRibbonUI ribbon;
+        private bool AccessSettingsAllowed;
+
         //private Microsoft.Office.Interop.Outlook.Application app;
         ThisAddIn addin;
         ResourceManager rm;
@@ -63,6 +65,18 @@ namespace BackupAddIn
         }
 
         #endregion
+
+        public void setAccessSettingsAllowed(bool b)
+        {
+            AccessSettingsAllowed = b;
+        }
+
+        public bool IsAccessingSettingsAllowed(Office.IRibbonControl control)
+        {
+            return AccessSettingsAllowed;
+        }
+
+        
 
         #region Menübandrückrufe
         //Erstellen Sie hier Rückrufmethoden. Weitere Informationen zum Hinzufügen von Rückrufmethoden finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=271226".

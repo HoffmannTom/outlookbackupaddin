@@ -4,7 +4,7 @@
         <tabs>
             <tab id="ribTabBackup" getLabel="GetLabel">
                 <group id="ribBtnBackup" getLabel="GetLabel">
-                    <button id="btnBackupSettings" imageMso="DatabaseCopyDatabaseFile" onAction="OpenBackupSettings" getLabel="GetLabel" showImage="true" size="large" />
+                    <button id="btnBackupSettings" imageMso="DatabaseCopyDatabaseFile" getEnabled="IsAccessingSettingsAllowed" onAction="OpenBackupSettings" getLabel="GetLabel" showImage="true" size="large" />
                 </group>
             </tab>
         </tabs>

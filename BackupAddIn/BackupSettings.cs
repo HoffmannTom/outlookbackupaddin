@@ -26,6 +26,7 @@ namespace BackupAddInCommon
             WaitTimeFileLock = 500;
             ShowOSTFiles = false;
             UseCompression = false;
+            AllowSettingsAccess = true;
             BackupPrefix = "";
             BackupSuffix = "";
             PostBackupCmd = "";
@@ -95,6 +96,12 @@ namespace BackupAddInCommon
         ///  Flag whether files should be compressed
         /// </summary>
         public bool UseCompression { get; set; }
+
+        /// <summary>
+        ///  Flag whether user can open settings dialog
+        /// </summary>
+        public bool AllowSettingsAccess { get; set; }
+        
 
         /// <summary>
         ///  Counter to give user opportunity to close window before backup starts

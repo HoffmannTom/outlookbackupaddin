@@ -16,7 +16,8 @@ namespace BackupAddIn
 {
     public partial class ThisAddIn
     {
-        
+        private Ribbon Rib;
+
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             ((Outlook.ApplicationEvents_11_Event)Application).Quit 
@@ -26,6 +27,14 @@ namespace BackupAddIn
             //http://blog.sebastianbrand.com/2010/03/vsto-using-net-multi-language-support.html
             Thread.CurrentThread.CurrentUICulture = 
             CultureInfo.GetCultureInfo(this.Application.LanguageSettings.get_LanguageID(Microsoft.Office.Core.MsoAppLanguageID.msoLanguageIDUI));
+
+            BackupSettings config = BackupSettingsDao.loadSettings();
+            Rib.setAccessSettingsAllowed(config.AllowSettingsAccess);
+        }
+
+        public Ribbon getRibbon()
+        {
+            return Rib;
         }
 
         /// <summary>
@@ -93,7 +102,8 @@ namespace BackupAddIn
         /// </summary>
         protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
         {
-            return new Ribbon(this);
+            Rib = new Ribbon(this);
+            return Rib;
         }
 
         #region Von VSTO generierter Code

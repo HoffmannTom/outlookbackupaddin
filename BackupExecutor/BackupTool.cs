@@ -247,6 +247,7 @@ namespace BackupExecutor
                 long[] FileSizes = new long[config.Items.Count];
                 foreach (String item in config.Items)
                 {
+                    log("Adding size of " + item);
                     //FileSizes[iCounter] = (new System.IO.FileInfo(item)).Length;
                     FileSizes[iCounter] = GetFileLength(item);
                     TotalBytesToCopy += FileSizes[iCounter];

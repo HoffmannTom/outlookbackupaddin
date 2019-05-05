@@ -199,11 +199,6 @@ namespace BackupAddIn
             ListViewItem[] lItem = list.Select(X => new ListViewItem(X)).ToArray();
             lvStores.Items.AddRange(lItem);
 
-            /*
-            for (int i = 1; i <= 20; i++)
-                lvStores.Items.Add("test test test test test testes testes testest " + i);
-            */
-
             lvStores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
             applySettings();

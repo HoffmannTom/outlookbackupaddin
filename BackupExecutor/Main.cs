@@ -4,7 +4,8 @@ using System;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Threading;
-
+using System.Text;
+using System.Diagnostics;
 
 namespace BackupExecutor
 {
@@ -15,6 +16,8 @@ namespace BackupExecutor
     {
         private static String REG_PATH_EXECUTOR_SETTINGS = @"Software\CodePlex\BackupAddIn\ExecutorSettings";
         private SynchronizationContext m_SynchronizationContext;
+        //private static StringBuilder sbLogs = new StringBuilder();
+        //private static String EVENT_SRC = "Application Error";
         /// <summary>
         ///  Default constructor
         /// </summary>
@@ -29,8 +32,9 @@ namespace BackupExecutor
             m_SynchronizationContext.Post((@object) =>
             {
                 String s2 = (String)@object;
-                s2 = DateTime.Now.TimeOfDay.ToString("hh\\:mm\\:ss") + " " + s2;
-                txtLog.AppendText(s2 + Environment.NewLine);
+                s2 = DateTime.Now.TimeOfDay.ToString("hh\\:mm\\:ss") + " " + s2 + Environment.NewLine;
+                txtLog.AppendText(s2);
+                //sbLogs.Append(s2);
                 txtLog.Refresh();
                 //txtLog.SelectionStart = txtLog.Text.Length;
                 txtLog.ScrollToCaret();
@@ -130,12 +134,21 @@ namespace BackupExecutor
                     iError = BackupTool.tryBackup(config, LogToScreen);
                 }
 
+                //if (!EventLog.SourceExists(EVENT_SRC))
+                //    EventLog.CreateEventSource(EVENT_SRC, "Application");
+
                 if (iError == 0)
+                {
+                    //if (sbLogs.Length > 0)
+                    //    EventLog.WriteEntry(EVENT_SRC, sbLogs.ToString(), EventLogEntryType.Information);
                     Application.Exit();
+                }
                 else
                 {
                     BackupTool.CanExit = true; //allow manual closing
                     LogToScreen("One or more errors occurred. Please check the messages above and close this window manually.");
+                    //if (sbLogs.Length > 0)
+                    //    EventLog.WriteEntry(EVENT_SRC, sbLogs.ToString(), EventLogEntryType.Warning);
                 }
             });
         }
