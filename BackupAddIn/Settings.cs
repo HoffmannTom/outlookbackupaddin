@@ -206,6 +206,11 @@ namespace BackupAddIn
             applySettings();
         }
 
+        /// <summary>
+        /// Return human readable file size of the given file
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         private String GetHumanReadableFileSize(String filename)
         {
             string[] sizes = { "B", "KB", "MB", "GB", "TB" };
