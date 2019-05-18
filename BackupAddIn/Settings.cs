@@ -196,7 +196,9 @@ namespace BackupAddIn
 
             //Add pst-files to list
             var list =  BackupUtils.GetStoreLocations(config, stores);
-            ListViewItem[] lItem = list.Select(X => new ListViewItem(X)).ToArray();
+
+            ListViewItem[] lItem = list.Select(f => new ListViewItem(f + " (" + GetHumanReadableFileSize(f) + ")"))
+                                       .ToArray();
             lvStores.Items.AddRange(lItem);
 
             lvStores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -204,6 +206,19 @@ namespace BackupAddIn
             applySettings();
         }
 
+        private String GetHumanReadableFileSize(String filename)
+        {
+            string[] sizes = { "B", "KB", "MB", "GB", "TB" };
+            double len = new FileInfo(filename).Length;
+            int order = 0;
+            while (len >= 1024 && order < sizes.Length - 1)
+            {
+                order++;
+                len = len / 1024;
+            }
+
+            return String.Format("{0:0.##} {1}", len, sizes[order]);
+        }
 
     }
 }
