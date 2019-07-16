@@ -2,6 +2,7 @@
 - Update version in BackupExecutor (project properties)
 - Create new GUID for Product@Id in WIX installer
 - Adjust Product@Version in WIX installer
+- Adjust UpgradeVersion/@Maximum version to current one
 - Commit changes
 - Merge develop branch in master
 - Tag master with vx.y
