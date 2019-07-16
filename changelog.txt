@@ -1,6 +1,7 @@
-to be released
+Version 1.9
 - Added GPO option to disable access to the settings
 - Show size of each pst files within the settings window
+- Added support for high resolution displays (manifest)
 
 Version 1.8
 - Support upgrade installation

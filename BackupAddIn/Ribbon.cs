@@ -65,12 +65,17 @@ namespace BackupAddIn
         }
 
         #endregion
-
+        /// <summary>
+        /// set flag whether user is allowed to access settings page
+        /// </summary>
         public void setAccessSettingsAllowed(bool b)
         {
             AccessSettingsAllowed = b;
         }
 
+        /// <summary>
+        /// get flag whether user is allowed to access settings page
+        /// </summary>
         public bool IsAccessingSettingsAllowed(Office.IRibbonControl control)
         {
             return AccessSettingsAllowed;

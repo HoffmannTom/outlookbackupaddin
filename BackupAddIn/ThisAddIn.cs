@@ -32,6 +32,9 @@ namespace BackupAddIn
             Rib.setAccessSettingsAllowed(config.AllowSettingsAccess);
         }
 
+        /// <summary>
+        /// Accessor for ribbon gui element
+        /// </summary>
         public Ribbon getRibbon()
         {
             return Rib;
