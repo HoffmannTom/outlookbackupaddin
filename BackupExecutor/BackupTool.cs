@@ -249,7 +249,7 @@ namespace BackupExecutor
                 {
                     log("Adding size of " + item);
                     //FileSizes[iCounter] = (new System.IO.FileInfo(item)).Length;
-                    FileSizes[iCounter] = GetFileLength(item);
+                    FileSizes[iCounter] = GetFileLength(item, log);
                     TotalBytesToCopy += FileSizes[iCounter];
                     iCounter++;
                 }
@@ -557,15 +557,25 @@ namespace BackupExecutor
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static long GetFileLength(string path)
+        public static long GetFileLength(string path, Logger log)
         {
-            SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
-            if (!SafeNativeMethods.GetFileAttributesEx(path,
-                    SafeNativeMethods.GET_FILEEX_INFO_LEVELS.GetFileExInfoStandard, out fileData))
+            //in order to support long path syntax, native methods are used
+            try
             {
-                throw new Win32Exception();
+                SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
+                if (!SafeNativeMethods.GetFileAttributesEx(path,
+                        SafeNativeMethods.GET_FILEEX_INFO_LEVELS.GetFileExInfoStandard, out fileData))
+                {
+                    log("Error retrieving file size from: -" + path + "-");
+                    return -1;
+                }
+                return (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
             }
-            return (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
+            catch (Exception e)
+            {
+                log("Error occured while retrieving file size from: -" + path + "-" + e.Message);
+                return -1;
+            }
         }
 
         /// <summary>
