@@ -54,7 +54,7 @@ namespace BackupAddIn
                 foreach (String item in config.Items)
                 {
                     foreach (ListViewItem lvItem in lvStores.Items)
-                        if (lvItem.Text.Equals(item))
+                        if (lvItem.ImageKey.Equals(item))
                             lvItem.Checked = true;
                 }
 
