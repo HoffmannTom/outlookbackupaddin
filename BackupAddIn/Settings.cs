@@ -104,7 +104,7 @@ namespace BackupAddIn
             for (int i = 0; i < lvStores.Items.Count; i++)
             {
                 if (lvStores.Items[i].Checked)
-                    config.Items.Add(lvStores.Items[i].Text);
+                    config.Items.Add(lvStores.Items[i].ImageKey);
             }
             return BackupSettingsDao.saveSettings(config);
         }
@@ -197,7 +197,7 @@ namespace BackupAddIn
             //Add pst-files to list
             var list =  BackupUtils.GetStoreLocations(config, stores);
 
-            ListViewItem[] lItem = list.Select(f => new ListViewItem(f + " (" + GetHumanReadableFileSize(f) + ")"))
+            ListViewItem[] lItem = list.Select(f => new ListViewItem(f + " (" + GetHumanReadableFileSize(f) + ")", f ))
                                        .ToArray();
             lvStores.Items.AddRange(lItem);
 
