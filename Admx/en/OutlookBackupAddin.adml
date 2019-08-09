@@ -56,8 +56,7 @@ Depending on the emails it can be more or less effective.</string>
         </text>
         <textBox refId="TXT_5D5E28CD_F804_4EEF_ADCC_740CA8B51DFF">
           <label>Prefix</label>
-          <defaultValue>
-          </defaultValue>
+          <defaultValue></defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_29E5E1AD_74D7_4C07_9CCE_C300B5F37EBB">
@@ -67,15 +66,13 @@ Depending on the emails it can be more or less effective.</string>
         </text>
         <textBox refId="TXT_C26E19D6_83DF_434A_A62C_C16994B1D237">
           <label>Location of BackupExecutor.exe</label>
-          <defaultValue>
-          </defaultValue>
+          <defaultValue></defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_BF45BD88_3634_4F80_8B88_76BDD098DB0F">
         <textBox refId="TXT_43F91329_184F_4328_BF46_C9F819499CC6">
           <label>Suffix</label>
-          <defaultValue>
-          </defaultValue>
+          <defaultValue></defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_EFD7F38A_3BB8_4DD3_98F7_3B08728EF721">
@@ -87,8 +84,7 @@ Depending on the emails it can be more or less effective.</string>
       <presentation id="POL_43AE0FD1_A2F8_4D71_B678_0ACD0C22BCF9">
         <textBox refId="TXT_F7698B59_5DC7_4854_B944_32E5DDF5431C">
           <label>Path to BackupExecutor.exe</label>
-          <defaultValue>
-          </defaultValue>
+          <defaultValue></defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_61C37EB0_ADD2_42DF_9613_79749B129EA2">
@@ -97,8 +93,7 @@ Depending on the emails it can be more or less effective.</string>
       <presentation id="POL_9A89057E_763A_476D_B589_B81ED168A96E">
         <textBox refId="TXT_D7680AF8_4B1A_40E3_A26D_FEED5C21A64E">
           <label>Destination path</label>
-          <defaultValue>
-          </defaultValue>
+          <defaultValue></defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_BF3F7655_074E_4301_88B7_AEDEA451A2DD">
@@ -114,8 +109,7 @@ Depending on the emails it can be more or less effective.</string>
       <presentation id="POL_1EB1A792_C72C_422B_8F39_21391B002E0B">
         <textBox refId="TXT_9F673EA2_0C8C_42C7_8CB9_E516052FD038">
           <label>Command to execute after backup</label>
-          <defaultValue>
-          </defaultValue>
+          <defaultValue></defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_274EBBB2_3469_40F4_95EF_07C28897C63B">
@@ -124,8 +118,7 @@ Depending on the emails it can be more or less effective.</string>
       <presentation id="POL_F6EE8B14_5EC5_4A1B_8DA7_79B6F5CDC52F">
         <textBox refId="TXT_BD921970_49F7_457E_AEBA_88256BFB0EB5">
           <label>Comma separated list of store types to hide</label>
-          <defaultValue>
-          </defaultValue>
+          <defaultValue></defaultValue>
         </textBox>
       </presentation>
       <presentation id="POL_10A02353_C014_40E6_ABA6_31E39A4898E7">
