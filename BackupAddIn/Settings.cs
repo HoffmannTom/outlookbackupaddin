@@ -213,8 +213,19 @@ namespace BackupAddIn
         /// <returns></returns>
         private String GetHumanReadableFileSize(String filename)
         {
+            //Long path might occur
+            //https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN#maxpath
             string[] sizes = { "B", "KB", "MB", "GB", "TB" };
-            double len = new FileInfo(filename).Length;
+
+            long len = 0;
+            SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
+            if (!SafeNativeMethods.GetFileAttributesEx(filename, SafeNativeMethods.GET_FILEEX_INFO_LEVELS.GetFileExInfoStandard, out fileData))
+            {
+                return "? KB";
+            }
+            len = (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
+
+            //double len = new FileInfo(filename).Length;
             int order = 0;
             while (len >= 1024 && order < sizes.Length - 1)
             {

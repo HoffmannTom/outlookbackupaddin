@@ -200,6 +200,7 @@
     <Compile Include="BackupSettings.cs" />
     <Compile Include="BackupUtils.cs" />
     <Compile Include="BackupSettingsDao.cs" />
+    <Compile Include="SafeNativeMethods.cs" />
     <Compile Include="lang\langres.fr.Designer.cs">
       <DependentUpon>langres.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
