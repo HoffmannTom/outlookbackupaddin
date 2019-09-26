@@ -1,5 +1,6 @@
 Version ?
 - Added support for long path and file names (e.g. \\?\UNC\...)
+- Added button to schedule backup on next exit of outlook
 
 Version 1.9
 - Added GPO option to disable access to the settings
