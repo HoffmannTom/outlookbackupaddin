@@ -1,4 +1,5 @@
-﻿using Microsoft.Office.Interop.Outlook;
+﻿using BackupAddInCommon;
+using Microsoft.Office.Interop.Outlook;
 using Microsoft.Office.Tools.Ribbon;
 using System;
 using System.Collections.Generic;
@@ -109,6 +110,16 @@ namespace BackupAddIn
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// Schedule backup when outlook is closed
+        /// </summary>
+        public void ScheduleBackupOnExit(Office.IRibbonControl control)
+        {
+            var config = BackupSettingsDao.loadSettings();
+            config.LastRun = new DateTime();
+            BackupSettingsDao.saveSettings(config);
+        }
+
         #endregion
 
         /// <summary>
@@ -127,6 +138,9 @@ namespace BackupAddIn
                     break;
                 case "ribBtnBackup":
                     result = rm.GetString("RibbonButtonBackup");
+                    break;
+                case "btnBackupOnExit":
+                    result = rm.GetString("BackupOnExit");
                     break;
             }
             return result;
