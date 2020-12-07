@@ -279,7 +279,7 @@ namespace BackupExecutor
                         }
                         else
                         {
-                            //src and dest are different, lets backp
+                            //src and dest are different, lets backup
                             log("copy " + item + " to " + sDst);
                             log("Getting file lock...");
                             if (WaitForFile(item, log, config.WaitTimeFileLock))

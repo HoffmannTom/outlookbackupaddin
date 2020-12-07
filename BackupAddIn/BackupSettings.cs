@@ -23,6 +23,7 @@ namespace BackupAddInCommon
             IgnoreEncryption = false;
             CountdownSeconds = 0;
             Interval = 1;
+            IntervalHours = 0;
             WaitTimeFileLock = 500;
             ShowOSTFiles = false;
             UseCompression = false;
@@ -46,6 +47,11 @@ namespace BackupAddInCommon
         ///  Interval in days when to run the backup program again
         /// </summary>
         public int Interval { get; set; }
+
+        /// <summary>
+        ///  Additional interval in hours which is added to the days
+        /// </summary>
+        public int IntervalHours { get; set; }
 
         /// <summary>
         ///  Date of the last run of backup

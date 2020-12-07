@@ -128,7 +128,7 @@ namespace BackupExecutor
                     startCountdown(config, LogToScreen);
                     iError = BackupTool.tryBackup(config, LogToScreen);
                 }
-                else if (config != null && config.LastRun.AddDays(config.Interval) <= DateTime.Now)
+                else if (config != null && config.LastRun.AddDays(config.Interval).AddHours(config.IntervalHours) <= DateTime.Now)
                 {
                     startCountdown(config, LogToScreen);
                     iError = BackupTool.tryBackup(config, LogToScreen);

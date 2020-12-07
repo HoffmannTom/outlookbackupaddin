@@ -49,10 +49,20 @@ namespace BackupExecutor
             }
             else if (argsDict.ContainsKey("/backupnow"))
             {
+                int iError = 0;
                 SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
-
-                BackupSettings config = BackupSettingsDao.loadSettings();
-                int iError = BackupTool.tryBackup(config, LogToConsole);
+                try
+                {
+                    LogToConsole("Reading settings ...");
+                    BackupSettings config = BackupSettingsDao.loadSettings();
+                    LogToConsole("Reading settings finished");
+                    iError = BackupTool.tryBackup(config, LogToConsole);
+                }
+                catch (Exception e)
+                {
+                    LogToConsole(e.Message);
+                    LogToConsole(e.StackTrace);
+                }
 
                 SendKeys.SendWait("{ENTER}");
                 SafeNativeMethods.FreeConsole();
