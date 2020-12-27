@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -469,10 +470,12 @@ namespace BackupExecutor
         /// <returns>true, if process is still running</returns>
         public static bool IsProcessOpen(string name, Logger log)
         {
-            foreach (Process clsProcess in Process.GetProcesses())
+            //String LoggedOnUser = Environment.UserName;
+            foreach (Process clsProcess in Process.GetProcessesByName(name))
             {
                 try
                 {
+                    //String User = GetProcessUser(clsProcess);
                     //txtLog.Text += clsProcess.ProcessName + Environment.NewLine;// MainModule.ModuleName ;
                     if (clsProcess.ProcessName.Equals(name, StringComparison.OrdinalIgnoreCase))
                     {
@@ -486,6 +489,34 @@ namespace BackupExecutor
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// Get the username of the process
+        /// </summary>
+        /// <param name="process"></param>
+        /// <returns></returns>
+        private static string GetProcessUser(Process process)
+        {
+            IntPtr processHandle = IntPtr.Zero;
+            try
+            {
+                SafeNativeMethods.OpenProcessToken(process.Handle, 8, out processHandle);
+                WindowsIdentity wi = new WindowsIdentity(processHandle);
+                string user = wi.Name;
+                return user.Contains(@"\") ? user.Substring(user.IndexOf(@"\") + 1) : user;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                if (processHandle != IntPtr.Zero)
+                {
+                    SafeNativeMethods.CloseHandle(processHandle);
+                }
+            }
         }
 
         /// <summary>

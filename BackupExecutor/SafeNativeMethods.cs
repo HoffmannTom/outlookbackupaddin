@@ -44,6 +44,9 @@ namespace BackupExecutor
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern FileAttributes GetFileAttributes(string lpFileName);
 
+        [DllImport("advapi32.dll", SetLastError = true)]
+        public static extern bool OpenProcessToken(IntPtr ProcessHandle, uint DesiredAccess, out IntPtr TokenHandle);
+
         public delegate CopyProgressResult CopyProgressRoutine(
             long TotalFileSize,
             long TotalBytesTransferred,
