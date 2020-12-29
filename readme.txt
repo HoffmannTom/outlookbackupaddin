@@ -2,7 +2,7 @@
 Installation requirements:
 ==========================
  - .Net Framework 4.0
- - Installed Microsoft Outlook 2016, 2013 or 2010
+ - Installed Microsoft Outlook 2019, 2016, 2013 or 2010
  - For Outlook 2010 without SP you need to install the VSTO runtime:
    https://www.microsoft.com/en-us/download/details.aspx?id=48217
 
