@@ -470,14 +470,17 @@ namespace BackupExecutor
         /// <returns>true, if process is still running</returns>
         public static bool IsProcessOpen(string name, Logger log)
         {
-            //String LoggedOnUser = Environment.UserName;
+            String LoggedOnUser = Environment.UserName;
             foreach (Process clsProcess in Process.GetProcessesByName(name))
             {
                 try
                 {
-                    //String User = GetProcessUser(clsProcess);
+                    String ProcUser = GetProcessUser(clsProcess);
                     //txtLog.Text += clsProcess.ProcessName + Environment.NewLine;// MainModule.ModuleName ;
-                    if (clsProcess.ProcessName.Equals(name, StringComparison.OrdinalIgnoreCase))
+
+                    //for multiple users logged on, just check the own processes
+                    if (clsProcess.ProcessName.Equals(name, StringComparison.OrdinalIgnoreCase)
+                        && LoggedOnUser.Equals(ProcUser, StringComparison.OrdinalIgnoreCase))
                     {
                         log("Found outlook with PID " + clsProcess.Id);
                         return true;
