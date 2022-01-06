@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -249,7 +250,7 @@ namespace BackupExecutor
                 {
                     log("Adding size of " + item);
                     //FileSizes[iCounter] = (new System.IO.FileInfo(item)).Length;
-                    FileSizes[iCounter] = GetFileLength(item);
+                    FileSizes[iCounter] = GetFileLength(item, log);
                     TotalBytesToCopy += FileSizes[iCounter];
                     iCounter++;
                 }
@@ -279,7 +280,7 @@ namespace BackupExecutor
                         }
                         else
                         {
-                            //src and dest are different, lets backp
+                            //src and dest are different, lets backup
                             log("copy " + item + " to " + sDst);
                             log("Getting file lock...");
                             if (WaitForFile(item, log, config.WaitTimeFileLock))
@@ -469,12 +470,17 @@ namespace BackupExecutor
         /// <returns>true, if process is still running</returns>
         public static bool IsProcessOpen(string name, Logger log)
         {
-            foreach (Process clsProcess in Process.GetProcesses())
+            String LoggedOnUser = Environment.UserName;
+            foreach (Process clsProcess in Process.GetProcessesByName(name))
             {
                 try
                 {
+                    String ProcUser = GetProcessUser(clsProcess);
                     //txtLog.Text += clsProcess.ProcessName + Environment.NewLine;// MainModule.ModuleName ;
-                    if (clsProcess.ProcessName.Equals(name, StringComparison.OrdinalIgnoreCase))
+
+                    //for multiple users logged on, just check the own processes
+                    if (clsProcess.ProcessName.Equals(name, StringComparison.OrdinalIgnoreCase)
+                        && LoggedOnUser.Equals(ProcUser, StringComparison.OrdinalIgnoreCase))
                     {
                         log("Found outlook with PID " + clsProcess.Id);
                         return true;
@@ -486,6 +492,34 @@ namespace BackupExecutor
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// Get the username of the process
+        /// </summary>
+        /// <param name="process"></param>
+        /// <returns></returns>
+        private static string GetProcessUser(Process process)
+        {
+            IntPtr processHandle = IntPtr.Zero;
+            try
+            {
+                SafeNativeMethods.OpenProcessToken(process.Handle, 8, out processHandle);
+                WindowsIdentity wi = new WindowsIdentity(processHandle);
+                string user = wi.Name;
+                return user.Contains(@"\") ? user.Substring(user.IndexOf(@"\") + 1) : user;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                if (processHandle != IntPtr.Zero)
+                {
+                    SafeNativeMethods.CloseHandle(processHandle);
+                }
+            }
         }
 
         /// <summary>
@@ -557,15 +591,25 @@ namespace BackupExecutor
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static long GetFileLength(string path)
+        public static long GetFileLength(string path, Logger log)
         {
-            SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
-            if (!SafeNativeMethods.GetFileAttributesEx(path,
-                    SafeNativeMethods.GET_FILEEX_INFO_LEVELS.GetFileExInfoStandard, out fileData))
+            //in order to support long path syntax, native methods are used
+            try
             {
-                throw new Win32Exception();
+                SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
+                if (!SafeNativeMethods.GetFileAttributesEx(path,
+                        SafeNativeMethods.GET_FILEEX_INFO_LEVELS.GetFileExInfoStandard, out fileData))
+                {
+                    log("Error retrieving file size from: -" + path + "-");
+                    return -1;
+                }
+                return (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
             }
-            return (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
+            catch (Exception e)
+            {
+                log("Error occured while retrieving file size from: -" + path + "-" + e.Message);
+                return -1;
+            }
         }
 
         /// <summary>

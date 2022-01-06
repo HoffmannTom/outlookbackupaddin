@@ -117,13 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BackupOnExit" xml:space="preserve">
+    <value>Backup beim Beenden</value>
+    <comment>Backup beim Beenden starten</comment>
+  </data>
   <data name="RibbonButtonBackup" xml:space="preserve">
     <value>Backup</value>
   </data>
   <data name="RibbonSettings" xml:space="preserve">
     <value>Einstellungen</value>
+    <comment>Einstellungsdialog öffnen</comment>
   </data>
   <data name="RibbonTabBackup" xml:space="preserve">
-    <value>BACKUP</value>
+    <value>Backup</value>
   </data>
 </root>

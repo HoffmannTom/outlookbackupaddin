@@ -215,11 +215,11 @@ UINT __stdcall RegisterPlugin(MSIHANDLE hInstall)
 		ExitOnWin32Error(res, hr, "Error Opening key:" + res);
 
 		std::wstring val = wsPluginName + TEXT(" - Plugin");
-		res = RegSetValueEx(hk, L"Description", NULL, REG_SZ, (LPBYTE)val.c_str(), wcslen(val.c_str()) * sizeof(TCHAR) + 1);
+		res = RegSetValueEx(hk, L"Description", NULL, REG_SZ, (LPBYTE)val.c_str(), (wcslen(val.c_str()) + 1) * sizeof(WCHAR) );
 		ExitOnWin32Error(res, hr, "Error creating Description:" + res);
 
 		std::wstring val2 = wsPluginName + TEXT(" - Plugin");
-		res = RegSetValueEx(hk, L"FriendlyName", NULL, REG_SZ, (LPBYTE)val2.c_str(), wcslen(val2.c_str()) * sizeof(TCHAR) + 1);
+		res = RegSetValueEx(hk, L"FriendlyName", NULL, REG_SZ, (LPBYTE)val2.c_str(), (wcslen(val2.c_str()) + 1) * sizeof(WCHAR) );
 		ExitOnWin32Error(res, hr, "Error creating FriendlyName:" + res);
 
 		DWORD val3 = 3;
@@ -232,7 +232,7 @@ UINT __stdcall RegisterPlugin(MSIHANDLE hInstall)
 		//ExitOnWin32Error(res, hr, "Error creating Warmup:" + res);
 
 		WcaLog(LOGMSG_STANDARD, "Manifest-Entry: %ls", pszSourcePath);
-		res = RegSetValueEx(hk, L"Manifest", NULL, REG_SZ, (LPBYTE)pszSourcePath, wcslen(pszSourcePath) * sizeof(TCHAR) + 1);
+		res = RegSetValueEx(hk, L"Manifest", NULL, REG_SZ, (LPBYTE)pszSourcePath, (wcslen(pszSourcePath) + 1) * sizeof(WCHAR));
 		ExitOnWin32Error(res, hr, "Error creating Manifest:" + res);
 
 		/*

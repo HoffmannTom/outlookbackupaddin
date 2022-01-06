@@ -186,11 +186,11 @@ namespace BackupAddInCommon
         /// <returns>Returns the saved settings from disk</returns>
         private static BackupSettings loadSettingsFromRegistry()
         {
-            BackupSettings config = null;
+            BackupSettings config = new BackupSettings();
             RegistryKey appKey = Registry.CurrentUser.OpenSubKey(REG_PATH_SETTINGS, false);
             if (appKey != null)
             {
-                config = new BackupSettings();
+                //config = new BackupSettings();
                 String[] names = appKey.GetValueNames();
 
                 //iterate registry entries

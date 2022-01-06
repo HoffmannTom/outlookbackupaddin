@@ -53,7 +53,8 @@ namespace BackupAddIn
                 if (config != null && !String.IsNullOrEmpty(config.BackupProgram))
                 {
                     //and if not yet backuped or if backup too old, then run program
-                    if (config.LastRun == null || config.LastRun.AddDays(config.Interval) <= DateTime.Now)
+                    if (config.LastRun == null 
+                        || config.LastRun.AddDays(config.Interval).AddHours(config.IntervalHours) <= DateTime.Now)
                     {
                         bool configChanged = false;
                         if (config.BackupAll)

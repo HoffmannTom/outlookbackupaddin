@@ -13,6 +13,11 @@ Installation instructions:
 2) Run Setup.exe and follow the instructions on the screen
 3) A certificate warning will show up. Accept the certificate in order to get the plugin installed
 
+Manuall registration of the add-in
+==================================
+You can manually register the add-in via command line.
+Change the current path to the installation folder and run:
+BackupExecutor.exe /register
 
 Usage instruction:
 ==================
