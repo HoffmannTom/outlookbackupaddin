@@ -5,5 +5,5 @@
 - Adjust UpgradeVersion/@Maximum version to current one
 - Commit changes
 - Merge develop branch in master
-- Tag master with vx.y
+- Tag master with vx.y + git push --tags
 - Upload as new release
