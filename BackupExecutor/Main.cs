@@ -142,6 +142,8 @@ namespace BackupExecutor
 
                     if (cbxShutdownWhenFinished.Checked)
                     {
+                        LogToScreen("Shutting down ...");
+                        Thread.Sleep(1000);
                         BackupTool.ShutdownComputer();
                     }
 

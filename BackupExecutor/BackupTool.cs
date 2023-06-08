@@ -7,6 +7,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Management;
+using System.Resources;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
@@ -20,6 +21,11 @@ namespace BackupExecutor
     /// </summary>
     public class BackupTool
     {
+        private static readonly ResourceManager rm;
+        static BackupTool()
+        {
+            rm = new ResourceManager("BackupExecutor.lang.langres", typeof(BackupTool).Assembly);
+        }
         private static System.Windows.Forms.ProgressBar pbCopyProgress;
         private static System.Windows.Forms.ProgressBar pbTotalCopyProgress;
         private static System.Windows.Forms.Label lblFilename;
