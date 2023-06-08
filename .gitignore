@@ -5,5 +5,12 @@
 /BackupExecutor/bin
 /BackupExecutor/obj
 
+/CustomAction/bin
+/CustomAction/obj
+
+/WixSetup/bin
+/WixSetup/obj
+
 /Setup/Setup
 *.suo
+/.vs/
