@@ -21,7 +21,7 @@ namespace BackupAddInCommon
         /// Determine config-file location
         /// </summary>
         /// <returns>Location of the config file</returns>
-        public static String getConfigFilePath()
+        public static String GetConfigFilePath()
         {
             String sPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
@@ -42,9 +42,9 @@ namespace BackupAddInCommon
         /// </summary>
         /// /// <param name="config">Configration to save</param>
         /// <returns>true, if save action was successful</returns>
-        public static bool saveSettings(BackupSettings config)
+        public static bool SaveSettings(BackupSettings config)
         {
-            return saveSettingsToRegistry(config);
+            return SaveSettingsToRegistry(config);
             //return saveSettingsToFile(config);
         }
 
@@ -53,7 +53,7 @@ namespace BackupAddInCommon
         /// </summary>
         /// /// <param name="config">Configration to save</param>
         /// <returns>true, if save action was successful</returns>
-        private static bool saveSettingsToRegistry(BackupSettings config)
+        private static bool SaveSettingsToRegistry(BackupSettings config)
         {
             bool bRet = true;
             try
@@ -146,9 +146,10 @@ namespace BackupAddInCommon
         /// </summary>
         /// /// <param name="config">Configration to save</param>
         /// <returns>true, if save action was successful</returns>
-        private static bool saveSettingsToFile(BackupSettings config)
+        /*
+        private static bool SaveSettingsToFile(BackupSettings config)
         {
-            String sFile = getConfigFilePath();
+            String sFile = GetConfigFilePath();
             try
             {
                 if (!Directory.Exists(Path.GetDirectoryName(sFile)))
@@ -169,14 +170,15 @@ namespace BackupAddInCommon
             }
             return true;
         }
+        */
 
         /// <summary>
         /// Returns the saved settings or null if not present
         /// </summary>
         /// <returns>Returns the saved settings from disk</returns>
-        public static BackupSettings loadSettings()
+        public static BackupSettings LoadSettings()
         {
-            return loadSettingsFromRegistry();
+            return LoadSettingsFromRegistry();
             //return loadSettingsFromFile();
         }
 
@@ -184,7 +186,7 @@ namespace BackupAddInCommon
         /// Returns the saved settings from registry or null if not present
         /// </summary>
         /// <returns>Returns the saved settings from disk</returns>
-        private static BackupSettings loadSettingsFromRegistry()
+        private static BackupSettings LoadSettingsFromRegistry()
         {
             BackupSettings config = new BackupSettings();
             RegistryKey appKey = Registry.CurrentUser.OpenSubKey(REG_PATH_SETTINGS, false);
@@ -259,9 +261,11 @@ namespace BackupAddInCommon
         /// Returns the saved settings from xml file or null if not present
         /// </summary>
         /// <returns>Returns the saved settings from disk</returns>
-        private static BackupSettings loadSettingsFromFile()
+        /// 
+        /*
+        private static BackupSettings LoadSettingsFromFile()
         {
-            String sFile = getConfigFilePath();
+            String sFile = GetConfigFilePath();
             BackupSettings config = null;
 
             if (File.Exists(sFile))
@@ -283,5 +287,6 @@ namespace BackupAddInCommon
 
             return config;
         }
+        */
     }
 }

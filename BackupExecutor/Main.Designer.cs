@@ -1,6 +1,6 @@
 ﻿namespace BackupExecutor
 {
-    partial class frmMain
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@
             this.lblFilename = new System.Windows.Forms.Label();
             this.pbTotalProgress = new System.Windows.Forms.ProgressBar();
             this.lblMegaBytesPerSecond = new System.Windows.Forms.Label();
+            this.cbxShutdownWhenFinished = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtLog
@@ -76,19 +77,30 @@
             // 
             // lblMegaBytesPerSecond
             // 
-            this.lblMegaBytesPerSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblMegaBytesPerSecond.AutoSize = true;
-            this.lblMegaBytesPerSecond.Location = new System.Drawing.Point(12, 294);
+            this.lblMegaBytesPerSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMegaBytesPerSecond.Location = new System.Drawing.Point(368, 294);
             this.lblMegaBytesPerSecond.Name = "lblMegaBytesPerSecond";
-            this.lblMegaBytesPerSecond.Size = new System.Drawing.Size(0, 13);
+            this.lblMegaBytesPerSecond.Size = new System.Drawing.Size(64, 13);
             this.lblMegaBytesPerSecond.TabIndex = 4;
-            this.lblMegaBytesPerSecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMegaBytesPerSecond.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // frmMain
+            // cbxShutdownWhenFinished
+            // 
+            this.cbxShutdownWhenFinished.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbxShutdownWhenFinished.AutoSize = true;
+            this.cbxShutdownWhenFinished.Location = new System.Drawing.Point(12, 293);
+            this.cbxShutdownWhenFinished.Name = "cbxShutdownWhenFinished";
+            this.cbxShutdownWhenFinished.Size = new System.Drawing.Size(142, 17);
+            this.cbxShutdownWhenFinished.TabIndex = 5;
+            this.cbxShutdownWhenFinished.Text = "Shutdown when finished";
+            this.cbxShutdownWhenFinished.UseVisualStyleBackColor = true;
+            // 
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 316);
+            this.Controls.Add(this.cbxShutdownWhenFinished);
             this.Controls.Add(this.lblMegaBytesPerSecond);
             this.Controls.Add(this.pbTotalProgress);
             this.Controls.Add(this.lblFilename);
@@ -97,10 +109,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(400, 300);
-            this.Name = "frmMain";
+            this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Backup";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,6 +125,7 @@
         private System.Windows.Forms.Label lblFilename;
         private System.Windows.Forms.ProgressBar pbTotalProgress;
         private System.Windows.Forms.Label lblMegaBytesPerSecond;
+        private System.Windows.Forms.CheckBox cbxShutdownWhenFinished;
     }
 }
 

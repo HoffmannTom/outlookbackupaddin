@@ -28,7 +28,7 @@ namespace BackupAddIn
             Thread.CurrentThread.CurrentUICulture = 
             CultureInfo.GetCultureInfo(this.Application.LanguageSettings.get_LanguageID(Microsoft.Office.Core.MsoAppLanguageID.msoLanguageIDUI));
 
-            BackupSettings config = BackupSettingsDao.loadSettings();
+            BackupSettings config = BackupSettingsDao.LoadSettings();
             Rib.setAccessSettingsAllowed(config.AllowSettingsAccess);
         }
 
@@ -47,7 +47,7 @@ namespace BackupAddIn
         {
             try
             { 
-                BackupSettings config = BackupSettingsDao.loadSettings();  
+                BackupSettings config = BackupSettingsDao.LoadSettings();  
             
                 //if configuration was done and backup program was configured
                 if (config != null && !String.IsNullOrEmpty(config.BackupProgram))
@@ -77,7 +77,7 @@ namespace BackupAddIn
                         }
 
                         if (configChanged)
-                            BackupSettingsDao.saveSettings(config);
+                            BackupSettingsDao.SaveSettings(config);
 
                         try
                         {

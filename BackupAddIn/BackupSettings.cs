@@ -31,6 +31,7 @@ namespace BackupAddInCommon
             BackupPrefix = "";
             BackupSuffix = "";
             PostBackupCmd = "";
+            ShutdownWhenFinished = false;
         }
 
         /// <summary>
@@ -108,6 +109,10 @@ namespace BackupAddInCommon
         /// </summary>
         public bool AllowSettingsAccess { get; set; }
         
+        /// <summary>
+        /// flag for the default settings to shutdown when finished
+        /// </summary>
+        public bool ShutdownWhenFinished { get; set; }
 
         /// <summary>
         ///  Counter to give user opportunity to close window before backup starts

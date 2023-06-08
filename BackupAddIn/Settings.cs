@@ -106,7 +106,7 @@ namespace BackupAddIn
                 if (lvStores.Items[i].Checked)
                     config.Items.Add(lvStores.Items[i].ImageKey);
             }
-            return BackupSettingsDao.saveSettings(config);
+            return BackupSettingsDao.SaveSettings(config);
         }
 
  
@@ -192,7 +192,7 @@ namespace BackupAddIn
             //cleanup
             txtDestination.Text = "";
             lvStores.Items.Clear();
-            config = BackupSettingsDao.loadSettings();
+            config = BackupSettingsDao.LoadSettings();
 
             //Add pst-files to list
             var list =  BackupUtils.GetStoreLocations(config, stores);

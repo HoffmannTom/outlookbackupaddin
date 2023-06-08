@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace BackupAddIn
 {
@@ -13,9 +9,9 @@ namespace BackupAddIn
         public struct WIN32_FILE_ATTRIBUTE_DATA
         {
             public FileAttributes dwFileAttributes;
-            public FILETIME ftCreationTime;
-            public FILETIME ftLastAccessTime;
-            public FILETIME ftLastWriteTime;
+            public System.Runtime.InteropServices.ComTypes.FILETIME ftCreationTime;
+            public System.Runtime.InteropServices.ComTypes.FILETIME ftLastAccessTime;
+            public System.Runtime.InteropServices.ComTypes.FILETIME ftLastWriteTime;
             public uint nFileSizeHigh;
             public uint nFileSizeLow;
         }

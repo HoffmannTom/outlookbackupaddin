@@ -29,23 +29,23 @@ namespace BackupExecutor
             int RetCode = 0;
 
             Dictionary<String, String> argsDict = new Dictionary<String, String>();
-            if (!parseArgs(args, argsDict))
+            if (!ParseArgs(args, argsDict))
             {
-                showHelp(args);
+                ShowHelp(args);
                 return 0;
             }
 
             if (argsDict.ContainsKey("/register"))
             {
-                RetCode = registerPlugin(true) ? 0 : 1;
+                RetCode = RegisterPlugin(true) ? 0 : 1;
             }
             else if (argsDict.ContainsKey("/registersetup"))
             {
-                RetCode = registerPlugin(false) ? 0 : 1;
+                RetCode = RegisterPlugin(false) ? 0 : 1;
             }
             else if (argsDict.ContainsKey("/unregister"))
             {
-                RetCode = unregisterPlugin() ? 0 : 1;
+                RetCode = UnregisterPlugin() ? 0 : 1;
             }
             else if (argsDict.ContainsKey("/backupnow"))
             {
@@ -54,9 +54,9 @@ namespace BackupExecutor
                 try
                 {
                     LogToConsole("Reading settings ...");
-                    BackupSettings config = BackupSettingsDao.loadSettings();
+                    BackupSettings config = BackupSettingsDao.LoadSettings();
                     LogToConsole("Reading settings finished");
-                    iError = BackupTool.tryBackup(config, LogToConsole);
+                    iError = BackupTool.TryBackup(config, LogToConsole);
                 }
                 catch (Exception e)
                 {
@@ -72,13 +72,13 @@ namespace BackupExecutor
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmMain());
+                Application.Run(new FrmMain());
             }
 
             return RetCode;
         }
 
-        private static bool parseArgs(string[] args, Dictionary<string, string> argsDict)
+        private static bool ParseArgs(string[] args, Dictionary<string, string> argsDict)
         {
             bool bOK = true;
             int iMainArgs = 0;
@@ -114,7 +114,7 @@ namespace BackupExecutor
         /// <summary>
         ///  print valid parameters and help information to console
         /// </summary>
-        private static void showHelp(string[] args)
+        private static void ShowHelp(string[] args)
         {
             SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
 
@@ -139,7 +139,7 @@ namespace BackupExecutor
             bool bRet = false;
 
             if (String.IsNullOrEmpty(outlookPath))
-                outlookPath = getOutlookPath();
+                outlookPath = GetOutlookPath();
 
             if (String.IsNullOrEmpty(outlookPath))
                 throw new Exception("Outlook not found!");
@@ -167,7 +167,7 @@ namespace BackupExecutor
         /// <summary>
         ///  Try to evaluate the outlook path. If it fails, choose manually
         /// </summary>
-        private static string getOutlookPath()
+        private static string GetOutlookPath()
         {
             String sPath = "";
 
@@ -197,7 +197,7 @@ namespace BackupExecutor
 
             if (String.IsNullOrEmpty(sPath))
             {
-                OpenFileDialog odlg = new OpenFileDialog();
+                System.Windows.Forms.OpenFileDialog odlg = new System.Windows.Forms.OpenFileDialog();
                 odlg.DefaultExt = ".exe";
                 odlg.CheckFileExists = true;
                 odlg.Filter = "Outlook.exe|outlook.exe";
@@ -217,12 +217,12 @@ namespace BackupExecutor
         ///  Create registry settings for outlook plugin and copy files to installation folder
         ///  depending on bit-ness
         /// </summary>
-        private static bool registerPlugin(bool sendRet)
+        private static bool RegisterPlugin(bool sendRet)
         {
             SafeNativeMethods.AttachConsole(SafeNativeMethods.ATTACH_PARENT_PROCESS);
             try
             {
-                RegistryKey tmpKey = getOutlookRootKey();
+                RegistryKey tmpKey = GetOutlookRootKey();
 
                 Console.WriteLine("Creating subkey Addins");
                 tmpKey = tmpKey.CreateSubKey("Addins");
@@ -262,11 +262,11 @@ namespace BackupExecutor
         /// <summary>
         ///  delete the registry settings and disables outlook plugin
         /// </summary>
-        private static bool unregisterPlugin()
+        private static bool UnregisterPlugin()
         {
             try
             {
-                RegistryKey tmpKey = getOutlookRootKey();
+                RegistryKey tmpKey = GetOutlookRootKey();
                 tmpKey = tmpKey.OpenSubKey("Addins", true);
 
                 if (tmpKey != null)
@@ -288,7 +288,7 @@ namespace BackupExecutor
         /// <summary>
         ///  returnes the registry key for outlook depending on bit-ness
         /// </summary>
-        private static RegistryKey getOutlookRootKey()
+        private static RegistryKey GetOutlookRootKey()
         {
             RegistryKey tmpKey;
             if (Environment.Is64BitOperatingSystem == false || Is64BitOutlookFromRegisteredExe() == false)

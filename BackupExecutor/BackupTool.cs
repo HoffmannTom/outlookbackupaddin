@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
+using System.Management;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
@@ -53,7 +55,7 @@ namespace BackupExecutor
         /// <summary>
         /// Set a label to report transfer speed
         /// </summary>
-        public static void setMegaByesPerSecondLabel(System.Windows.Forms.Label lbl)
+        public static void SetMegaByesPerSecondLabel(System.Windows.Forms.Label lbl)
         {
             lblMegaBytesPerSecond = lbl;
         }
@@ -61,7 +63,7 @@ namespace BackupExecutor
         /// <summary>
         /// Set a progress bar to report copy progress
         /// </summary>
-        public static void setProgressBar(System.Windows.Forms.ProgressBar pb)
+        public static void SetProgressBar(System.Windows.Forms.ProgressBar pb)
         {
             pbCopyProgress = pb;
         }
@@ -69,7 +71,7 @@ namespace BackupExecutor
         /// <summary>
         /// Set a progress bar to report status of whole copy progress
         /// </summary>
-        public static void setTotalProgressBar(System.Windows.Forms.ProgressBar pb)
+        public static void SetTotalProgressBar(System.Windows.Forms.ProgressBar pb)
         {
             pbTotalCopyProgress = pb;
         }
@@ -82,7 +84,7 @@ namespace BackupExecutor
         /// <param name="config">Stored configuration from outlook plugin</param>
         /// <param name="log">logging delegate to send error information</param>
         /// <returns>number of occurred errors</returns>
-        public static int tryBackup(BackupSettings config, Logger log)
+        public static int TryBackup(BackupSettings config, Logger log)
         {
             int iError = 0;
             if (config == null)
@@ -101,7 +103,7 @@ namespace BackupExecutor
                     if (WaitForProcessEnd(OUTLOOK_PROC, log))
                     {
                         log("No outlook process found");
-                        iError += doBackup(config, log);
+                        iError += DoBackup(config, log);
                         if (!String.IsNullOrEmpty(config.PostBackupCmd))
                         {
                             int iRes = RunPostCmd(config.PostBackupCmd, config.ProfileName, log);
@@ -125,7 +127,7 @@ namespace BackupExecutor
                 if (iError == 0)
                 {
                     config.LastRun = DateTime.Now;
-                    BackupSettingsDao.saveSettings(config);
+                    BackupSettingsDao.SaveSettings(config);
                 }
             }
             catch (InstanceAlreadyRunningException)
@@ -208,7 +210,7 @@ namespace BackupExecutor
         /// <param name="config">Stored configuration from outlook plugin</param>
         /// <param name="log">logging delegate to send error information</param>
         /// <returns>number of occurred errors</returns>
-        private static int doBackup(BackupSettings config, Logger log)
+        private static int DoBackup(BackupSettings config, Logger log)
         {
             int iError = 0;
 
@@ -357,7 +359,7 @@ namespace BackupExecutor
                 dwCopyFlags = SafeNativeMethods.CopyFileFlags.COPY_FILE_ALLOW_DECRYPTED_DESTINATION;
 
             bool pbCancel = false;
-            SafeNativeMethods.CopyProgressRoutine cb = new SafeNativeMethods.CopyProgressRoutine(callback);
+            SafeNativeMethods.CopyProgressRoutine cb = new SafeNativeMethods.CopyProgressRoutine(Callback);
 
             StartTimeCopy = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 
@@ -370,7 +372,7 @@ namespace BackupExecutor
             return bOK;
         }
 
-        private static SafeNativeMethods.CopyProgressResult callback(long TotalFileSize,
+        private static SafeNativeMethods.CopyProgressResult Callback(long TotalFileSize,
             long TotalFileBytesTransferred, long StreamSize,
             long StreamBytesTransferred, uint dwStreamNumber,
             SafeNativeMethods.CopyProgressCallbackReason dwCallbackReason,
@@ -384,11 +386,11 @@ namespace BackupExecutor
 
         private static void UpdateProgressIndicators(long TotalFileBytesTransferred, long FileSize)
         {
-            int i = (int)(TotalFileBytesTransferred * 100 / FileSize);
+            long i = (TotalFileBytesTransferred * 100L) / FileSize ;
             if (pbCopyProgress != null)
             {
                 if (pbCopyProgress.Minimum <= i && i <= pbCopyProgress.Maximum)
-                    pbCopyProgress.Invoke(new Action(() => pbCopyProgress.Value = i));
+                    pbCopyProgress.Invoke(new Action(() => pbCopyProgress.Value = (int)i));
                 else
                 {
                     String s = "Error in reporting progress" + System.Environment.NewLine;
@@ -627,6 +629,26 @@ namespace BackupExecutor
             else
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// shutdown computer
+        /// </summary>
+        /// <returns></returns>
+        public static void ShutdownComputer()
+        {
+            ManagementClass mcWin32 = new ManagementClass("Win32_OperatingSystem");
+            mcWin32.Get();
+            // You can't shutdown without security privileges 
+            mcWin32.Scope.Options.EnablePrivileges = true;
+            ManagementBaseObject mboShutdownParams = mcWin32.GetMethodParameters("Win32Shutdown");
+            // Flag 5 means force
+            mboShutdownParams["Flags"] = "5";
+            mboShutdownParams["Reserved"] = "0";
+            foreach (ManagementObject manObj in mcWin32.GetInstances().Cast<ManagementObject>())
+            {
+                _ = manObj.InvokeMethod("Win32Shutdown", mboShutdownParams, null);
             }
         }
     }

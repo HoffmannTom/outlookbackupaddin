@@ -12,7 +12,7 @@ namespace BackupExecutor
     /// <summary>
     ///  Main window of the backup program
     /// </summary>
-    public partial class frmMain : Form
+    public partial class FrmMain : Form
     {
         private static String REG_PATH_EXECUTOR_SETTINGS = @"Software\CodePlex\BackupAddIn\ExecutorSettings";
         private SynchronizationContext m_SynchronizationContext;
@@ -21,7 +21,7 @@ namespace BackupExecutor
         /// <summary>
         ///  Default constructor
         /// </summary>
-        public frmMain()
+        public FrmMain()
         {
             InitializeComponent();
             m_SynchronizationContext = SynchronizationContext.Current;
@@ -50,12 +50,12 @@ namespace BackupExecutor
 
             this.Show();
 
-            applySettingsFromRegistry();
+            ApplySettingsFromRegistry();
 
-            startAsyncWork();
+            StartAsyncWork();
         }
 
-        private bool applySettingsFromRegistry()
+        private bool ApplySettingsFromRegistry()
         {
             try
             {
@@ -90,7 +90,7 @@ namespace BackupExecutor
             return true;
         }
 
-        private bool saveSettingsToRegistry()
+        private bool SaveSettingsToRegistry()
         {
             try
             {
@@ -109,29 +109,29 @@ namespace BackupExecutor
             return true;
         }
 
-        private /*async*/ void startAsyncWork()
+        private /*async*/ void StartAsyncWork()
         {
             Console.WriteLine("DoWork Starting");
             //await Task.Run(() =>
             Task t = Task.Factory.StartNew(() =>
             {
                 int iError = 0;
-                BackupSettings config = BackupSettingsDao.loadSettings();
+                BackupSettings config = BackupSettingsDao.LoadSettings();
 
                 BackupTool.setFileLabel(this.lblFilename);
-                BackupTool.setProgressBar(this.pbCopyProgress);
-                BackupTool.setTotalProgressBar(this.pbTotalProgress);
-                BackupTool.setMegaByesPerSecondLabel(this.lblMegaBytesPerSecond);
+                BackupTool.SetProgressBar(this.pbCopyProgress);
+                BackupTool.SetTotalProgressBar(this.pbTotalProgress);
+                BackupTool.SetMegaByesPerSecondLabel(this.lblMegaBytesPerSecond);
 
                 if (config != null && config.LastRun == null)
                 {
-                    startCountdown(config, LogToScreen);
-                    iError = BackupTool.tryBackup(config, LogToScreen);
+                    StartCountdown(config, LogToScreen);
+                    iError = BackupTool.TryBackup(config, LogToScreen);
                 }
                 else if (config != null && config.LastRun.AddDays(config.Interval).AddHours(config.IntervalHours) <= DateTime.Now)
                 {
-                    startCountdown(config, LogToScreen);
-                    iError = BackupTool.tryBackup(config, LogToScreen);
+                    StartCountdown(config, LogToScreen);
+                    iError = BackupTool.TryBackup(config, LogToScreen);
                 }
 
                 //if (!EventLog.SourceExists(EVENT_SRC))
@@ -141,6 +141,12 @@ namespace BackupExecutor
                 {
                     //if (sbLogs.Length > 0)
                     //    EventLog.WriteEntry(EVENT_SRC, sbLogs.ToString(), EventLogEntryType.Information);
+
+                    if (cbxShutdownWhenFinished.Checked)
+                    {
+                        BackupTool.ShutdownComputer();
+                    }
+
                     Application.Exit();
                 }
                 else
@@ -153,17 +159,17 @@ namespace BackupExecutor
             });
         }
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
                 e.Cancel = !BackupTool.CanExit;
 
             //if closing allowed, safe settings
             if (!e.Cancel)
-                saveSettingsToRegistry();
+                SaveSettingsToRegistry();
         }
 
-        private void startCountdown(BackupSettings config, BackupTool.Logger Log)
+        private void StartCountdown(BackupSettings config, BackupTool.Logger Log)
         {
             BackupTool.CanExit = true;
             for (int i = config.CountdownSeconds; i > 0; i--)

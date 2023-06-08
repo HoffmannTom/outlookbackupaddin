@@ -1,5 +1,5 @@
 Version ?
-- 
+- Added shutdown option after backup finished (if no error occured)
 
 Version 1.10
 - Added support for long path and file names (e.g. \\?\UNC\...)

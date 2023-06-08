@@ -115,9 +115,9 @@ namespace BackupAddIn
         /// </summary>
         public void ScheduleBackupOnExit(Office.IRibbonControl control)
         {
-            var config = BackupSettingsDao.loadSettings();
+            var config = BackupSettingsDao.LoadSettings();
             config.LastRun = new DateTime();
-            BackupSettingsDao.saveSettings(config);
+            BackupSettingsDao.SaveSettings(config);
         }
 
         #endregion
