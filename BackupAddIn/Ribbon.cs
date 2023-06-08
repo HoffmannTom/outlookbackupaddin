@@ -1,15 +1,9 @@
 ﻿using BackupAddInCommon;
-using Microsoft.Office.Interop.Outlook;
-using Microsoft.Office.Tools.Ribbon;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms;
 using Office = Microsoft.Office.Core;
 
 // TODO: Führen Sie diese Schritte aus, um das Element auf dem Menüband (XML) zu aktivieren:
@@ -43,8 +37,8 @@ namespace BackupAddIn
         private bool AccessSettingsAllowed;
 
         //private Microsoft.Office.Interop.Outlook.Application app;
-        ThisAddIn addin;
-        ResourceManager rm;
+        readonly ThisAddIn addin;
+        readonly ResourceManager rm;
 
         /// <summary>
         /// Default constructor
@@ -54,7 +48,7 @@ namespace BackupAddIn
             rm = new ResourceManager("BackupAddIn.lang.langres", typeof(Ribbon).Assembly);
             addin = a;
         }
-        
+
         #region IRibbonExtensibility-Member
 
         /// <summary>
@@ -69,7 +63,7 @@ namespace BackupAddIn
         /// <summary>
         /// set flag whether user is allowed to access settings page
         /// </summary>
-        public void setAccessSettingsAllowed(bool b)
+        public void SetAccessSettingsAllowed(bool b)
         {
             AccessSettingsAllowed = b;
         }
@@ -82,7 +76,7 @@ namespace BackupAddIn
             return AccessSettingsAllowed;
         }
 
-        
+
 
         #region Menübandrückrufe
         //Erstellen Sie hier Rückrufmethoden. Weitere Informationen zum Hinzufügen von Rückrufmethoden finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=271226".
@@ -106,7 +100,7 @@ namespace BackupAddIn
             FBackupSettings frm = new FBackupSettings();
             //frm.setStores(outlookNs.Stores);
 
-            frm.setStores(addin.getApplication().Session.Stores);
+            frm.SetStores(addin.GetApplication().Session.Stores);
             frm.ShowDialog();
         }
 

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using Outlook = Microsoft.Office.Interop.Outlook;
-using Office = Microsoft.Office.Core;
-using BackupAddInCommon;
+﻿using BackupAddInCommon;
+using System;
 using System.Diagnostics;
-using System.Reflection;
-using System.IO;
-using System.Threading;
 using System.Globalization;
+using System.Threading;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace BackupAddIn
 {
@@ -20,22 +13,22 @@ namespace BackupAddIn
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            ((Outlook.ApplicationEvents_11_Event)Application).Quit 
+            ((Outlook.ApplicationEvents_11_Event)Application).Quit
             += new Outlook.ApplicationEvents_11_QuitEventHandler(ThisAddIn_Quit);
 
             //set language to office language
             //http://blog.sebastianbrand.com/2010/03/vsto-using-net-multi-language-support.html
-            Thread.CurrentThread.CurrentUICulture = 
+            Thread.CurrentThread.CurrentUICulture =
             CultureInfo.GetCultureInfo(this.Application.LanguageSettings.get_LanguageID(Microsoft.Office.Core.MsoAppLanguageID.msoLanguageIDUI));
 
             BackupSettings config = BackupSettingsDao.LoadSettings();
-            Rib.setAccessSettingsAllowed(config.AllowSettingsAccess);
+            Rib.SetAccessSettingsAllowed(config.AllowSettingsAccess);
         }
 
         /// <summary>
         /// Accessor for ribbon gui element
         /// </summary>
-        public Ribbon getRibbon()
+        public Ribbon GetRibbon()
         {
             return Rib;
         }
@@ -46,14 +39,14 @@ namespace BackupAddIn
         void ThisAddIn_Quit()
         {
             try
-            { 
-                BackupSettings config = BackupSettingsDao.LoadSettings();  
-            
+            {
+                BackupSettings config = BackupSettingsDao.LoadSettings();
+
                 //if configuration was done and backup program was configured
                 if (config != null && !String.IsNullOrEmpty(config.BackupProgram))
                 {
                     //and if not yet backuped or if backup too old, then run program
-                    if (config.LastRun == null 
+                    if (config.LastRun == null
                         || config.LastRun.AddDays(config.Interval).AddHours(config.IntervalHours) <= DateTime.Now)
                     {
                         bool configChanged = false;
@@ -125,11 +118,11 @@ namespace BackupAddIn
         /// <summary>
         /// returns the instance of the outlook application.
         /// </summary>
-        public Outlook.Application getApplication()
+        public Outlook.Application GetApplication()
         {
             return Application;
         }
-        
+
         #endregion
     }
 }

@@ -6,9 +6,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace BackupAddInCommon
 {
@@ -129,7 +127,7 @@ namespace BackupAddInCommon
 
                 if (t != RegistryValueKind.Unknown)
                     if (val != null)
-                         appKey.SetValue(property.Name, val, t);
+                        appKey.SetValue(property.Name, val, t);
                     else appKey.DeleteValue(property.Name, false);
             }
             catch (System.Exception e)

@@ -71,7 +71,7 @@
             resources.ApplyResources(this.btnSpeichern, "btnSpeichern");
             this.btnSpeichern.Name = "btnSpeichern";
             this.btnSpeichern.UseVisualStyleBackColor = true;
-            this.btnSpeichern.Click += new System.EventHandler(this.btnSpeichern_click);
+            this.btnSpeichern.Click += new System.EventHandler(this.BtnSpeichern_click);
             // 
             // btnAbbrechen
             // 
@@ -79,7 +79,7 @@
             this.btnAbbrechen.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAbbrechen.Name = "btnAbbrechen";
             this.btnAbbrechen.UseVisualStyleBackColor = true;
-            this.btnAbbrechen.Click += new System.EventHandler(this.btnAbbrechen_click);
+            this.btnAbbrechen.Click += new System.EventHandler(this.BtnAbbrechen_click);
             // 
             // gbSettings
             // 
@@ -107,14 +107,14 @@
             resources.ApplyResources(this.cbxBackupAll, "cbxBackupAll");
             this.cbxBackupAll.Name = "cbxBackupAll";
             this.cbxBackupAll.UseVisualStyleBackColor = true;
-            this.cbxBackupAll.CheckedChanged += new System.EventHandler(this.cbxBackupAll_CheckedChanged);
+            this.cbxBackupAll.CheckedChanged += new System.EventHandler(this.CbxBackupAll_CheckedChanged);
             // 
             // btnReset
             // 
             resources.ApplyResources(this.btnReset, "btnReset");
             this.btnReset.Name = "btnReset";
             this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
             // txtLastBackup
             // 
@@ -141,7 +141,7 @@
             resources.ApplyResources(this.btnBackupSelect, "btnBackupSelect");
             this.btnBackupSelect.Name = "btnBackupSelect";
             this.btnBackupSelect.UseVisualStyleBackColor = true;
-            this.btnBackupSelect.Click += new System.EventHandler(this.btnBackupSelect_Click);
+            this.btnBackupSelect.Click += new System.EventHandler(this.BtnBackupSelect_Click);
             // 
             // txtBackupExe
             // 
@@ -178,7 +178,7 @@
             resources.ApplyResources(this.btnDirSelect, "btnDirSelect");
             this.btnDirSelect.Name = "btnDirSelect";
             this.btnDirSelect.UseVisualStyleBackColor = true;
-            this.btnDirSelect.Click += new System.EventHandler(this.btnDirSelect_Click);
+            this.btnDirSelect.Click += new System.EventHandler(this.BtnDirSelect_Click);
             // 
             // txtDestination
             // 

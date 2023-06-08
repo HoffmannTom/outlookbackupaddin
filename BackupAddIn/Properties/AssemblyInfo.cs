@@ -1,7 +1,5 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Security;
 
 // Allgemeine Informationen über eine Assembly werden über die folgende 
 // Attributgruppe gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,

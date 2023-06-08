@@ -47,7 +47,7 @@ namespace BackupExecutor
         /// <summary>
         /// Set a label to report currently copied file
         /// </summary>
-        public static void setFileLabel(System.Windows.Forms.Label lbl)
+        public static void SetFileLabel(System.Windows.Forms.Label lbl)
         {
             lblFilename = lbl;
         }
@@ -161,7 +161,7 @@ namespace BackupExecutor
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.RedirectStandardError = true;
 
-            p.OutputDataReceived += new DataReceivedEventHandler( (s, e) =>
+            p.OutputDataReceived += new DataReceivedEventHandler((s, e) =>
                 {
                     log(e.Data);
                 }
@@ -266,8 +266,7 @@ namespace BackupExecutor
                     iCounter++;
                     try
                     {
-                        if (lblFilename != null)
-                            lblFilename.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
+                        lblFilename?.Invoke(new Action(() => lblFilename.Text = "File " + iCounter + "/" + config.Items.Count + ": " + item));
 
                         log("Evaluate destination path...");
                         sDst = sPath + Environment.ExpandEnvironmentVariables(config.BackupPrefix) + Path.GetFileName(item);
@@ -325,23 +324,21 @@ namespace BackupExecutor
 
                 // Get the stream of the source file.
                 using (FileStream inFile = fi.OpenRead())
+                using (FileStream outFile = File.Create(sDst))
                 {
                     // Create the compressed file.
-                    using (FileStream outFile = File.Create(sDst))
+                    GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
+                    byte[] buffer = new byte[32 * 1024];
+                    int read;
+                    int readTotal = 0;
+                    while ((read = inFile.Read(buffer, 0, buffer.Length)) > 0)
                     {
-                        GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
-                        byte[] buffer = new byte[32 * 1024];
-                        int read;
-                        int readTotal = 0;
-                        while ((read = inFile.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            Compress.Write(buffer, 0, read);
-                            readTotal += read;
-                            UpdateProgressIndicators(readTotal, fi.Length);
-                        };
+                        Compress.Write(buffer, 0, read);
+                        readTotal += read;
+                        UpdateProgressIndicators(readTotal, fi.Length);
+                    };
 
-                        Compress.Close();
-                    }
+                    Compress.Close();
                 }
             }
             catch (System.Exception e)
@@ -386,7 +383,7 @@ namespace BackupExecutor
 
         private static void UpdateProgressIndicators(long TotalFileBytesTransferred, long FileSize)
         {
-            long i = (TotalFileBytesTransferred * 100L) / FileSize ;
+            long i = (TotalFileBytesTransferred * 100L) / FileSize;
             if (pbCopyProgress != null)
             {
                 if (pbCopyProgress.Minimum <= i && i <= pbCopyProgress.Maximum)
@@ -405,7 +402,7 @@ namespace BackupExecutor
             {
                 if (pbTotalCopyProgress.Minimum <= iTotal && iTotal <= pbTotalCopyProgress.Maximum)
                     pbTotalCopyProgress.Invoke(new Action(() => pbTotalCopyProgress.Value = iTotal));
-                else 
+                else
                 {
                     String s = "Error in reporting total progress" + System.Environment.NewLine;
                     s += "TotalBytesCopied:" + TotalBytesCopied + System.Environment.NewLine;
@@ -443,7 +440,7 @@ namespace BackupExecutor
             return (i < 10);
         }
 
- 
+
         /// <summary>
         /// Waits, till the process is not running any more
         /// </summary>
@@ -561,7 +558,7 @@ namespace BackupExecutor
                 //or does not exist 
                 log("File is locked: " + file + " Err-No: " + e.Message);
 
-                int errCode = 0;
+                int errCode;
                 if (Int32.TryParse(e.Message, out errCode))
                 {
                     string errorMessage = new Win32Exception(errCode).Message;

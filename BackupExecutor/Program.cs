@@ -154,10 +154,10 @@ namespace BackupExecutor
                 catch (Exception /*e*/)
                 {
                     //MessageBox.Show(e.Message);
-                  // Ignore - better just to assume it's 32-bit than to let the installation
-                  // fail.  This could fail because the GetBinaryType function is not
-                  // available.  I understand it's only available in Windows 2000
-                  // Professional onwards.
+                    // Ignore - better just to assume it's 32-bit than to let the installation
+                    // fail.  This could fail because the GetBinaryType function is not
+                    // available.  I understand it's only available in Windows 2000
+                    // Professional onwards.
                 }
             }
 
@@ -188,7 +188,7 @@ namespace BackupExecutor
                 if (String.IsNullOrEmpty(sPath) && Environment.Is64BitOperatingSystem)
                 {
                     //if it is Office64 on Win64, try 64-Bit Key (current programm running with 32-Bit):
-                    RegistryKey  tmpKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
+                    RegistryKey tmpKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
                     tmpKey = tmpKey.OpenSubKey(@"Software\Classes\CLSID\" + clsid + @"\LocalServer32");
                     if (tmpKey != null)
                         sPath = (string)tmpKey.GetValue("");
@@ -197,11 +197,13 @@ namespace BackupExecutor
 
             if (String.IsNullOrEmpty(sPath))
             {
-                System.Windows.Forms.OpenFileDialog odlg = new System.Windows.Forms.OpenFileDialog();
-                odlg.DefaultExt = ".exe";
-                odlg.CheckFileExists = true;
-                odlg.Filter = "Outlook.exe|outlook.exe";
-                odlg.Title = "Please select outlook.exe from the installation folder";
+                System.Windows.Forms.OpenFileDialog odlg = new System.Windows.Forms.OpenFileDialog
+                {
+                    DefaultExt = ".exe",
+                    CheckFileExists = true,
+                    Filter = "Outlook.exe|outlook.exe",
+                    Title = "Please select outlook.exe from the installation folder"
+                };
                 if (odlg.ShowDialog() == DialogResult.OK)
                 {
                     sPath = odlg.FileName;
@@ -269,8 +271,7 @@ namespace BackupExecutor
                 RegistryKey tmpKey = GetOutlookRootKey();
                 tmpKey = tmpKey.OpenSubKey("Addins", true);
 
-                if (tmpKey != null)
-                    tmpKey.DeleteSubKey("Codeplex.BackupAddIn");
+                tmpKey?.DeleteSubKey("Codeplex.BackupAddIn");
             }
             catch (Exception e)
             {

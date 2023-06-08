@@ -11,7 +11,7 @@
 static WCHAR* getRegistryEntry(LPCWSTR sPath, int iRegView)
 {
 	BYTE *pData = NULL;
-	HKEY hk;
+	HKEY hk = NULL;
 	int result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, sPath, 0, KEY_QUERY_VALUE | iRegView, &hk);
 	if (result == ERROR_SUCCESS)
 	{
@@ -42,7 +42,8 @@ static bool is64bitOS()
 
 	//targetver.h _WIN32_WINNT could also be increased to support GetNativeSystemInfo without fetching pointer
 	SYSTEM_INFO si;
-	PGNSI gsi = (PGNSI)GetProcAddress(GetModuleHandle(TEXT("kernel32.dll")), "GetNativeSystemInfo");
+	HMODULE handle = GetModuleHandle(TEXT("kernel32.dll"));
+	PGNSI gsi = (PGNSI)GetProcAddress(handle, "GetNativeSystemInfo");
 	gsi(&si);
 
 	return si.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_IA64
@@ -61,7 +62,7 @@ static WCHAR* getOutlookPath()
 	while (clsidp == NULL && i <= 17)
 	{
         std::wstring key = L"Software\\Classes\\Outlook.Application." + std::to_wstring(i) + L"\\CLSID";
-		WcaLog(LOGMSG_STANDARD, "Trying to read ", key);
+		WcaLog(LOGMSG_STANDARD, "Trying to read %ls", &key[0]);
 		clsidp = getRegistryEntry(key.c_str(), 0);
 		i++;
 	}
@@ -195,7 +196,7 @@ UINT __stdcall RegisterPlugin(MSIHANDLE hInstall)
 	HRESULT hr2 = WcaGetProperty(L"CustomActionData", &pszCustData);
 	ExitOnFailure(hr2, "Failed to get CustomActionData");
 
-	HKEY hk;
+	HKEY hk = NULL;
 	{
 		wchar_t *context = NULL;
 		LPWSTR pszPluginName = wcstok_s(pszCustData, L";", &context);

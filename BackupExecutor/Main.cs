@@ -1,11 +1,9 @@
-﻿using Microsoft.Win32;
-using BackupAddInCommon;
+﻿using BackupAddInCommon;
+using Microsoft.Win32;
 using System;
-using System.Windows.Forms;
-using System.Threading.Tasks;
 using System.Threading;
-using System.Text;
-using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BackupExecutor
 {
@@ -14,8 +12,8 @@ namespace BackupExecutor
     /// </summary>
     public partial class FrmMain : Form
     {
-        private static String REG_PATH_EXECUTOR_SETTINGS = @"Software\CodePlex\BackupAddIn\ExecutorSettings";
-        private SynchronizationContext m_SynchronizationContext;
+        private static readonly String REG_PATH_EXECUTOR_SETTINGS = @"Software\CodePlex\BackupAddIn\ExecutorSettings";
+        private readonly SynchronizationContext m_SynchronizationContext;
         //private static StringBuilder sbLogs = new StringBuilder();
         //private static String EVENT_SRC = "Application Error";
         /// <summary>
@@ -118,7 +116,7 @@ namespace BackupExecutor
                 int iError = 0;
                 BackupSettings config = BackupSettingsDao.LoadSettings();
 
-                BackupTool.setFileLabel(this.lblFilename);
+                BackupTool.SetFileLabel(this.lblFilename);
                 BackupTool.SetProgressBar(this.pbCopyProgress);
                 BackupTool.SetTotalProgressBar(this.pbTotalProgress);
                 BackupTool.SetMegaByesPerSecondLabel(this.lblMegaBytesPerSecond);
@@ -175,7 +173,7 @@ namespace BackupExecutor
             for (int i = config.CountdownSeconds; i > 0; i--)
             {
                 if (i > 1)
-                     Log("Starting backup in " + i + " seconds");
+                    Log("Starting backup in " + i + " seconds");
                 else Log("Starting backup in " + i + " second");
 
                 Thread.Sleep(1000);

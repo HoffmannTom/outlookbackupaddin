@@ -1,19 +1,9 @@
 ﻿using BackupAddInCommon;
-using Microsoft.Office.Interop.Outlook;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace BackupAddIn
 {
@@ -37,7 +27,7 @@ namespace BackupAddIn
         /// <summary>
         /// Gets the configuration from disk and populates the form accordingly
         /// </summary>
-        private void applySettings()
+        private void ApplySettings()
         {
             //BackupSettings config = BackupSettingsDao.loadSettings();
 
@@ -49,7 +39,7 @@ namespace BackupAddIn
                 txtPrefix.Text = config.BackupPrefix;
                 txtSuffix.Text = config.BackupSuffix;
                 txtPostBackupCmd.Text = config.PostBackupCmd;
-                numCountdown.Value    = config.CountdownSeconds;
+                numCountdown.Value = config.CountdownSeconds;
 
                 foreach (String item in config.Items)
                 {
@@ -63,7 +53,7 @@ namespace BackupAddIn
                 if (config.LastRun > DateTime.MinValue)
                     txtLastBackup.Text = config.LastRun.ToString("dd.MM.yyyy HH:mm:ss");
             }
-            
+
             if (String.IsNullOrEmpty(txtBackupExe.Text))
             {
                 //Check dll folder whether exe file exists
@@ -83,19 +73,19 @@ namespace BackupAddIn
         /// Saves the current settings from the form to disk
         /// </summary>
         /// <returns>true, if save action was successful</returns>
-        private bool saveSettings()
+        private bool SaveSettings()
         {
             //preserve hidden flags
             //BackupSettings config = BackupSettingsDao.loadSettings();
             if (config == null)
                 config = new BackupSettings();
             config.DestinationPath = txtDestination.Text;
-            config.Interval        = (int)numInterval.Value;
-            config.BackupProgram   = txtBackupExe.Text;
-            config.BackupPrefix    = txtPrefix.Text;
-            config.BackupSuffix    = txtSuffix.Text;
-            config.PostBackupCmd   = txtPostBackupCmd.Text;
-            config.BackupAll       = cbxBackupAll.Checked;
+            config.Interval = (int)numInterval.Value;
+            config.BackupProgram = txtBackupExe.Text;
+            config.BackupPrefix = txtPrefix.Text;
+            config.BackupSuffix = txtSuffix.Text;
+            config.PostBackupCmd = txtPostBackupCmd.Text;
+            config.BackupAll = cbxBackupAll.Checked;
             config.CountdownSeconds = (int)numCountdown.Value;
             if (String.IsNullOrEmpty(txtLastBackup.Text))
                 config.LastRun = DateTime.MinValue;
@@ -109,13 +99,13 @@ namespace BackupAddIn
             return BackupSettingsDao.SaveSettings(config);
         }
 
- 
-        private void btnAbbrechen_click(object sender, EventArgs e)
+
+        private void BtnAbbrechen_click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnSpeichern_click(object sender, EventArgs e)
+        private void BtnSpeichern_click(object sender, EventArgs e)
         {
             String sDest = Environment.ExpandEnvironmentVariables(txtDestination.Text);
             if (!Directory.Exists(sDest))
@@ -124,7 +114,7 @@ namespace BackupAddIn
             }
             else
             {
-                if (saveSettings())
+                if (SaveSettings())
                     this.Close();
             }
         }
@@ -133,19 +123,19 @@ namespace BackupAddIn
         /// Gets the list of outlook stores for further display
         /// </summary>
         /// <param name="stores"></param>
-        internal void setStores(Microsoft.Office.Interop.Outlook.Stores stores)
+        internal void SetStores(Microsoft.Office.Interop.Outlook.Stores stores)
         {
             this.stores = stores;
         }
 
-        private void btnDirSelect_Click(object sender, EventArgs e)
+        private void BtnDirSelect_Click(object sender, EventArgs e)
         {
             DialogResult res = folderBrowserdlg.ShowDialog();
             if (res.Equals(DialogResult.OK))
                 txtDestination.Text = folderBrowserdlg.SelectedPath;
         }
 
-        private void btnBackupSelect_Click(object sender, EventArgs e)
+        private void BtnBackupSelect_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtBackupExe.Text))
                 fileOpenDialog.InitialDirectory = Path.GetDirectoryName(txtBackupExe.Text);
@@ -171,12 +161,12 @@ namespace BackupAddIn
                     lvItem.Checked = bBA;
         }
 
-        private void cbxBackupAll_CheckedChanged(object sender, EventArgs e)
+        private void CbxBackupAll_CheckedChanged(object sender, EventArgs e)
         {
             SetBackupAll();
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void BtnReset_Click(object sender, EventArgs e)
         {
             txtLastBackup.Text = "";
         }
@@ -195,15 +185,15 @@ namespace BackupAddIn
             config = BackupSettingsDao.LoadSettings();
 
             //Add pst-files to list
-            var list =  BackupUtils.GetStoreLocations(config, stores);
+            var list = BackupUtils.GetStoreLocations(config, stores);
 
-            ListViewItem[] lItem = list.Select(f => new ListViewItem(f + " (" + GetHumanReadableFileSize(f) + ")", f ))
+            ListViewItem[] lItem = list.Select(f => new ListViewItem(f + " (" + GetHumanReadableFileSize(f) + ")", f))
                                        .ToArray();
             lvStores.Items.AddRange(lItem);
 
             lvStores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
-            applySettings();
+            ApplySettings();
         }
 
         /// <summary>
@@ -217,7 +207,7 @@ namespace BackupAddIn
             //https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN#maxpath
             string[] sizes = { "B", "KB", "MB", "GB", "TB" };
 
-            long len = 0;
+            long len;
             SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
             if (!SafeNativeMethods.GetFileAttributesEx(filename, SafeNativeMethods.GET_FILEEX_INFO_LEVELS.GetFileExInfoStandard, out fileData))
             {
@@ -230,7 +220,7 @@ namespace BackupAddIn
             while (len >= 1024 && order < sizes.Length - 1)
             {
                 order++;
-                len = len / 1024;
+                len /= 1024;
             }
 
             return String.Format("{0:0.##} {1}", len, sizes[order]);

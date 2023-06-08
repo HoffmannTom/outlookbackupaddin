@@ -1,22 +1,14 @@
 ﻿using BackupAddInCommon;
 using Microsoft.Office.Interop.Outlook;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace BackupAddIn
 {
     class BackupUtils
     {
- 
+
         public static List<String> GetStoreLocations(BackupSettings config, Stores st)
         {
             var list = new List<string>();
@@ -31,7 +23,7 @@ namespace BackupAddIn
                                   + "\r\nIsDataFileStore: " + st[i].IsDataFileStore
                                   + "\r\nIsCachedExchange: " + st[i].IsCachedExchange);
                      * */
-                    if (config != null && 
+                    if (config != null &&
                         config.StoreTypeBlacklist != null &&
                         config.StoreTypeBlacklist.Contains((int)st[i].ExchangeStoreType))
                         continue;

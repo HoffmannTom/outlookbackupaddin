@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace BackupAddInCommon
 {
@@ -72,12 +68,12 @@ namespace BackupAddInCommon
         /// <summary>
         ///  Prefix for filename of backup
         /// </summary>
-        public string BackupPrefix  { get; set; }
+        public string BackupPrefix { get; set; }
 
         /// <summary>
         ///  Suffix for filename of backup
         /// </summary>
-        public string BackupSuffix  { get; set; }
+        public string BackupSuffix { get; set; }
 
         /// <summary>
         ///  Flag whether to backup all pst-files
@@ -107,8 +103,19 @@ namespace BackupAddInCommon
         /// <summary>
         ///  Flag whether user can open settings dialog
         /// </summary>
+
+        /* Nicht gemergte Änderung aus Projekt "BackupAddIn"
+        Vor:
+                public bool AllowSettingsAccess { get; set; }
+
+                /// <summary>
+        Nach:
+                public bool AllowSettingsAccess { get; set; }
+
+                /// <summary>
+        */
         public bool AllowSettingsAccess { get; set; }
-        
+
         /// <summary>
         /// flag for the default settings to shutdown when finished
         /// </summary>
@@ -123,17 +130,17 @@ namespace BackupAddInCommon
         ///  Counter to give user opportunity to close window before backup starts
         /// </summary>
         public int CountdownSeconds
-        {  
+        {
             get
             {
                 return countdownSeconds;
-            } 
+            }
             set
             {
                 if (value >= 0 && value <= 100)
-                     countdownSeconds = value;
+                    countdownSeconds = value;
                 else countdownSeconds = 0;
-            } 
+            }
         }
 
         /// <summary>
