@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.txtLog = new System.Windows.Forms.RichTextBox();
             this.pbCopyProgress = new System.Windows.Forms.ProgressBar();
             this.lblFilename = new System.Windows.Forms.Label();
@@ -38,68 +39,40 @@
             // 
             // txtLog
             // 
-            this.txtLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLog.Location = new System.Drawing.Point(12, 12);
+            resources.ApplyResources(this.txtLog, "txtLog");
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
-            this.txtLog.Size = new System.Drawing.Size(420, 196);
-            this.txtLog.TabIndex = 0;
-            this.txtLog.Text = "";
             // 
             // pbCopyProgress
             // 
-            this.pbCopyProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbCopyProgress.Location = new System.Drawing.Point(12, 234);
+            resources.ApplyResources(this.pbCopyProgress, "pbCopyProgress");
             this.pbCopyProgress.Name = "pbCopyProgress";
-            this.pbCopyProgress.Size = new System.Drawing.Size(420, 23);
-            this.pbCopyProgress.TabIndex = 1;
             // 
             // lblFilename
             // 
-            this.lblFilename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblFilename.AutoSize = true;
-            this.lblFilename.Location = new System.Drawing.Point(12, 218);
+            resources.ApplyResources(this.lblFilename, "lblFilename");
             this.lblFilename.Name = "lblFilename";
-            this.lblFilename.Size = new System.Drawing.Size(0, 13);
-            this.lblFilename.TabIndex = 2;
             // 
             // pbTotalProgress
             // 
-            this.pbTotalProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbTotalProgress.Location = new System.Drawing.Point(12, 263);
+            resources.ApplyResources(this.pbTotalProgress, "pbTotalProgress");
             this.pbTotalProgress.Name = "pbTotalProgress";
-            this.pbTotalProgress.Size = new System.Drawing.Size(420, 23);
-            this.pbTotalProgress.TabIndex = 3;
             // 
             // lblMegaBytesPerSecond
             // 
-            this.lblMegaBytesPerSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMegaBytesPerSecond.Location = new System.Drawing.Point(368, 294);
+            resources.ApplyResources(this.lblMegaBytesPerSecond, "lblMegaBytesPerSecond");
             this.lblMegaBytesPerSecond.Name = "lblMegaBytesPerSecond";
-            this.lblMegaBytesPerSecond.Size = new System.Drawing.Size(64, 13);
-            this.lblMegaBytesPerSecond.TabIndex = 4;
-            this.lblMegaBytesPerSecond.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cbxShutdownWhenFinished
             // 
-            this.cbxShutdownWhenFinished.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbxShutdownWhenFinished.AutoSize = true;
-            this.cbxShutdownWhenFinished.Location = new System.Drawing.Point(12, 293);
+            resources.ApplyResources(this.cbxShutdownWhenFinished, "cbxShutdownWhenFinished");
             this.cbxShutdownWhenFinished.Name = "cbxShutdownWhenFinished";
-            this.cbxShutdownWhenFinished.Size = new System.Drawing.Size(142, 17);
-            this.cbxShutdownWhenFinished.TabIndex = 5;
-            this.cbxShutdownWhenFinished.Text = "Shutdown when finished";
             this.cbxShutdownWhenFinished.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 316);
             this.Controls.Add(this.cbxShutdownWhenFinished);
             this.Controls.Add(this.lblMegaBytesPerSecond);
             this.Controls.Add(this.pbTotalProgress);
@@ -108,10 +81,7 @@
             this.Controls.Add(this.txtLog);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "FrmMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Backup";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
