@@ -1,4 +1,4 @@
-Version ?
+Version 1.11
 - Added shutdown option after backup finished (if no error occured)
 
 Version 1.10
