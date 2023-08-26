@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-  <!-- for building new version set mew Product/@id and UpgradeVersion/@Maximum -->
-	<Product Id="{CC4B85DC-6ED1-47CD-8C4F-4F6BC77BC120}" Name="Outlook-Backup-Plugin" Language="1033" 
-           Version="1.10.0.0" Manufacturer="CodePlex" UpgradeCode="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">
-		<Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+  <!-- for building new version set mew Product/@id and Product/@Id -->
+	<Product Id="{E4273A43-CA7B-4C24-B219-8C3712D760FD}" Name="Outlook-Backup-Plugin" Language="1033" 
+           Version="1.11.0.0" Manufacturer="CodePlex" UpgradeCode="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">
+	<Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-    <!--		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." /> -->
-    <Upgrade Id="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">  
-      <UpgradeVersion
-        Minimum="1.0.0.0" Maximum="1.10.0.0"
-        Property="PREVIOUSVERSIONSINSTALLED"
-        IncludeMinimum="yes" IncludeMaximum="no" />
-    </Upgrade> 
-		<MediaTemplate EmbedCab="yes"/>
+	<MajorUpgrade
+        Schedule="afterInstallInitialize"
+        DowngradeErrorMessage="A newer version of [ProductName] is already installed."
+        AllowSameVersionUpgrades="no" />
+
+	<MediaTemplate EmbedCab="yes"/>
 
     <!-- Issues reported when user has few privileges and path is validated -->
     <!-- "Installation Directory must be on a local hard drive" -->
@@ -68,7 +66,7 @@
     -->
     
     <InstallExecuteSequence>
-      <RemoveExistingProducts Before="InstallInitialize" />
+      <!-- <RemoveExistingProducts Before="InstallInitialize" /> -->
       <Custom Action="CACheckOffice"                  Before="CostFinalize" >(Not Installed) OR REINSTALL</Custom>
       <Custom Action="SetPropertyForRegisterPlugin"   Before="CARegisterPlugin">((Not Installed) OR REINSTALL) AND (OFFICE_BITS = 32 OR OFFICE_BITS = 64)</Custom>
       <Custom Action="CARegisterPlugin"               Before="InstallFinalize" >(Not Installed) OR REINSTALL</Custom>
