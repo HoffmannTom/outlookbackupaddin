@@ -1,5 +1,5 @@
 - Update version in BackupAddin (project properties)
-- Update version in BackupExecutor (project properties)
+- Update version in BackupExecutor (project properties + AssemblyInfo.cs)
 - Create new GUID for Product@Id in WIX installer
 - Adjust Product@Version in WIX installer
 - Adjust Product/@Id version
