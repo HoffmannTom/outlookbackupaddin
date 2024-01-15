@@ -156,11 +156,6 @@
             // numInterval
             // 
             resources.ApplyResources(this.numInterval, "numInterval");
-            this.numInterval.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
             this.numInterval.Name = "numInterval";
             this.numInterval.Value = new decimal(new int[] {
             1,
@@ -200,6 +195,7 @@
             this.columnHeader1});
             this.lvStores.FullRowSelect = true;
             this.lvStores.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lvStores.HideSelection = false;
             this.lvStores.Name = "lvStores";
             this.lvStores.ShowGroups = false;
             this.lvStores.UseCompatibleStateImageBehavior = false;

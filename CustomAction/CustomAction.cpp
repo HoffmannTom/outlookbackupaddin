@@ -139,10 +139,10 @@ static UINT getOfficeBits(int &iBits, bool bSetProperties)
 		}
 	}
 
-	WcaLog(LOGMSG_STANDARD, "Detected Office: %i Bit", is64 ? 64 : 32);
-
 	if (is64) iBits = 64;
 	else iBits = 32;
+
+	WcaLog(LOGMSG_STANDARD, "Detected Office: %i Bit", iBits);
 
 	return ERROR_SUCCESS;
 }

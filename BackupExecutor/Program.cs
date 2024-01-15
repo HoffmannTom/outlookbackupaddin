@@ -3,12 +3,19 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
 
 namespace BackupExecutor
 {
+    public enum BinaryType : uint
+    {
+        SCS_32BIT_BINARY = 0,
+        SCS_64BIT_BINARY = 6
+    }
 
     static class Program
     {
@@ -131,7 +138,6 @@ namespace BackupExecutor
             SafeNativeMethods.FreeConsole();
         }
 
-
         /// <summary>
         ///  Check whether outlook-executable is 64 bit
         /// </summary>
@@ -150,8 +156,12 @@ namespace BackupExecutor
             {
                 try
                 {
-                    if (SafeNativeMethods.GetBinaryType(outlookPath, out binaryType))
-                        bRet = (binaryType == SafeNativeMethods.SCS_64BIT_BINARY);
+                    //if (SafeNativeMethods.GetBinaryType(outlookPath, out binaryType))
+                    //    bRet = (binaryType == SafeNativeMethods.SCS_64BIT_BINARY);
+                    //else MessageBox.Show("Error: " + Marshal.GetLastWin32Error());
+                    if (GetBinaryType(outlookPath) == BinaryType.SCS_64BIT_BINARY)
+                        bRet = true;
+
                 }
                 catch (Exception /*e*/)
                 {
@@ -164,6 +174,42 @@ namespace BackupExecutor
             }
 
             return bRet;
+        }
+
+        /// <summary>
+        ///  Get binary type of a file by reading PE Header
+        /// </summary>
+        public static BinaryType? GetBinaryType(string path)
+        {
+            // thanks to
+            // https://stackoverflow.com/questions/44337501/get-type-of-binary-on-filesystem-via-c-sharp-running-in-64-bit
+            using (FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                stream.Seek(0x3C, SeekOrigin.Begin);
+                using (var reader = new BinaryReader(stream))
+                {
+                    if (stream.Position + sizeof(int) > stream.Length)
+                        return null;
+                    var peOffset = reader.ReadInt32();
+                    stream.Seek(peOffset, SeekOrigin.Begin);
+                    if (stream.Position + sizeof(uint) > stream.Length)
+                        return null;
+                    var peHead = reader.ReadUInt32();
+                    if (peHead != 0x00004550) // "PE\0\0"
+                        return null;
+                    if (stream.Position + sizeof(ushort) > stream.Length)
+                        return null;
+                    switch (reader.ReadUInt16())
+                    {
+                        case 0x14c:
+                            return BinaryType.SCS_32BIT_BINARY;
+                        case 0x8664:
+                            return BinaryType.SCS_64BIT_BINARY;
+                        default:
+                            return null;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -294,7 +340,7 @@ namespace BackupExecutor
         private static RegistryKey GetOutlookRootKey()
         {
             RegistryKey tmpKey;
-            if (Environment.Is64BitOperatingSystem == false || Is64BitOutlookFromRegisteredExe() == false)
+            if (!Environment.Is64BitOperatingSystem || !Is64BitOutlookFromRegisteredExe())
             {
                 //Office32 on Win64 or Office32 on Win32
                 Console.WriteLine(@"Detected office 32 Bit");

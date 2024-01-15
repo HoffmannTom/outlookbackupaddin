@@ -14,7 +14,7 @@ namespace BackupExecutor
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern int FreeConsole();
 
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         internal static extern bool GetBinaryType(string lpApplicationName, out uint lpBinaryType);
         internal static int SCS_64BIT_BINARY = 6;
 
@@ -156,4 +156,5 @@ namespace BackupExecutor
             GetFileExMaxInfoLevel
         }
     }
+
 }
