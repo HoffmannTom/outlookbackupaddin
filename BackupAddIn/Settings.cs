@@ -1,8 +1,10 @@
 ﻿using BackupAddInCommon;
 using System;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace BackupAddIn
@@ -20,9 +22,32 @@ namespace BackupAddIn
         /// </summary>
         public FBackupSettings()
         {
+            //entra aqui 
             InitializeComponent();
+            GetSoftwareVersion();
         }
 
+
+        private void GetSoftwareVersion()
+        {
+            // Get the currently executing assembly
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            // Get the version attribute from the assembly
+            Version version = assembly.GetName().Version;
+
+            // Alternatively, to get the AssemblyFileVersion
+            object[] attributes = assembly.GetCustomAttributes(typeof(AssemblyFileVersionAttribute), false);
+            string fileVersion = "Not Available";
+            if (attributes.Length > 0)
+            {
+                AssemblyFileVersionAttribute fileVersionAttribute = (AssemblyFileVersionAttribute)attributes[0];
+                fileVersion = fileVersionAttribute.Version;
+            }
+
+            // Set the label text with the assembly version information
+            label_version.Text = $"Assembly Version: {version}\nAssembly File Version: {fileVersion}";
+        }
 
         /// <summary>
         /// Gets the configuration from disk and populates the form accordingly
@@ -36,7 +61,14 @@ namespace BackupAddIn
                 txtDestination.Text = config.DestinationPath;
                 txtBackupExe.Text = config.BackupProgram;
                 numInterval.Value = config.Interval;
-                txtPrefix.Text = config.BackupPrefix;
+                //(29-05-2024)mudança feita para aparecer sempre o mes a frente do backup
+                DateTime inputDate = DateTime.Now;
+                CultureInfo currentCulture = CultureInfo.CurrentCulture;
+                var weekNum = currentCulture.Calendar.GetWeekOfYear(
+                  inputDate,
+                  CalendarWeekRule.FirstDay,
+                  DayOfWeek.Monday);
+                txtPrefix.Text = $"{DateTime.Now.Year.ToString()}_CW_{weekNum}";
                 txtSuffix.Text = config.BackupSuffix;
                 txtPostBackupCmd.Text = config.PostBackupCmd;
                 numCountdown.Value = config.CountdownSeconds;
@@ -171,7 +203,7 @@ namespace BackupAddIn
             txtLastBackup.Text = "";
         }
 
-
+        //Primeira funcao quando abre o programa
         /// <summary>
         /// Populate form and display saved settings (if available)
         /// </summary>
@@ -188,7 +220,9 @@ namespace BackupAddIn
             var list = BackupUtils.GetStoreLocations(config, stores);
 
             ListViewItem[] lItem = list.Select(f => new ListViewItem(f + " (" + GetHumanReadableFileSize(f) + ")", f))
-                                       .ToArray();
+                                      .ToArray();
+
+
             lvStores.Items.AddRange(lItem);
 
             lvStores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -215,6 +249,10 @@ namespace BackupAddIn
             }
             len = (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
 
+
+
+
+            //algoritmo para converter o tamanho do ficheiro
             //double len = new FileInfo(filename).Length;
             int order = 0;
             while (len >= 1024 && order < sizes.Length - 1)
@@ -222,6 +260,7 @@ namespace BackupAddIn
                 order++;
                 len /= 1024;
             }
+
 
             return String.Format("{0:0.##} {1}", len, sizes[order]);
         }

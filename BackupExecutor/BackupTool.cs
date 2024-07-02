@@ -1,4 +1,5 @@
 ﻿using BackupAddInCommon;
+using BackupExecutor.Models;
 using Microsoft.Win32.SafeHandles;
 using System;
 using System.ComponentModel;
@@ -96,19 +97,23 @@ namespace BackupExecutor
             if (config == null)
             {
                 log("backup not configured");
+                CreateLog.CriarLog("backup not configured");
                 return 0;
             }
 
             log("Starting backup...please wait...");
+            CreateLog.CriarLog("Starting backup...please wait...");
 
             try
             {
                 if (config.Items.Count > 0)
                 {
                     log("Check whether outlooks is still running ...");
+                    CreateLog.CriarLog("Check whether outlooks is still running ...");
                     if (WaitForProcessEnd(OUTLOOK_PROC, log))
                     {
                         log("No outlook process found");
+                        CreateLog.CriarLogErro("No outlook process found","linha 115");
                         iError += DoBackup(config, log);
                         if (!String.IsNullOrEmpty(config.PostBackupCmd))
                         {
@@ -134,6 +139,7 @@ namespace BackupExecutor
                 {
                     config.LastRun = DateTime.Now;
                     BackupSettingsDao.SaveSettings(config);
+
                 }
             }
             catch (InstanceAlreadyRunningException)
@@ -221,6 +227,7 @@ namespace BackupExecutor
             int iError = 0;
 
             log("Ensure only one instance running ...");
+            CreateLog.CriarLog("Ensure only one instance running...");
             using (new SingleInstance(500))
             {
                 //logger = log;
@@ -252,7 +259,9 @@ namespace BackupExecutor
 
                 //Gather all file sizes
                 log("Summing up file sizes ...");
+                CreateLog.CriarLog("Summing up file sizes....");
                 TotalBytesToCopy = 0;
+                config.Filesizelastbackup = 0;
                 long[] FileSizes = new long[config.Items.Count];
                 foreach (String item in config.Items)
                 {
@@ -263,6 +272,8 @@ namespace BackupExecutor
                     iCounter++;
                 }
                 log("Total bytes calculated...");
+                CreateLog.CriarLog($"Total bytes calculated...{TotalBytesToCopy}");
+                config.Filesizelastbackup = TotalBytesToCopy;
 
                 //Copy files
                 TotalBytesCopied = 0;
@@ -276,6 +287,7 @@ namespace BackupExecutor
 
                         log("Evaluate destination path...");
                         sDst = sPath + Environment.ExpandEnvironmentVariables(config.BackupPrefix) + Path.GetFileName(item);
+                        CreateLog.CriarLog($"Evaluate destination path...{sDst}");
                         if (config.UseCompression)
                             sDst += ".gz";
                         sDst += Environment.ExpandEnvironmentVariables(config.BackupSuffix);
@@ -289,10 +301,11 @@ namespace BackupExecutor
                         {
                             //src and dest are different, lets backup
                             log("copy " + item + " to " + sDst);
+                            CreateLog.CriarLog("copy " + item + " to " + sDst);
                             log("Getting file lock...");
                             if (WaitForFile(item, log, config.WaitTimeFileLock))
                             {
-                                //log("file lock was successful");
+                                log("file lock was successful");
                                 bool bOK = true;
                                 if (config.UseCompression)
                                     bOK = CopyAndCompressFileForBackup(sDst, item, log);
@@ -315,6 +328,7 @@ namespace BackupExecutor
                     {
                         iError++;
                         log(e.Message);
+                        CreateLog.CriarLogErro(e.Message,"linha 331");
                     }
                 } //for each
             } //using
@@ -369,9 +383,11 @@ namespace BackupExecutor
             //CopyFileEx
             //https://msdn.microsoft.com/en-us/library/windows/desktop/aa363852%28v=vs.85%29.aspx
             log("Starting copying...");
+            CreateLog.CriarLog("Starting Copying...");
             bool bOK = SafeNativeMethods.CopyFileEx(item, sDst, cb, IntPtr.Zero, ref pbCancel, dwCopyFlags);
             if (!bOK)
                 log("Failed to copy file: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
+            CreateLog.CriarLogErro("Failed to copy file: " + new Win32Exception(Marshal.GetLastWin32Error()).Message, "linha 390");
             return bOK;
         }
 
@@ -427,6 +443,31 @@ namespace BackupExecutor
         }
 
         /// <summary>
+        /// Kill outlook processes
+        /// </summary>
+        private static void KillOutlookProcesses(Logger log)
+        {
+            // Get all processes with the name "OUTLOOK"
+            Process[] outlookProcesses = Process.GetProcessesByName("OUTLOOK");
+
+            // Iterate through the list of processes and kill each one
+            foreach (Process process in outlookProcesses)
+            {
+                try
+                {
+                    process.Kill();
+                    process.WaitForExit(); // Wait for the process to exit to ensure it has been terminated
+                    log($"Killed Outlook process with ID: {process.Id}");
+                }
+                catch (Exception ex)
+                {
+                    // Handle any exceptions here (e.g., access denied)
+                    log($"Error killing process with ID {process.Id}: {ex.Message}");
+                }
+            }
+        }
+
+        /// <summary>
         /// Wait max. 5 seconds for releasing locks on the file
         /// </summary>
         /// <param name="item">filename including path</param>
@@ -438,7 +479,7 @@ namespace BackupExecutor
             int i = 0;
             while (i < 10 && IsFileLocked(item, log))
             {
-                //log("waiting before starting new try");
+                log("waiting before starting new try");
                 Thread.Sleep(waittime);
                 i++;
             }
@@ -455,10 +496,12 @@ namespace BackupExecutor
         /// <returns>returns true if the process is not running any more</returns>
         public static bool WaitForProcessEnd(string name, Logger log)
         {
+            KillOutlookProcesses(log);
             int i = 0;
             while (i < 10 && IsProcessOpen(name, log))
             {
                 log("Waiting for " + name + "...");
+                CreateLog.CriarLog("Waiting for " + name + "...");
                 Application.DoEvents();
                 System.Threading.Thread.Sleep(1000);
                 i++;
@@ -488,6 +531,7 @@ namespace BackupExecutor
                         && LoggedOnUser.Equals(ProcUser, StringComparison.OrdinalIgnoreCase))
                     {
                         log("Found outlook with PID " + clsProcess.Id);
+                        CreateLog.CriarLog("Found outlook with PID" + clsProcess.Id);
                         return true;
                     }
                 }
@@ -595,6 +639,7 @@ namespace BackupExecutor
         /// Get lenght of file in bytes
         /// </summary>
         /// <param name="path"></param>
+        /// <param name="log"></param>
         /// <returns></returns>
         public static long GetFileLength(string path, Logger log)
         {

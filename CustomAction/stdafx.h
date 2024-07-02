@@ -14,7 +14,6 @@
 #include <msiquery.h>
 
 // WiX Header Files:
-#include <wcautil.h>
-
+#include "wcautil.h"
 
 // TODO: reference additional headers your program requires here

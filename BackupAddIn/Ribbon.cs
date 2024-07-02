@@ -1,9 +1,11 @@
-﻿using BackupAddInCommon;
+﻿using BackupAddIn.Models;
+using BackupAddInCommon;
 using System;
 using System.IO;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using Office = Microsoft.Office.Core;
 
 // TODO: Führen Sie diese Schritte aus, um das Element auf dem Menüband (XML) zu aktivieren:
@@ -65,6 +67,25 @@ namespace BackupAddIn
         /// </summary>
         public void SetAccessSettingsAllowed(bool b)
         {
+
+            //adicionar aqui a funcao para mexer aqui nestas funcoes sem mexer no codigo,adicionar um ficheiro xml por fora
+            LoadXML loadXML = new LoadXML();
+
+            if (loadXML.LoadingXMLFILE() == false)
+            {
+
+                
+                MessageBox.Show("Error Loading XML FILE");
+                Environment.Exit(0);
+            }
+            if (loadXML.block == "true")
+            {
+                b = true;
+            }
+            else { 
+            b = false;
+            }
+
             AccessSettingsAllowed = b;
         }
 
@@ -109,6 +130,7 @@ namespace BackupAddIn
         /// </summary>
         public void ScheduleBackupOnExit(Office.IRibbonControl control)
         {
+            MessageBox.Show("Backup vai ser feito quando fechar o outlook");
             var config = BackupSettingsDao.LoadSettings();
             config.LastRun = new DateTime();
             BackupSettingsDao.SaveSettings(config);

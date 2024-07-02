@@ -1,9 +1,13 @@
 ﻿using BackupAddInCommon;
+using BackupExecutor.Models;
 using Microsoft.Win32;
 using System;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BackupExecutor.BackupTool;
+using BackupAddIn.Models;
 
 namespace BackupExecutor
 {
@@ -12,7 +16,7 @@ namespace BackupExecutor
     /// </summary>
     public partial class FrmMain : Form
     {
-        private static readonly String REG_PATH_EXECUTOR_SETTINGS = @"Software\CodePlex\BackupAddIn\ExecutorSettings";
+        private static readonly String REG_PATH_EXECUTOR_SETTINGS = @"Software\ITEC\BackupAddIn\ExecutorSettings";
         private readonly SynchronizationContext m_SynchronizationContext;
         //private static StringBuilder sbLogs = new StringBuilder();
         //private static String EVENT_SRC = "Application Error";
@@ -21,8 +25,33 @@ namespace BackupExecutor
         /// </summary>
         public FrmMain()
         {
+            BackupSettings config = BackupSettingsDao.LoadSettings();
+            foreach (string item in config.Items)
+            {
+
+                int result = GetFileSizeover15(item);
+
+                if (result == 0)
+                {
+                    //CanExit = true;
+                    //\n(adicionar o website aqui para adicionar os tutorias de como fazer o um arquivo e resize do ficheiro) 
+                    MessageBox.Show($"O ficheiro tem mais que 15 GB é recomendado fazer um arquivo de ano a ano,e depois dar resize do ficheiro (Peça ajuda ao GG)", "TAMANHO DO FICHEIRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Thread.Sleep(1000);
+                    //Environment.Exit(0);
+                }
+
+            }
+            if (DialogResult.No == MessageBox.Show("Pretende fazer o backup?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+            {
+                CanExit = true;
+                Thread.Sleep(1000);
+                Environment.Exit(0);
+
+            }
             InitializeComponent();
             m_SynchronizationContext = SynchronizationContext.Current;
+
+
         }
 
         private void LogToScreen(String s)
@@ -31,6 +60,7 @@ namespace BackupExecutor
             {
                 String s2 = (String)@object;
                 s2 = DateTime.Now.TimeOfDay.ToString("hh\\:mm\\:ss") + " " + s2 + Environment.NewLine;
+                CreateLog.CriarLog(s2);
                 txtLog.AppendText(s2);
                 //sbLogs.Append(s2);
                 txtLog.Refresh();
@@ -107,56 +137,118 @@ namespace BackupExecutor
             return true;
         }
 
-        private /*async*/ void StartAsyncWork()
+        private int GetFileSizeover15(string item)
         {
-            Console.WriteLine("DoWork Starting");
-            //await Task.Run(() =>
-            Task t = Task.Factory.StartNew(() =>
+
+            //Long path might occur
+            //https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN#maxpath
+            string[] sizes = { "B", "KB", "MB", "GB", "TB" };
+
+            long len;
+
+            //verificar este if
+            SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA fileData;
+            if (!SafeNativeMethods.GetFileAttributesEx(item, SafeNativeMethods.GET_FILEEX_INFO_LEVELS.GetFileExInfoStandard, out fileData))
             {
-                int iError = 0;
-                BackupSettings config = BackupSettingsDao.LoadSettings();
+                return 0;
+            }
+            len = (long)(((ulong)fileData.nFileSizeHigh << 32) + (ulong)fileData.nFileSizeLow);
 
-                BackupTool.SetFileLabel(this.lblFilename);
-                BackupTool.SetProgressBar(this.pbCopyProgress);
-                BackupTool.SetTotalProgressBar(this.pbTotalProgress);
-                BackupTool.SetMegaByesPerSecondLabel(this.lblMegaBytesPerSecond);
+            //algoritmo para converter o tamanho do ficheiro
+            //double len = new FileInfo(filename).Length;
+            int order = 0;
+            while (len >= 1024 && order < sizes.Length - 1)
+            {
+                order++;
+                len /= 1024;
+            }
 
-                if (config != null && config.LastRun == null)
+            if (len >= 15 && order == 3)
+            {
+                return 0;
+            }
+
+            return 1;
+        }
+
+
+
+        private async void StartAsyncWork()
+        {
+            LogToScreen("DoWork Starting");
+
+            BackupSettings config = BackupSettingsDao.LoadSettings();
+            DateTime inputDate = DateTime.Now;
+            CultureInfo currentCulture = CultureInfo.CurrentCulture;
+            var weekNum = currentCulture.Calendar.GetWeekOfYear(
+                  inputDate,
+                  CalendarWeekRule.FirstDay,
+                  DayOfWeek.Monday);
+            config.BackupPrefix = $"{DateTime.Now.Year.ToString()}_CW_{weekNum}";
+            int iError = 0;
+
+            BackupTool.SetFileLabel(this.lblFilename);
+            BackupTool.SetProgressBar(this.pbCopyProgress);
+            BackupTool.SetTotalProgressBar(this.pbTotalProgress);
+            BackupTool.SetMegaByesPerSecondLabel(this.lblMegaBytesPerSecond);
+
+
+
+            if (config != null && config.LastRun == null)
+            {
+                await StartCountdownAsync(config, LogToScreen); // Await the countdown
+                iError = await Task.Run(() => BackupTool.TryBackup(config, LogToScreen));
+            }
+            else if (config != null && config.LastRun.AddDays(config.Interval).AddHours(config.IntervalHours) <= DateTime.Now)
+            {
+                await StartCountdownAsync(config, LogToScreen); // Await the countdown
+                iError = await Task.Run(() => BackupTool.TryBackup(config, LogToScreen));
+            }
+
+            if (iError == 0)
+            {
+                bool resultemail = await Task.Run(() => Utils.SendSMTPEmail(LogToScreen, config));
+                if (!resultemail)
                 {
-                    StartCountdown(config, LogToScreen);
-                    iError = BackupTool.TryBackup(config, LogToScreen);
-                }
-                else if (config != null && config.LastRun.AddDays(config.Interval).AddHours(config.IntervalHours) <= DateTime.Now)
-                {
-                    StartCountdown(config, LogToScreen);
-                    iError = BackupTool.TryBackup(config, LogToScreen);
-                }
-
-                //if (!EventLog.SourceExists(EVENT_SRC))
-                //    EventLog.CreateEventSource(EVENT_SRC, "Application");
-
-                if (iError == 0)
-                {
-                    //if (sbLogs.Length > 0)
-                    //    EventLog.WriteEntry(EVENT_SRC, sbLogs.ToString(), EventLogEntryType.Information);
-
-                    if (cbxShutdownWhenFinished.Checked)
-                    {
-                        LogToScreen("Shutting down ...");
-                        Thread.Sleep(1000);
-                        BackupTool.ShutdownComputer();
-                    }
-
-                    Application.Exit();
+                    LogToScreen("No internet connection. Email has been queued.");
                 }
                 else
                 {
-                    BackupTool.CanExit = true; //allow manual closing
-                    LogToScreen("One or more errors occurred. Please check the messages above and close this window manually.");
-                    //if (sbLogs.Length > 0)
-                    //    EventLog.WriteEntry(EVENT_SRC, sbLogs.ToString(), EventLogEntryType.Warning);
+                    LogToScreen("Email sent successfully.");
                 }
-            });
+
+                LoadXML loadXML = new LoadXML();
+
+                if (loadXML.LoadingXMLFILE() == false)
+                {
+
+
+                    MessageBox.Show("Error Loading XML FILE");
+                    Environment.Exit(0);
+                }
+                
+
+                string url = loadXML.ipapi;
+                await Utils.SendPostRequestAsync(url, config, LogToScreen);
+
+                LogToScreen("Done!!! SEND EMAIL AND POST REQUEST");
+
+                if (cbxShutdownWhenFinished.Checked)
+                {
+                    LogToScreen("Shutting down ...");
+                    await Task.Delay(1000);
+                    BackupTool.ShutdownComputer();
+                }
+
+                await Task.Delay(1000);
+                BackupTool.CanExit = true;
+                // Application.Exit();
+            }
+            else
+            {
+                BackupTool.CanExit = true; //allow manual closing
+                LogToScreen("One or more errors occurred. Please check the messages above and close this window manually.");
+            }
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -164,27 +256,23 @@ namespace BackupExecutor
             if (e.CloseReason == CloseReason.UserClosing)
                 e.Cancel = !BackupTool.CanExit;
 
-            //if closing allowed, safe settings
             if (!e.Cancel)
                 SaveSettingsToRegistry();
         }
 
-        private void StartCountdown(BackupSettings config, BackupTool.Logger Log)
+        private async Task StartCountdownAsync(BackupSettings config, BackupTool.Logger Log)
         {
             BackupTool.CanExit = true;
             for (int i = config.CountdownSeconds; i > 0; i--)
             {
                 if (i > 1)
                     Log("Starting backup in " + i + " seconds");
-                else Log("Starting backup in " + i + " second");
+                else
+                    Log("Starting backup in " + i + " second");
 
-                Thread.Sleep(1000);
+                await Task.Delay(1000); // Use await Task.Delay instead of Thread.Sleep for async
             }
-
-            //no manual exit possible any more
             BackupTool.CanExit = false;
         }
-
-
     }
 }

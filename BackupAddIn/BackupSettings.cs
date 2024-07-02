@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Net.Mail;
 
 namespace BackupAddInCommon
 {
@@ -100,6 +101,13 @@ namespace BackupAddInCommon
         /// </summary>
         public bool UseCompression { get; set; }
 
+
+        /// <summary>
+        /// Tamanho em bytes do backup feito ,variavel usada para enviar email smtp
+        /// </summary>
+        public long Filesizelastbackup { get; set; }
+
+        public static List<MailMessage> emailQueue = new List<MailMessage>();
         /// <summary>
         ///  Flag whether user can open settings dialog
         /// </summary>

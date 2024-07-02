@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BackupOnExit" xml:space="preserve">
-    <value>Backup On Exit</value>
+    <value>Backup ao Fechar</value>
     <comment>Schedule backup on closing outlook</comment>
   </data>
   <data name="RibbonButtonBackup" xml:space="preserve">
     <value>Backup</value>
   </data>
   <data name="RibbonSettings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Definições</value>
     <comment>Open settings dialog</comment>
   </data>
   <data name="RibbonTabBackup" xml:space="preserve">

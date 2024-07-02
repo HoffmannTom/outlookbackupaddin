@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BackupExecutor</name>
+    </assembly>
+    <members>
+        <member name="T:BackupAddInCommon.BackupSettings">
+            <summary>
+             Class holding the configuration options
+            </summary>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettings.#ctor">
+            <summary>
+             Default constructor
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.DestinationPath">
+            <summary>
+             Destination path for the backup files
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.BackupProgram">
+            <summary>
+             Program to run after exiting outlook
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.Interval">
+            <summary>
+             Interval in days when to run the backup program again
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.IntervalHours">
+            <summary>
+             Additional interval in hours which is added to the days
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.LastRun">
+            <summary>
+             Date of the last run of backup
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.Items">
+            <summary>
+             List of files to backup
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.WaitTimeFileLock">
+            <summary>
+             Wait time when file is locked
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.BackupPrefix">
+            <summary>
+             Prefix for filename of backup
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.BackupSuffix">
+            <summary>
+             Suffix for filename of backup
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.BackupAll">
+            <summary>
+             Flag whether to backup all pst-files
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.PostBackupCmd">
+            <summary>
+             Command to run after backup finished
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.ShowOSTFiles">
+            <summary>
+             Try to decode path to OST-files
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.IgnoreEncryption">
+            <summary>
+             Flag whether encrypted files might get decrypted
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.UseCompression">
+            <summary>
+             Flag whether files should be compressed
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.Filesizelastbackup">
+            <summary>
+            Tamanho em bytes do backup feito ,variavel usada para enviar email smtp
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.AllowSettingsAccess">
+            <summary>
+             Flag whether user can open settings dialog
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.ShutdownWhenFinished">
+            <summary>
+            flag for the default settings to shutdown when finished
+            </summary>
+        </member>
+        <member name="F:BackupAddInCommon.BackupSettings.countdownSeconds">
+            <summary>
+             Counter to give user opportunity to close window before backup starts
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.CountdownSeconds">
+            <summary>
+             Counter to give user opportunity to close window before backup starts
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.StoreTypeBlacklist">
+            <summary>
+             List of store types to hide
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.ProfileName">
+            <summary>
+             used profile name
+            </summary>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.GetConfigFilePath">
+            <summary>
+            Determine config-file location
+            </summary>
+            <returns>Location of the config file</returns>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.SaveSettings(BackupAddInCommon.BackupSettings)">
+            <summary>
+            Saves the current settings to registry or file
+            </summary>
+            /// <param name="config">Configration to save</param>
+            <returns>true, if save action was successful</returns>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.SaveSettingsToRegistry(BackupAddInCommon.BackupSettings)">
+            <summary>
+            Saves the current settings to registry
+            </summary>
+            /// <param name="config">Configration to save</param>
+            <returns>true, if save action was successful</returns>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.LoadSettings">
+            <summary>
+            Returns the saved settings or null if not present
+            </summary>
+            <returns>Returns the saved settings from disk</returns>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.LoadSettingsFromRegistry">
+            <summary>
+            Returns the saved settings from registry or null if not present
+            </summary>
+            <returns>Returns the saved settings from disk</returns>
+        </member>
+        <member name="T:BackupExecutor.BackupTool">
+            <summary>
+             Utility class for backing up outlook files
+            </summary>
+        </member>
+        <member name="F:BackupExecutor.BackupTool.CanExit">
+            <summary>
+            Flag, whether user can close main window
+            </summary>
+        </member>
+        <member name="T:BackupExecutor.BackupTool.Logger">
+            <summary>
+            Log-delegate for sending error information
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.SetFileLabel(System.Windows.Forms.Label)">
+            <summary>
+            Set a label to report currently copied file
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.SetMegaByesPerSecondLabel(System.Windows.Forms.Label)">
+            <summary>
+            Set a label to report transfer speed
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.SetProgressBar(System.Windows.Forms.ProgressBar)">
+            <summary>
+            Set a progress bar to report copy progress
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.SetTotalProgressBar(System.Windows.Forms.ProgressBar)">
+            <summary>
+            Set a progress bar to report status of whole copy progress
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.TryBackup(BackupAddInCommon.BackupSettings,BackupExecutor.BackupTool.Logger)">
+            <summary>
+            Waits, till outlook ends and then starts the backup process
+            </summary>
+            <param name="config">Stored configuration from outlook plugin</param>
+            <param name="log">logging delegate to send error information</param>
+            <returns>number of occurred errors</returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.RunPostCmd(System.String,System.String,BackupExecutor.BackupTool.Logger)">
+            <summary>
+            Runs a program and waits for finish (after backup)
+            </summary>
+            <param name="cmd">Command to execute</param>
+            <param name="param">command line parameters</param>
+            <param name="log">logging delegate to send error information</param>
+            <returns>number of occurred errors</returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.DoBackup(BackupAddInCommon.BackupSettings,BackupExecutor.BackupTool.Logger)">
+            <summary>
+            Tries to backup the configures files from outlook
+            </summary>
+            <param name="config">Stored configuration from outlook plugin</param>
+            <param name="log">logging delegate to send error information</param>
+            <returns>number of occurred errors</returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.KillOutlookProcesses(BackupExecutor.BackupTool.Logger)">
+            <summary>
+            Kill outlook processes
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.WaitForFile(System.String,BackupExecutor.BackupTool.Logger,System.Int32)">
+            <summary>
+            Wait max. 5 seconds for releasing locks on the file
+            </summary>
+            <param name="item">filename including path</param>
+            <param name="log">logging delegate to send error information</param>
+            <param name="waittime">wait time if file is locked</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.WaitForProcessEnd(System.String,BackupExecutor.BackupTool.Logger)">
+            <summary>
+            Waits, till the process is not running any more
+            </summary>
+            <param name="name">process name (!) within task manager</param>
+            <param name="log">logging delegate to send error information</param>
+            <returns>returns true if the process is not running any more</returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.IsProcessOpen(System.String,BackupExecutor.BackupTool.Logger)">
+            <summary>
+            Checks whether a certain process is running
+            </summary>
+            <param name="name">process name as seen witin the task  manager</param>
+            <param name="log">logging delegate to send error information</param>
+            <returns>true, if process is still running</returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.GetProcessUser(System.Diagnostics.Process)">
+            <summary>
+            Get the username of the process
+            </summary>
+            <param name="process"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.IsFileLocked(System.String,BackupExecutor.BackupTool.Logger)">
+            <summary>
+            Check whether a file is locked 
+            </summary>
+            <param name="file">file to be checked</param>
+            <param name="log">logging delegate to send error information</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.GetFileLength(System.String,BackupExecutor.BackupTool.Logger)">
+            <summary>
+            Get lenght of file in bytes
+            </summary>
+            <param name="path"></param>
+            <param name="log"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.FileExists(System.String)">
+            <summary>
+            Check whether file exists
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackupExecutor.BackupTool.ShutdownComputer">
+            <summary>
+            shutdown computer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BackupExecutor.FrmMain">
+            <summary>
+             Main window of the backup program
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.FrmMain.#ctor">
+            <summary>
+             Default constructor
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.FrmMain.OnLoad(System.EventArgs)">
+            <summary>
+             Load configuration and execute backup if necessary
+            </summary>
+        </member>
+        <member name="F:BackupExecutor.FrmMain.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.FrmMain.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BackupExecutor.FrmMain.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.LogToConsole(System.String)">
+            <summary>
+             print errors to console
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.ShowHelp(System.String[])">
+            <summary>
+             print valid parameters and help information to console
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.Is64BitOutlookFromRegisteredExe">
+            <summary>
+             Check whether outlook-executable is 64 bit
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.GetBinaryType(System.String)">
+            <summary>
+             Get binary type of a file by reading PE Header
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.GetOutlookPath">
+            <summary>
+             Try to evaluate the outlook path. If it fails, choose manually
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.RegisterPlugin(System.Boolean)">
+            <summary>
+             Create registry settings for outlook plugin and copy files to installation folder
+             depending on bit-ness
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.UnregisterPlugin">
+            <summary>
+             delete the registry settings and disables outlook plugin
+            </summary>
+        </member>
+        <member name="M:BackupExecutor.Program.GetOutlookRootKey">
+            <summary>
+             returnes the registry key for outlook depending on bit-ness
+            </summary>
+        </member>
+        <member name="T:BackupExecutor.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BackupExecutor.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BackupExecutor.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,193 @@
+\doxysection{Backup\+Executor.\+Backup\+Tool Class Reference}
+\hypertarget{class_backup_executor_1_1_backup_tool}{}\label{class_backup_executor_1_1_backup_tool}\index{BackupExecutor.BackupTool@{BackupExecutor.BackupTool}}
+
+
+Utility class for backing up outlook files.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}\label{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08} 
+delegate void {\bfseries Logger} (string message)
+\begin{DoxyCompactList}\small\item\em Log-\/delegate for sending error information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_backup_executor_1_1_backup_tool_a22d18c72e729a360df30241769634d1c}\label{class_backup_executor_1_1_backup_tool_a22d18c72e729a360df30241769634d1c} 
+static void {\bfseries Set\+File\+Label} (System.\+Windows.\+Forms.\+Label lbl)
+\begin{DoxyCompactList}\small\item\em Set a label to report currently copied file. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_executor_1_1_backup_tool_a15e109df1c502bfc2a6a6c896354ebf7}\label{class_backup_executor_1_1_backup_tool_a15e109df1c502bfc2a6a6c896354ebf7} 
+static void {\bfseries Set\+Mega\+Byes\+Per\+Second\+Label} (System.\+Windows.\+Forms.\+Label lbl)
+\begin{DoxyCompactList}\small\item\em Set a label to report transfer speed. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_executor_1_1_backup_tool_a062f0f0320f405fe30be6e1fbccc5cef}\label{class_backup_executor_1_1_backup_tool_a062f0f0320f405fe30be6e1fbccc5cef} 
+static void {\bfseries Set\+Progress\+Bar} (System.\+Windows.\+Forms.\+Progress\+Bar pb)
+\begin{DoxyCompactList}\small\item\em Set a progress bar to report copy progress. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_executor_1_1_backup_tool_a97a940f16a7aa9d228bc2e3b473dbfd3}\label{class_backup_executor_1_1_backup_tool_a97a940f16a7aa9d228bc2e3b473dbfd3} 
+static void {\bfseries Set\+Total\+Progress\+Bar} (System.\+Windows.\+Forms.\+Progress\+Bar pb)
+\begin{DoxyCompactList}\small\item\em Set a progress bar to report status of whole copy progress. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_a061791817bb5e0d4c6648bca294f3d25}{Try\+Backup}} (\mbox{\hyperlink{class_backup_add_in_common_1_1_backup_settings}{Backup\+Settings}} config, \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}} log)
+\begin{DoxyCompactList}\small\item\em Waits, till outlook ends and then starts the backup process. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_a9113ae3b52914d09127b3e0ac741c7fc}{Wait\+For\+Process\+End}} (string name, \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}} log)
+\begin{DoxyCompactList}\small\item\em Waits, till the process is not running any more. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_ab354a402db951a50c7d07a44bed83ad5}{Is\+Process\+Open}} (string name, \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}} log)
+\begin{DoxyCompactList}\small\item\em Checks whether a certain process is running. \end{DoxyCompactList}\item 
+static long \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_a86a51d5f06e73fec5380c501c44d59d1}{Get\+File\+Length}} (string path, \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}} log)
+\begin{DoxyCompactList}\small\item\em Get lenght of file in bytes. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_a0cf19f8c0cb41c8db74c32dc9e42ac3a}{File\+Exists}} (string file)
+\begin{DoxyCompactList}\small\item\em Check whether file exists. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_ad357f58f6709b15e0c5d6c35b8e79382}{Shutdown\+Computer}} ()
+\begin{DoxyCompactList}\small\item\em shutdown computer \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_backup_executor_1_1_backup_tool_a3db55cd175a7f8ef60c2de9fdff8954e}\label{class_backup_executor_1_1_backup_tool_a3db55cd175a7f8ef60c2de9fdff8954e} 
+static bool {\bfseries Can\+Exit} = false
+\begin{DoxyCompactList}\small\item\em Flag, whether user can close main window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_a9d36025f9b4266c391b73ed9c3e59574}{Is\+File\+Locked}} (String file, \mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}} log)
+\begin{DoxyCompactList}\small\item\em Check whether a file is locked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility class for backing up outlook files. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_backup_executor_1_1_backup_tool_a0cf19f8c0cb41c8db74c32dc9e42ac3a}\index{BackupExecutor.BackupTool@{BackupExecutor.BackupTool}!FileExists@{FileExists}}
+\index{FileExists@{FileExists}!BackupExecutor.BackupTool@{BackupExecutor.BackupTool}}
+\doxysubsubsection{\texorpdfstring{FileExists()}{FileExists()}}
+{\footnotesize\ttfamily \label{class_backup_executor_1_1_backup_tool_a0cf19f8c0cb41c8db74c32dc9e42ac3a} 
+static bool Backup\+Executor.\+Backup\+Tool.\+File\+Exists (\begin{DoxyParamCaption}\item[{string}]{file}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check whether file exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_backup_executor_1_1_backup_tool_a86a51d5f06e73fec5380c501c44d59d1}\index{BackupExecutor.BackupTool@{BackupExecutor.BackupTool}!GetFileLength@{GetFileLength}}
+\index{GetFileLength@{GetFileLength}!BackupExecutor.BackupTool@{BackupExecutor.BackupTool}}
+\doxysubsubsection{\texorpdfstring{GetFileLength()}{GetFileLength()}}
+{\footnotesize\ttfamily \label{class_backup_executor_1_1_backup_tool_a86a51d5f06e73fec5380c501c44d59d1} 
+static long Backup\+Executor.\+Backup\+Tool.\+Get\+File\+Length (\begin{DoxyParamCaption}\item[{string}]{path}{, }\item[{\mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}}}]{log}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get lenght of file in bytes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+{\em log} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_backup_executor_1_1_backup_tool_a9d36025f9b4266c391b73ed9c3e59574}\index{BackupExecutor.BackupTool@{BackupExecutor.BackupTool}!IsFileLocked@{IsFileLocked}}
+\index{IsFileLocked@{IsFileLocked}!BackupExecutor.BackupTool@{BackupExecutor.BackupTool}}
+\doxysubsubsection{\texorpdfstring{IsFileLocked()}{IsFileLocked()}}
+{\footnotesize\ttfamily \label{class_backup_executor_1_1_backup_tool_a9d36025f9b4266c391b73ed9c3e59574} 
+static bool Backup\+Executor.\+Backup\+Tool.\+Is\+File\+Locked (\begin{DoxyParamCaption}\item[{String}]{file}{, }\item[{\mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}}}]{log}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Check whether a file is locked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & file to be checked\\
+\hline
+{\em log} & logging delegate to send error information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_backup_executor_1_1_backup_tool_ab354a402db951a50c7d07a44bed83ad5}\index{BackupExecutor.BackupTool@{BackupExecutor.BackupTool}!IsProcessOpen@{IsProcessOpen}}
+\index{IsProcessOpen@{IsProcessOpen}!BackupExecutor.BackupTool@{BackupExecutor.BackupTool}}
+\doxysubsubsection{\texorpdfstring{IsProcessOpen()}{IsProcessOpen()}}
+{\footnotesize\ttfamily \label{class_backup_executor_1_1_backup_tool_ab354a402db951a50c7d07a44bed83ad5} 
+static bool Backup\+Executor.\+Backup\+Tool.\+Is\+Process\+Open (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{\mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}}}]{log}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks whether a certain process is running. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & process name as seen witin the task manager\\
+\hline
+{\em log} & logging delegate to send error information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if process is still running
+\end{DoxyReturn}
+\Hypertarget{class_backup_executor_1_1_backup_tool_ad357f58f6709b15e0c5d6c35b8e79382}\index{BackupExecutor.BackupTool@{BackupExecutor.BackupTool}!ShutdownComputer@{ShutdownComputer}}
+\index{ShutdownComputer@{ShutdownComputer}!BackupExecutor.BackupTool@{BackupExecutor.BackupTool}}
+\doxysubsubsection{\texorpdfstring{ShutdownComputer()}{ShutdownComputer()}}
+{\footnotesize\ttfamily \label{class_backup_executor_1_1_backup_tool_ad357f58f6709b15e0c5d6c35b8e79382} 
+static void Backup\+Executor.\+Backup\+Tool.\+Shutdown\+Computer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+shutdown computer 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_backup_executor_1_1_backup_tool_a061791817bb5e0d4c6648bca294f3d25}\index{BackupExecutor.BackupTool@{BackupExecutor.BackupTool}!TryBackup@{TryBackup}}
+\index{TryBackup@{TryBackup}!BackupExecutor.BackupTool@{BackupExecutor.BackupTool}}
+\doxysubsubsection{\texorpdfstring{TryBackup()}{TryBackup()}}
+{\footnotesize\ttfamily \label{class_backup_executor_1_1_backup_tool_a061791817bb5e0d4c6648bca294f3d25} 
+static int Backup\+Executor.\+Backup\+Tool.\+Try\+Backup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_backup_add_in_common_1_1_backup_settings}{Backup\+Settings}}}]{config}{, }\item[{\mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}}}]{log}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Waits, till outlook ends and then starts the backup process. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & Stored configuration from outlook plugin\\
+\hline
+{\em log} & logging delegate to send error information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of occurred errors
+\end{DoxyReturn}
+\Hypertarget{class_backup_executor_1_1_backup_tool_a9113ae3b52914d09127b3e0ac741c7fc}\index{BackupExecutor.BackupTool@{BackupExecutor.BackupTool}!WaitForProcessEnd@{WaitForProcessEnd}}
+\index{WaitForProcessEnd@{WaitForProcessEnd}!BackupExecutor.BackupTool@{BackupExecutor.BackupTool}}
+\doxysubsubsection{\texorpdfstring{WaitForProcessEnd()}{WaitForProcessEnd()}}
+{\footnotesize\ttfamily \label{class_backup_executor_1_1_backup_tool_a9113ae3b52914d09127b3e0ac741c7fc} 
+static bool Backup\+Executor.\+Backup\+Tool.\+Wait\+For\+Process\+End (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{\mbox{\hyperlink{class_backup_executor_1_1_backup_tool_acfcbe4b4dd3745c159f0b765d2e3ee08}{Logger}}}]{log}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Waits, till the process is not running any more. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & process name (!) within task manager\\
+\hline
+{\em log} & logging delegate to send error information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true if the process is not running any more
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gg/\+Documents/\+DADOS/\+ITEC-\/\+PROJECTS/outlookbackupaddin/\+Backup\+Executor/Backup\+Tool.\+cs\end{DoxyCompactItemize}

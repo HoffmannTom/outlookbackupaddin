@@ -1,0 +1,375 @@
+\doxysection{wcautil.\+h}
+\hypertarget{wcautil_8h_source}{}\label{wcautil_8h_source}\index{C:/Users/gg/Documents/DADOS/ITEC-\/PROJECTS/outlookbackupaddin/CustomAction/wcautil.h@{C:/Users/gg/Documents/DADOS/ITEC-\/PROJECTS/outlookbackupaddin/CustomAction/wcautil.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (c)\ .NET\ Foundation\ and\ contributors.\ All\ rights\ reserved.\ Licensed\ under\ the\ Microsoft\ Reciprocal\ License.\ See\ LICENSE.TXT\ file\ in\ the\ project\ root\ for\ full\ license\ information.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ WIXAPI\ \_\_stdcall}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ ExitTrace\ WcaLogError}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ExitTrace1\ WcaLogError}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ ExitTrace2\ WcaLogError}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ExitTrace3\ WcaLogError}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}dutil.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MessageExitOnLastError(x,\ e,\ s)\ \ \ \ \ \ \{\ x\ =\ ::GetLastError();\ x\ =\ HRESULT\_FROM\_WIN32(x);\ if\ (FAILED(x))\ \{\ ExitTrace(x,\ "{}\%s"{},\ s);\ WcaErrorMessage(e,\ x,\ MB\_OK,\ 0);\ \ goto\ LExit;\ \}\ \}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ MessageExitOnLastError1(x,\ e,\ f,\ s)\ \ \{\ x\ =\ ::GetLastError();\ x\ =\ HRESULT\_FROM\_WIN32(x);\ if\ (FAILED(x))\ \{\ ExitTrace1(x,\ f,\ s);\ WcaErrorMessage(e,\ x,\ MB\_OK,\ 1,\ s);\ \ goto\ LExit;\ \}\ \}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MessageExitOnFailure(x,\ e,\ s)\ \ \ \ \ \ \ \ \ \ \ if\ (FAILED(x))\ \{\ ExitTrace(x,\ "{}\%s"{},\ s);\ WcaErrorMessage(e,\ x,\ INSTALLMESSAGE\_ERROR\ |\ MB\_OK,\ 0);\ \ goto\ LExit;\ \}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MessageExitOnFailure1(x,\ e,\ f,\ s)\ \ \ \ \ \ \ if\ (FAILED(x))\ \{\ ExitTrace1(x,\ f,\ s);\ WcaErrorMessage(e,\ x,\ INSTALLMESSAGE\_ERROR\ |\ MB\_OK,\ 1,\ s);\ \ goto\ LExit;\ \}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ MessageExitOnFailure2(x,\ e,\ f,\ s,\ t)\ \ \ \ if\ (FAILED(x))\ \{\ ExitTrace2(x,\ f,\ s,\ t);\ WcaErrorMessage(e,\ x,\ INSTALLMESSAGE\_ERROR\ |\ MB\_OK,\ 2,\ s,\ t);\ \ goto\ LExit;\ \}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ MessageExitOnFailure3(x,\ e,\ f,\ s,\ t,\ u)\ if\ (FAILED(x))\ \{\ ExitTrace2(x,\ f,\ s,\ t,\ u);\ WcaErrorMessage(e,\ x,\ INSTALLMESSAGE\_ERROR\ |\ MB\_OK,\ 3,\ s,\ t,\ u);\ \ goto\ LExit;\ \}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ MessageExitOnNullWithLastError(p,\ x,\ e,\ s)\ if\ (NULL\ ==\ p)\ \{\ x\ =\ ::GetLastError();\ x\ =\ HRESULT\_FROM\_WIN32(x);\ if\ (!FAILED(x))\ \{\ x\ =\ E\_FAIL;\ \}\ ExitTrace(x,\ "{}\%s"{},\ s);\ WcaErrorMessage(e,\ x,\ MB\_OK,\ 0);\ \ goto\ LExit;\ \}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ MessageExitOnNullWithLastError1(p,\ x,\ e,\ f,\ s)\ if\ (NULL\ ==\ p)\ \{\ x\ =\ ::GetLastError();\ x\ =\ HRESULT\_FROM\_WIN32(x);\ if\ (!FAILED(x))\ \{\ x\ =\ E\_FAIL;\ \}\ ExitTrace(x,\ f,\ s);\ WcaErrorMessage(e,\ x,\ MB\_OK,\ 1,\ s);\ \ goto\ LExit;\ \}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ MessageExitOnNullWithLastError2(p,\ x,\ e,\ f,\ s,\ t)\ if\ (NULL\ ==\ p)\ \{\ x\ =\ ::GetLastError();\ x\ =\ HRESULT\_FROM\_WIN32(x);\ if\ (!FAILED(x))\ \{\ x\ =\ E\_FAIL;\ \}\ ExitTrace(x,\ f,\ s,\ t);\ WcaErrorMessage(e,\ x,\ MB\_OK,\ 2,\ s,\ t);\ \ goto\ LExit;\ \}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Generic\ action\ enum.}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ WCA\_ACTION}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ WCA\_ACTION\_NONE,}
+\DoxyCodeLine{00033\ \ \ \ \ WCA\_ACTION\_INSTALL,}
+\DoxyCodeLine{00034\ \ \ \ \ WCA\_ACTION\_UNINSTALL,}
+\DoxyCodeLine{00035\ \}\ WCA\_ACTION;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ WCA\_CASCRIPT}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ WCA\_CASCRIPT\_SCHEDULED,}
+\DoxyCodeLine{00040\ \ \ \ \ WCA\_CASCRIPT\_ROLLBACK,}
+\DoxyCodeLine{00041\ \}\ WCA\_CASCRIPT;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ WCA\_CASCRIPT\_CLOSE}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ WCA\_CASCRIPT\_CLOSE\_PRESERVE,}
+\DoxyCodeLine{00046\ \ \ \ \ WCA\_CASCRIPT\_CLOSE\_DELETE,}
+\DoxyCodeLine{00047\ \}\ WCA\_CASCRIPT\_CLOSE;\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ WCA\_TODO}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ WCA\_TODO\_UNKNOWN,}
+\DoxyCodeLine{00052\ \ \ \ \ WCA\_TODO\_INSTALL,}
+\DoxyCodeLine{00053\ \ \ \ \ WCA\_TODO\_UNINSTALL,}
+\DoxyCodeLine{00054\ \ \ \ \ WCA\_TODO\_REINSTALL,}
+\DoxyCodeLine{00055\ \}\ WCA\_TODO;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_STRUCT}}}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ LPWSTR\ pwzScriptPath;}
+\DoxyCodeLine{00060\ \ \ \ \ HANDLE\ hScriptFile;}
+\DoxyCodeLine{00061\ \}\ *\mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_HANDLE}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ WIXAPI\ WcaGlobalInitialize(}
+\DoxyCodeLine{00064\ \ \ \ \ \_\_in\ HINSTANCE\ hInst}
+\DoxyCodeLine{00065\ \ \ \ \ );}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ WIXAPI\ WcaGlobalFinalize();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ HRESULT\ WIXAPI\ WcaInitialize(}
+\DoxyCodeLine{00069\ \ \ \ \ \_\_in\ MSIHANDLE\ hInstall,}
+\DoxyCodeLine{00070\ \ \ \ \ \_\_in\_z\ PCSTR\ szCustomActionLogName}
+\DoxyCodeLine{00071\ \ \ \ \ );}
+\DoxyCodeLine{00072\ UINT\ WIXAPI\ WcaFinalize(}
+\DoxyCodeLine{00073\ \ \ \ \ \_\_in\ UINT\ iReturnValue}
+\DoxyCodeLine{00074\ \ \ \ \ );}
+\DoxyCodeLine{00075\ BOOL\ WIXAPI\ WcaIsInitialized();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ MSIHANDLE\ WIXAPI\ WcaGetInstallHandle();}
+\DoxyCodeLine{00078\ MSIHANDLE\ WIXAPI\ WcaGetDatabaseHandle();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ WIXAPI\ WcaGetLogName();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ WIXAPI\ WcaSetReturnValue(}
+\DoxyCodeLine{00083\ \ \ \ \ \_\_in\ UINT\ iReturnValue}
+\DoxyCodeLine{00084\ \ \ \ \ );}
+\DoxyCodeLine{00085\ BOOL\ WIXAPI\ WcaCancelDetected();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ LOG\_BUFFER\ 2048}}
+\DoxyCodeLine{00088\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ LOGLEVEL}
+\DoxyCodeLine{00089\ \{\ }
+\DoxyCodeLine{00090\ \ \ \ \ LOGMSG\_TRACEONLY,\ \ \textcolor{comment}{//\ Never\ written\ to\ the\ log\ file\ (except\ in\ DEBUG\ builds)}}
+\DoxyCodeLine{00091\ \ \ \ \ LOGMSG\_VERBOSE,\ \ \ \ \textcolor{comment}{//\ Written\ to\ log\ when\ LOGVERBOSE}}
+\DoxyCodeLine{00092\ \ \ \ \ LOGMSG\_STANDARD\ \ \ \ \textcolor{comment}{//\ Written\ to\ log\ whenever\ informational\ logging\ is\ enabled}}
+\DoxyCodeLine{00093\ \}\ LOGLEVEL;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \_\_cdecl\ WcaLog(}
+\DoxyCodeLine{00096\ \ \ \ \ \_\_in\ LOGLEVEL\ llv,}
+\DoxyCodeLine{00097\ \ \ \ \ \_\_in\_z\ \_\_format\_string\ PCSTR\ fmt,\ ...}
+\DoxyCodeLine{00098\ \ \ \ \ );}
+\DoxyCodeLine{00099\ BOOL\ WIXAPI\ WcaDisplayAssert(}
+\DoxyCodeLine{00100\ \ \ \ \ \_\_in\ LPCSTR\ sz}
+\DoxyCodeLine{00101\ \ \ \ \ );}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \_\_cdecl\ WcaLogError(}
+\DoxyCodeLine{00103\ \ \ \ \ \_\_in\ HRESULT\ hr,}
+\DoxyCodeLine{00104\ \ \ \ \ \_\_in\ LPCSTR\ szMessage,}
+\DoxyCodeLine{00105\ \ \ \ \ ...}
+\DoxyCodeLine{00106\ \ \ \ \ );}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ UINT\ WIXAPI\ WcaProcessMessage(}
+\DoxyCodeLine{00109\ \ \ \ \ \_\_in\ INSTALLMESSAGE\ eMessageType,}
+\DoxyCodeLine{00110\ \ \ \ \ \_\_in\ MSIHANDLE\ hRecord}
+\DoxyCodeLine{00111\ \ \ \ \ );}
+\DoxyCodeLine{00112\ UINT\ \_\_cdecl\ WcaErrorMessage(}
+\DoxyCodeLine{00113\ \ \ \ \ \_\_in\ \textcolor{keywordtype}{int}\ iError,\ }
+\DoxyCodeLine{00114\ \ \ \ \ \_\_in\ HRESULT\ hrError,\ }
+\DoxyCodeLine{00115\ \ \ \ \ \_\_in\ UINT\ uiType,\ }
+\DoxyCodeLine{00116\ \ \ \ \ \_\_in\ DWORD\ cArgs,\ }
+\DoxyCodeLine{00117\ \ \ \ \ ...}
+\DoxyCodeLine{00118\ \ \ \ \ );}
+\DoxyCodeLine{00119\ HRESULT\ WIXAPI\ WcaProgressMessage(}
+\DoxyCodeLine{00120\ \ \ \ \ \_\_in\ UINT\ uiCost,}
+\DoxyCodeLine{00121\ \ \ \ \ \_\_in\ BOOL\ fExtendProgressBar}
+\DoxyCodeLine{00122\ \ \ \ \ );}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ BOOL\ WIXAPI\ WcaIsInstalling(}
+\DoxyCodeLine{00125\ \ \ \ \ \_\_in\ INSTALLSTATE\ isInstalled,}
+\DoxyCodeLine{00126\ \ \ \ \ \_\_in\ INSTALLSTATE\ isAction}
+\DoxyCodeLine{00127\ \ \ \ \ );}
+\DoxyCodeLine{00128\ BOOL\ WIXAPI\ WcaIsReInstalling(}
+\DoxyCodeLine{00129\ \ \ \ \ \_\_in\ INSTALLSTATE\ isInstalled,}
+\DoxyCodeLine{00130\ \ \ \ \ \_\_in\ INSTALLSTATE\ isAction}
+\DoxyCodeLine{00131\ \ \ \ \ );}
+\DoxyCodeLine{00132\ BOOL\ WIXAPI\ WcaIsUninstalling(}
+\DoxyCodeLine{00133\ \ \ \ \ \_\_in\ INSTALLSTATE\ isInstalled,}
+\DoxyCodeLine{00134\ \ \ \ \ \_\_in\ INSTALLSTATE\ isAction}
+\DoxyCodeLine{00135\ \ \ \ \ );}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ HRESULT\ WIXAPI\ WcaSetComponentState(}
+\DoxyCodeLine{00138\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzComponent,}
+\DoxyCodeLine{00139\ \ \ \ \ \_\_in\ INSTALLSTATE\ isState}
+\DoxyCodeLine{00140\ \ \ \ \ );}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ HRESULT\ WIXAPI\ WcaTableExists(}
+\DoxyCodeLine{00143\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzTable}
+\DoxyCodeLine{00144\ \ \ \ \ );}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ HRESULT\ WIXAPI\ WcaOpenView(}
+\DoxyCodeLine{00147\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzSql,}
+\DoxyCodeLine{00148\ \ \ \ \ \_\_out\ MSIHANDLE*\ phView}
+\DoxyCodeLine{00149\ \ \ \ \ );}
+\DoxyCodeLine{00150\ HRESULT\ WIXAPI\ WcaExecuteView(}
+\DoxyCodeLine{00151\ \ \ \ \ \_\_in\ MSIHANDLE\ hView,}
+\DoxyCodeLine{00152\ \ \ \ \ \_\_in\ MSIHANDLE\ hRec}
+\DoxyCodeLine{00153\ \ \ \ \ );}
+\DoxyCodeLine{00154\ HRESULT\ WIXAPI\ WcaOpenExecuteView(}
+\DoxyCodeLine{00155\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzSql,}
+\DoxyCodeLine{00156\ \ \ \ \ \_\_out\ MSIHANDLE*\ phView}
+\DoxyCodeLine{00157\ \ \ \ \ );}
+\DoxyCodeLine{00158\ HRESULT\ WIXAPI\ WcaFetchRecord(}
+\DoxyCodeLine{00159\ \ \ \ \ \_\_in\ MSIHANDLE\ hView,}
+\DoxyCodeLine{00160\ \ \ \ \ \_\_out\ MSIHANDLE*\ phRec}
+\DoxyCodeLine{00161\ \ \ \ \ );}
+\DoxyCodeLine{00162\ HRESULT\ WIXAPI\ WcaFetchSingleRecord(}
+\DoxyCodeLine{00163\ \ \ \ \ \_\_in\ MSIHANDLE\ hView,}
+\DoxyCodeLine{00164\ \ \ \ \ \_\_out\ MSIHANDLE*\ phRec}
+\DoxyCodeLine{00165\ \ \ \ \ );}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ HRESULT\ WIXAPI\ WcaGetProperty(}
+\DoxyCodeLine{00168\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzProperty,}
+\DoxyCodeLine{00169\ \ \ \ \ \_\_inout\ LPWSTR*\ ppwzData}
+\DoxyCodeLine{00170\ \ \ \ \ );}
+\DoxyCodeLine{00171\ HRESULT\ WIXAPI\ WcaGetFormattedProperty(}
+\DoxyCodeLine{00172\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzProperty,}
+\DoxyCodeLine{00173\ \ \ \ \ \_\_out\ LPWSTR*\ ppwzData}
+\DoxyCodeLine{00174\ \ \ \ \ );}
+\DoxyCodeLine{00175\ HRESULT\ WIXAPI\ WcaGetFormattedString(}
+\DoxyCodeLine{00176\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzString,}
+\DoxyCodeLine{00177\ \ \ \ \ \_\_out\ LPWSTR*\ ppwzData}
+\DoxyCodeLine{00178\ \ \ \ \ );}
+\DoxyCodeLine{00179\ HRESULT\ WIXAPI\ WcaGetIntProperty(}
+\DoxyCodeLine{00180\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzProperty,}
+\DoxyCodeLine{00181\ \ \ \ \ \_\_inout\ \textcolor{keywordtype}{int}*\ piData}
+\DoxyCodeLine{00182\ \ \ \ \ );}
+\DoxyCodeLine{00183\ HRESULT\ WIXAPI\ WcaGetTargetPath(}
+\DoxyCodeLine{00184\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzFolder,}
+\DoxyCodeLine{00185\ \ \ \ \ \_\_out\ LPWSTR*\ ppwzData}
+\DoxyCodeLine{00186\ \ \ \ \ );}
+\DoxyCodeLine{00187\ HRESULT\ WIXAPI\ WcaSetProperty(}
+\DoxyCodeLine{00188\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzPropertyName,}
+\DoxyCodeLine{00189\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzPropertyValue}
+\DoxyCodeLine{00190\ \ \ \ \ );}
+\DoxyCodeLine{00191\ HRESULT\ WIXAPI\ WcaSetIntProperty(}
+\DoxyCodeLine{00192\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzPropertyName,}
+\DoxyCodeLine{00193\ \ \ \ \ \_\_in\ \textcolor{keywordtype}{int}\ nPropertyValue}
+\DoxyCodeLine{00194\ \ \ \ \ );}
+\DoxyCodeLine{00195\ BOOL\ WIXAPI\ WcaIsPropertySet(}
+\DoxyCodeLine{00196\ \ \ \ \ \_\_in\ LPCSTR\ szProperty}
+\DoxyCodeLine{00197\ \ \ \ \ );}
+\DoxyCodeLine{00198\ BOOL\ WIXAPI\ WcaIsUnicodePropertySet(}
+\DoxyCodeLine{00199\ \ \ \ \ \_\_in\ LPCWSTR\ wzProperty}
+\DoxyCodeLine{00200\ \ \ \ \ );}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ HRESULT\ WIXAPI\ WcaGetRecordInteger(}
+\DoxyCodeLine{00203\ \ \ \ \ \_\_in\ MSIHANDLE\ hRec,}
+\DoxyCodeLine{00204\ \ \ \ \ \_\_in\ UINT\ uiField,}
+\DoxyCodeLine{00205\ \ \ \ \ \_\_inout\ \textcolor{keywordtype}{int}*\ piData}
+\DoxyCodeLine{00206\ \ \ \ \ );}
+\DoxyCodeLine{00207\ HRESULT\ WIXAPI\ WcaGetRecordString(}
+\DoxyCodeLine{00208\ \ \ \ \ \_\_in\ MSIHANDLE\ hRec,}
+\DoxyCodeLine{00209\ \ \ \ \ \_\_in\ UINT\ uiField,}
+\DoxyCodeLine{00210\ \ \ \ \ \_\_inout\ LPWSTR*\ ppwzData}
+\DoxyCodeLine{00211\ \ \ \ \ );}
+\DoxyCodeLine{00212\ HRESULT\ WIXAPI\ WcaGetRecordFormattedInteger(}
+\DoxyCodeLine{00213\ \ \ \ \ \_\_in\ MSIHANDLE\ hRec,}
+\DoxyCodeLine{00214\ \ \ \ \ \_\_in\ UINT\ uiField,}
+\DoxyCodeLine{00215\ \ \ \ \ \_\_out\ \textcolor{keywordtype}{int}*\ piData}
+\DoxyCodeLine{00216\ \ \ \ \ );}
+\DoxyCodeLine{00217\ HRESULT\ WIXAPI\ WcaGetRecordFormattedString(}
+\DoxyCodeLine{00218\ \ \ \ \ \_\_in\ MSIHANDLE\ hRec,}
+\DoxyCodeLine{00219\ \ \ \ \ \_\_in\ UINT\ uiField,}
+\DoxyCodeLine{00220\ \ \ \ \ \_\_inout\ LPWSTR*\ ppwzData}
+\DoxyCodeLine{00221\ \ \ \ \ );}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ HRESULT\ WIXAPI\ WcaAllocStream(}
+\DoxyCodeLine{00224\ \ \ \ \ \_\_deref\_out\_bcount\_part(cbData,\ 0)\ BYTE**\ ppbData,}
+\DoxyCodeLine{00225\ \ \ \ \ \_\_in\ DWORD\ cbData}
+\DoxyCodeLine{00226\ \ \ \ \ );}
+\DoxyCodeLine{00227\ HRESULT\ WIXAPI\ WcaFreeStream(}
+\DoxyCodeLine{00228\ \ \ \ \ \_\_in\ BYTE*\ pbData}
+\DoxyCodeLine{00229\ \ \ \ \ );}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ HRESULT\ WIXAPI\ WcaGetRecordStream(}
+\DoxyCodeLine{00232\ \ \ \ \ \_\_in\ MSIHANDLE\ hRecBinary,}
+\DoxyCodeLine{00233\ \ \ \ \ \_\_in\ UINT\ uiField,}
+\DoxyCodeLine{00234\ \ \ \ \ \_\_deref\_out\_bcount\_full(*pcbData)\ BYTE**\ ppbData,}
+\DoxyCodeLine{00235\ \ \ \ \ \_\_out\ DWORD*\ pcbData}
+\DoxyCodeLine{00236\ \ \ \ \ );}
+\DoxyCodeLine{00237\ HRESULT\ WIXAPI\ WcaSetRecordString(}
+\DoxyCodeLine{00238\ \ \ \ \ \_\_in\ MSIHANDLE\ hRec,}
+\DoxyCodeLine{00239\ \ \ \ \ \_\_in\ UINT\ uiField,}
+\DoxyCodeLine{00240\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzData}
+\DoxyCodeLine{00241\ \ \ \ \ );}
+\DoxyCodeLine{00242\ HRESULT\ WIXAPI\ WcaSetRecordInteger(}
+\DoxyCodeLine{00243\ \ \ \ \ \_\_in\ MSIHANDLE\ hRec,}
+\DoxyCodeLine{00244\ \ \ \ \ \_\_in\ UINT\ uiField,}
+\DoxyCodeLine{00245\ \ \ \ \ \_\_in\ \textcolor{keywordtype}{int}\ iValue}
+\DoxyCodeLine{00246\ \ \ \ \ );}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ HRESULT\ WIXAPI\ WcaDoDeferredAction(}
+\DoxyCodeLine{00249\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzAction,}
+\DoxyCodeLine{00250\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzCustomActionData,}
+\DoxyCodeLine{00251\ \ \ \ \ \_\_in\ UINT\ uiCost}
+\DoxyCodeLine{00252\ \ \ \ \ );}
+\DoxyCodeLine{00253\ DWORD\ WIXAPI\ WcaCountOfCustomActionDataRecords(}
+\DoxyCodeLine{00254\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzData}
+\DoxyCodeLine{00255\ \ \ \ \ );}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ HRESULT\ WIXAPI\ WcaReadStringFromCaData(}
+\DoxyCodeLine{00258\ \ \ \ \ \_\_deref\_in\ LPWSTR*\ ppwzCustomActionData,}
+\DoxyCodeLine{00259\ \ \ \ \ \_\_deref\_out\_z\ LPWSTR*\ ppwzString}
+\DoxyCodeLine{00260\ \ \ \ \ );}
+\DoxyCodeLine{00261\ HRESULT\ WIXAPI\ WcaReadIntegerFromCaData(}
+\DoxyCodeLine{00262\ \ \ \ \ \_\_deref\_in\ LPWSTR*\ ppwzCustomActionData,}
+\DoxyCodeLine{00263\ \ \ \ \ \_\_out\ \textcolor{keywordtype}{int}*\ piResult}
+\DoxyCodeLine{00264\ \ \ \ \ );}
+\DoxyCodeLine{00265\ HRESULT\ WIXAPI\ WcaReadStreamFromCaData(}
+\DoxyCodeLine{00266\ \ \ \ \ \_\_deref\_in\ LPWSTR*\ ppwzCustomActionData,}
+\DoxyCodeLine{00267\ \ \ \ \ \_\_deref\_out\_bcount(*pcbData)\ BYTE**\ ppbData,}
+\DoxyCodeLine{00268\ \ \ \ \ \_\_out\ DWORD\_PTR*\ pcbData}
+\DoxyCodeLine{00269\ \ \ \ \ );}
+\DoxyCodeLine{00270\ HRESULT\ WIXAPI\ WcaWriteStringToCaData(}
+\DoxyCodeLine{00271\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzString,}
+\DoxyCodeLine{00272\ \ \ \ \ \_\_deref\_inout\_z\ LPWSTR*\ ppwzCustomActionData}
+\DoxyCodeLine{00273\ \ \ \ \ );}
+\DoxyCodeLine{00274\ HRESULT\ WIXAPI\ WcaWriteIntegerToCaData(}
+\DoxyCodeLine{00275\ \ \ \ \ \_\_in\ \textcolor{keywordtype}{int}\ i,\ }
+\DoxyCodeLine{00276\ \ \ \ \ \_\_deref\_out\_z\_opt\ LPWSTR*\ ppwzCustomActionData}
+\DoxyCodeLine{00277\ \ \ \ \ );}
+\DoxyCodeLine{00278\ HRESULT\ WIXAPI\ WcaWriteStreamToCaData(}
+\DoxyCodeLine{00279\ \ \ \ \ \_\_in\_bcount(cbData)\ \textcolor{keyword}{const}\ BYTE*\ pbData,}
+\DoxyCodeLine{00280\ \ \ \ \ \_\_in\ DWORD\ cbData,}
+\DoxyCodeLine{00281\ \ \ \ \ \_\_deref\_inout\_z\_opt\ LPWSTR*\ ppwzCustomActionData}
+\DoxyCodeLine{00282\ \ \ \ \ );}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ HRESULT\ \_\_cdecl\ WcaAddTempRecord(}
+\DoxyCodeLine{00285\ \ \ \ \ \_\_inout\ MSIHANDLE*\ phTableView,}
+\DoxyCodeLine{00286\ \ \ \ \ \_\_inout\ MSIHANDLE*\ phColumns,}
+\DoxyCodeLine{00287\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzTable,}
+\DoxyCodeLine{00288\ \ \ \ \ \_\_out\_opt\ MSIDBERROR*\ pdbError,}
+\DoxyCodeLine{00289\ \ \ \ \ \_\_in\ UINT\ uiUniquifyColumn,}
+\DoxyCodeLine{00290\ \ \ \ \ \_\_in\ UINT\ cColumns,}
+\DoxyCodeLine{00291\ \ \ \ \ ...}
+\DoxyCodeLine{00292\ \ \ \ \ );}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ HRESULT\ WIXAPI\ WcaDumpTable(}
+\DoxyCodeLine{00295\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzTable}
+\DoxyCodeLine{00296\ \ \ \ \ );}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ HRESULT\ WIXAPI\ WcaDeferredActionRequiresReboot();}
+\DoxyCodeLine{00299\ BOOL\ WIXAPI\ WcaDidDeferredActionRequireReboot();}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ HRESULT\ WIXAPI\ WcaCaScriptCreateKey(}
+\DoxyCodeLine{00302\ \ \ \ \ \_\_out\ LPWSTR*\ ppwzScriptKey}
+\DoxyCodeLine{00303\ \ \ \ \ );}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ HRESULT\ WIXAPI\ WcaCaScriptCreate(}
+\DoxyCodeLine{00306\ \ \ \ \ \_\_in\ WCA\_ACTION\ action,}
+\DoxyCodeLine{00307\ \ \ \ \ \_\_in\ WCA\_CASCRIPT\ script,}
+\DoxyCodeLine{00308\ \ \ \ \ \_\_in\ BOOL\ fImpersonated,}
+\DoxyCodeLine{00309\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzScriptKey,}
+\DoxyCodeLine{00310\ \ \ \ \ \_\_in\ BOOL\ fAppend,}
+\DoxyCodeLine{00311\ \ \ \ \ \_\_out\ \mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_HANDLE}}*\ phScript}
+\DoxyCodeLine{00312\ \ \ \ \ );}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ HRESULT\ WIXAPI\ WcaCaScriptOpen(}
+\DoxyCodeLine{00315\ \ \ \ \ \_\_in\ WCA\_ACTION\ action,}
+\DoxyCodeLine{00316\ \ \ \ \ \_\_in\ WCA\_CASCRIPT\ script,}
+\DoxyCodeLine{00317\ \ \ \ \ \_\_in\ BOOL\ fImpersonated,}
+\DoxyCodeLine{00318\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzScriptKey,}
+\DoxyCodeLine{00319\ \ \ \ \ \_\_out\ \mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_HANDLE}}*\ phScript}
+\DoxyCodeLine{00320\ \ \ \ \ );}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \textcolor{keywordtype}{void}\ WIXAPI\ WcaCaScriptClose(}
+\DoxyCodeLine{00323\ \ \ \ \ \_\_in\_opt\ \mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_HANDLE}}\ hScript,}
+\DoxyCodeLine{00324\ \ \ \ \ \_\_in\ WCA\_CASCRIPT\_CLOSE\ closeOperation}
+\DoxyCodeLine{00325\ \ \ \ \ );}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ HRESULT\ WIXAPI\ WcaCaScriptReadAsCustomActionData(}
+\DoxyCodeLine{00328\ \ \ \ \ \_\_in\ \mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_HANDLE}}\ hScript,}
+\DoxyCodeLine{00329\ \ \ \ \ \_\_out\ LPWSTR*\ ppwzCustomActionData}
+\DoxyCodeLine{00330\ \ \ \ \ );}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ HRESULT\ WIXAPI\ WcaCaScriptWriteString(}
+\DoxyCodeLine{00333\ \ \ \ \ \_\_in\ \mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_HANDLE}}\ hScript,}
+\DoxyCodeLine{00334\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzValue}
+\DoxyCodeLine{00335\ \ \ \ \ );}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ HRESULT\ WIXAPI\ WcaCaScriptWriteNumber(}
+\DoxyCodeLine{00338\ \ \ \ \ \_\_in\ \mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_HANDLE}}\ hScript,}
+\DoxyCodeLine{00339\ \ \ \ \ \_\_in\ DWORD\ dwValue}
+\DoxyCodeLine{00340\ \ \ \ \ );}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \textcolor{keywordtype}{void}\ WIXAPI\ WcaCaScriptFlush(}
+\DoxyCodeLine{00343\ \ \ \ \ \_\_in\ \mbox{\hyperlink{struct_w_c_a___c_a_s_c_r_i_p_t___s_t_r_u_c_t}{WCA\_CASCRIPT\_HANDLE}}\ hScript}
+\DoxyCodeLine{00344\ \ \ \ \ );}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{keywordtype}{void}\ WIXAPI\ WcaCaScriptCleanup(}
+\DoxyCodeLine{00347\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzProductCode,}
+\DoxyCodeLine{00348\ \ \ \ \ \_\_in\ BOOL\ fImpersonated}
+\DoxyCodeLine{00349\ \ \ \ \ );}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ HRESULT\ WIXAPI\ QuietExec(}
+\DoxyCodeLine{00352\ \ \ \ \ \_\_inout\_z\ LPWSTR\ wzCommand,}
+\DoxyCodeLine{00353\ \ \ \ \ \_\_in\ DWORD\ dwTimeout}
+\DoxyCodeLine{00354\ \ \ \ \ );}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ HRESULT\ WIXAPI\ QuietExecEx(}
+\DoxyCodeLine{00357\ \ \ \ \ \_\_inout\_z\ LPWSTR\ wzCommand,}
+\DoxyCodeLine{00358\ \ \ \ \ \_\_in\ DWORD\ dwTimeout,}
+\DoxyCodeLine{00359\ \ \ \ \ \_\_in\ BOOL\ fLogCommand,}
+\DoxyCodeLine{00360\ \ \ \ \ \_\_in\ BOOL\ fLogOutput}
+\DoxyCodeLine{00361\ \ \ \ \ );}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ WCA\_TODO\ WIXAPI\ WcaGetComponentToDo(}
+\DoxyCodeLine{00364\ \ \ \ \ \_\_in\_z\ LPCWSTR\ wzComponentId}
+\DoxyCodeLine{00365\ \ \ \ \ );}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00368\ \}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

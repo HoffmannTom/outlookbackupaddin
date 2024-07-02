@@ -5,7 +5,7 @@
             <tab id="ribTabBackup" getLabel="GetLabel">
                 <group id="ribBtnBackup" getLabel="GetLabel">
                     <button id="btnBackupSettings" imageMso="DatabaseCopyDatabaseFile" getEnabled="IsAccessingSettingsAllowed" onAction="OpenBackupSettings" getLabel="GetLabel" showImage="true" size="large" />
-                    <button id="btnBackupOnExit" imageMso="FileExit" getEnabled="IsAccessingSettingsAllowed" onAction="ScheduleBackupOnExit" getLabel="GetLabel" showImage="true" size="large" />
+                    <button id="btnBackupOnExit" imageMso="FileExit"  onAction="ScheduleBackupOnExit" getLabel="GetLabel" showImage="true" size="large" />
                 </group>
             </tab>
         </tabs>

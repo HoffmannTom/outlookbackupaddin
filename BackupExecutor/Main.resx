@@ -118,189 +118,234 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblMegaBytesPerSecond.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="&gt;&gt;pbCopyProgress.Name" xml:space="preserve">
-    <value>pbCopyProgress</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>444, 316</value>
-  </data>
-  <data name="cbxShutdownWhenFinished.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 17</value>
-  </data>
-  <data name="&gt;&gt;pbTotalProgress.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pbCopyProgress.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="cbxShutdownWhenFinished.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cbxShutdownWhenFinished.Text" xml:space="preserve">
-    <value>Shutdown when finished</value>
-  </data>
-  <data name="&gt;&gt;lblFilename.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblFilename.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 218</value>
-  </data>
-  <data name="&gt;&gt;lblMegaBytesPerSecond.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblFilename.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbxShutdownWhenFinished.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pbTotalProgress.Name" xml:space="preserve">
-    <value>pbTotalProgress</value>
-  </data>
   <data name="txtLog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Backup</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 15</value>
   </data>
-  <data name="lblMegaBytesPerSecond.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 294</value>
+  <data name="txtLog.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
-  <data name="pbCopyProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 234</value>
+  <data name="txtLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 240</value>
   </data>
-  <data name="&gt;&gt;cbxShutdownWhenFinished.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblMegaBytesPerSecond.Name" xml:space="preserve">
-    <value>lblMegaBytesPerSecond</value>
-  </data>
-  <data name="&gt;&gt;txtLog.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="pbCopyProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 23</value>
-  </data>
-  <data name="&gt;&gt;lblFilename.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtLog.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="lblMegaBytesPerSecond.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="cbxShutdownWhenFinished.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblFilename.Name" xml:space="preserve">
-    <value>lblFilename</value>
-  </data>
-  <data name="&gt;&gt;txtLog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtLog.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="cbxShutdownWhenFinished.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;txtLog.Name" xml:space="preserve">
+    <value>txtLog</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;txtLog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblMegaBytesPerSecond.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtLog.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtLog.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="pbCopyProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;cbxShutdownWhenFinished.Name" xml:space="preserve">
-    <value>cbxShutdownWhenFinished</value>
+  <data name="pbCopyProgress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 288</value>
   </data>
-  <data name="lblFilename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 13</value>
+  <data name="pbCopyProgress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
-  <data name="&gt;&gt;pbTotalProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="pbCopyProgress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 28</value>
   </data>
-  <data name="cbxShutdownWhenFinished.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 293</value>
+  <data name="pbCopyProgress.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="lblFilename.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="pbTotalProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 23</value>
-  </data>
-  <data name="&gt;&gt;pbTotalProgress.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbxShutdownWhenFinished.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtLog.Name" xml:space="preserve">
-    <value>txtLog</value>
-  </data>
-  <data name="lblFilename.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="pbTotalProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 263</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="&gt;&gt;pbCopyProgress.Name" xml:space="preserve">
+    <value>pbCopyProgress</value>
   </data>
   <data name="&gt;&gt;pbCopyProgress.Type" xml:space="preserve">
     <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 196</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 300</value>
-  </data>
   <data name="&gt;&gt;pbCopyProgress.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="pbTotalProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="txtLog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmMain</value>
-  </data>
-  <data name="&gt;&gt;lblMegaBytesPerSecond.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pbTotalProgress.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtLog.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pbCopyProgress.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="lblFilename.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="lblFilename.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFilename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 268</value>
+  </data>
+  <data name="lblFilename.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lblFilename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 16</value>
+  </data>
+  <data name="lblFilename.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblFilename.Name" xml:space="preserve">
+    <value>lblFilename</value>
+  </data>
+  <data name="&gt;&gt;lblFilename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFilename.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblFilename.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pbTotalProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="pbTotalProgress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 324</value>
+  </data>
+  <data name="pbTotalProgress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="pbTotalProgress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 28</value>
+  </data>
+  <data name="pbTotalProgress.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pbTotalProgress.Name" xml:space="preserve">
+    <value>pbTotalProgress</value>
+  </data>
+  <data name="&gt;&gt;pbTotalProgress.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbTotalProgress.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbTotalProgress.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblMegaBytesPerSecond.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="lblMegaBytesPerSecond.Location" type="System.Drawing.Point, System.Drawing">
+    <value>491, 362</value>
+  </data>
+  <data name="lblMegaBytesPerSecond.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lblMegaBytesPerSecond.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 16</value>
+  </data>
+  <data name="lblMegaBytesPerSecond.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="lblMegaBytesPerSecond.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="lblMegaBytesPerSecond.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 13</value>
+  <data name="&gt;&gt;lblMegaBytesPerSecond.Name" xml:space="preserve">
+    <value>lblMegaBytesPerSecond</value>
   </data>
-  <data name="lblFilename.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="&gt;&gt;lblMegaBytesPerSecond.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblMegaBytesPerSecond.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblMegaBytesPerSecond.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbxShutdownWhenFinished.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
+  </data>
+  <data name="cbxShutdownWhenFinished.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbxShutdownWhenFinished.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 362</value>
+  </data>
+  <data name="cbxShutdownWhenFinished.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cbxShutdownWhenFinished.Size" type="System.Drawing.Size, System.Drawing">
+    <value>314, 20</value>
+  </data>
+  <data name="cbxShutdownWhenFinished.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="cbxShutdownWhenFinished.Text" xml:space="preserve">
+    <value>Desligar o computador quando terminar a tarefa</value>
+  </data>
+  <data name="&gt;&gt;cbxShutdownWhenFinished.Name" xml:space="preserve">
+    <value>cbxShutdownWhenFinished</value>
+  </data>
+  <data name="&gt;&gt;cbxShutdownWhenFinished.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxShutdownWhenFinished.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbxShutdownWhenFinished.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>592, 389</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABMLAAATCwAAAAAAAAAA
+        AAAAAAACAAAAJgIBAFcDAQBeAwIAXQQCAF0EAgBdBQMAXQUDAF0FAwBdBQMAXQUDAF0EAgBeAgEAVgAA
+        ACUAAAABAgICGiIjJJspGxDfPh0A4kYjAOJNKQDiUy4A4lgyAOJcNQDiXjYA4lw0AOJWMADiTCgA4ise
+        EN8iIySXBAQEGBcXFz1ISUnlUUY8/4JlSf+GaUj/i2xH/45uRf+Pb0T/kG9C/49uQf+Ma0D/hmY//35g
+        Pv9KPzT/SElK4hUVFTchISFFKCgo7GdnZ//JyMj/xMTE/8HAwP+9vLz/ubi4/7W0tP+ysLH/r62u/62r
+        q/+sq6v/V1ZW/ycnJ+kWFhY9ISEhRSkpKexvb2//3Nvb/9fX1//U09P/0dDQ/83LzP/Jx8f/xcTE/8LB
+        wf/Avr7/wL6+/19eXv8nJyfpFxcXPSEhIUUpKSnsdnZ2/+3s7P/p6Oj/5uXl/+Pi4v/f3t7/3Nra/9jW
+        1v/V1NT/09HR/9PR0f9mZmX/Jycn6RcXFz0hISFFKCgo7Hl5ef/39/f/9PPz//Hx8f/u7u7/6+rq/+jn
+        5//m5OT/4+Hh/+Lg4P/h39//a2pq/yYmJukWFhY9ICAgRSUlJex4eHj/+/v7//j39//29fX/8/Pz//Hw
+        8P/u7u7/7Ovr/+rp6f/p5+f/6efn/2xsbP8jJCTpFRUVPR8fH0UkJCTsc3Nz//T09P/y8vL/8PDw/+/u
+        7v/t7Oz/6+rq/+no6P/n5+f/5ubm/+bl5f9qamr/IiIi6RQUFD0eHh5FJiYm7DY2Nv9VVVX/VFRU/1JS
+        Uv9SUlL/UVFR/1FRUf9SUlL/UVFR/1BQUP9SUlL/NDQ0/yQkJOkTExM9Hh4eRSYmJuwhISH/Gxsb/0NB
+        QP9raGf/bmtp/3Fubf9pZ2b/UlBP/11bWv9eXFz/Jycn/yUlJf8kJCTpExMTPR4eHkUnJyfsHx8f/xoa
+        Gv96d3b/yMPC/8zHxv/V0M//p6Sj/ywsLP9mZGP/sK2s/zIyMv8nJyf/JSUl6RMTEz0gICBFKSkp7CMj
+        I/8fHx//gH59/83JyP/Rzcz/2dXU/6ajo/8iIiL/X15e/7OwsP82NTX/Kioq/ycnJ+kVFRU9IyMjOyws
+        LOgnJyf/JCQk/4KAgP/NyMj/z8rK/9bS0v+loqL/JSUl/2BfX/+xrq7/OTg4/y0tLf8rKyvlGRkZNCIi
+        IhIuLi6tKSkp+ycnJ/uBf3/7x8PE+8nFxvvOy8v7rqyt+1lYWPuAf3/7rKqq+zs6OvswMDD6Ly8vpx0d
+        HQ8zMzMALy8vHSkpKVsnJydjgH5+Y8TCwmPFw8NjycfHY8jHx2PBwMBjxMLCY6qoqGM6OjpjMDAwWjEx
+        MRs1NTUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAgAEAAA==
+</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>527, 358</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmMain</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -5,4 +5,13 @@
     <InstallUrlHistory />
     <SupportUrlHistory />
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartWorkingDirectory>C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\BackupAddIn\bin\</StartWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartWorkingDirectory>C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\BackupAddIn\bin\</StartWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartWorkingDirectory>C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\BackupAddIn\bin\</StartWorkingDirectory>
+  </PropertyGroup>
 </Project>

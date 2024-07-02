@@ -1,0 +1,41 @@
+\chapter{Script collection}
+\hypertarget{md__c_1_2_users_2gg_2_documents_2_d_a_d_o_s_2_i_t_e_c-_p_r_o_j_e_c_t_s_2outlookbackupaddin_2docs_2_script_01collection}{}\label{md__c_1_2_users_2gg_2_documents_2_d_a_d_o_s_2_i_t_e_c-_p_r_o_j_e_c_t_s_2outlookbackupaddin_2docs_2_script_01collection}\index{Script collection@{Script collection}}
+At this page I want to collect some scripts, which can be run after backup to do some work. The sample scripts are also containted within the downloaded zip-\/file (version 1.\+5 onwards).
+
+{\bfseries{Add date to the backup files}}
+
+\{code\+:powershell\} @\+ECHO OFF cd /D d\+:\textbackslash{}outlookbackup setlocal Enable\+Delayed\+Expansion rem set dt=DATE\+:\texorpdfstring{$\sim$}{\string~}6,4\%DATE\+:\texorpdfstring{$\sim$}{\string~}3,2\%DATE\+:\texorpdfstring{$\sim$}{\string~}0,2\% FOR /f \%a in (\textquotesingle{}WMIC OS GET Local\+Date\+Time \texorpdfstring{$^\wedge$}{\string^}\texorpdfstring{$\vert$}{|} find "{}."{}\textquotesingle{}) DO set dt=\%a set dt=dt\+:\texorpdfstring{$\sim$}{\string~}0,4\%dt\+:\texorpdfstring{$\sim$}{\string~}4,2\%dt\+:\texorpdfstring{$\sim$}{\string~}6,2\%
+
+FOR /F "{}delims="{} \%I IN (\textquotesingle{}DIR \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}.pst \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}.ost /B\textquotesingle{}) DO ( set x=\%I if exist "{}!x\+:\texorpdfstring{$\sim$}{\string~}0,-\/4!\+\_\+\%dt\%.\+bak"{} del "{}!x\+:\texorpdfstring{$\sim$}{\string~}0,-\/4!\+\_\+\%dt\%.\+bak"{} ren "{}!x!"{} "{}!x\+:\texorpdfstring{$\sim$}{\string~}0,-\/4!\+\_\+\%dt\%.\+bak"{} ) \{code\+:powershell\}
+
+{\bfseries{Keep last N backups}}
+
+\{code\+:powershell\} @echo off setlocal enableextensions enabledelayedexpansion
+
+rem set max no of backups to keep and backup folder set MAX\+\_\+\+BACKUP=5 cd /D D\+:\textbackslash{}outlook
+
+set rev=0
+
+rem read last revision no if exist revision.\+txt ( for /f "{}delims="{} \%a in (revision.\+txt) do ( set rev=\%a ) ) Set /A rev=!rev!+1 Set /A rev=!rev! \%\% !\+MAX\+\_\+\+BACKUP!
+
+rem find pst-\/file and rename FOR /F "{}delims="{} \%I IN (\textquotesingle{}DIR \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}.pst \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}.ost /B\textquotesingle{}) DO ( set x=\%I if exist "{}!x\+:\texorpdfstring{$\sim$}{\string~}0,-\/4!\+\_\+!rev!.\+bak"{} del "{}!x\+:\texorpdfstring{$\sim$}{\string~}0,-\/4!\+\_\+!rev!.\+bak"{} ren "{}!x!"{} "{}!x\+:\texorpdfstring{$\sim$}{\string~}0,-\/4!\+\_\+!rev!.\+bak"{} )
+
+echo !rev! \texorpdfstring{$>$}{>} revision.\+txt
+
+endlocal \{code\+:powershell\}
+
+{\bfseries{Backup signatures and profile settings}}
+
+\{code\+:powershell\} @\+ECHO OFF rem set backup folder here cd /D d\+:\textbackslash{}outlookbackup
+
+setlocal Enable\+Delayed\+Expansion
+
+rem backup signatures copy "{}\%\+APPDATA\%\textbackslash{}\+Microsoft\textbackslash{}\+Signatures\textbackslash{}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}"{} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+
+rem backup registry settings, set parameter reg32 or reg64 depending on your outlook version rem uncomment for outlook 2010 rem reg export "{}\+HKCU\textbackslash{}\+Software\textbackslash{}\+Microsoft\textbackslash{}\+Windows NT\textbackslash{}\+Current\+Version\textbackslash{}\+Windows Messaging Subsystem\textbackslash{}\+Profiles"{} outlook\+\_\+settings\+\_\+backup.\+reg /y /reg\+:32
+
+rem uncomment for outlook 2013 rem reg export "{}\+HKCU\textbackslash{}\+Software\textbackslash{}\+Microsoft\textbackslash{}\+Office\textbackslash{}15.\+0\textbackslash{}\+Outlook\textbackslash{}\+Profiles"{} outlook\+\_\+settings\+\_\+backup.\+reg /y /reg\+:32
+
+rem uncomment for outlook 2016 rem reg export "{}\+HKCU\textbackslash{}\+Software\textbackslash{}\+Microsoft\textbackslash{}\+Office\textbackslash{}16.\+0\textbackslash{}\+Outlook\textbackslash{}\+Profiles\textbackslash{}\+Outlook"{} outlook\+\_\+settings\+\_\+backup.\+reg /y /reg\+:32
+
+endlocal \{code\+:powershell\} 

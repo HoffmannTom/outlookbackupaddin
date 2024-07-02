@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
+using BackupExecutor.Models;
 
 namespace BackupExecutor
 {
@@ -117,6 +118,7 @@ namespace BackupExecutor
         private static void LogToConsole(string s)
         {
             s = DateTime.Now.TimeOfDay.ToString("hh\\:mm\\:ss") + " " + s;
+            CreateLog.CriarLog(s);
             Console.WriteLine(s + Environment.NewLine);
         }
 
@@ -143,7 +145,7 @@ namespace BackupExecutor
         /// </summary>
         private static bool Is64BitOutlookFromRegisteredExe()
         {
-            uint binaryType;
+           // uint binaryType;
             bool bRet = false;
 
             if (String.IsNullOrEmpty(outlookPath))

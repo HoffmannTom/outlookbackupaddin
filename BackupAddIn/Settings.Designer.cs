@@ -60,6 +60,7 @@
             this.lblSuffix = new System.Windows.Forms.Label();
             this.txtPrefix = new System.Windows.Forms.TextBox();
             this.lblBPrefix = new System.Windows.Forms.Label();
+            this.label_version = new System.Windows.Forms.Label();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInterval)).BeginInit();
             this.gbOptionalSettings.SuspendLayout();
@@ -276,6 +277,11 @@
             resources.ApplyResources(this.lblBPrefix, "lblBPrefix");
             this.lblBPrefix.Name = "lblBPrefix";
             // 
+            // label_version
+            // 
+            resources.ApplyResources(this.label_version, "label_version");
+            this.label_version.Name = "label_version";
+            // 
             // FBackupSettings
             // 
             this.AcceptButton = this.btnSpeichern;
@@ -283,6 +289,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnAbbrechen;
             this.ControlBox = false;
+            this.Controls.Add(this.label_version);
             this.Controls.Add(this.gbOptionalSettings);
             this.Controls.Add(this.gbSettings);
             this.Controls.Add(this.btnAbbrechen);
@@ -299,6 +306,7 @@
             this.gbOptionalSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCountdown)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -335,5 +343,6 @@
         private System.Windows.Forms.Label lblSeconds;
         private System.Windows.Forms.NumericUpDown numCountdown;
         private System.Windows.Forms.Label lblCountdown;
+        private System.Windows.Forms.Label label_version;
     }
 }

@@ -1,0 +1,90 @@
+\doxysection{Backup\+Add\+In\+Common.\+Backup\+Settings Class Reference}
+\hypertarget{class_backup_add_in_common_1_1_backup_settings}{}\label{class_backup_add_in_common_1_1_backup_settings}\index{BackupAddInCommon.BackupSettings@{BackupAddInCommon.BackupSettings}}
+
+
+Class holding the configuration options.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_aaee0a0bc6846f3b7adb34e54189e079e}\label{class_backup_add_in_common_1_1_backup_settings_aaee0a0bc6846f3b7adb34e54189e079e} 
+{\bfseries Backup\+Settings} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_aaf7bf48adab832a54872cdc39016ccec}\label{class_backup_add_in_common_1_1_backup_settings_aaf7bf48adab832a54872cdc39016ccec} 
+static List$<$ Mail\+Message $>$ {\bfseries email\+Queue} = new List$<$Mail\+Message$>$()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a6eb89efde220d2b806cd328a9f236dcd}\label{class_backup_add_in_common_1_1_backup_settings_a6eb89efde220d2b806cd328a9f236dcd} 
+string {\bfseries Destination\+Path}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Destination path for the backup files. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a95681ae93be30e64d93dc2d1a3bca910}\label{class_backup_add_in_common_1_1_backup_settings_a95681ae93be30e64d93dc2d1a3bca910} 
+string {\bfseries Backup\+Program}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Program to run after exiting outlook. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a7bae89a1880f40fb8cb1b289fe3cb4cb}\label{class_backup_add_in_common_1_1_backup_settings_a7bae89a1880f40fb8cb1b289fe3cb4cb} 
+int {\bfseries Interval}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Interval in days when to run the backup program again. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_ac3afdfbc24c7bd79fae3e829ebe86a97}\label{class_backup_add_in_common_1_1_backup_settings_ac3afdfbc24c7bd79fae3e829ebe86a97} 
+int {\bfseries Interval\+Hours}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Additional interval in hours which is added to the days. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_afab6d4e05a2ee6819724fb39ccfc97a5}\label{class_backup_add_in_common_1_1_backup_settings_afab6d4e05a2ee6819724fb39ccfc97a5} 
+Date\+Time {\bfseries Last\+Run}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Date of the last run of backup. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a42888febddc7ab826e784f43936372ca}\label{class_backup_add_in_common_1_1_backup_settings_a42888febddc7ab826e784f43936372ca} 
+String\+Collection {\bfseries Items}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em List of files to backup. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a7330ddfaa33b7876112354d77fab5cae}\label{class_backup_add_in_common_1_1_backup_settings_a7330ddfaa33b7876112354d77fab5cae} 
+int {\bfseries Wait\+Time\+File\+Lock}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Wait time when file is locked. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_ad876958626a54245732b10427ea2a24b}\label{class_backup_add_in_common_1_1_backup_settings_ad876958626a54245732b10427ea2a24b} 
+string {\bfseries Backup\+Prefix}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Prefix for filename of backup. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_af0f69e0cfb42041656a06900d8dd2d65}\label{class_backup_add_in_common_1_1_backup_settings_af0f69e0cfb42041656a06900d8dd2d65} 
+string {\bfseries Backup\+Suffix}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Suffix for filename of backup. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a1577202fa050462df7423c49e78f81d3}\label{class_backup_add_in_common_1_1_backup_settings_a1577202fa050462df7423c49e78f81d3} 
+bool {\bfseries Backup\+All}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flag whether to backup all pst-\/files. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a779dc0077807cd2349e1ee43311e87ed}\label{class_backup_add_in_common_1_1_backup_settings_a779dc0077807cd2349e1ee43311e87ed} 
+string {\bfseries Post\+Backup\+Cmd}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Command to run after backup finished. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a6fc39f8de9e1baf64ab05edcc4c743f2}\label{class_backup_add_in_common_1_1_backup_settings_a6fc39f8de9e1baf64ab05edcc4c743f2} 
+bool {\bfseries Show\+OSTFiles}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Try to decode path to OST-\/files. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a45d1ead8e5a91ab1a78ffc7cc592fc16}\label{class_backup_add_in_common_1_1_backup_settings_a45d1ead8e5a91ab1a78ffc7cc592fc16} 
+bool {\bfseries Ignore\+Encryption}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flag whether encrypted files might get decrypted. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_afbc308b0508ca65c117774ca489f8821}\label{class_backup_add_in_common_1_1_backup_settings_afbc308b0508ca65c117774ca489f8821} 
+bool {\bfseries Use\+Compression}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flag whether files should be compressed. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_ad3ccd9aa01a4ec527b70df5361b48f8e}\label{class_backup_add_in_common_1_1_backup_settings_ad3ccd9aa01a4ec527b70df5361b48f8e} 
+long {\bfseries Filesizelastbackup}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Tamanho em bytes do backup feito ,variavel usada para enviar email smtp. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a18fb5e53c5c1ea88e9cc0adba526c16e}\label{class_backup_add_in_common_1_1_backup_settings_a18fb5e53c5c1ea88e9cc0adba526c16e} 
+bool {\bfseries Allow\+Settings\+Access}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flag whether user can open settings dialog. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a7a638f27674b2814744e8c8c08ee735e}\label{class_backup_add_in_common_1_1_backup_settings_a7a638f27674b2814744e8c8c08ee735e} 
+bool {\bfseries Shutdown\+When\+Finished}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em flag for the default settings to shutdown when finished \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a15ef70f6518e8c955f9cb9af99f44cbc}\label{class_backup_add_in_common_1_1_backup_settings_a15ef70f6518e8c955f9cb9af99f44cbc} 
+int {\bfseries Countdown\+Seconds}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Counter to give user opportunity to close window before backup starts. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a820b0763403ba0d44dceb8f742ae66fa}\label{class_backup_add_in_common_1_1_backup_settings_a820b0763403ba0d44dceb8f742ae66fa} 
+List$<$ int $>$ {\bfseries Store\+Type\+Blacklist}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em List of store types to hide. \end{DoxyCompactList}\item 
+\Hypertarget{class_backup_add_in_common_1_1_backup_settings_a618d26b07968e268ff5932c9715b214f}\label{class_backup_add_in_common_1_1_backup_settings_a618d26b07968e268ff5932c9715b214f} 
+string {\bfseries Profile\+Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em used profile name \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class holding the configuration options. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gg/\+Documents/\+DADOS/\+ITEC-\/\+PROJECTS/outlookbackupaddin/\+Backup\+Add\+In/Backup\+Settings.\+cs\end{DoxyCompactItemize}

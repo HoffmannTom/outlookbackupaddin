@@ -1,0 +1,2597 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033
+{\fonttbl {\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}
+}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red0\green128\blue0;\red96\green64\blue32;\rede0\green128\blue0;\red128\green0\blue0;\red128\green96\blue32;\red0\green32\blue128;\red0\green128\blue128;\red255\green0\blue255;\red0\green0\blue0;\red112\green0\blue112;\red255\green0\blue0;}
+{\stylesheet
+{\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}
+{\paperw11900\paperh16840\margl1800\margr1800\margt1440\margb1440\gutter0\ltrsect}
+{\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid \sbasedon0 \snext0 heading 1;}
+{\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid \sbasedon0 \snext0 heading 2;}
+{\s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 3;}
+{\s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 4;}{\*\cs10 \additive Default Paragraph Font;}
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs12\cgrid \sbasedon0 \snext0 heading 6;}{\*\cs10 \additive Default Paragraph Font;}
+{\s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid \sbasedon0 \snext15 Title;}
+{\s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid \sbasedon0 \snext16 Subtitle;}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid \sbasedon0 \snext17 BodyText;}
+{\s18\widctlpar\fs22\cgrid \sbasedon0 \snext18 DenseText;}
+{\s28\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext28 header;}
+{\s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid \sbasedon0 \snext29 footer;}
+{\s30\li360\sa60\sb120\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext30 GroupHeader;}
+{\s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext41 Code Example 0;}
+{\s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext42 Code Example 1;}
+{\s42\li720\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext43 Code Example 2;}
+{\s43\li1080\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext44 Code Example 3;}
+{\s44\li1440\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext45 Code Example 4;}
+{\s45\li1800\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext46 Code Example 5;}
+{\s46\li2160\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext47 Code Example 6;}
+{\s47\li2520\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext48 Code Example 7;}
+{\s48\li2880\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 8;}
+{\s49\li3240\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext50 Code Example 9;}
+{\s50\li3600\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext51 Code Example 10;}
+{\s51\li3960\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext52 Code Example 11;}
+{\s52\li4320\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext53 Code Example 12;}
+{\s53\li4680\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext53 Code Example 13;}
+{\s60\li0\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext61 List Continue 0;}
+{\s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext62 List Continue 1;}
+{\s62\li720\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext63 List Continue 2;}
+{\s63\li1080\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext64 List Continue 3;}
+{\s64\li1440\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext65 List Continue 4;}
+{\s65\li1800\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext66 List Continue 5;}
+{\s66\li2160\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext67 List Continue 6;}
+{\s67\li2520\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext68 List Continue 7;}
+{\s68\li2880\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext69 List Continue 8;}
+{\s69\li3240\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext70 List Continue 9;}
+{\s70\li3600\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext71 List Continue 10;}
+{\s71\li3960\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext72 List Continue 11;}
+{\s72\li4320\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext73 List Continue 12;}
+{\s73\li4680\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext73 List Continue 13;}
+{\s80\li0\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext81 DescContinue 0;}
+{\s81\li360\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext82 DescContinue 1;}
+{\s82\li720\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext83 DescContinue 2;}
+{\s83\li1080\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext84 DescContinue 3;}
+{\s84\li1440\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext85 DescContinue 4;}
+{\s85\li1800\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext86 DescContinue 5;}
+{\s86\li2160\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext87 DescContinue 6;}
+{\s87\li2520\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext88 DescContinue 7;}
+{\s88\li2880\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext89 DescContinue 8;}
+{\s89\li3240\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext90 DescContinue 9;}
+{\s90\li3600\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext91 DescContinue 10;}
+{\s91\li3960\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext92 DescContinue 11;}
+{\s92\li4320\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext93 DescContinue 12;}
+{\s93\li4680\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext93 DescContinue 13;}
+{\s100\li0\sa30\sb30\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext101 LatexTOC 0;}
+{\s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext102 LatexTOC 1;}
+{\s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext103 LatexTOC 2;}
+{\s103\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext104 LatexTOC 3;}
+{\s104\li1440\sa18\sb18\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext105 LatexTOC 4;}
+{\s105\li1800\sa15\sb15\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext106 LatexTOC 5;}
+{\s106\li2160\sa12\sb12\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext107 LatexTOC 6;}
+{\s107\li2520\sa9\sb9\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext108 LatexTOC 7;}
+{\s108\li2880\sa6\sb6\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext109 LatexTOC 8;}
+{\s109\li3240\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext110 LatexTOC 9;}
+{\s110\li3600\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext111 LatexTOC 10;}
+{\s111\li3960\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext112 LatexTOC 11;}
+{\s112\li4320\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext113 LatexTOC 12;}
+{\s113\li4680\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext113 LatexTOC 13;}
+{\s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext121 \sautoupd List Bullet 0;}
+{\s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext122 \sautoupd List Bullet 1;}
+{\s122\fi-360\li1080\widctlpar\jclisttab\tx1080{\*\pn \pnlvlbody\ilvl0\ls3\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext123 \sautoupd List Bullet 2;}
+{\s123\fi-360\li1440\widctlpar\jclisttab\tx1440{\*\pn \pnlvlbody\ilvl0\ls4\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext124 \sautoupd List Bullet 3;}
+{\s124\fi-360\li1800\widctlpar\jclisttab\tx1800{\*\pn \pnlvlbody\ilvl0\ls5\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext125 \sautoupd List Bullet 4;}
+{\s125\fi-360\li2160\widctlpar\jclisttab\tx2160{\*\pn \pnlvlbody\ilvl0\ls6\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext126 \sautoupd List Bullet 5;}
+{\s126\fi-360\li2520\widctlpar\jclisttab\tx2520{\*\pn \pnlvlbody\ilvl0\ls7\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext127 \sautoupd List Bullet 6;}
+{\s127\fi-360\li2880\widctlpar\jclisttab\tx2880{\*\pn \pnlvlbody\ilvl0\ls8\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext128 \sautoupd List Bullet 7;}
+{\s128\fi-360\li3240\widctlpar\jclisttab\tx3240{\*\pn \pnlvlbody\ilvl0\ls9\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext129 \sautoupd List Bullet 8;}
+{\s129\fi-360\li3600\widctlpar\jclisttab\tx3600{\*\pn \pnlvlbody\ilvl0\ls10\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext130 \sautoupd List Bullet 9;}
+{\s130\fi-360\li3960\widctlpar\jclisttab\tx3960{\*\pn \pnlvlbody\ilvl0\ls11\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext131 \sautoupd List Bullet 10;}
+{\s131\fi-360\li4320\widctlpar\jclisttab\tx4320{\*\pn \pnlvlbody\ilvl0\ls12\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext132 \sautoupd List Bullet 11;}
+{\s132\fi-360\li4680\widctlpar\jclisttab\tx4680{\*\pn \pnlvlbody\ilvl0\ls13\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext133 \sautoupd List Bullet 12;}
+{\s133\fi-360\li5040\widctlpar\jclisttab\tx5040{\*\pn \pnlvlbody\ilvl0\ls14\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext133 \sautoupd List Bullet 13;}
+{\s140\fi-360\li360\widctlpar\fs20\cgrid \sbasedon0 \snext141 \sautoupd List Enum 0;}
+{\s141\fi-360\li720\widctlpar\fs20\cgrid \sbasedon0 \snext142 \sautoupd List Enum 1;}
+{\s142\fi-360\li1080\widctlpar\fs20\cgrid \sbasedon0 \snext143 \sautoupd List Enum 2;}
+{\s143\fi-360\li1440\widctlpar\fs20\cgrid \sbasedon0 \snext144 \sautoupd List Enum 3;}
+{\s144\fi-360\li1800\widctlpar\fs20\cgrid \sbasedon0 \snext145 \sautoupd List Enum 4;}
+{\s145\fi-360\li2160\widctlpar\fs20\cgrid \sbasedon0 \snext146 \sautoupd List Enum 5;}
+{\s146\fi-360\li2520\widctlpar\fs20\cgrid \sbasedon0 \snext147 \sautoupd List Enum 6;}
+{\s147\fi-360\li2880\widctlpar\fs20\cgrid \sbasedon0 \snext148 \sautoupd List Enum 7;}
+{\s148\fi-360\li3240\widctlpar\fs20\cgrid \sbasedon0 \snext149 \sautoupd List Enum 8;}
+{\s149\fi-360\li3600\widctlpar\fs20\cgrid \sbasedon0 \snext150 \sautoupd List Enum 9;}
+{\s150\fi-360\li3960\widctlpar\fs20\cgrid \sbasedon0 \snext151 \sautoupd List Enum 10;}
+{\s151\fi-360\li4320\widctlpar\fs20\cgrid \sbasedon0 \snext152 \sautoupd List Enum 11;}
+{\s152\fi-360\li4680\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 12;}
+{\s153\fi-360\li5040\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 13;}
+}
+{\*\listtable
+{\list\listtemplateid1
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u8226 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li360 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9702 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li720 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9642 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1080 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u8226 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1440 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9702 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1800 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9642 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2160 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u8662 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2520 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9702 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2880 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9642 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li3600 }
+\listid1}
+{\list\listtemplateid2
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li360 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li720 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1080 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1440 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1800 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2160 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2520 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2880 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9744 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li3600 }
+\listid2}
+{\list\listtemplateid3
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li360 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li720 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1080 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1440 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li1800 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2160 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2520 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li2880 }
+{ \listlevel\levelnfc23\leveljc0\levelstartat1\levelfollow0{\leveltext \'01\u9746 ?;}{\levelnumbers;}\f8\dbch\af3\fi-360\li3600 }
+\listid3}
+}
+{\listoverridetable
+{\listoverride\listid1\listoverridecount0\ls1}
+{\listoverride\listid2\listoverridecount0\ls2}
+{\listoverride\listid3\listoverridecount0\ls3}
+}
+{\info 
+{\title {\comment OutlookAddin  {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+1.1.0.3 \par
+}}OutlookAddin}
+{\comment Generated by doxygen 1.11.0.}
+}\pard\plain 
+\sectd\pgnlcrm
+{\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
+\pard\plain \s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid 
+\vertalc\qc\par\par\par\par\par\par\par
+\pard\plain \s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid 
+{\field\fldedit {\*\fldinst TITLE \\*MERGEFORMAT}{\fldrslt OutlookAddin}}\par
+\pard\plain \s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid 
+\par
+\par\par\par\par\par\par\par\par\par\par\par\par
+\pard\plain \s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid 
+{\field\fldedit {\*\fldinst AUTHOR \\*MERGEFORMAT}{\fldrslt AUTHOR}}\par
+Version 1.1.0.3\par\page\page\vertalt
+\pard\plain 
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid Table of Contents\par
+\pard\plain \par
+{\field\fldedit {\*\fldinst TOC \\f \\*MERGEFORMAT}{\fldrslt Table of contents}}\par
+\pard\plain 
+\sect \sbkpage \pgndec \pgnrestart
+\sect \sectd \sbknone
+{\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
+\par \pard\plain 
+\par \pard\plain 
+\pard\plain \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+Installation instructions\par \pard\plain 
+{\tc\tcl1 \v Installation instructions}
+{\xe \v Installation instructions}
+{\bkmkstart AAAAAAAAAD}
+{\bkmkend AAAAAAAAAD}
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b Installation instructions:} \par
+{
+\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+Run Setup.exe and follow the instructions on the screen\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+A certificate warning will show up. Accept the certificate in order to get the plugin installed\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+For Outlook 2010 without SP you need to install the VSTO runtime: {\f2 https://www.microsoft.com/en-us/download/details.aspx?id=48217}\par}
+\par
+{\b Manual installation:} \par
+{
+\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+For Outlook 2010 without SP please download and install VSTO-runtime at: {\f2 https://www.microsoft.com/en-us/download/details.aspx?id=48217}\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+Download manual setup package and unpack zip-file into a new folder\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+Run cmd as administrator and execute "BackupExecutor.exe /register" \par}
+\par
+}}
+\par \pard\plain 
+\pard\plain \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+license\par \pard\plain 
+{\tc\tcl1 \v license}
+{\xe \v license}
+{\bkmkstart AAAAAAAAAE}
+{\bkmkend AAAAAAAAAE}
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Apache Apache License Version 2.0, January 2004 {\f2 http://www.apache.org/licenses/}\par
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Definitions.\par}
+\par
+"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.\par
+"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.\par
+"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.\par
+"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.\par
+"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.\par
+"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.\par
+"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).\par
+"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.\par
+"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."\par
+"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Grant of Copyright License.\par}
+\par
+Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Grant of Patent License.\par}
+\par
+Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Redistribution.\par}
+\par
+You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab You must give any other recipients of the Work or Derivative Works a copy of this License; and\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+2.\tab You must cause any modified files to carry prominent notices stating that You changed the files; and\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+3.\tab You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+4.\tab If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.\par}
+\par
+You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Submission of Contributions.\par}
+\par
+Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Trademarks.\par}
+\par
+This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Disclaimer of Warranty.\par}
+\par
+Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Limitation of Liability.\par}
+\par
+In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab Accepting Warranty or Additional Liability.\par}
+\par
+While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability. \par
+}}
+\par \pard\plain 
+\pard\plain \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+Script collection\par \pard\plain 
+{\tc\tcl1 \v Script collection}
+{\xe \v Script collection}
+{\bkmkstart AAAAAAAAAF}
+{\bkmkend AAAAAAAAAF}
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+At this page I want to collect some scripts, which can be run after backup to do some work. The sample scripts are also containted within the downloaded zip-file (version 1.5 onwards).\par
+{\b Add date to the backup files} \par
+\{code:powershell\} @ECHO OFF cd /D d:\\outlookbackup setlocal EnableDelayedExpansion rem set dt=DATE:~6,4%DATE:~3,2%DATE:~0,2% FOR /f %a in ('WMIC OS GET LocalDateTime ^| find "."') DO set dt=%a set dt=dt:~0,4%dt:~4,2%dt:~6,2%\par
+FOR /F "delims=" %I IN ('DIR **.pst **.ost /B') DO ( set x=%I if exist "!x:~0,-4!_%dt%.bak" del "!x:~0,-4!_%dt%.bak" ren "!x!" "!x:~0,-4!_%dt%.bak" ) \{code:powershell\}\par
+{\b Keep last N backups} \par
+\{code:powershell\} @echo off setlocal enableextensions enabledelayedexpansion\par
+rem set max no of backups to keep and backup folder set MAX_BACKUP=5 cd /D D:\\outlook\par
+set rev=0\par
+rem read last revision no if exist revision.txt ( for /f "delims=" %a in (revision.txt) do ( set rev=%a ) ) Set /A rev=!rev!+1 Set /A rev=!rev! %% !MAX_BACKUP!\par
+rem find pst-file and rename FOR /F "delims=" %I IN ('DIR **.pst **.ost /B') DO ( set x=%I if exist "!x:~0,-4!_!rev!.bak" del "!x:~0,-4!_!rev!.bak" ren "!x!" "!x:~0,-4!_!rev!.bak" )\par
+echo !rev! > revision.txt\par
+endlocal \{code:powershell\}\par
+{\b Backup signatures and profile settings} \par
+\{code:powershell\} @ECHO OFF rem set backup folder here cd /D d:\\outlookbackup\par
+setlocal EnableDelayedExpansion\par
+rem backup signatures copy "%APPDATA%\\Microsoft\\Signatures\\**" **\par
+rem backup registry settings, set parameter reg32 or reg64 depending on your outlook version rem uncomment for outlook 2010 rem reg export "HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows Messaging Subsystem\\Profiles" outlook_settings_backup.reg /y /reg:32\par
+rem uncomment for outlook 2013 rem reg export "HKCU\\Software\\Microsoft\\Office\\15.0\\Outlook\\Profiles" outlook_settings_backup.reg /y /reg:32\par
+rem uncomment for outlook 2016 rem reg export "HKCU\\Software\\Microsoft\\Office\\16.0\\Outlook\\Profiles\\Outlook" outlook_settings_backup.reg /y /reg:32\par
+endlocal \{code:powershell\} \par
+}}
+\par \pard\plain 
+\pard\plain \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+Uninstall instructions\par \pard\plain 
+{\tc\tcl1 \v Uninstall instructions}
+{\xe \v Uninstall instructions}
+{\bkmkstart AAAAAAAAAG}
+{\bkmkend AAAAAAAAAG}
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b Uninstall instructions} \par
+If you want to uninstall the plugin, you must follow three steps:\par
+{
+\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+Open command line (cmd.exe) with elevated permissions (run as administrator). Change to the installation folder and run "BackupExecutor.exe /unregister"\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+Use the windows uninstall procedure: Control panel --> Software --> Programs and features --> choose "Outlook Backup Add In" and click uninstall\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+If the installation folder is left, just delete it manually. \par}
+\par
+}}
+
+\pard\plain \sect\sbkpage
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+Namespace Index\par \pard\plain 
+{\tc \v Namespace Index}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+Package List\par \pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid Here are the packages with brief descriptions (if available):}
+{
+\par
+\pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+{\b {\b BackupAddIn} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAK \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddIn.lang} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABQ \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddIn.Models} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABR \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddIn.Properties} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABS \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddInCommon} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABT \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupExecutor} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACV \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupExecutor.Models} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEC \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupExecutor.Properties} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAED \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+\par}
+\pard\plain \sect\sbkpage
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+Hierarchical Index\par \pard\plain 
+{\tc \v Hierarchical Index}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+Class Hierarchy\par \pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid This inheritance list is sorted roughly, but not completely, alphabetically:}
+{
+\par
+\pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+BackupAddInCommon.BackupSettings\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABU \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+BackupAddInCommon.BackupSettingsDao\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACR \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+BackupExecutor.BackupTool\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACX \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+BackupAddIn.BackupUtils\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAL \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+Form
+{
+\par
+\pard\plain \s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+BackupAddIn.FBackupSettings\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAO \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+BackupExecutor.FrmMain\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADL \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+}\par
+IDisposable
+{
+\par
+\pard\plain \s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+BackupExecutor.SingleInstance\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADY \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+}\par
+Office.IRibbonExtensibility
+{
+\par
+\pard\plain \s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+BackupAddIn.Ribbon\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAR \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+}\par
+Microsoft.Office.Tools.Outlook.OutlookAddInBase
+{
+\par
+\pard\plain \s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+BackupAddIn.ThisAddIn\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABH \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+}\par
+SystemException
+{
+\par
+\pard\plain \s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+BackupExecutor.InstanceAlreadyRunningException\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADP \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+}\par
+WCA_CASCRIPT_STRUCT\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAH \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+BackupAddIn.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABA \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+BackupExecutor.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADR \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+}
+\pard\plain \sect\sbkpage
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+Class Index\par \pard\plain 
+{\tc \v Class Index}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+Class List\par \pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid Here are the classes, structs, unions and interfaces with brief descriptions:}
+{
+\par
+\pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+{\b {\b BackupAddInCommon.BackupSettings} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Class holding the configuration options })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABU \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddInCommon.BackupSettingsDao} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACR \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupExecutor.BackupTool} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Utility class for backing up outlook files })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACX \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddIn.BackupUtils} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAL \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddIn.FBackupSettings} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Settings dialog for backup configuration })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAO \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupExecutor.FrmMain} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Main window of the backup program })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADL \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupExecutor.InstanceAlreadyRunningException} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADP \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddIn.Ribbon} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b Ribbon} extension for backup configuration dialog })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAR \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupExecutor.SingleInstance} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADY \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddIn.ThisAddIn} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABH \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b WCA_CASCRIPT_STRUCT} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAH \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupAddIn.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABA \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b {\b BackupExecutor.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADR \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+\par}
+\pard\plain \sect\sbkpage
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+File Index\par \pard\plain 
+{\tc \v File Index}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+File List\par \pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid Here is a list of all documented files with brief descriptions:}
+{
+\par
+\pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+{\b C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/{\b stdafx.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAA \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/{\b targetver.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAB \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/{\b wcautil.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAC \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+\par}
+\pard\plain \sect\sbkpage
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+Namespace Documentation\par \pard\plain 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn Namespace Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn}
+{\xe \v BackupAddIn}
+{\bkmkstart AAAAAAAAAK}
+{\bkmkend AAAAAAAAAK}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b BackupUtils}\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b FBackupSettings}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Settings dialog for backup configuration. }}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Globals}\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Ribbon}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b Ribbon} extension for backup configuration dialog. }}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b SafeNativeMethods}\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b ThisAddIn}\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b ThisFormRegionCollection}\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b ThisRibbonCollection}\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b WindowFormRegionCollection}\par
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn.lang Namespace Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn.lang}
+{\xe \v BackupAddIn.lang}
+{\bkmkstart AAAAAAAABQ}
+{\bkmkend AAAAAAAABQ}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b langres}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A strongly-typed resource class, for looking up localized strings, etc. }}\par}
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn.Models Namespace Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn.Models}
+{\xe \v BackupAddIn.Models}
+{\bkmkstart AAAAAAAABR}
+{\bkmkend AAAAAAAABR}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b LoadXML}\par
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn.Properties Namespace Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn.Properties}
+{\xe \v BackupAddIn.Properties}
+{\bkmkstart AAAAAAAABS}
+{\bkmkend AAAAAAAABS}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Resources}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A strongly-typed resource class, for looking up localized strings, etc. }}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Settings}\par
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddInCommon Namespace Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddInCommon}
+{\xe \v BackupAddInCommon}
+{\bkmkstart AAAAAAAABT}
+{\bkmkend AAAAAAAABT}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b BackupSettings}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Class holding the configuration options. }}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b BackupSettingsDao}}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupExecutor Namespace Reference\par \pard\plain 
+{\tc\tcl2 \v BackupExecutor}
+{\xe \v BackupExecutor}
+{\bkmkstart AAAAAAAACV}
+{\bkmkend AAAAAAAACV}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b BackupTool}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Utility class for backing up outlook files. }}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b FrmMain}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Main window of the backup program. }}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b InstanceAlreadyRunningException}\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Program}\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b SafeNativeMethods}\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b SingleInstance}\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Utils}\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Enumerations\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+enum {\b BinaryType} : uint \{ {\b SCS_32BIT_BINARY} = 0
+, {\b SCS_64BIT_BINARY} = 6
+ \}{\bkmkstart AAAAAAAACW}
+{\bkmkend AAAAAAAACW}
+\par
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupExecutor.Models Namespace Reference\par \pard\plain 
+{\tc\tcl2 \v BackupExecutor.Models}
+{\xe \v BackupExecutor.Models}
+{\bkmkstart AAAAAAAAEC}
+{\bkmkend AAAAAAAAEC}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b CreateLog}\par
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupExecutor.Properties Namespace Reference\par \pard\plain 
+{\tc\tcl2 \v BackupExecutor.Properties}
+{\xe \v BackupExecutor.Properties}
+{\bkmkstart AAAAAAAAED}
+{\bkmkend AAAAAAAAED}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Resources}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A strongly-typed resource class, for looking up localized strings, etc. }}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Settings}\par
+}
+
+\pard\plain \sect\sbkpage
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+Class Documentation{\tc \v Class Documentation}
+\par \pard\plain 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddInCommon.BackupSettings Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddInCommon.BackupSettings}
+{\xe \v BackupAddInCommon.BackupSettings}
+{\bkmkstart AAAAAAAABU}
+{\bkmkend AAAAAAAABU}
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Class holding the configuration options. }}\par
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+{\b BackupSettings} (){\bkmkstart AAAAAAAABV}
+{\bkmkend AAAAAAAABV}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default constructor. }{
+}\par
+}\par}
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Static Public Attributes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+static List< MailMessage > {\b emailQueue} = new List<MailMessage>(){\bkmkstart AAAAAAAABW}
+{\bkmkend AAAAAAAABW}
+\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Properties\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+string {\b DestinationPath}{\f2  [get, set]}{\bkmkstart AAAAAAAABX}
+{\bkmkend AAAAAAAABX}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destination path for the backup files. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+string {\b BackupProgram}{\f2  [get, set]}{\bkmkstart AAAAAAAABY}
+{\bkmkend AAAAAAAABY}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Program to run after exiting outlook. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+int {\b Interval}{\f2  [get, set]}{\bkmkstart AAAAAAAABZ}
+{\bkmkend AAAAAAAABZ}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Interval in days when to run the backup program again. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+int {\b IntervalHours}{\f2  [get, set]}{\bkmkstart AAAAAAAACA}
+{\bkmkend AAAAAAAACA}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Additional interval in hours which is added to the days. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+DateTime {\b LastRun}{\f2  [get, set]}{\bkmkstart AAAAAAAACB}
+{\bkmkend AAAAAAAACB}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Date of the last run of backup. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+StringCollection {\b Items}{\f2  [get, set]}{\bkmkstart AAAAAAAACC}
+{\bkmkend AAAAAAAACC}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+List of files to backup. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+int {\b WaitTimeFileLock}{\f2  [get, set]}{\bkmkstart AAAAAAAACD}
+{\bkmkend AAAAAAAACD}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Wait time when file is locked. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+string {\b BackupPrefix}{\f2  [get, set]}{\bkmkstart AAAAAAAACE}
+{\bkmkend AAAAAAAACE}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prefix for filename of backup. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+string {\b BackupSuffix}{\f2  [get, set]}{\bkmkstart AAAAAAAACF}
+{\bkmkend AAAAAAAACF}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Suffix for filename of backup. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+bool {\b BackupAll}{\f2  [get, set]}{\bkmkstart AAAAAAAACG}
+{\bkmkend AAAAAAAACG}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Flag whether to backup all pst-files. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+string {\b PostBackupCmd}{\f2  [get, set]}{\bkmkstart AAAAAAAACH}
+{\bkmkend AAAAAAAACH}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Command to run after backup finished. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+bool {\b ShowOSTFiles}{\f2  [get, set]}{\bkmkstart AAAAAAAACI}
+{\bkmkend AAAAAAAACI}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Try to decode path to OST-files. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+bool {\b IgnoreEncryption}{\f2  [get, set]}{\bkmkstart AAAAAAAACJ}
+{\bkmkend AAAAAAAACJ}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Flag whether encrypted files might get decrypted. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+bool {\b UseCompression}{\f2  [get, set]}{\bkmkstart AAAAAAAACK}
+{\bkmkend AAAAAAAACK}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Flag whether files should be compressed. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+long {\b Filesizelastbackup}{\f2  [get, set]}{\bkmkstart AAAAAAAACL}
+{\bkmkend AAAAAAAACL}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Tamanho em bytes do backup feito ,variavel usada para enviar email smtp. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+bool {\b AllowSettingsAccess}{\f2  [get, set]}{\bkmkstart AAAAAAAACM}
+{\bkmkend AAAAAAAACM}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Flag whether user can open settings dialog. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+bool {\b ShutdownWhenFinished}{\f2  [get, set]}{\bkmkstart AAAAAAAACN}
+{\bkmkend AAAAAAAACN}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+flag for the default settings to shutdown when finished }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+int {\b CountdownSeconds}{\f2  [get, set]}{\bkmkstart AAAAAAAACO}
+{\bkmkend AAAAAAAACO}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Counter to give user opportunity to close window before backup starts. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+List< int > {\b StoreTypeBlacklist}{\f2  [get, set]}{\bkmkstart AAAAAAAACP}
+{\bkmkend AAAAAAAACP}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+List of store types to hide. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+string {\b ProfileName}{\f2  [get, set]}{\bkmkstart AAAAAAAACQ}
+{\bkmkend AAAAAAAACQ}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+used profile name }{
+}\par
+}\par}
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Class holding the configuration options. \par
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/BackupSettings.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddInCommon.BackupSettingsDao Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddInCommon.BackupSettingsDao}
+{\xe \v BackupAddInCommon.BackupSettingsDao}
+{\bkmkstart AAAAAAAACR}
+{\bkmkend AAAAAAAACR}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Static Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static String {\b GetConfigFilePath} ()\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Determine config-file location. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static bool {\b SaveSettings} ({\b BackupSettings} config)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Saves the current settings to registry or file. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static {\b BackupSettings} {\b LoadSettings} ()\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Saves the current settings to disk. }{
+}\par
+}\par}
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Member Function Documentation\par
+\pard\plain 
+{\xe \v GetConfigFilePath\:BackupAddInCommon.BackupSettingsDao}
+{\xe \v BackupAddInCommon.BackupSettingsDao\:GetConfigFilePath}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static String BackupAddInCommon.BackupSettingsDao.GetConfigFilePath (){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAACS}
+{\bkmkend AAAAAAAACS}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Determine config-file location. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+Location of the config file\par
+}}}}
+{\xe \v LoadSettings\:BackupAddInCommon.BackupSettingsDao}
+{\xe \v BackupAddInCommon.BackupSettingsDao\:LoadSettings}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static {\b BackupSettings} BackupAddInCommon.BackupSettingsDao.LoadSettings (){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAACT}
+{\bkmkend AAAAAAAACT}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Saves the current settings to disk. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+/// {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i config} \cell }{Configration to save\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+true, if save action was successful\par
+}}Returns the saved settings or null if not present\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+Returns the saved settings from disk\par
+}}}}
+{\xe \v SaveSettings\:BackupAddInCommon.BackupSettingsDao}
+{\xe \v BackupAddInCommon.BackupSettingsDao\:SaveSettings}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static bool BackupAddInCommon.BackupSettingsDao.SaveSettings ({\b BackupSettings} config){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAACU}
+{\bkmkend AAAAAAAACU}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Saves the current settings to registry or file. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+/// {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i config} \cell }{Configration to save\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+true, if save action was successful\par
+}}}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/BackupSettingsDao.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupExecutor.BackupTool Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupExecutor.BackupTool}
+{\xe \v BackupExecutor.BackupTool}
+{\bkmkstart AAAAAAAACX}
+{\bkmkend AAAAAAAACX}
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Utility class for backing up outlook files. }}\par
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+delegate void {\b Logger} (string message){\bkmkstart AAAAAAAACY}
+{\bkmkend AAAAAAAACY}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Log-delegate for sending error information. }{
+}\par
+}\par}
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Static Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+static void {\b SetFileLabel} (System.Windows.Forms.Label lbl){\bkmkstart AAAAAAAACZ}
+{\bkmkend AAAAAAAACZ}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Set a label to report currently copied file. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+static void {\b SetMegaByesPerSecondLabel} (System.Windows.Forms.Label lbl){\bkmkstart AAAAAAAADA}
+{\bkmkend AAAAAAAADA}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Set a label to report transfer speed. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+static void {\b SetProgressBar} (System.Windows.Forms.ProgressBar pb){\bkmkstart AAAAAAAADB}
+{\bkmkend AAAAAAAADB}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Set a progress bar to report copy progress. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+static void {\b SetTotalProgressBar} (System.Windows.Forms.ProgressBar pb){\bkmkstart AAAAAAAADC}
+{\bkmkend AAAAAAAADC}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Set a progress bar to report status of whole copy progress. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static int {\b TryBackup} ({\b BackupSettings} config, {\b Logger} log)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Waits, till outlook ends and then starts the backup process. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static bool {\b WaitForProcessEnd} (string name, {\b Logger} log)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Waits, till the process is not running any more. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static bool {\b IsProcessOpen} (string name, {\b Logger} log)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Checks whether a certain process is running. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static long {\b GetFileLength} (string path, {\b Logger} log)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Get lenght of file in bytes. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static bool {\b FileExists} (string file)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Check whether file exists. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static void {\b ShutdownComputer} ()\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+shutdown computer }{
+}\par
+}\par}
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Static Public Attributes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+static bool {\b CanExit} = false{\bkmkstart AAAAAAAADD}
+{\bkmkend AAAAAAAADD}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Flag, whether user can close main window. }{
+}\par
+}\par}
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Static Protected Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static bool {\b IsFileLocked} (String file, {\b Logger} log)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Check whether a file is locked. }{
+}\par
+}\par}
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Utility class for backing up outlook files. \par
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Member Function Documentation\par
+\pard\plain 
+{\xe \v FileExists\:BackupExecutor.BackupTool}
+{\xe \v BackupExecutor.BackupTool\:FileExists}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static bool BackupExecutor.BackupTool.FileExists (string file){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAADE}
+{\bkmkend AAAAAAAADE}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Check whether file exists. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i file} \cell }{\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+\par
+}}}}
+{\xe \v GetFileLength\:BackupExecutor.BackupTool}
+{\xe \v BackupExecutor.BackupTool\:GetFileLength}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static long BackupExecutor.BackupTool.GetFileLength (string path, {\b Logger} log){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAADF}
+{\bkmkend AAAAAAAADF}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Get lenght of file in bytes. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i path} \cell }{\cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i log} \cell }{\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+\par
+}}}}
+{\xe \v IsFileLocked\:BackupExecutor.BackupTool}
+{\xe \v BackupExecutor.BackupTool\:IsFileLocked}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static bool BackupExecutor.BackupTool.IsFileLocked (String file, {\b Logger} log){\f2 [static]}, {\f2 [protected]}}}
+\par
+{\bkmkstart AAAAAAAADG}
+{\bkmkend AAAAAAAADG}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Check whether a file is locked. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i file} \cell }{file to be checked\cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i log} \cell }{logging delegate to send error information\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+\par
+}}}}
+{\xe \v IsProcessOpen\:BackupExecutor.BackupTool}
+{\xe \v BackupExecutor.BackupTool\:IsProcessOpen}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static bool BackupExecutor.BackupTool.IsProcessOpen (string name, {\b Logger} log){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAADH}
+{\bkmkend AAAAAAAADH}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Checks whether a certain process is running. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i name} \cell }{process name as seen witin the task manager\cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i log} \cell }{logging delegate to send error information\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+true, if process is still running\par
+}}}}
+{\xe \v ShutdownComputer\:BackupExecutor.BackupTool}
+{\xe \v BackupExecutor.BackupTool\:ShutdownComputer}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static void BackupExecutor.BackupTool.ShutdownComputer (){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAADI}
+{\bkmkend AAAAAAAADI}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+shutdown computer }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+\par
+}}}}
+{\xe \v TryBackup\:BackupExecutor.BackupTool}
+{\xe \v BackupExecutor.BackupTool\:TryBackup}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static int BackupExecutor.BackupTool.TryBackup ({\b BackupSettings} config, {\b Logger} log){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAADJ}
+{\bkmkend AAAAAAAADJ}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Waits, till outlook ends and then starts the backup process. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i config} \cell }{Stored configuration from outlook plugin\cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i log} \cell }{logging delegate to send error information\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+number of occurred errors\par
+}}}}
+{\xe \v WaitForProcessEnd\:BackupExecutor.BackupTool}
+{\xe \v BackupExecutor.BackupTool\:WaitForProcessEnd}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static bool BackupExecutor.BackupTool.WaitForProcessEnd (string name, {\b Logger} log){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAADK}
+{\bkmkend AAAAAAAADK}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Waits, till the process is not running any more. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i name} \cell }{process name (!) within task manager\cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i log} \cell }{logging delegate to send error information\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+returns true if the process is not running any more\par
+}}}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupExecutor/BackupTool.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn.BackupUtils Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn.BackupUtils}
+{\xe \v BackupAddIn.BackupUtils}
+{\bkmkstart AAAAAAAAAL}
+{\bkmkend AAAAAAAAAL}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Static Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+static List< String > {\b GetStoreLocations} ({\b BackupSettings} config, Stores st){\bkmkstart AAAAAAAAAM}
+{\bkmkend AAAAAAAAAM}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static string {\b ParsePathFromStoreID} (Store store)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Tries to extract the filepath from a store-id. }{
+}\par
+}\par}
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Member Function Documentation\par
+\pard\plain 
+{\xe \v ParsePathFromStoreID\:BackupAddIn.BackupUtils}
+{\xe \v BackupAddIn.BackupUtils\:ParsePathFromStoreID}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static string BackupAddIn.BackupUtils.ParsePathFromStoreID (Store store){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAAAN}
+{\bkmkend AAAAAAAAAN}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Tries to extract the filepath from a store-id. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i store} \cell }{outlook file store\cell }
+{\row }
+}
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/BackupUtils.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn.FBackupSettings Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn.FBackupSettings}
+{\xe \v BackupAddIn.FBackupSettings}
+{\bkmkstart AAAAAAAAAO}
+{\bkmkend AAAAAAAAAO}
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Settings dialog for backup configuration. }}\par
+Inheritance diagram for BackupAddIn.FBackupSettings:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "class_backup_add_in_1_1_f_backup_settings.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+{\b FBackupSettings} (){\bkmkstart AAAAAAAAAP}
+{\bkmkend AAAAAAAAAP}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default constructor. }{
+}\par
+}\par}
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Protected Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+override void {\b Dispose} (bool disposing)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Clean up any resources being used. }{
+}\par
+}\par}
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Settings dialog for backup configuration. \par
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Member Function Documentation\par
+\pard\plain 
+{\xe \v Dispose\:BackupAddIn.FBackupSettings}
+{\xe \v BackupAddIn.FBackupSettings\:Dispose}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+override void BackupAddIn.FBackupSettings.Dispose (bool disposing){\f2 [protected]}}}
+\par
+{\bkmkstart AAAAAAAAAQ}
+{\bkmkend AAAAAAAAAQ}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Clean up any resources being used. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i disposing} \cell }{true if managed resources should be disposed; otherwise, false.\cell }
+{\row }
+}
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following files:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/Settings.cs\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/Settings.Designer.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupExecutor.FrmMain Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupExecutor.FrmMain}
+{\xe \v BackupExecutor.FrmMain}
+{\bkmkstart AAAAAAAADL}
+{\bkmkend AAAAAAAADL}
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Main window of the backup program. }}\par
+Inheritance diagram for BackupExecutor.FrmMain:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "class_backup_executor_1_1_frm_main.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+{\b FrmMain} (){\bkmkstart AAAAAAAADM}
+{\bkmkend AAAAAAAADM}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default constructor. }{
+}\par
+}\par}
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Protected Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+override void {\b OnLoad} (EventArgs e){\bkmkstart AAAAAAAADN}
+{\bkmkend AAAAAAAADN}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Load configuration and execute backup if necessary. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+override void {\b Dispose} (bool disposing)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Clean up any resources being used. }{
+}\par
+}\par}
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Main window of the backup program. \par
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Member Function Documentation\par
+\pard\plain 
+{\xe \v Dispose\:BackupExecutor.FrmMain}
+{\xe \v BackupExecutor.FrmMain\:Dispose}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+override void BackupExecutor.FrmMain.Dispose (bool disposing){\f2 [protected]}}}
+\par
+{\bkmkstart AAAAAAAADO}
+{\bkmkend AAAAAAAADO}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Clean up any resources being used. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i disposing} \cell }{true if managed resources should be disposed; otherwise, false.\cell }
+{\row }
+}
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following files:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupExecutor/Main.cs\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupExecutor/Main.Designer.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupExecutor.InstanceAlreadyRunningException Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupExecutor.InstanceAlreadyRunningException}
+{\xe \v BackupExecutor.InstanceAlreadyRunningException}
+{\bkmkstart AAAAAAAADP}
+{\bkmkend AAAAAAAADP}
+Inheritance diagram for BackupExecutor.InstanceAlreadyRunningException:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "class_backup_executor_1_1_instance_already_running_exception.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+{\b InstanceAlreadyRunningException} (string message){\bkmkstart AAAAAAAADQ}
+{\bkmkend AAAAAAAADQ}
+\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupExecutor/InstanceAlreadyRunningException.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn.Ribbon Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn.Ribbon}
+{\xe \v BackupAddIn.Ribbon}
+{\bkmkstart AAAAAAAAAR}
+{\bkmkend AAAAAAAAAR}
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b Ribbon} extension for backup configuration dialog. }}\par
+Inheritance diagram for BackupAddIn.Ribbon:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "class_backup_add_in_1_1_ribbon.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+{\b Ribbon} ({\b ThisAddIn} a){\bkmkstart AAAAAAAAAS}
+{\bkmkend AAAAAAAAAS}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default constructor. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+string {\b GetCustomUI} (string ribbonID){\bkmkstart AAAAAAAAAT}
+{\bkmkend AAAAAAAAAT}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns the xml for ribbon extension. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+void {\b SetAccessSettingsAllowed} (bool b){\bkmkstart AAAAAAAAAU}
+{\bkmkend AAAAAAAAAU}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+set flag whether user is allowed to access settings page }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+bool {\b IsAccessingSettingsAllowed} (Office.IRibbonControl control){\bkmkstart AAAAAAAAAV}
+{\bkmkend AAAAAAAAAV}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+get flag whether user is allowed to access settings page }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+void {\b Ribbon_Load} (Office.IRibbonUI ribbonUI){\bkmkstart AAAAAAAAAW}
+{\bkmkend AAAAAAAAAW}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Extends ribbon of outlook for backup configuration. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+void {\b OpenBackupSettings} (Office.IRibbonControl control){\bkmkstart AAAAAAAAAX}
+{\bkmkend AAAAAAAAAX}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Open configuration dialog. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+void {\b ScheduleBackupOnExit} (Office.IRibbonControl control){\bkmkstart AAAAAAAAAY}
+{\bkmkend AAAAAAAAAY}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Schedule backup when outlook is closed. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+string {\b GetLabel} (Office.IRibbonControl Control){\bkmkstart AAAAAAAAAZ}
+{\bkmkend AAAAAAAAAZ}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Fetches the labels for the ribbon bar. }{
+}\par
+}\par}
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b Ribbon} extension for backup configuration dialog. \par
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/Ribbon.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupExecutor.SingleInstance Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupExecutor.SingleInstance}
+{\xe \v BackupExecutor.SingleInstance}
+{\bkmkstart AAAAAAAADY}
+{\bkmkend AAAAAAAADY}
+Inheritance diagram for BackupExecutor.SingleInstance:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "class_backup_executor_1_1_single_instance.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+{\b SingleInstance} (int timeOut){\bkmkstart AAAAAAAADZ}
+{\bkmkend AAAAAAAADZ}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+void {\b Dispose} (){\bkmkstart AAAAAAAAEA}
+{\bkmkend AAAAAAAAEA}
+\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Attributes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+bool {\b hasHandle} = false{\bkmkstart AAAAAAAAEB}
+{\bkmkend AAAAAAAAEB}
+\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupExecutor/SingleInstance.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn.ThisAddIn Class Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn.ThisAddIn}
+{\xe \v BackupAddIn.ThisAddIn}
+{\bkmkstart AAAAAAAABH}
+{\bkmkend AAAAAAAABH}
+Inheritance diagram for BackupAddIn.ThisAddIn:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "class_backup_add_in_1_1_this_add_in.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+{\b Ribbon} {\b GetRibbon} (){\bkmkstart AAAAAAAABI}
+{\bkmkend AAAAAAAABI}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Accessor for ribbon gui element. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+Outlook.Application {\b GetApplication} (){\bkmkstart AAAAAAAABJ}
+{\bkmkend AAAAAAAABJ}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+returns the instance of the outlook application. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+{\b ThisAddIn} (global::Microsoft.Office.Tools.Outlook.Factory factory, global::System.IServiceProvider serviceProvider){\bkmkstart AAAAAAAABK}
+{\bkmkend AAAAAAAABK}
+\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Protected Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+override Microsoft.Office.Core.IRibbonExtensibility {\b CreateRibbonExtensibilityObject} (){\bkmkstart AAAAAAAABL}
+{\bkmkend AAAAAAAABL}
+\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Extends ribbon bar of outlook. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+override void {\b Initialize} (){\bkmkstart AAAAAAAABM}
+{\bkmkend AAAAAAAABM}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+override void {\b FinishInitialization} (){\bkmkstart AAAAAAAABN}
+{\bkmkend AAAAAAAABN}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+override void {\b InitializeDataBindings} (){\bkmkstart AAAAAAAABO}
+{\bkmkend AAAAAAAABO}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+override void {\b OnShutdown} (){\bkmkstart AAAAAAAABP}
+{\bkmkend AAAAAAAABP}
+\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following files:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/ThisAddIn.cs\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/ThisAddIn.Designer.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+WCA_CASCRIPT_STRUCT Struct Reference\par \pard\plain 
+{\tc\tcl2 \v WCA_CASCRIPT_STRUCT}
+{\xe \v WCA_CASCRIPT_STRUCT}
+{\bkmkstart AAAAAAAAAH}
+{\bkmkend AAAAAAAAAH}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Attributes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+LPWSTR {\b pwzScriptPath}{\bkmkstart AAAAAAAAAI}
+{\bkmkend AAAAAAAAAI}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+HANDLE {\b hScriptFile}{\bkmkstart AAAAAAAAAJ}
+{\bkmkend AAAAAAAAAJ}
+\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this struct was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/wcautil.h\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupAddIn.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA Struct Reference\par \pard\plain 
+{\tc\tcl2 \v BackupAddIn.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA}
+{\xe \v BackupAddIn.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA}
+{\bkmkstart AAAAAAAABA}
+{\bkmkend AAAAAAAABA}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Attributes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+FileAttributes {\b dwFileAttributes}{\bkmkstart AAAAAAAABB}
+{\bkmkend AAAAAAAABB}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+System.Runtime.InteropServices.ComTypes.FILETIME {\b ftCreationTime}{\bkmkstart AAAAAAAABC}
+{\bkmkend AAAAAAAABC}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+System.Runtime.InteropServices.ComTypes.FILETIME {\b ftLastAccessTime}{\bkmkstart AAAAAAAABD}
+{\bkmkend AAAAAAAABD}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+System.Runtime.InteropServices.ComTypes.FILETIME {\b ftLastWriteTime}{\bkmkstart AAAAAAAABE}
+{\bkmkend AAAAAAAABE}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+uint {\b nFileSizeHigh}{\bkmkstart AAAAAAAABF}
+{\bkmkend AAAAAAAABF}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+uint {\b nFileSizeLow}{\bkmkstart AAAAAAAABG}
+{\bkmkend AAAAAAAABG}
+\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this struct was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupAddIn/SafeNativeMethods.cs\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BackupExecutor.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA Struct Reference\par \pard\plain 
+{\tc\tcl2 \v BackupExecutor.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA}
+{\xe \v BackupExecutor.SafeNativeMethods.WIN32_FILE_ATTRIBUTE_DATA}
+{\bkmkstart AAAAAAAADR}
+{\bkmkend AAAAAAAADR}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Attributes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+FileAttributes {\b dwFileAttributes}{\bkmkstart AAAAAAAADS}
+{\bkmkend AAAAAAAADS}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+System.Runtime.InteropServices.ComTypes.FILETIME {\b ftCreationTime}{\bkmkstart AAAAAAAADT}
+{\bkmkend AAAAAAAADT}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+System.Runtime.InteropServices.ComTypes.FILETIME {\b ftLastAccessTime}{\bkmkstart AAAAAAAADU}
+{\bkmkend AAAAAAAADU}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+System.Runtime.InteropServices.ComTypes.FILETIME {\b ftLastWriteTime}{\bkmkstart AAAAAAAADV}
+{\bkmkend AAAAAAAADV}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+uint {\b nFileSizeHigh}{\bkmkstart AAAAAAAADW}
+{\bkmkend AAAAAAAADW}
+\par
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+
+uint {\b nFileSizeLow}{\bkmkstart AAAAAAAADX}
+{\bkmkend AAAAAAAADX}
+\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this struct was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/BackupExecutor/SafeNativeMethods.cs\par
+}
+\pard\plain \sect\sbkpage
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+File Documentation{\tc \v File Documentation}
+\par \pard\plain 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+stdafx.h\par \pard\plain 
+{\tc\tcl2 \v C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/stdafx.h}
+{\xe \v C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/stdafx.h}
+{\bkmkstart AAAAAAAAAA}
+{\bkmkend AAAAAAAAAA}
+{
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 1 {\cf20 // stdafx.h : include file for standard system include files,}\par
+2 {\cf20 // or project specific include files that are used frequently, but}\par
+3 {\cf20 // are changed infrequently}\par
+4 {\cf20 //}\par
+5 \par
+6 {\cf21 #pragma once}\par
+7 \par
+8 {\cf21 #include "targetver.h"}\par
+9 \par
+10 {\cf21 #define WIN32_LEAN_AND_MEAN             }{\cf20 // Exclude rarely-used stuff from Windows headers}\par
+11 {\cf20 // Windows Header Files:}\par
+12 {\cf21 #include <windows.h>}\par
+13 {\cf21 #include <strsafe.h>}\par
+14 {\cf21 #include <msiquery.h>}\par
+15 \par
+16 {\cf20 // WiX Header Files:}\par
+17 {\cf21 #include "wcautil.h"}\par
+18 \par
+19 {\cf20 // TODO: reference additional headers your program requires here}\par
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+targetver.h\par \pard\plain 
+{\tc\tcl2 \v C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/targetver.h}
+{\xe \v C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/targetver.h}
+{\bkmkstart AAAAAAAAAB}
+{\bkmkend AAAAAAAAAB}
+{
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 1 {\cf21 #pragma once}\par
+2 \par
+3 {\cf20 // The following macros define the minimum required platform.  The minimum required platform}\par
+4 {\cf20 // is the earliest version of Windows, Internet Explorer etc. that has the necessary features to run }\par
+5 {\cf20 // your application.  The macros work by enabling all features available on platform versions up to and }\par
+6 {\cf20 // including the version specified.}\par
+7 \par
+8 {\cf20 // Modify the following defines if you have to target a platform prior to the ones specified below.}\par
+9 {\cf20 // Refer to MSDN for the latest info on corresponding values for different platforms.}\par
+10 {\cf21 #ifndef WINVER                  }{\cf20 // Specifies that the minimum required platform is Windows 2000.}\par
+11 {\cf21 #define WINVER 0x0500           }{\cf20 // Change this to the appropriate value to target other versions of Windows.}\par
+12 {\cf21 #endif}\par
+13 \par
+14 {\cf21 #ifndef _WIN32_WINNT            }{\cf20 // Specifies that the minimum required platform is Windows 2000.}\par
+15 {\cf21 #define _WIN32_WINNT 0x0500     }{\cf20 // Change this to the appropriate value to target other versions of Windows.}\par
+16 {\cf21 #endif}\par
+17 \par
+18 {\cf21 #ifndef _WIN32_IE               }{\cf20 // Specifies that the minimum required platform is Internet Explorer 5.0.}\par
+19 {\cf21 #define _WIN32_IE 0x0500        }{\cf20 // Change this to the appropriate value to target other versions of IE.}\par
+20 {\cf21 #endif}\par
+21 \par
+22 {\cf21 #ifndef _WIN32_MSI              }{\cf20 // Specifies that the minimum required MSI version is MSI 3.1}\par
+23 {\cf21 #define _WIN32_MSI 310          }{\cf20 // Change this to the appropriate value to target other versions of MSI.}\par
+24 {\cf21 #endif}\par
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+wcautil.h\par \pard\plain 
+{\tc\tcl2 \v C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/wcautil.h}
+{\xe \v C:/Users/gg/Documents/DADOS/ITEC-PROJECTS/outlookbackupaddin/CustomAction/wcautil.h}
+{\bkmkstart AAAAAAAAAC}
+{\bkmkend AAAAAAAAAC}
+{
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 1 {\cf21 #pragma once}\par
+2 {\cf20 // Copyright (c) .NET Foundation and contributors. All rights reserved. Licensed under the Microsoft Reciprocal License. See LICENSE.TXT file in the project root for full license information.}\par
+3 \par
+4 \par
+5 {\cf21 #ifdef __cplusplus}\par
+6 {\cf17 extern} {\cf22 "C"} \{\par
+7 {\cf21 #endif}\par
+8 \par
+9 {\cf21 #define WIXAPI __stdcall}\par
+10 {\cf21 #define ExitTrace WcaLogError}\par
+11 {\cf21 #define ExitTrace1 WcaLogError}\par
+12 {\cf21 #define ExitTrace2 WcaLogError}\par
+13 {\cf21 #define ExitTrace3 WcaLogError}\par
+14 \par
+15 {\cf21 #include "dutil.h"}\par
+16 \par
+17 {\cf21 #define MessageExitOnLastError(x, e, s)      \{ x = ::GetLastError(); x = HRESULT_FROM_WIN32(x); if (FAILED(x)) \{ ExitTrace(x, "%s", s); WcaErrorMessage(e, x, MB_OK, 0);  goto LExit; \} \}}\par
+18 {\cf21 #define MessageExitOnLastError1(x, e, f, s)  \{ x = ::GetLastError(); x = HRESULT_FROM_WIN32(x); if (FAILED(x)) \{ ExitTrace1(x, f, s); WcaErrorMessage(e, x, MB_OK, 1, s);  goto LExit; \} \}}\par
+19 \par
+20 {\cf21 #define MessageExitOnFailure(x, e, s)           if (FAILED(x)) \{ ExitTrace(x, "%s", s); WcaErrorMessage(e, x, INSTALLMESSAGE_ERROR | MB_OK, 0);  goto LExit; \}}\par
+21 {\cf21 #define MessageExitOnFailure1(x, e, f, s)       if (FAILED(x)) \{ ExitTrace1(x, f, s); WcaErrorMessage(e, x, INSTALLMESSAGE_ERROR | MB_OK, 1, s);  goto LExit; \}}\par
+22 {\cf21 #define MessageExitOnFailure2(x, e, f, s, t)    if (FAILED(x)) \{ ExitTrace2(x, f, s, t); WcaErrorMessage(e, x, INSTALLMESSAGE_ERROR | MB_OK, 2, s, t);  goto LExit; \}}\par
+23 {\cf21 #define MessageExitOnFailure3(x, e, f, s, t, u) if (FAILED(x)) \{ ExitTrace2(x, f, s, t, u); WcaErrorMessage(e, x, INSTALLMESSAGE_ERROR | MB_OK, 3, s, t, u);  goto LExit; \}}\par
+24 \par
+25 {\cf21 #define MessageExitOnNullWithLastError(p, x, e, s) if (NULL == p) \{ x = ::GetLastError(); x = HRESULT_FROM_WIN32(x); if (!FAILED(x)) \{ x = E_FAIL; \} ExitTrace(x, "%s", s); WcaErrorMessage(e, x, MB_OK, 0);  goto LExit; \}}\par
+26 {\cf21 #define MessageExitOnNullWithLastError1(p, x, e, f, s) if (NULL == p) \{ x = ::GetLastError(); x = HRESULT_FROM_WIN32(x); if (!FAILED(x)) \{ x = E_FAIL; \} ExitTrace(x, f, s); WcaErrorMessage(e, x, MB_OK, 1, s);  goto LExit; \}}\par
+27 {\cf21 #define MessageExitOnNullWithLastError2(p, x, e, f, s, t) if (NULL == p) \{ x = ::GetLastError(); x = HRESULT_FROM_WIN32(x); if (!FAILED(x)) \{ x = E_FAIL; \} ExitTrace(x, f, s, t); WcaErrorMessage(e, x, MB_OK, 2, s, t);  goto LExit; \}}\par
+28 \par
+29 {\cf20 // Generic action enum.}\par
+30 {\cf17 typedef} {\cf17 enum} WCA_ACTION\par
+31 \{\par
+32     WCA_ACTION_NONE,\par
+33     WCA_ACTION_INSTALL,\par
+34     WCA_ACTION_UNINSTALL,\par
+35 \} WCA_ACTION;\par
+36 \par
+37 {\cf17 typedef} {\cf17 enum} WCA_CASCRIPT\par
+38 \{\par
+39     WCA_CASCRIPT_SCHEDULED,\par
+40     WCA_CASCRIPT_ROLLBACK,\par
+41 \} WCA_CASCRIPT;\par
+42 \par
+43 {\cf17 typedef} {\cf17 enum} WCA_CASCRIPT_CLOSE\par
+44 \{\par
+45     WCA_CASCRIPT_CLOSE_PRESERVE,\par
+46     WCA_CASCRIPT_CLOSE_DELETE,\par
+47 \} WCA_CASCRIPT_CLOSE; \par
+48 \par
+49 {\cf17 typedef} {\cf17 enum} WCA_TODO\par
+50 \{\par
+51     WCA_TODO_UNKNOWN,\par
+52     WCA_TODO_INSTALL,\par
+53     WCA_TODO_UNINSTALL,\par
+54     WCA_TODO_REINSTALL,\par
+55 \} WCA_TODO;\par
+56 \par
+57 {\cf17 typedef} {\cf17 struct }WCA_CASCRIPT_STRUCT\par
+58 \{\par
+59     LPWSTR pwzScriptPath;\par
+60     HANDLE hScriptFile;\par
+61 \} *WCA_CASCRIPT_HANDLE;\par
+62 \par
+63 {\cf18 void} WIXAPI WcaGlobalInitialize(\par
+64     __in HINSTANCE hInst\par
+65     );\par
+66 {\cf18 void} WIXAPI WcaGlobalFinalize();\par
+67 \par
+68 HRESULT WIXAPI WcaInitialize(\par
+69     __in MSIHANDLE hInstall,\par
+70     __in_z PCSTR szCustomActionLogName\par
+71     );\par
+72 UINT WIXAPI WcaFinalize(\par
+73     __in UINT iReturnValue\par
+74     );\par
+75 BOOL WIXAPI WcaIsInitialized();\par
+76 \par
+77 MSIHANDLE WIXAPI WcaGetInstallHandle();\par
+78 MSIHANDLE WIXAPI WcaGetDatabaseHandle();\par
+79 \par
+80 {\cf17 const} {\cf18 char}* WIXAPI WcaGetLogName();\par
+81 \par
+82 {\cf18 void} WIXAPI WcaSetReturnValue(\par
+83     __in UINT iReturnValue\par
+84     );\par
+85 BOOL WIXAPI WcaCancelDetected();\par
+86 \par
+87 {\cf21 #define LOG_BUFFER 2048}\par
+88 {\cf17 typedef} {\cf17 enum} LOGLEVEL\par
+89 \{ \par
+90     LOGMSG_TRACEONLY,  {\cf20 // Never written to the log file (except in DEBUG builds)}\par
+91     LOGMSG_VERBOSE,    {\cf20 // Written to log when LOGVERBOSE}\par
+92     LOGMSG_STANDARD    {\cf20 // Written to log whenever informational logging is enabled}\par
+93 \} LOGLEVEL;\par
+94 \par
+95 {\cf18 void} __cdecl WcaLog(\par
+96     __in LOGLEVEL llv,\par
+97     __in_z __format_string PCSTR fmt, ...\par
+98     );\par
+99 BOOL WIXAPI WcaDisplayAssert(\par
+100     __in LPCSTR sz\par
+101     );\par
+102 {\cf18 void} __cdecl WcaLogError(\par
+103     __in HRESULT hr,\par
+104     __in LPCSTR szMessage,\par
+105     ...\par
+106     );\par
+107 \par
+108 UINT WIXAPI WcaProcessMessage(\par
+109     __in INSTALLMESSAGE eMessageType,\par
+110     __in MSIHANDLE hRecord\par
+111     );\par
+112 UINT __cdecl WcaErrorMessage(\par
+113     __in {\cf18 int} iError, \par
+114     __in HRESULT hrError, \par
+115     __in UINT uiType, \par
+116     __in DWORD cArgs, \par
+117     ...\par
+118     );\par
+119 HRESULT WIXAPI WcaProgressMessage(\par
+120     __in UINT uiCost,\par
+121     __in BOOL fExtendProgressBar\par
+122     );\par
+123 \par
+124 BOOL WIXAPI WcaIsInstalling(\par
+125     __in INSTALLSTATE isInstalled,\par
+126     __in INSTALLSTATE isAction\par
+127     );\par
+128 BOOL WIXAPI WcaIsReInstalling(\par
+129     __in INSTALLSTATE isInstalled,\par
+130     __in INSTALLSTATE isAction\par
+131     );\par
+132 BOOL WIXAPI WcaIsUninstalling(\par
+133     __in INSTALLSTATE isInstalled,\par
+134     __in INSTALLSTATE isAction\par
+135     );\par
+136 \par
+137 HRESULT WIXAPI WcaSetComponentState(\par
+138     __in_z LPCWSTR wzComponent,\par
+139     __in INSTALLSTATE isState\par
+140     );\par
+141 \par
+142 HRESULT WIXAPI WcaTableExists(\par
+143     __in_z LPCWSTR wzTable\par
+144     );\par
+145 \par
+146 HRESULT WIXAPI WcaOpenView(\par
+147     __in_z LPCWSTR wzSql,\par
+148     __out MSIHANDLE* phView\par
+149     );\par
+150 HRESULT WIXAPI WcaExecuteView(\par
+151     __in MSIHANDLE hView,\par
+152     __in MSIHANDLE hRec\par
+153     );\par
+154 HRESULT WIXAPI WcaOpenExecuteView(\par
+155     __in_z LPCWSTR wzSql,\par
+156     __out MSIHANDLE* phView\par
+157     );\par
+158 HRESULT WIXAPI WcaFetchRecord(\par
+159     __in MSIHANDLE hView,\par
+160     __out MSIHANDLE* phRec\par
+161     );\par
+162 HRESULT WIXAPI WcaFetchSingleRecord(\par
+163     __in MSIHANDLE hView,\par
+164     __out MSIHANDLE* phRec\par
+165     );\par
+166 \par
+167 HRESULT WIXAPI WcaGetProperty(\par
+168     __in_z LPCWSTR wzProperty,\par
+169     __inout LPWSTR* ppwzData\par
+170     );\par
+171 HRESULT WIXAPI WcaGetFormattedProperty(\par
+172     __in_z LPCWSTR wzProperty,\par
+173     __out LPWSTR* ppwzData\par
+174     );\par
+175 HRESULT WIXAPI WcaGetFormattedString(\par
+176     __in_z LPCWSTR wzString,\par
+177     __out LPWSTR* ppwzData\par
+178     );\par
+179 HRESULT WIXAPI WcaGetIntProperty(\par
+180     __in_z LPCWSTR wzProperty,\par
+181     __inout {\cf18 int}* piData\par
+182     );\par
+183 HRESULT WIXAPI WcaGetTargetPath(\par
+184     __in_z LPCWSTR wzFolder,\par
+185     __out LPWSTR* ppwzData\par
+186     );\par
+187 HRESULT WIXAPI WcaSetProperty(\par
+188     __in_z LPCWSTR wzPropertyName,\par
+189     __in_z LPCWSTR wzPropertyValue\par
+190     );\par
+191 HRESULT WIXAPI WcaSetIntProperty(\par
+192     __in_z LPCWSTR wzPropertyName,\par
+193     __in {\cf18 int} nPropertyValue\par
+194     );\par
+195 BOOL WIXAPI WcaIsPropertySet(\par
+196     __in LPCSTR szProperty\par
+197     );\par
+198 BOOL WIXAPI WcaIsUnicodePropertySet(\par
+199     __in LPCWSTR wzProperty\par
+200     );\par
+201 \par
+202 HRESULT WIXAPI WcaGetRecordInteger(\par
+203     __in MSIHANDLE hRec,\par
+204     __in UINT uiField,\par
+205     __inout {\cf18 int}* piData\par
+206     );\par
+207 HRESULT WIXAPI WcaGetRecordString(\par
+208     __in MSIHANDLE hRec,\par
+209     __in UINT uiField,\par
+210     __inout LPWSTR* ppwzData\par
+211     );\par
+212 HRESULT WIXAPI WcaGetRecordFormattedInteger(\par
+213     __in MSIHANDLE hRec,\par
+214     __in UINT uiField,\par
+215     __out {\cf18 int}* piData\par
+216     );\par
+217 HRESULT WIXAPI WcaGetRecordFormattedString(\par
+218     __in MSIHANDLE hRec,\par
+219     __in UINT uiField,\par
+220     __inout LPWSTR* ppwzData\par
+221     );\par
+222 \par
+223 HRESULT WIXAPI WcaAllocStream(\par
+224     __deref_out_bcount_part(cbData, 0) BYTE** ppbData,\par
+225     __in DWORD cbData\par
+226     );\par
+227 HRESULT WIXAPI WcaFreeStream(\par
+228     __in BYTE* pbData\par
+229     );\par
+230 \par
+231 HRESULT WIXAPI WcaGetRecordStream(\par
+232     __in MSIHANDLE hRecBinary,\par
+233     __in UINT uiField,\par
+234     __deref_out_bcount_full(*pcbData) BYTE** ppbData,\par
+235     __out DWORD* pcbData\par
+236     );\par
+237 HRESULT WIXAPI WcaSetRecordString(\par
+238     __in MSIHANDLE hRec,\par
+239     __in UINT uiField,\par
+240     __in_z LPCWSTR wzData\par
+241     );\par
+242 HRESULT WIXAPI WcaSetRecordInteger(\par
+243     __in MSIHANDLE hRec,\par
+244     __in UINT uiField,\par
+245     __in {\cf18 int} iValue\par
+246     );\par
+247 \par
+248 HRESULT WIXAPI WcaDoDeferredAction(\par
+249     __in_z LPCWSTR wzAction,\par
+250     __in_z LPCWSTR wzCustomActionData,\par
+251     __in UINT uiCost\par
+252     );\par
+253 DWORD WIXAPI WcaCountOfCustomActionDataRecords(\par
+254     __in_z LPCWSTR wzData\par
+255     );\par
+256 \par
+257 HRESULT WIXAPI WcaReadStringFromCaData(\par
+258     __deref_in LPWSTR* ppwzCustomActionData,\par
+259     __deref_out_z LPWSTR* ppwzString\par
+260     );\par
+261 HRESULT WIXAPI WcaReadIntegerFromCaData(\par
+262     __deref_in LPWSTR* ppwzCustomActionData,\par
+263     __out {\cf18 int}* piResult\par
+264     );\par
+265 HRESULT WIXAPI WcaReadStreamFromCaData(\par
+266     __deref_in LPWSTR* ppwzCustomActionData,\par
+267     __deref_out_bcount(*pcbData) BYTE** ppbData,\par
+268     __out DWORD_PTR* pcbData\par
+269     );\par
+270 HRESULT WIXAPI WcaWriteStringToCaData(\par
+271     __in_z LPCWSTR wzString,\par
+272     __deref_inout_z LPWSTR* ppwzCustomActionData\par
+273     );\par
+274 HRESULT WIXAPI WcaWriteIntegerToCaData(\par
+275     __in {\cf18 int} i, \par
+276     __deref_out_z_opt LPWSTR* ppwzCustomActionData\par
+277     );\par
+278 HRESULT WIXAPI WcaWriteStreamToCaData(\par
+279     __in_bcount(cbData) {\cf17 const} BYTE* pbData,\par
+280     __in DWORD cbData,\par
+281     __deref_inout_z_opt LPWSTR* ppwzCustomActionData\par
+282     );\par
+283 \par
+284 HRESULT __cdecl WcaAddTempRecord(\par
+285     __inout MSIHANDLE* phTableView,\par
+286     __inout MSIHANDLE* phColumns,\par
+287     __in_z LPCWSTR wzTable,\par
+288     __out_opt MSIDBERROR* pdbError,\par
+289     __in UINT uiUniquifyColumn,\par
+290     __in UINT cColumns,\par
+291     ...\par
+292     );\par
+293 \par
+294 HRESULT WIXAPI WcaDumpTable(\par
+295     __in_z LPCWSTR wzTable\par
+296     );\par
+297 \par
+298 HRESULT WIXAPI WcaDeferredActionRequiresReboot();\par
+299 BOOL WIXAPI WcaDidDeferredActionRequireReboot();\par
+300 \par
+301 HRESULT WIXAPI WcaCaScriptCreateKey(\par
+302     __out LPWSTR* ppwzScriptKey\par
+303     );\par
+304 \par
+305 HRESULT WIXAPI WcaCaScriptCreate(\par
+306     __in WCA_ACTION action,\par
+307     __in WCA_CASCRIPT script,\par
+308     __in BOOL fImpersonated,\par
+309     __in_z LPCWSTR wzScriptKey,\par
+310     __in BOOL fAppend,\par
+311     __out WCA_CASCRIPT_HANDLE* phScript\par
+312     );\par
+313 \par
+314 HRESULT WIXAPI WcaCaScriptOpen(\par
+315     __in WCA_ACTION action,\par
+316     __in WCA_CASCRIPT script,\par
+317     __in BOOL fImpersonated,\par
+318     __in_z LPCWSTR wzScriptKey,\par
+319     __out WCA_CASCRIPT_HANDLE* phScript\par
+320     );\par
+321 \par
+322 {\cf18 void} WIXAPI WcaCaScriptClose(\par
+323     __in_opt WCA_CASCRIPT_HANDLE hScript,\par
+324     __in WCA_CASCRIPT_CLOSE closeOperation\par
+325     );\par
+326 \par
+327 HRESULT WIXAPI WcaCaScriptReadAsCustomActionData(\par
+328     __in WCA_CASCRIPT_HANDLE hScript,\par
+329     __out LPWSTR* ppwzCustomActionData\par
+330     );\par
+331 \par
+332 HRESULT WIXAPI WcaCaScriptWriteString(\par
+333     __in WCA_CASCRIPT_HANDLE hScript,\par
+334     __in_z LPCWSTR wzValue\par
+335     );\par
+336 \par
+337 HRESULT WIXAPI WcaCaScriptWriteNumber(\par
+338     __in WCA_CASCRIPT_HANDLE hScript,\par
+339     __in DWORD dwValue\par
+340     );\par
+341 \par
+342 {\cf18 void} WIXAPI WcaCaScriptFlush(\par
+343     __in WCA_CASCRIPT_HANDLE hScript\par
+344     );\par
+345 \par
+346 {\cf18 void} WIXAPI WcaCaScriptCleanup(\par
+347     __in_z LPCWSTR wzProductCode,\par
+348     __in BOOL fImpersonated\par
+349     );\par
+350 \par
+351 HRESULT WIXAPI QuietExec(\par
+352     __inout_z LPWSTR wzCommand,\par
+353     __in DWORD dwTimeout\par
+354     );\par
+355 \par
+356 HRESULT WIXAPI QuietExecEx(\par
+357     __inout_z LPWSTR wzCommand,\par
+358     __in DWORD dwTimeout,\par
+359     __in BOOL fLogCommand,\par
+360     __in BOOL fLogOutput\par
+361     );\par
+362 \par
+363 WCA_TODO WIXAPI WcaGetComponentToDo(\par
+364     __in_z LPCWSTR wzComponentId\par
+365     );\par
+366 \par
+367 {\cf21 #ifdef __cplusplus}\par
+368 \}\par
+369 {\cf21 #endif}\par
+}
+
+\pard\plain \sect\sbkpage
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid Index\par 
+\pard\plain 
+{\tc \v Index}
+{\field\fldedit {\*\fldinst INDEX \\c2 \\*MERGEFORMAT}{\fldrslt INDEX}}
+}

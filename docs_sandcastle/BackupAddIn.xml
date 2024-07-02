@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BackupAddIn</name>
+    </assembly>
+    <members>
+        <member name="T:BackupAddInCommon.BackupSettings">
+            <summary>
+             Class holding the configuration options
+            </summary>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettings.#ctor">
+            <summary>
+             Default constructor
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.DestinationPath">
+            <summary>
+             Destination path for the backup files
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.BackupProgram">
+            <summary>
+             Program to run after exiting outlook
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.Interval">
+            <summary>
+             Interval in days when to run the backup program again
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.IntervalHours">
+            <summary>
+             Additional interval in hours which is added to the days
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.LastRun">
+            <summary>
+             Date of the last run of backup
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.Items">
+            <summary>
+             List of files to backup
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.WaitTimeFileLock">
+            <summary>
+             Wait time when file is locked
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.BackupPrefix">
+            <summary>
+             Prefix for filename of backup
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.BackupSuffix">
+            <summary>
+             Suffix for filename of backup
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.BackupAll">
+            <summary>
+             Flag whether to backup all pst-files
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.PostBackupCmd">
+            <summary>
+             Command to run after backup finished
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.ShowOSTFiles">
+            <summary>
+             Try to decode path to OST-files
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.IgnoreEncryption">
+            <summary>
+             Flag whether encrypted files might get decrypted
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.UseCompression">
+            <summary>
+             Flag whether files should be compressed
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.Filesizelastbackup">
+            <summary>
+            Tamanho em bytes do backup feito ,variavel usada para enviar email smtp
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.AllowSettingsAccess">
+            <summary>
+             Flag whether user can open settings dialog
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.ShutdownWhenFinished">
+            <summary>
+            flag for the default settings to shutdown when finished
+            </summary>
+        </member>
+        <member name="F:BackupAddInCommon.BackupSettings.countdownSeconds">
+            <summary>
+             Counter to give user opportunity to close window before backup starts
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.CountdownSeconds">
+            <summary>
+             Counter to give user opportunity to close window before backup starts
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.StoreTypeBlacklist">
+            <summary>
+             List of store types to hide
+            </summary>
+        </member>
+        <member name="P:BackupAddInCommon.BackupSettings.ProfileName">
+            <summary>
+             used profile name
+            </summary>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.GetConfigFilePath">
+            <summary>
+            Determine config-file location
+            </summary>
+            <returns>Location of the config file</returns>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.SaveSettings(BackupAddInCommon.BackupSettings)">
+            <summary>
+            Saves the current settings to registry or file
+            </summary>
+            /// <param name="config">Configration to save</param>
+            <returns>true, if save action was successful</returns>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.SaveSettingsToRegistry(BackupAddInCommon.BackupSettings)">
+            <summary>
+            Saves the current settings to registry
+            </summary>
+            /// <param name="config">Configration to save</param>
+            <returns>true, if save action was successful</returns>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.LoadSettings">
+            <summary>
+            Returns the saved settings or null if not present
+            </summary>
+            <returns>Returns the saved settings from disk</returns>
+        </member>
+        <member name="M:BackupAddInCommon.BackupSettingsDao.LoadSettingsFromRegistry">
+            <summary>
+            Returns the saved settings from registry or null if not present
+            </summary>
+            <returns>Returns the saved settings from disk</returns>
+        </member>
+        <member name="M:BackupAddIn.BackupUtils.ParsePathFromStoreID(Microsoft.Office.Interop.Outlook.Store)">
+            <summary>
+            Tries to extract the filepath from a store-id
+            </summary>
+            <param name="store">outlook file store</param>
+        </member>
+        <member name="P:BackupAddIn.Models.LoadXML.block">
+            <summary>
+            config do scanner
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Models.LoadXML.LoadingXMLFILE">
+            <summary>
+            ip da impressora da zebra
+            </summary>
+        </member>
+        <member name="T:BackupAddIn.lang.langres">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BackupAddIn.lang.langres.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BackupAddIn.lang.langres.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:BackupAddIn.lang.langres.BackupOnExit">
+            <summary>
+              Looks up a localized string similar to Backup On Exit.
+            </summary>
+        </member>
+        <member name="P:BackupAddIn.lang.langres.RibbonButtonBackup">
+            <summary>
+              Looks up a localized string similar to Backup.
+            </summary>
+        </member>
+        <member name="P:BackupAddIn.lang.langres.RibbonSettings">
+            <summary>
+              Looks up a localized string similar to Settings.
+            </summary>
+        </member>
+        <member name="P:BackupAddIn.lang.langres.RibbonTabBackup">
+            <summary>
+              Looks up a localized string similar to Backup.
+            </summary>
+        </member>
+        <member name="T:BackupAddIn.FBackupSettings">
+            <summary>
+            Settings dialog for backup configuration
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.ApplySettings">
+            <summary>
+            Gets the configuration from disk and populates the form accordingly
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.SaveSettings">
+            <summary>
+            Saves the current settings from the form to disk
+            </summary>
+            <returns>true, if save action was successful</returns>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.SetStores(Microsoft.Office.Interop.Outlook.Stores)">
+            <summary>
+            Gets the list of outlook stores for further display
+            </summary>
+            <param name="stores"></param>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.SetBackupAll">
+            <summary>
+            Enables or disables the list of pst files
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.FBackupSettings_Load(System.Object,System.EventArgs)">
+            <summary>
+            Populate form and display saved settings (if available)
+            </summary>
+            <param name="sender">not used</param>
+            <param name="e">OnLoad-Event-Args</param>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.GetHumanReadableFileSize(System.String)">
+            <summary>
+            Return human readable file size of the given file
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="F:BackupAddIn.FBackupSettings.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BackupAddIn.FBackupSettings.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BackupAddIn.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BackupAddIn.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BackupAddIn.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:BackupAddIn.Ribbon">
+            <summary>
+            Ribbon extension for backup configuration dialog
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Ribbon.#ctor(BackupAddIn.ThisAddIn)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Ribbon.GetCustomUI(System.String)">
+            <summary>
+            Returns the xml for ribbon extension
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Ribbon.SetAccessSettingsAllowed(System.Boolean)">
+            <summary>
+            set flag whether user is allowed to access settings page
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Ribbon.IsAccessingSettingsAllowed(Microsoft.Office.Core.IRibbonControl)">
+            <summary>
+            get flag whether user is allowed to access settings page
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Ribbon.Ribbon_Load(Microsoft.Office.Core.IRibbonUI)">
+            <summary>
+            Extends ribbon of outlook for backup configuration
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Ribbon.OpenBackupSettings(Microsoft.Office.Core.IRibbonControl)">
+            <summary>
+            Open configuration dialog
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Ribbon.ScheduleBackupOnExit(Microsoft.Office.Core.IRibbonControl)">
+            <summary>
+            Schedule backup when outlook is closed
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.Ribbon.GetLabel(Microsoft.Office.Core.IRibbonControl)">
+            <summary>
+            Fetches the labels for the ribbon bar
+            </summary>
+        </member>
+        <member name="T:BackupAddIn.ThisAddIn">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.GetRibbon">
+            <summary>
+            Accessor for ribbon gui element
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.ThisAddIn_Quit">
+            <summary>
+            Run backup program if neccessary
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.CreateRibbonExtensibilityObject">
+            <summary>
+            Extends ribbon bar of outlook
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.InternalStartup">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung.
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.GetApplication">
+            <summary>
+            returns the instance of the outlook application.
+            </summary>
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.#ctor(Microsoft.Office.Tools.Outlook.Factory,System.IServiceProvider)">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.Initialize">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.FinishInitialization">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.InitializeDataBindings">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.InitializeCachedData">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.InitializeData">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.BindToData">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.StartCaching(System.String)">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.StopCaching(System.String)">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.IsCached(System.String)">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.BeginInitialization">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.EndInitialization">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.InitializeControls">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.InitializeComponents">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.NeedsFill(System.String)">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisAddIn.OnShutdown">
+            
+        </member>
+        <member name="T:BackupAddIn.Globals">
+            
+        </member>
+        <member name="M:BackupAddIn.Globals.#ctor">
+            
+        </member>
+        <member name="T:BackupAddIn.ThisRibbonCollection">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisRibbonCollection.#ctor(Microsoft.Office.Tools.Ribbon.RibbonFactory)">
+            
+        </member>
+        <member name="T:BackupAddIn.ThisFormRegionCollection">
+            
+        </member>
+        <member name="M:BackupAddIn.ThisFormRegionCollection.#ctor(System.Collections.Generic.IList{Microsoft.Office.Tools.Outlook.IFormRegion})">
+            
+        </member>
+        <member name="T:BackupAddIn.WindowFormRegionCollection">
+            
+        </member>
+        <member name="M:BackupAddIn.WindowFormRegionCollection.#ctor(System.Collections.Generic.IList{Microsoft.Office.Tools.Outlook.IFormRegion})">
+            
+        </member>
+    </members>
+</doc>

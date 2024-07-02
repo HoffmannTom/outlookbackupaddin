@@ -13,7 +13,7 @@ namespace BackupAddInCommon
     class BackupSettingsDao
     {
         private const String CONFIG_FILE_NAME = "OutlookBackup.config";
-        private const String REG_PATH_SETTINGS = @"Software\CodePlex\BackupAddIn\Settings";
+        private const String REG_PATH_SETTINGS = @"Software\ITEC\BackupAddIn\Settings";
 
         /// <summary>
         /// Determine config-file location
@@ -42,6 +42,7 @@ namespace BackupAddInCommon
         /// <returns>true, if save action was successful</returns>
         public static bool SaveSettings(BackupSettings config)
         {
+
             return SaveSettingsToRegistry(config);
             //return saveSettingsToFile(config);
         }

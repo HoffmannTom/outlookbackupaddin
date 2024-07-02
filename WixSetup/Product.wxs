@@ -3,7 +3,7 @@
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <!-- for building new version set mew Product/@id and Product/@Id -->
 	<Product Id="{E4273A43-CA7B-4C24-B219-8C3712D760FD}" Name="Outlook-Backup-Plugin" Language="1033" 
-           Version="1.11.0.0" Manufacturer="CodePlex" UpgradeCode="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">
+           Version="1.11.0.0" Manufacturer="ITEC" UpgradeCode="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">
 	<Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 	<MajorUpgrade
@@ -17,7 +17,7 @@
     <!-- "Installation Directory must be on a local hard drive" -->
     <Property Id="WIXUI_DONTVALIDATEPATH" Value="1"/>
 
-    <Property Id="PLUGIN_NAME" Value="Codeplex.BackupAddIn" />
+    <Property Id="PLUGIN_NAME" Value="ITEC.BackupAddIn" />
 
     <Icon Id="app.ico" SourceFile="backup.ico"/>
     <Property Id="ARPPRODUCTICON" Value="app.ico" />
@@ -80,6 +80,7 @@
       <ComponentGroupRef Id="LocaleDeComponents" />
       <ComponentGroupRef Id="LocaleEsComponents" />
       <ComponentGroupRef Id="LocaleFrComponents" />
+		<ComponentGroupRef Id="LocaleFILESComponents" />  
 		</Feature>
 
     <!-- <UIRef Id="WixUI_Minimal"/> -->
@@ -110,12 +111,13 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-        <Directory Id="CompanyFolder" Name="CodePlex">
+        <Directory Id="CompanyFolder" Name="ITEC">
 				  <Directory Id="INSTALLFOLDER" Name="outlookbackupaddin" >
             <Directory Id="LOCALE_DE" Name="de" />
             <Directory Id="LOCALE_ES" Name="es" />
             <Directory Id="LOCALE_FR" Name="fr" />
-          </Directory>
+		    <Directory Id="LOCALE_FILES" Name="FILES" />		  
+				  </Directory>
         </Directory>
 			</Directory>
 		</Directory>
@@ -126,31 +128,31 @@
       
       <Component Guid="{2047E640-27F4-45FA-8A85-24A0C89F2F0F}"  Id="CMP_AddIn">
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\$(var.BackupAddIn.TargetName).dll" KeyPath="yes" Id="FILE_AddIn"/>  
+        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.TargetName).dll" KeyPath="yes" Id="FILE_AddIn"/>  
       </Component>
       <Component Guid="{A8F2A3BD-E046-4772-89C2-3C3D384E2EAF}" Id="CMP_Manifest" >
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\$(var.BackupAddIn.TargetName).dll.manifest" KeyPath="yes"  Id="FILE_Manifest" />
+        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.TargetName).dll.manifest" KeyPath="yes"  Id="FILE_Manifest" />
       </Component>
       <Component Guid="{8D15BA08-D11A-4DB3-BD56-105E0199771D}" Id="CMP_Vsto" >
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\$(var.BackupAddIn.TargetName).vsto" KeyPath="yes"  Id="FILE_Vsto"/>
+        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.TargetName).vsto" KeyPath="yes"  Id="FILE_Vsto"/>
       </Component>
       <Component Guid="{F3F2D0F6-02D2-4FF6-A5A4-2368965C30F9}" Id="CMP_OfficeUtils" >
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" KeyPath="yes"  Id="FILE_OfficeUtils"/>
+        <File Source="..\BackupAddIn\bin\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" KeyPath="yes"  Id="FILE_OfficeUtils"/>
       </Component>
       <Component Guid="{FB20EAE1-7589-44C2-9331-C857C0CAE0C2}" Id="CMP_OutlookUtils" >
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll" KeyPath="yes"  Id="FILE_OutlookUtils"/>
+        <File Source="..\BackupAddIn\bin\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll" KeyPath="yes"  Id="FILE_OutlookUtils"/>
       </Component>
       <Component Guid="{D2C62EB0-5B55-41DF-A0F1-1B2E4B18A651}" Id="CMP_OfficeTools" >
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\Microsoft.Office.Tools.dll" KeyPath="yes"  Id="FILE_OfficeTools"/>
+        <File Source="..\BackupAddIn\bin\Microsoft.Office.Tools.dll" KeyPath="yes"  Id="FILE_OfficeTools"/>
       </Component>
       <Component Guid="{AC38511E-2A68-4C10-9D00-07415FB47ADC}" Id="CMP_OfficeToolsFrameworl" >
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\Microsoft.Office.Tools.v4.0.Framework.dll" KeyPath="yes"  Id="FILE_OfficeToolsFramework"/>
+        <File Source="..\BackupAddIn\bin\Microsoft.Office.Tools.v4.0.Framework.dll" KeyPath="yes"  Id="FILE_OfficeToolsFramework"/>
       </Component>
 
       <Component Guid="{078E44A4-4D61-4466-A87A-EADA29563AE6}" Id="CMP_BackupExecutor" >
@@ -166,23 +168,30 @@
     <ComponentGroup Id="LocaleDeComponents" Directory="LOCALE_DE" >
       <Component Guid="{F1E325D5-5D76-4DB9-9A65-6012709A8144}"  Id="CMP_LOCALE_DE">
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\de\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_DE"/>
+        <File Source="..\BackupAddIn\bin\de\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_DE"/>
       </Component>
     </ComponentGroup>
 
     <ComponentGroup Id="LocaleEsComponents" Directory="LOCALE_ES" >
       <Component Guid="{80D68ADD-C228-4FC2-B8FA-7EC2C3E68342}"  Id="CMP_LOCALE_ES">
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\es\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_ES"/>
+        <File Source="..\BackupAddIn\bin\es\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_ES"/>
       </Component>
     </ComponentGroup>
 
     <ComponentGroup Id="LocaleFrComponents" Directory="LOCALE_FR" >
       <Component Guid="{2CCAD59D-1142-468E-8B25-9D2D75A0E60B}"  Id="CMP_LOCALE_FR">
         <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.Configuration)\fr\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_FR"/>
+        <File Source="..\BackupAddIn\bin\fr\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_FR"/>
       </Component>
     </ComponentGroup>
+
+		<ComponentGroup Id="LocaleFILESComponents" Directory="LOCALE_FILES" >
+			<Component Guid="{2CCAD59D-1142-468E-8B25-9D2D75A0E60B}"  Id="CMP_LOCALE_FILES">
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupAddIn\bin\FILES\Settings.xml" KeyPath="yes" Id="FILE_LOCALE_FILES"/>
+			</Component>
+		</ComponentGroup>
 
   </Fragment>
 </Wix>
