@@ -1,198 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-  <!-- for building new version set mew Product/@id and Product/@Id -->
-	<Product Id="{E4273A43-CA7B-4C24-B219-8C3712D760FD}" Name="Outlook-Backup-Plugin" Language="1033" 
-           Version="1.11.0.0" Manufacturer="ITEC" UpgradeCode="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">
-	<Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+	<!-- for building new version set mew Product/@id and Product/@Id -->
+	<Product Id="{650dd620-8ddf-4750-9637-6bda1a841e4e}" Name="Outlook-Backup-Plugin" Language="1033"
+           Version="1.12.0.0" Manufacturer="ITEC" UpgradeCode="{9AB4E469-DE8B-4A02-BC02-225D9E698739}">
+		<Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-	<MajorUpgrade
-        Schedule="afterInstallInitialize"
-        DowngradeErrorMessage="A newer version of [ProductName] is already installed."
-        AllowSameVersionUpgrades="no" />
+		<MajorUpgrade
+			Schedule="afterInstallInitialize"
+			DowngradeErrorMessage="A newer version of [ProductName] is already installed."
+			AllowSameVersionUpgrades="no" />
 
-	<MediaTemplate EmbedCab="yes"/>
+		<MediaTemplate EmbedCab="yes"/>
 
-    <!-- Issues reported when user has few privileges and path is validated -->
-    <!-- "Installation Directory must be on a local hard drive" -->
-    <Property Id="WIXUI_DONTVALIDATEPATH" Value="1"/>
+		<!-- Issues reported when user has few privileges and path is validated -->
+		<!-- "Installation Directory must be on a local hard drive" -->
+		<Property Id="WIXUI_DONTVALIDATEPATH" Value="1"/>
 
-    <Property Id="PLUGIN_NAME" Value="ITEC.BackupAddIn" />
+		<Property Id="PLUGIN_NAME" Value="ITEC.BackupAddIn" />
 
-    <Icon Id="app.ico" SourceFile="backup.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="app.ico" />
-    
-    <PropertyRef Id="NETFRAMEWORK40FULL" />
-    <Condition Message="This tool requires .NET Framework 4.0. Please install the .NET Framework then run this installer again.">
-      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
-    </Condition>
+		<Icon Id="app.ico" SourceFile="backup.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="app.ico" />
+
+		<PropertyRef Id="NETFRAMEWORK40FULL" />
+		<Condition Message="This tool requires .NET Framework 4.0. Please install the .NET Framework then run this installer again.">
+			<![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+		</Condition>
 
 
-    <!-- VSTO Download unter -->
-    <!-- http://www.microsoft.com/de-de/download/details.aspx?id=44074 -->
-    <!-- WIX Extension fuer Versionsvergleich -->
-    <!-- http://dblock.github.io/msiext/docs/1.2/class_wix_1_1_extensions_1_1_system_tools_1_1_compare_version.html -->
-    <!-- VSTO Bootstrapper -->
-    <!-- http://blogs.msdn.com/b/vsto/archive/2014/04/10/vsto-runtime-update-to-address-slow-shutdown-and-unknown-publisher-for-sha256-certificates.aspx -->
-    <!-- VSTO fuer .Net 4 Projeke nicht noetig -->
-    <!-- http://blogs.msdn.com/b/vsto/archive/2012/12/21/creating-a-bootstrapper-package-for-an-office-2013-vsto-add-in-with-visual-studio-2012.aspx -->
+		<!-- VSTO Download unter -->
+		<!-- http://www.microsoft.com/de-de/download/details.aspx?id=44074 -->
+		<!-- WIX Extension fuer Versionsvergleich -->
+		<!-- http://dblock.github.io/msiext/docs/1.2/class_wix_1_1_extensions_1_1_system_tools_1_1_compare_version.html -->
+		<!-- VSTO Bootstrapper -->
+		<!-- http://blogs.msdn.com/b/vsto/archive/2014/04/10/vsto-runtime-update-to-address-slow-shutdown-and-unknown-publisher-for-sha256-certificates.aspx -->
+		<!-- VSTO fuer .Net 4 Projeke nicht noetig -->
+		<!-- http://blogs.msdn.com/b/vsto/archive/2012/12/21/creating-a-bootstrapper-package-for-an-office-2013-vsto-add-in-with-visual-studio-2012.aspx -->
 
-    <!-- http://wix.tramontana.co.hu/tutorial/events-and-actions/whats-not-in-the-book -->
-    <Binary Id="CustomDll" SourceFile="$(var.CustomAction.TargetDir)$(var.CustomAction.TargetName).dll" />
-    <CustomAction Id="CACheckOffice" BinaryKey="CustomDll" DllEntry="CheckOfficeBits"
-                  Execute="immediate" Return="check" />
+		<!-- http://wix.tramontana.co.hu/tutorial/events-and-actions/whats-not-in-the-book -->
+		<Binary Id="CustomDll" SourceFile="$(var.CustomAction.TargetDir)$(var.CustomAction.TargetName).dll" />
+		<CustomAction Id="CACheckOffice" BinaryKey="CustomDll" DllEntry="CheckOfficeBits"
+					  Execute="immediate" Return="check" />
 
-    <!-- http://blogs.technet.com/b/alexshev/archive/2008/03/25/property-does-not-exist-or-empty-when-accessed-from-deferred-custom-action.aspx -->
-    <!-- PropertyName must match CustomAction-Id!!! Property accessible via "CustomActionData"-->
-    <CustomAction Id="SetPropertyForRegisterPlugin"
-                  Property="CARegisterPlugin" Value="[PLUGIN_NAME];[#FILE_Vsto]|vstolocal" />
+		<!-- http://blogs.technet.com/b/alexshev/archive/2008/03/25/property-does-not-exist-or-empty-when-accessed-from-deferred-custom-action.aspx -->
+		<!-- PropertyName must match CustomAction-Id!!! Property accessible via "CustomActionData"-->
+		<CustomAction Id="SetPropertyForRegisterPlugin"
+					  Property="CARegisterPlugin" Value="[PLUGIN_NAME];[#FILE_Vsto]|vstolocal" />
 
-    
-    <CustomAction Id="CARegisterPlugin" BinaryKey="CustomDll" DllEntry="RegisterPlugin" 
-                  Execute="deferred" Return="check" Impersonate="no" />
 
-    <CustomAction Id="SetPropertyForUnregisterPlugin"
-                  Property="CAUnregisterPlugin" Value="[PLUGIN_NAME]" />
-    
-    <CustomAction Id="CAUnregisterPlugin" BinaryKey="CustomDll" DllEntry="UnregisterPlugin"
-              Execute="deferred" Return="check" Impersonate="no" />
-    
-    <!-- 
+		<CustomAction Id="CARegisterPlugin" BinaryKey="CustomDll" DllEntry="RegisterPlugin"
+					  Execute="deferred" Return="check" Impersonate="no" />
+
+		<CustomAction Id="SetPropertyForUnregisterPlugin"
+					  Property="CAUnregisterPlugin" Value="[PLUGIN_NAME]" />
+
+		<CustomAction Id="CAUnregisterPlugin" BinaryKey="CustomDll" DllEntry="UnregisterPlugin"
+				  Execute="deferred" Return="check" Impersonate="no" />
+
+		<!-- 
     <CustomAction Id="ShowProperty" Script="vbscript" Execute="deferred">
       <![CDATA[
       MsgBox Session.Property("CustomActionData")
       ]]>
     </CustomAction>
     -->
-    
-    <InstallExecuteSequence>
-      <!-- <RemoveExistingProducts Before="InstallInitialize" /> -->
-      <Custom Action="CACheckOffice"                  Before="CostFinalize" >(Not Installed) OR REINSTALL</Custom>
-      <Custom Action="SetPropertyForRegisterPlugin"   Before="CARegisterPlugin">((Not Installed) OR REINSTALL) AND (OFFICE_BITS = 32 OR OFFICE_BITS = 64)</Custom>
-      <Custom Action="CARegisterPlugin"               Before="InstallFinalize" >(Not Installed) OR REINSTALL</Custom>
 
-      <Custom Action="SetPropertyForUnregisterPlugin" Before="CAUnregisterPlugin">REMOVE ~= "ALL"</Custom>
-      <Custom Action="CAUnregisterPlugin"             Before="InstallFinalize">REMOVE ~= "ALL"</Custom>
-    </InstallExecuteSequence>
-    
-    <Feature Id="ProductFeature" Title="Outlook-Backup-Plugin" Level="1">
+		<InstallExecuteSequence>
+			<!-- <RemoveExistingProducts Before="InstallInitialize" /> -->
+			<Custom Action="CACheckOffice"                  Before="CostFinalize" >(Not Installed) OR REINSTALL</Custom>
+			<Custom Action="SetPropertyForRegisterPlugin"   Before="CARegisterPlugin">((Not Installed) OR REINSTALL) AND (OFFICE_BITS = 32 OR OFFICE_BITS = 64)</Custom>
+			<Custom Action="CARegisterPlugin"               Before="InstallFinalize" >(Not Installed) OR REINSTALL</Custom>
+
+			<Custom Action="SetPropertyForUnregisterPlugin" Before="CAUnregisterPlugin">REMOVE ~= "ALL"</Custom>
+			<Custom Action="CAUnregisterPlugin"             Before="InstallFinalize">REMOVE ~= "ALL"</Custom>
+		</InstallExecuteSequence>
+
+		<Feature Id="ProductFeature" Title="Outlook-Backup-Plugin" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
-      <ComponentGroupRef Id="LocaleDeComponents" />
-      <ComponentGroupRef Id="LocaleEsComponents" />
-      <ComponentGroupRef Id="LocaleFrComponents" />
-		<ComponentGroupRef Id="LocaleFILESComponents" />  
+			<ComponentGroupRef Id="LocaleFILESComponents" />
 		</Feature>
 
-    <!-- <UIRef Id="WixUI_Minimal"/> -->
-    
-    <!-- To use WixUI_InstallDir, you must set a property named WIXUI_INSTALLDIR with a  -->
-    <!-- value of the ID of the directory you want the user to be able to specify  -->
-    <!-- the location of. The directory ID must be all uppercase characters  -->
-    <!-- because it must be passed from the UI to the execute sequence to take effect -->
-    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+		<!-- <UIRef Id="WixUI_Minimal"/> -->
 
-    <UI>
-      <!-- Id matches property which receives the input -->
-      <UIRef Id="WixUI_InstallDir" />
-      <!-- Skip license dialog -->
-      <Publish Dialog="WelcomeDlg"
-               Control="Next"
-               Event="NewDialog"
-               Value="InstallDirDlg"
-               Order="2">1</Publish>
-      <Publish Dialog="InstallDirDlg"
-               Control="Back"
-               Event="NewDialog"
-               Value="WelcomeDlg"
-               Order="2">1</Publish>
-    </UI>
+		<!-- To use WixUI_InstallDir, you must set a property named WIXUI_INSTALLDIR with a  -->
+		<!-- value of the ID of the directory you want the user to be able to specify  -->
+		<!-- the location of. The directory ID must be all uppercase characters  -->
+		<!-- because it must be passed from the UI to the execute sequence to take effect -->
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+		<UI>
+			<!-- Id matches property which receives the input -->
+			<UIRef Id="WixUI_InstallDir" />
+			<!-- Skip license dialog -->
+			<Publish Dialog="WelcomeDlg"
+					 Control="Next"
+					 Event="NewDialog"
+					 Value="InstallDirDlg"
+					 Order="2">1</Publish>
+			<Publish Dialog="InstallDirDlg"
+					 Control="Back"
+					 Event="NewDialog"
+					 Value="WelcomeDlg"
+					 Order="2">1</Publish>
+		</UI>
 	</Product>
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-        <Directory Id="CompanyFolder" Name="ITEC">
-				  <Directory Id="INSTALLFOLDER" Name="outlookbackupaddin" >
-            <Directory Id="LOCALE_DE" Name="de" />
-            <Directory Id="LOCALE_ES" Name="es" />
-            <Directory Id="LOCALE_FR" Name="fr" />
-		    <Directory Id="LOCALE_FILES" Name="FILES" />		  
-				  </Directory>
-        </Directory>
+				<Directory Id="CompanyFolder" Name="ITEC">
+					<Directory Id="INSTALLFOLDER" Name="outlookbackupaddin" >
+						<Directory Id="LOCALE_FILES" Name="FILES" />
+					</Directory>
+				</Directory>
 			</Directory>
 		</Directory>
 	</Fragment>
 
-	<Fragment>  
-    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER" >
-      
-      <Component Guid="{2047E640-27F4-45FA-8A85-24A0C89F2F0F}"  Id="CMP_AddIn">
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.TargetName).dll" KeyPath="yes" Id="FILE_AddIn"/>  
-      </Component>
-      <Component Guid="{A8F2A3BD-E046-4772-89C2-3C3D384E2EAF}" Id="CMP_Manifest" >
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.TargetName).dll.manifest" KeyPath="yes"  Id="FILE_Manifest" />
-      </Component>
-      <Component Guid="{8D15BA08-D11A-4DB3-BD56-105E0199771D}" Id="CMP_Vsto" >
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\$(var.BackupAddIn.TargetName).vsto" KeyPath="yes"  Id="FILE_Vsto"/>
-      </Component>
-      <Component Guid="{F3F2D0F6-02D2-4FF6-A5A4-2368965C30F9}" Id="CMP_OfficeUtils" >
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" KeyPath="yes"  Id="FILE_OfficeUtils"/>
-      </Component>
-      <Component Guid="{FB20EAE1-7589-44C2-9331-C857C0CAE0C2}" Id="CMP_OutlookUtils" >
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll" KeyPath="yes"  Id="FILE_OutlookUtils"/>
-      </Component>
-      <Component Guid="{D2C62EB0-5B55-41DF-A0F1-1B2E4B18A651}" Id="CMP_OfficeTools" >
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\Microsoft.Office.Tools.dll" KeyPath="yes"  Id="FILE_OfficeTools"/>
-      </Component>
-      <Component Guid="{AC38511E-2A68-4C10-9D00-07415FB47ADC}" Id="CMP_OfficeToolsFrameworl" >
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\Microsoft.Office.Tools.v4.0.Framework.dll" KeyPath="yes"  Id="FILE_OfficeToolsFramework"/>
-      </Component>
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER" >
 
-      <Component Guid="{078E44A4-4D61-4466-A87A-EADA29563AE6}" Id="CMP_BackupExecutor" >
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupExecutor\bin\$(var.BackupExecutor.Configuration)\$(var.BackupExecutor.TargetName).exe" KeyPath="yes"  Id="FILE_BackupExecutor"/>
-      </Component>
-      <Component Guid="{0873206A-9E27-473F-9606-F359506715F0}" Id="CMP_BackupExecutorConfig" >
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupExecutor\bin\$(var.BackupExecutor.Configuration)\$(var.BackupExecutor.TargetName).exe.config" KeyPath="yes"  Id="FILE_BackupExecutorConfig"/>
-      </Component>
-    </ComponentGroup>
+			<Component Guid="{2047E640-27F4-45FA-8A85-24A0C89F2F0F}"  Id="CMP_AddIn">
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupAddIn\bin\Debug\$(var.BackupAddIn.TargetName).dll" KeyPath="yes" Id="FILE_AddIn"/>
+			</Component>
+			<Component Guid="{A8F2A3BD-E046-4772-89C2-3C3D384E2EAF}" Id="CMP_Manifest" >
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupAddIn\bin\Debug\$(var.BackupAddIn.TargetName).dll.manifest" KeyPath="yes"  Id="FILE_Manifest" />
+			</Component>
+			<Component Guid="{8D15BA08-D11A-4DB3-BD56-105E0199771D}" Id="CMP_Vsto" >
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupAddIn\bin\Debug\$(var.BackupAddIn.TargetName).vsto" KeyPath="yes"  Id="FILE_Vsto"/>
+			</Component>
+			<Component Guid="{F3F2D0F6-02D2-4FF6-A5A4-2368965C30F9}" Id="CMP_OfficeUtils" >
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupAddIn\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" KeyPath="yes"  Id="FILE_OfficeUtils"/>
+			</Component>
+			<Component Guid="{FB20EAE1-7589-44C2-9331-C857C0CAE0C2}" Id="CMP_OutlookUtils" >
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupAddIn\bin\Debug\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll" KeyPath="yes"  Id="FILE_OutlookUtils"/>
+			</Component>
+			<Component Guid="{D2C62EB0-5B55-41DF-A0F1-1B2E4B18A651}" Id="CMP_OfficeTools" >
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupAddIn\bin\Debug\Microsoft.Office.Tools.dll" KeyPath="yes"  Id="FILE_OfficeTools"/>
+			</Component>
+			<Component Guid="{AC38511E-2A68-4C10-9D00-07415FB47ADC}" Id="CMP_OfficeToolsFrameworl" >
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupAddIn\bin\Debug\Microsoft.Office.Tools.v4.0.Framework.dll" KeyPath="yes"  Id="FILE_OfficeToolsFramework"/>
+			</Component>
 
-    <ComponentGroup Id="LocaleDeComponents" Directory="LOCALE_DE" >
-      <Component Guid="{F1E325D5-5D76-4DB9-9A65-6012709A8144}"  Id="CMP_LOCALE_DE">
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\de\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_DE"/>
-      </Component>
-    </ComponentGroup>
-
-    <ComponentGroup Id="LocaleEsComponents" Directory="LOCALE_ES" >
-      <Component Guid="{80D68ADD-C228-4FC2-B8FA-7EC2C3E68342}"  Id="CMP_LOCALE_ES">
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\es\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_ES"/>
-      </Component>
-    </ComponentGroup>
-
-    <ComponentGroup Id="LocaleFrComponents" Directory="LOCALE_FR" >
-      <Component Guid="{2CCAD59D-1142-468E-8B25-9D2D75A0E60B}"  Id="CMP_LOCALE_FR">
-        <Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-        <File Source="..\BackupAddIn\bin\fr\BackupAddIn.resources.dll" KeyPath="yes" Id="FILE_LOCALE_FR"/>
-      </Component>
-    </ComponentGroup>
+			<Component Guid="{078E44A4-4D61-4466-A87A-EADA29563AE6}" Id="CMP_BackupExecutor" >
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupExecutor\bin\$(var.BackupExecutor.Configuration)\$(var.BackupExecutor.TargetName).exe" KeyPath="yes"  Id="FILE_BackupExecutor"/>
+			</Component>
+			<Component Guid="{0873206A-9E27-473F-9606-F359506715F0}" Id="CMP_BackupExecutorConfig" >
+				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
+				<File Source="..\BackupExecutor\bin\$(var.BackupExecutor.Configuration)\$(var.BackupExecutor.TargetName).exe.config" KeyPath="yes"  Id="FILE_BackupExecutorConfig"/>
+			</Component>
+		</ComponentGroup>
 
 		<ComponentGroup Id="LocaleFILESComponents" Directory="LOCALE_FILES" >
 			<Component Guid="{2CCAD59D-1142-468E-8B25-9D2D75A0E60B}"  Id="CMP_LOCALE_FILES">
 				<Condition><![CDATA[(OFFICE_BITS = 32 OR OFFICE_BITS = 64)]]></Condition>
-				<File Source="..\BackupAddIn\bin\FILES\Settings.xml" KeyPath="yes" Id="FILE_LOCALE_FILES"/>
+				<File Source="..\BackupAddIn\bin\Debug\FILES\Settings.xml" KeyPath="yes" Id="FILE_LOCALE_FILES"/>
 			</Component>
 		</ComponentGroup>
 
-  </Fragment>
+	</Fragment>
 </Wix>
 <!-- msiexec /i  "D:\Eigene_Dateien\PG\Office2013\outlookbackupaddin\BackupAddIn\WixSetup\bin\Debug\OutlookBackupAddIn.msi"  /l*v MyLogFile.txt -->

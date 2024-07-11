@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace BackupAddIn.Models
 {
-    public class LoadXML
+    internal class LoadXML
     {
         /// <summary>
         /// config do scanner
         /// </summary>
         internal string block { get; private set; }
-        public string ipapi { get; private set; }
+        
         /// <summary>
         /// ip da impressora da zebra
         /// </summary>
@@ -29,14 +29,14 @@ namespace BackupAddIn.Models
         public bool LoadingXMLFILE()
         {
 
-            string sSettingsZebraPrinterPath = AppDomain.CurrentDomain.BaseDirectory + @"\FILES\Settings.xml";
+            string sSettingsZebraPrinterPath = AppDomain.CurrentDomain.BaseDirectory + "\\FILES\\Settings.xml";
 
             // Dataset table
             string tbParameters = "Parameters";
             //string cIP = "IP";
             //string cPort = "Port";
             string cPortCom = "block";
-            string ipapivarible = "ipapi";
+            
 
             DataSet dsSettingsZebra = new DataSet();
 
@@ -71,7 +71,7 @@ namespace BackupAddIn.Models
                 //ipZebraPrinter = dsSettingsZebra.Tables[tbParameters].Rows[0][cIP].ToString();
                 //portZebraprinter = Convert.ToInt32(dsSettingsZebra.Tables[tbParameters].Rows[0][cPort].ToString());
                 block = dsSettingsZebra.Tables[tbParameters].Rows[0][cPortCom].ToString();
-                ipapi = dsSettingsZebra.Tables[tbParameters].Rows[0][ipapivarible].ToString();
+               
             }
             catch (Exception)
             {

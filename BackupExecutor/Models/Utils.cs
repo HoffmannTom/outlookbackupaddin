@@ -1,7 +1,8 @@
 ﻿using BackupAddInCommon;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
@@ -39,30 +40,11 @@ namespace BackupExecutor
                 // Convert the JSON data to a string
                 string jsonString = System.Text.Json.JsonSerializer.Serialize(values);
 
-                // Create an instance of HttpClient
-                using (HttpClient client = new HttpClient())
-                {
-                    // Set the content type to application/json
-                    var content = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json");
 
-                    var response = await client.PostAsync(url, content);
+                //sends http post request ,if the api is down it saves the request in a file, and sends it when the api is back up
+                await SendSavedRequestsAsync(url, log, jsonString);
 
-                    var responseString = await response.Content.ReadAsStringAsync();
 
-                    // Check the response status code
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // Read and output the response content
-                        string responseContent = await response.Content.ReadAsStringAsync();
-                        log("Response: " + responseContent);
-                    }
-                    else
-                    {
-                        // Log the error status code and reason
-                        string errorContent = await response.Content.ReadAsStringAsync();
-                        log($"Error: {response.StatusCode} - {errorContent}");
-                    }
-                }
             }
             catch (Exception ex)
             {
@@ -70,6 +52,99 @@ namespace BackupExecutor
                 log($"Exception caught in SendPostRequestAsync: {ex.Message}");
             }
         }
+        #endregion
+
+        #region SaveFile BadResponses & ReadFile
+        static bool SaveDATAinfile_BadResponses(string jsonString)
+        {
+            try
+            {
+                string path = AppContext.BaseDirectory + "BadRequests.txt";
+
+                if (!File.Exists(path))
+                {
+
+                    // Create a new file with the new line
+                    File.WriteAllText(path, jsonString);
+                    return true;
+                }
+
+                // Read existing content
+                string existingContent = File.ReadAllText(path);
+
+                // Combine new line with existing content
+                string updatedContent = jsonString + "\n" + existingContent;
+
+                // Overwrite file with updated content
+                File.WriteAllText(path, updatedContent);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static async Task SendSavedRequestsAsync(string url, Logger log, string jsonString)
+        {
+            string path = AppContext.BaseDirectory + $"BadResponses.txt";
+            List<string> failedRequests = new List<string>();
+
+            // Check if the file exists and has content
+            if (File.Exists(path) && new FileInfo(path).Length > 0)
+            {
+                failedRequests = File.ReadAllLines(path).ToList();
+            }
+            else
+            {
+                // If the file doesn't exist or is empty, use the provided jsonString
+                failedRequests.Add(jsonString);
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                foreach (var requestJson in failedRequests)
+                {
+                    try
+                    {
+                        var content = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json");
+                        var response = await client.PostAsync(url, content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            log($"Successfully sent request: {requestJson}");
+                        }
+                        else
+                        {
+                            log($"Failed to send request: {requestJson}");
+                            if (SaveDATAinfile_BadResponses(jsonString))
+                            {
+                                log("Request saved in file");
+                            }
+                            else
+                            {
+                                log("Cannot save request in file");
+                            }
+
+
+                            // Optionally, save the failed request again
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        log($"Exception caught while sending request: {ex.Message}");
+                    }
+                }
+            }
+
+            // Optionally, clear the file after successfully processing all requests
+            if (File.Exists(path))
+            {
+                File.WriteAllText(path, string.Empty);
+            }
+        }
+
 
 
 
@@ -125,7 +200,7 @@ namespace BackupExecutor
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    Credentials = new NetworkCredential("sendemailitec@gmail.com", "fcmy mvrx wtno nyoy"),
+                    Credentials = new NetworkCredential("sendemailitec@gmail.com", "gfvc oovf xotd ecrn "),
                     EnableSsl = true,
                 };
                 smtpClient.Send(mail);

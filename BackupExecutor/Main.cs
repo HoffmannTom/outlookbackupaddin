@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static BackupExecutor.BackupTool;
-using BackupAddIn.Models;
 
 namespace BackupExecutor
 {
@@ -175,7 +174,7 @@ namespace BackupExecutor
 
         private async void StartAsyncWork()
         {
-            LogToScreen("DoWork Starting");
+            LogToScreen("DoWork Starting VERSION->1.1.0.5");
 
             BackupSettings config = BackupSettingsDao.LoadSettings();
             DateTime inputDate = DateTime.Now;
@@ -185,7 +184,7 @@ namespace BackupExecutor
                   CalendarWeekRule.FirstDay,
                   DayOfWeek.Monday);
             config.BackupPrefix = $"{DateTime.Now.Year.ToString()}_CW_{weekNum}";
-            int iError = 0;
+            int iError = 1;
 
             BackupTool.SetFileLabel(this.lblFilename);
             BackupTool.SetProgressBar(this.pbCopyProgress);
@@ -217,21 +216,8 @@ namespace BackupExecutor
                     LogToScreen("Email sent successfully.");
                 }
 
-                LoadXML loadXML = new LoadXML();
-
-                if (loadXML.LoadingXMLFILE() == false)
-                {
-
-
-                    MessageBox.Show("Error Loading XML FILE");
-                    Environment.Exit(0);
-                }
-                
-
-                string url = loadXML.ipapi;
+                string url = "https://api.itecapi.duckdns.org/add";
                 await Utils.SendPostRequestAsync(url, config, LogToScreen);
-
-                LogToScreen("Done!!! SEND EMAIL AND POST REQUEST");
 
                 if (cbxShutdownWhenFinished.Checked)
                 {

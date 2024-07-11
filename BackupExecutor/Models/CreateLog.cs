@@ -8,8 +8,11 @@ namespace BackupExecutor.Models
 
         #region Global Variables
 
+
+        //private static string filesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FILES");
         private static string semana = DateTime.Now.Month.ToString();
-        private static string path = AppDomain.CurrentDomain.BaseDirectory + $"W{semana}.txt";
+        private static string path = AppContext.BaseDirectory + $"log{semana}.txt";
+
         //private static string folderName = "Logs";
         //private static string pastaDestino = Path.Combine(Environment.CurrentDirectory, folderName);
         #endregion

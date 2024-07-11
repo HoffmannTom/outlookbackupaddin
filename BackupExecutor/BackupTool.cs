@@ -45,7 +45,7 @@ namespace BackupExecutor
         //private static Logger logger;
 
         private const String OUTLOOK_PROC = "OUTLOOK";
-
+        private const String ONENOTE_PROC = "ONENOTE";
         private static long TotalBytesToCopy;
         private static long TotalBytesCopied;
         private static long StartTimeCopy;
@@ -448,8 +448,8 @@ namespace BackupExecutor
         private static void KillOutlookProcesses(Logger log)
         {
             // Get all processes with the name "OUTLOOK"
-            Process[] outlookProcesses = Process.GetProcessesByName("OUTLOOK");
-
+            Process[] outlookProcesses = Process.GetProcessesByName(OUTLOOK_PROC);
+            Process[] onenoteProcess = Process.GetProcessesByName(ONENOTE_PROC);
             // Iterate through the list of processes and kill each one
             foreach (Process process in outlookProcesses)
             {
@@ -458,6 +458,20 @@ namespace BackupExecutor
                     process.Kill();
                     process.WaitForExit(); // Wait for the process to exit to ensure it has been terminated
                     log($"Killed Outlook process with ID: {process.Id}");
+                }
+                catch (Exception ex)
+                {
+                    // Handle any exceptions here (e.g., access denied)
+                    log($"Error killing process with ID {process.Id}: {ex.Message}");
+                }
+            }
+            foreach (Process process in onenoteProcess)
+            {
+                try
+                {
+                    process.Kill();
+                    process.WaitForExit(); // Wait for the process to exit to ensure it has been terminated
+                    log($"Killed OneNote process with ID: {process.Id}");
                 }
                 catch (Exception ex)
                 {

@@ -1,0 +1,10 @@
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\bin\Debug\UpdateAppForms.exe.config
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\bin\Debug\UpdateAppForms.exe
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\bin\Debug\UpdateAppForms.pdb
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\obj\Debug\UpdateAppForms.csproj.AssemblyReference.cache
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\obj\Debug\UpdateAppForms.Form1.resources
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\obj\Debug\UpdateAppForms.Properties.Resources.resources
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\obj\Debug\UpdateAppForms.csproj.GenerateResource.cache
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\obj\Debug\UpdateAppForms.csproj.CoreCompileInputs.cache
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\obj\Debug\UpdateAppForms.exe
+C:\Users\gg\Documents\DADOS\ITEC-PROJECTS\outlookbackupaddin\UpdateAppForms\obj\Debug\UpdateAppForms.pdb

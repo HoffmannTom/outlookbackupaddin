@@ -265,5 +265,9 @@ namespace BackupAddIn
             return String.Format("{0:0.##} {1}", len, sizes[order]);
         }
 
+        private void label_version_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

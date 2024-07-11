@@ -281,6 +281,7 @@
             // 
             resources.ApplyResources(this.label_version, "label_version");
             this.label_version.Name = "label_version";
+            this.label_version.Click += new System.EventHandler(this.label_version_Click);
             // 
             // FBackupSettings
             // 

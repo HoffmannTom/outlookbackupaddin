@@ -130,7 +130,7 @@ namespace BackupAddIn
         /// </summary>
         public void ScheduleBackupOnExit(Office.IRibbonControl control)
         {
-            MessageBox.Show("Backup vai ser feito quando fechar o outlook");
+            MessageBox.Show("Backup vai ser feito quando fechar o outlook (ATENÇAO: FECHAR OUTLOOK,ONENOTE)");
             var config = BackupSettingsDao.LoadSettings();
             config.LastRun = new DateTime();
             BackupSettingsDao.SaveSettings(config);

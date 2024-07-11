@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-// Allgemeine Informationen über eine Assembly werden über die folgende 
-// Attributgruppe gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
-// die mit einer Assembly verknüpft sind.
+// Informações gerais sobre um assembly são controladas através do seguinte
+// conjunto de atributos. Altere esses valores de atributo para modificar as informações
+// associadas a um assembly.
 [assembly: AssemblyTitle("BackupAddIn")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -13,24 +13,23 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Durch Festlegen von ComVisible auf "false" werden die Typen in dieser Assembly unsichtbar 
-// für COM-Komponenten. Wenn Sie auf einen Zugriffstyp in dieser Assembly aus 
-// COM zugreifen müssen, legen Sie das ComVisible-Attribut für diesen Typ auf "true" fest.
+// Definindo ComVisible como "false" torna os tipos neste assembly invisíveis
+// para componentes COM. Se você precisar acessar um tipo neste assembly a partir de
+// COM, defina o atributo ComVisible como "true" nesse tipo.
 [assembly: ComVisible(false)]
 
-// Die folgende GUID ist für die ID der typelib, wenn dieses Projekt für COM verfügbar gemacht wird
+// A GUID a seguir é para a ID da typelib se este projeto estiver exposto a COM
 [assembly: Guid("665364a1-bd0b-40d8-aaa5-46f1b0fcaa3f")]
 
-// Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
+// Informações de versão para um assembly consistem nos seguintes quatro valores:
 //
-//      Hauptversion
-//      Nebenversion 
-//      Buildnummer
-//      Revision
+//      Versão Principal
+//      Versão Secundária
+//      Número de Build
+//      Revisão
 //
-// Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
-// übernehmen, indem Sie "*" eingeben:
+// Você pode especificar todos os valores ou pode deixar os números de Build e Revisão
+// padrão, usando o '*' como mostrado abaixo:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.0.4")]
-[assembly: AssemblyFileVersion("1.1.0.4")]
-
+[assembly: AssemblyVersion("1.1.0.5")]
+[assembly: AssemblyFileVersion("1.1.0.5")]
