@@ -1,11 +1,8 @@
 
 Installation requirements:
 ==========================
- - .NET Framework 4.0
- - Installed Microsoft Outlook 2021, 2019, or 2016 (EOL versions are not listed here)
- - For Outlook 2010 without SP, you need to install the VSTO runtime:
-   https://www.microsoft.com/en-us/download/details.aspx?id=48217
-
+ - .NET Framework 4.0 or later
+ - Installed Microsoft Outlook 2024, 2021, or 2019 (EOL versions are not listed here)
 
 Installation instructions:
 ==========================
@@ -42,3 +39,4 @@ Delete the complete key named "Codeplex.BackupAddIn".
 Another possibility is to run "BackupExecutor.exe /unregister" from the command line within the installation folder.
 
 Afterwards, you can also remove the installation folder.
+
